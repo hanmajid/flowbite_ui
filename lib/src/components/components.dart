@@ -18,3 +18,4 @@ export 'flowbite_icon_shape.dart';
 export 'flowbite_input_field.dart';
 export 'flowbite_input_label.dart';
 export 'flowbite_outlined_button.dart';
+export 'flowbite_spinner.dart';

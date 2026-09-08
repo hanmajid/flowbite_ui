@@ -3,6 +3,7 @@ import 'package:example/button_section.dart';
 import 'package:example/color_section.dart';
 import 'package:example/icon_shape_section.dart';
 import 'package:example/input_field_section.dart';
+import 'package:example/spinner_section.dart';
 import 'package:example/typography_section.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class MainApp extends StatelessWidget {
           child: Column(
             spacing: 24.0,
             children: [
+              SpinnerSection(),
               AlertSection(),
               InputFieldSection(),
               IconShapeSection(),

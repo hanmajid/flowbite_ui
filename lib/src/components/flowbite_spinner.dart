@@ -1,0 +1,64 @@
+// Copyright 2026 hanmajid (Muhammad Farhan Majid)
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flutter/material.dart';
+
+enum FlowbiteSpinnerSize { xs, small, medium, base, large }
+
+class FlowbiteSpinner extends StatelessWidget {
+  final FlowbiteSpinnerSize size;
+  final bool showTrack;
+
+  const FlowbiteSpinner({
+    this.size = FlowbiteSpinnerSize.base,
+    this.showTrack = true,
+    super.key,
+  });
+
+  FlowbiteColorsExtension _colorExt(BuildContext context) =>
+      Theme.of(context).extension<FlowbiteColorsExtension>() ??
+      FlowbiteTheme.lightThemeColors;
+
+  double get _size => switch (size) {
+    FlowbiteSpinnerSize.xs => 12.0,
+    FlowbiteSpinnerSize.small => 24.0,
+    FlowbiteSpinnerSize.medium => 50.0,
+    FlowbiteSpinnerSize.base => 75.0,
+    FlowbiteSpinnerSize.large => 100.0,
+  };
+  double get _strokeWidth => switch (size) {
+    FlowbiteSpinnerSize.xs => _size / 2 * 0.3,
+    FlowbiteSpinnerSize.small => _size / 2 * 0.3,
+    FlowbiteSpinnerSize.medium => _size / 2 * 0.1816,
+    FlowbiteSpinnerSize.base => _size / 2 * 0.1816,
+    FlowbiteSpinnerSize.large => _size / 2 * 0.1816,
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: _size,
+      width: _size,
+      child: CircularProgressIndicator(
+        color: _colorExt(context).bgBrand,
+        backgroundColor: showTrack
+            ? _colorExt(context).bgNeutralQuaternary
+            : null,
+        strokeWidth: _strokeWidth,
+        strokeCap: StrokeCap.round,
+      ),
+    );
+  }
+}
