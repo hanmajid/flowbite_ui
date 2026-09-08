@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `FlowbiteButton` component.
 - Add `FlowbiteOutlinedButton` component.
 - Add `FlowbiteIconShape` component.
+- Add `FlowbiteInputField` component.
+- Add `FlowbiteInputLabel` component.
 
 [Unreleased]: https://github.com/hanmajid/flowbite_ui/compare/v0.0.1...dev
 [0.0.1]: https://github.com/hanmajid/flowbite_ui/releases/tag/v0.0.1

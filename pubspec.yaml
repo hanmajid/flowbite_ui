@@ -12,6 +12,7 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  flowbite_icons: ^0.0.3
   flutter:
     sdk: flutter
 
