@@ -74,7 +74,8 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
   }
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>()!;
+      Theme.of(context).extension<FlowbiteColorsExtension>() ??
+      FlowbiteTheme.lightThemeColors;
 
   double get _iconSize => switch (widget.size) {
     FlowbiteInputFieldSize.sm => 16.0,
@@ -220,7 +221,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                   ),
                 ),
               ),
-              GestureDetector(
+              InkWell(
                 onTap: widget.onTapClear,
                 child: Icon(
                   FlowbiteOutlineIcons.x,
