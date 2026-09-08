@@ -1,3 +1,17 @@
-## 0.0.1
+# Changelog
 
-* TODO: Describe initial release.
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+### Added
+- Add `FlowbiteColorsExtension` and `FlowbiteTheme` classes.
+- Add `FlowbiteColor` and `FlowbiteColors` classes.
+- Add `FlowbiteFontFamily`, `FlowbiteFontSize`, and `FlowbiteFontWeight` classes.
+- Add `FlowbiteButton` component.
+- Add `FlowbiteOutlinedButton` component.
+
+[Unreleased]: https://github.com/hanmajid/flowbite_ui/compare/v0.0.1...dev
+[0.0.1]: https://github.com/hanmajid/flowbite_ui/releases/tag/v0.0.1

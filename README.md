@@ -1,39 +1,45 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Flowbite UI
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+[![pub package](https://img.shields.io/pub/v/flowbite_ui.svg)](https://pub.dev/packages/flowbite_ui)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+Unofficial Flutter package for **Flowbite UI Kit**. Flowbite UI Kit is made by [Themesberg](https://www.figma.com/@themesberg) and licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Installation
 
-## Features
+Add `flowbite_ui` dependency to your Flutter project:
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+dependencies:
+  flowbite_ui: ^<latest-version>
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+TODO
 
-```dart
-const like = 'sample';
+## Issues
+
+For issues, file directly in the [repository](https://github.com/hanmajid/flowbite_ui/issues).
+
+## Find this library useful? ❤️
+
+Support it by joining __[stargazers](https://github.com/hanmajid/flowbite_ui/stargazers)__ for this repository. ⭐️ <br>
+Also, __[follow me](https://github.com/hanmajid)__ on GitHub for my next project! 🤩
+
+## License
+
+```xml
+Copyright 2026 hanmajid (Muhammad Farhan Majid)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
