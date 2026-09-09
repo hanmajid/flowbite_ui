@@ -394,7 +394,7 @@ Widget previewFlowbiteAlert() {
           children: FlowbiteAlertColor.values
               .map(
                 (color) => FlowbiteAlert(
-                  text: "Great job! You've acknowledged this significant alert message.",
+                  text: '''Great job! You've acknowledged this significant alert message.''',
                   color: color,
                 ),
               )
@@ -408,7 +408,7 @@ Widget previewFlowbiteAlert() {
               .map(
                 (color) => FlowbiteAlert.complex(
                   heading: 'Alert heading',
-                  text: "Great job! You've acknowledged this significant alert message.",
+                  text: '''Great job! You've acknowledged this significant alert message.''',
                   onTapClose: () {},
                   buttonLabel: 'Learn more',
                   leadingIcon: const Icon(FlowbiteOutlineIcons.open_book),
@@ -425,7 +425,7 @@ Widget previewFlowbiteAlert() {
           children: FlowbiteAlertColor.values
               .map(
                 (color) => FlowbiteAlert.small(
-                  text: "Great job! You've acknowledged this significant alert message.",
+                  text: '''Great job! You've acknowledged this significant alert message.''',
                   badgeText: 'New',
                   onTapClose: () {},
                   onTap: () {},
@@ -441,7 +441,7 @@ Widget previewFlowbiteAlert() {
           children: FlowbiteAlertColor.values
               .map(
                 (color) => FlowbiteAlert.borderTop(
-                  text: "Great job! You've acknowledged this significant alert message.",
+                  text: '''Great job! You've acknowledged this significant alert message.''',
                   onTapClose: () {},
                   color: color,
                 ),

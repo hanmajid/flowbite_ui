@@ -20,8 +20,10 @@ enum FlowbiteSpinnerSize { xs, small, medium, base, large }
 class FlowbiteSpinner extends StatelessWidget {
   final FlowbiteSpinnerSize size;
   final bool showTrack;
+  final double? value;
 
   const FlowbiteSpinner({
+    this.value,
     this.size = FlowbiteSpinnerSize.base,
     this.showTrack = true,
     super.key,
@@ -52,6 +54,7 @@ class FlowbiteSpinner extends StatelessWidget {
       height: _size,
       width: _size,
       child: CircularProgressIndicator(
+        value: value,
         color: _colorExt(context).bgBrand,
         backgroundColor: showTrack
             ? _colorExt(context).bgNeutralQuaternary
@@ -77,14 +80,31 @@ Widget previewFlowbiteSpinner() {
   return Column(
     spacing: 24.0,
     children: [
-      // showTrack=true
+      // value!=null && showTrack=true
+      Row(
+        spacing: 12.0,
+        children: FlowbiteSpinnerSize.values
+            .map((size) => FlowbiteSpinner(size: size, value: 0.3))
+            .toList(),
+      ),
+      // value!=null && showTrack=false
+      Row(
+        spacing: 12.0,
+        children: FlowbiteSpinnerSize.values
+            .map(
+              (size) =>
+                  FlowbiteSpinner(size: size, showTrack: false, value: 0.3),
+            )
+            .toList(),
+      ),
+      // value==null && showTrack=true
       Row(
         spacing: 12.0,
         children: FlowbiteSpinnerSize.values
             .map((size) => FlowbiteSpinner(size: size))
             .toList(),
       ),
-      // showTrack=false
+      // value==null && showTrack=false
       Row(
         spacing: 12.0,
         children: FlowbiteSpinnerSize.values

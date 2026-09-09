@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `FlowbiteSpinner` component.
 - Add Widget Previews for existing components.
 
+### Changed
+- Update `README.md`.
+
 ## [0.0.1] - 08-09-2026
 ### Added
 - Add `FlowbiteColorsExtension` and `FlowbiteTheme` classes.

@@ -11,11 +11,160 @@ Add `flowbite_ui` dependency to your Flutter project:
 ```yaml
 dependencies:
   flowbite_ui: ^<latest-version>
+  # Optional:
+  flowbite_icons: ^<latest-version>
 ```
 
-## Usage
+## Getting Started
 
-TODO
+Before using the components below, make sure that `theme` and `darkTheme` are set properly in your app:
+
+```dart
+MaterialApp(
+  theme: FlowbiteTheme.light, // Set light theme
+  darkTheme: FlowbiteTheme.dark, // Set dark theme
+  themeMode: ThemeMode.system, // Optional: Make the app follow system's theme.
+  home: Scaffold(
+    body: Text('My App'),
+  ),
+)
+```
+
+## Reference
+
+### Components
+
+### Alert
+
+Illustrations:
+
+<img src="images/alert-light.png" />
+<img src="images/alert-dark.png" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+// Default/Normal
+FlowbiteAlert(
+  text: "Great job! You've acknowledged this significant alert message.",
+  color: FlowbiteAlertColor.normal,
+  onTapClose: () {},
+)
+// Complex
+FlowbiteAlert.complex(
+  heading: 'Alert heading',
+  text: "Great job! You've acknowledged this significant alert message.",
+  color: FlowbiteAlertColor.normal,
+  onTapClose: () {},
+  buttonLabel: 'Learn more',
+  leadingIcon: Icon(FlowbiteOutlineIcons.open_book),
+  onPressedButton: () {},
+)
+// Small
+FlowbiteAlert.small(
+  text: "Great job! You've acknowledged this significant alert message.",
+  badgeText: 'New',
+  color: FlowbiteAlertColor.normal,
+  onTapClose: () {},
+  onTap: () {},
+)
+// Border Top
+FlowbiteAlert.borderTop(
+  text: "Great job! You've acknowledged this significant alert message.",
+  color: FlowbiteAlertColor.normal,
+  onTapClose: () {},
+),
+```
+
+### Button
+
+Illustrations:
+
+<img src="images/button-light.png" />
+<img src="images/button-dark.png" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+// With Icon
+FlowbiteButton.icon(
+  onPressed: () {},
+  label: Text('Button text'),
+  leadingIcon: Icon(FlowbiteOutlineIcons.arrow_left),
+  trailingIcon: Icon(FlowbiteOutlineIcons.arrow_right),
+  color: FlowbiteButtonColor.brand, // default
+  size: FlowbiteButtonSize.base, // default
+)
+// Icon Only
+FlowbiteButton.iconOnly(
+  onPressed: () {},
+  icon: Icon(FlowbiteOutlineIcons.heart),
+  color: FlowbiteButtonColor.brand, // default
+  size: FlowbiteButtonSize.base, // default
+)
+// Outlined With Icon
+FlowbiteOutlinedButton.icon(
+  onPressed: () {},
+  label: Text('Button text'),
+  leadingIcon: Icon(FlowbiteOutlineIcons.arrow_left),
+  trailingIcon: Icon(FlowbiteOutlineIcons.arrow_right),
+  color: FlowbiteOutlinedButtonColor.success, // default
+  size: FlowbiteButtonSize.base, // default
+)
+// Outlined Icon Only
+FlowbiteOutlinedButton.iconOnly(
+  onPressed: () {},
+  icon: Icon(FlowbiteOutlineIcons.heart),
+  color: FlowbiteOutlinedButtonColor.success, // default
+  size: FlowbiteButtonSize.base, // default
+)
+```
+
+### Icon Shape
+
+Illustrations:
+
+<img src="images/icon-shape-light.png" width="300" />
+<img src="images/icon-shape-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+FlowbiteIconShape(
+  icon: FlowbiteOutlineIcons.fire,
+  type: FlowbiteIconShapeType.circle, // default
+  color: FlowbiteIconShapeColor.brand, // default
+  size: FlowbiteIconShapeSize.base, // default
+)
+```
+
+### Spinner
+
+Illustrations:
+
+<img src="images/spinner-light.png" width="300" />
+<img src="images/spinner-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+FlowbiteSpinner(
+  size: FlowbiteSpinnerSize.base, // default
+  showTrack: true, // default
+  value: null, // default
+)
+```
 
 ## Issues
 
@@ -23,8 +172,8 @@ For issues, file directly in the [repository](https://github.com/hanmajid/flowbi
 
 ## Find this library useful? ❤️
 
-Support it by joining __[stargazers](https://github.com/hanmajid/flowbite_ui/stargazers)__ for this repository. ⭐️ <br>
-Also, __[follow me](https://github.com/hanmajid)__ on GitHub for my next project! 🤩
+Support it by joining **[stargazers](https://github.com/hanmajid/flowbite_ui/stargazers)** for this repository. ⭐️ <br>
+Also, **[follow me](https://github.com/hanmajid)** on GitHub for my next project! 🤩
 
 ## License
 
