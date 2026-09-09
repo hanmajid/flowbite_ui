@@ -14,6 +14,7 @@
 
 export 'flowbite_alert.dart';
 export 'flowbite_avatar.dart';
+export 'flowbite_avatar_group_label.dart';
 export 'flowbite_badge.dart';
 export 'flowbite_button.dart';
 export 'flowbite_icon_shape.dart';

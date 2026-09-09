@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Add `FlowbiteAvatar` component.
+- Add `FlowbiteAvatarGroupLabel` component.
 
 ## [0.0.2] - 09-09-2026
 ### Added

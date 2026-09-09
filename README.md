@@ -90,7 +90,6 @@ Usage example:
 
 ```dart
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flowbite_icons/flowbite_icons.dart';
 
 // With Image
 FlowbiteAvatar(
@@ -124,6 +123,29 @@ FlowbiteAvatar(
 FlowbiteAvatar(
   size: FlowbiteAvatarSize.base, // default
   placeholder: 'PH',
+)
+```
+
+### Avatar Group Label
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-group-label-light.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-group-label-dark.png" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+FlowbiteAvatarGroupLabel(
+  avatarImage: const AssetImage(
+    'assets/images/avatar-jese-leos.png',
+    package: 'flowbite_ui',
+  ),
+  title: 'Jese Leos',
+  subtitle: 'name@flowbite.com', // optional
+  size: FlowbiteAvatarGroupLabelSize.base, // default
 )
 ```
 

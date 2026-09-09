@@ -1,4 +1,5 @@
 import 'package:example/alert_section.dart';
+import 'package:example/avatar_group_label_section.dart';
 import 'package:example/avatar_section.dart';
 import 'package:example/badge_section.dart';
 import 'package:example/button_section.dart';
@@ -32,6 +33,7 @@ class MainApp extends StatelessWidget {
               BadgeSection(),
               AlertSection(),
               AvatarSection(),
+              AvatarGroupLabelSection(),
               ButtonSection(),
               IconShapeSection(),
               InputFieldSection(),
