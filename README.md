@@ -38,8 +38,8 @@ MaterialApp(
 
 Illustrations:
 
-<img src="images/alert-light.png" />
-<img src="images/alert-dark.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/alert-light.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/alert-dark.png" />
 
 Usage example:
 
@@ -83,8 +83,8 @@ FlowbiteAlert.borderTop(
 
 Illustrations:
 
-<img src="images/button-light.png" />
-<img src="images/button-dark.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-light.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-dark.png" />
 
 Usage example:
 
@@ -130,8 +130,8 @@ FlowbiteOutlinedButton.iconOnly(
 
 Illustrations:
 
-<img src="images/icon-shape-light.png" width="300" />
-<img src="images/icon-shape-dark.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/icon-shape-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/icon-shape-dark.png" width="300" />
 
 Usage example:
 
@@ -151,8 +151,8 @@ FlowbiteIconShape(
 
 Illustrations:
 
-<img src="images/spinner-light.png" width="300" />
-<img src="images/spinner-dark.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/spinner-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/spinner-dark.png" width="300" />
 
 Usage example:
 
