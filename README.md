@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/flowbite_ui.svg)](https://pub.dev/packages/flowbite_ui)
 
-Unofficial Flutter package for **Flowbite UI Kit**. Flowbite UI Kit is made by [Themesberg](https://www.figma.com/@themesberg) and licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+**Unofficial** Flutter package for **Flowbite UI Kit**. Flowbite UI Kit is made by [Themesberg](https://www.figma.com/@themesberg) and licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ## Installation
 
@@ -76,7 +76,55 @@ FlowbiteAlert.borderTop(
   text: "Great job! You've acknowledged this significant alert message.",
   color: FlowbiteAlertColor.normal,
   onTapClose: () {},
-),
+)
+```
+
+### Avatar
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-light.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-dark.png" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+// With Image
+FlowbiteAvatar(
+  size: FlowbiteAvatarSize.base, // default
+  image: const AssetImage(
+    'assets/images/avatar-jese-leos.png',
+    package: 'flowbite_ui',
+  ),
+)
+// With Dot
+FlowbiteAvatar(
+  size: FlowbiteAvatarSize.base, // default
+  image: const AssetImage(
+    'assets/images/avatar-jese-leos.png',
+    package: 'flowbite_ui',
+  ),
+  showDot: true,
+  dotStatus: FlowbiteAvatarDotStatus.online,
+)
+// With Remove Button
+FlowbiteAvatar(
+  size: FlowbiteAvatarSize.base, // default
+  image: const AssetImage(
+    'assets/images/avatar-jese-leos.png',
+    package: 'flowbite_ui',
+  ),
+  showRemoveButton: true,
+  onTapRemoveButton: () {},
+)
+// With Placeholder
+FlowbiteAvatar(
+  size: FlowbiteAvatarSize.base, // default
+  placeholder: 'PH',
+)
 ```
 
 ### Button
