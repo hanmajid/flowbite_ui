@@ -94,28 +94,19 @@ import 'package:flowbite_ui/flowbite_ui.dart';
 // With Image
 FlowbiteAvatar(
   size: FlowbiteAvatarSize.base, // default
-  image: const AssetImage(
-    'assets/images/avatar-jese-leos.png',
-    package: 'flowbite_ui',
-  ),
+  image: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
 )
 // With Dot
 FlowbiteAvatar(
   size: FlowbiteAvatarSize.base, // default
-  image: const AssetImage(
-    'assets/images/avatar-jese-leos.png',
-    package: 'flowbite_ui',
-  ),
+  image: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
   showDot: true,
   dotStatus: FlowbiteAvatarDotStatus.online,
 )
 // With Remove Button
 FlowbiteAvatar(
   size: FlowbiteAvatarSize.base, // default
-  image: const AssetImage(
-    'assets/images/avatar-jese-leos.png',
-    package: 'flowbite_ui',
-  ),
+  image: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
   showRemoveButton: true,
   onTapRemoveButton: () {},
 )
@@ -123,6 +114,32 @@ FlowbiteAvatar(
 FlowbiteAvatar(
   size: FlowbiteAvatarSize.base, // default
   placeholder: 'PH',
+)
+```
+
+### Avatar Group
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-group-light.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-group-dark.png" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+FlowbiteAvatarGroup(
+  avatars: [
+    FlowbiteAvatarDefaultAssets.josephMcFall.toAssetImage(),
+    FlowbiteAvatarDefaultAssets.neilSims.toAssetImage(),
+    FlowbiteAvatarDefaultAssets.karenNelson.toAssetImage(),
+    FlowbiteAvatarDefaultAssets.robertBrown.toAssetImage(),
+    FlowbiteAvatarDefaultAssets.leslieLivingston
+        .toAssetImage(),
+  ].map((image) => FlowbiteAvatar(image: image)).toList(),
+  size: FlowbiteAvatarGroupSize .base,
+  counter: '+10', // optional
 )
 ```
 
@@ -139,10 +156,7 @@ Usage example:
 import 'package:flowbite_ui/flowbite_ui.dart';
 
 FlowbiteAvatarGroupLabel(
-  avatarImage: const AssetImage(
-    'assets/images/avatar-jese-leos.png',
-    package: 'flowbite_ui',
-  ),
+  avatarImage: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
   title: 'Jese Leos',
   subtitle: 'name@flowbite.com', // optional
   size: FlowbiteAvatarGroupLabelSize.base, // default

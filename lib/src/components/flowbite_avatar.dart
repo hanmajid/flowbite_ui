@@ -16,6 +16,29 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flutter/material.dart';
 
+enum FlowbiteAvatarDefaultAssets {
+  bonnieGreen('assets/images/avatar-bonnie-green.png'),
+  heleneEngels('assets/images/avatar-helene-engels.png'),
+  jeseLeos('assets/images/avatar-jese-leos.png'),
+  josephMcFall('assets/images/avatar-joseph-mcfall.png'),
+  karenNelson('assets/images/avatar-karen-nelson.png'),
+  lanaByrd('assets/images/avatar-lana-byrd.png'),
+  leslieLivingston('assets/images/avatar-leslie-livingston.png'),
+  michealGough('assets/images/avatar-micheal-gough.png'),
+  neilSims('assets/images/avatar-neil-sims.png'),
+  robertBrown('assets/images/avatar-robert-brown.png'),
+  robertaCasas('assets/images/avatar-roberta-casas.png'),
+  thomasLean('assets/images/avatar-thomas-lean.png');
+
+  final String assetName;
+
+  const new(this.assetName);
+
+  AssetImage toAssetImage() {
+    return AssetImage(assetName, package: 'flowbite_ui');
+  }
+}
+
 enum FlowbiteAvatarSize { xs, sm, base, lg, xl, xl2 }
 
 class FlowbiteAvatar extends StatelessWidget {
@@ -289,10 +312,7 @@ Widget previewFlowbiteAvatar() {
             .map(
               (size) => FlowbiteAvatar(
                 size: size,
-                image: const AssetImage(
-                  'assets/images/avatar-jese-leos.png',
-                  package: 'flowbite_ui',
-                ),
+                image: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
               ),
             )
             .toList(),
@@ -306,10 +326,7 @@ Widget previewFlowbiteAvatar() {
               (size) => FlowbiteAvatar(
                 size: size,
                 showDot: true,
-                image: const AssetImage(
-                  'assets/images/avatar-jese-leos.png',
-                  package: 'flowbite_ui',
-                ),
+                image: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
                 dotStatus: FlowbiteAvatarDotStatus.online,
               ),
             )
@@ -325,10 +342,7 @@ Widget previewFlowbiteAvatar() {
                 size: size,
                 showRemoveButton: true,
                 onTapRemoveButton: () {},
-                image: const AssetImage(
-                  'assets/images/avatar-jese-leos.png',
-                  package: 'flowbite_ui',
-                ),
+                image: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
               ),
             )
             .toList(),

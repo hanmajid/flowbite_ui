@@ -140,10 +140,8 @@ Widget previewFlowbiteAvatarGroupLabel() {
         children: FlowbiteAvatarGroupLabelSize.values
             .map(
               (size) => FlowbiteAvatarGroupLabel(
-                avatarImage: const AssetImage(
-                  'assets/images/avatar-jese-leos.png',
-                  package: 'flowbite_ui',
-                ),
+                avatarImage: FlowbiteAvatarDefaultAssets.jeseLeos
+                    .toAssetImage(),
                 title: 'Jese Leos',
                 subtitle: 'name@flowbite.com',
                 size: size,
@@ -158,10 +156,8 @@ Widget previewFlowbiteAvatarGroupLabel() {
         children: FlowbiteAvatarGroupLabelSize.values
             .map(
               (size) => FlowbiteAvatarGroupLabel(
-                avatarImage: const AssetImage(
-                  'assets/images/avatar-jese-leos.png',
-                  package: 'flowbite_ui',
-                ),
+                avatarImage: FlowbiteAvatarDefaultAssets.jeseLeos
+                    .toAssetImage(),
                 title: 'Jese Leos',
                 size: size,
               ),

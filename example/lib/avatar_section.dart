@@ -21,10 +21,7 @@ class AvatarSection extends StatelessWidget {
                 .map(
                   (size) => FlowbiteAvatar(
                     size: size,
-                    image: const AssetImage(
-                      'assets/images/avatar-jese-leos.png',
-                      package: 'flowbite_ui',
-                    ),
+                    image: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
                   ),
                 )
                 .toList(),
@@ -38,10 +35,7 @@ class AvatarSection extends StatelessWidget {
                   (size) => FlowbiteAvatar(
                     size: size,
                     showDot: true,
-                    image: const AssetImage(
-                      'assets/images/avatar-jese-leos.png',
-                      package: 'flowbite_ui',
-                    ),
+                    image: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
                     dotStatus: FlowbiteAvatarDotStatus.online,
                   ),
                 )
@@ -57,10 +51,7 @@ class AvatarSection extends StatelessWidget {
                     size: size,
                     showRemoveButton: true,
                     onTapRemoveButton: () {},
-                    image: const AssetImage(
-                      'assets/images/avatar-jese-leos.png',
-                      package: 'flowbite_ui',
-                    ),
+                    image: FlowbiteAvatarDefaultAssets.jeseLeos.toAssetImage(),
                   ),
                 )
                 .toList(),

@@ -21,10 +21,8 @@ class AvatarGroupLabelSection extends StatelessWidget {
             children: FlowbiteAvatarGroupLabelSize.values
                 .map(
                   (size) => FlowbiteAvatarGroupLabel(
-                    avatarImage: const AssetImage(
-                      'assets/images/avatar-jese-leos.png',
-                      package: 'flowbite_ui',
-                    ),
+                    avatarImage: FlowbiteAvatarDefaultAssets.jeseLeos
+                        .toAssetImage(),
                     title: 'Jese Leos',
                     subtitle: 'name@flowbite.com',
                     size: size,
@@ -39,10 +37,8 @@ class AvatarGroupLabelSection extends StatelessWidget {
             children: FlowbiteAvatarGroupLabelSize.values
                 .map(
                   (size) => FlowbiteAvatarGroupLabel(
-                    avatarImage: const AssetImage(
-                      'assets/images/avatar-jese-leos.png',
-                      package: 'flowbite_ui',
-                    ),
+                    avatarImage: FlowbiteAvatarDefaultAssets.jeseLeos
+                        .toAssetImage(),
                     title: 'Jese Leos',
                     size: size,
                   ),
