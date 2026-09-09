@@ -135,8 +135,7 @@ FlowbiteAvatarGroup(
     FlowbiteAvatarDefaultAssets.neilSims.toAssetImage(),
     FlowbiteAvatarDefaultAssets.karenNelson.toAssetImage(),
     FlowbiteAvatarDefaultAssets.robertBrown.toAssetImage(),
-    FlowbiteAvatarDefaultAssets.leslieLivingston
-        .toAssetImage(),
+    FlowbiteAvatarDefaultAssets.leslieLivingston.toAssetImage(),
   ].map((image) => FlowbiteAvatar(image: image)).toList(),
   size: FlowbiteAvatarGroupSize .base,
   counter: '+10', // optional
@@ -160,6 +159,77 @@ FlowbiteAvatarGroupLabel(
   title: 'Jese Leos',
   subtitle: 'name@flowbite.com', // optional
   size: FlowbiteAvatarGroupLabelSize.base, // default
+)
+```
+
+### Badge
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/badge-light.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/badge-dark.png" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+// With Icon
+FlowbiteBadge.icon(
+  text: 'Badge text',
+  icon: FlowbiteOutlineIcons.clock,
+  theme: FlowbiteBadgeTheme.brand, // default
+  size: FlowbiteBadgeSize.sm, // default
+  onTap: () {},
+)
+// With Avatar
+FlowbiteBadge.avatar(
+  text: 'Badge text',
+  avatar: FlowbiteAvatar(
+    image: FlowbiteAvatarDefaultAssets.bonnieGreen.toAssetImage(),
+  ),
+  theme: FlowbiteBadgeTheme.brand, // default
+  size: FlowbiteBadgeSize.sm, // default
+  onTap: () {},
+)
+// With Dot
+FlowbiteBadge.dot(
+  text: 'Badge text',
+  theme: FlowbiteBadgeTheme.brand, // default
+  size: FlowbiteBadgeSize.sm, // default
+  onTap: () {},
+)
+// With Spinner
+FlowbiteBadge.spinner(
+  text: 'Badge text',
+  spinner: const FlowbiteSpinner(value: 0.3),
+  theme: FlowbiteBadgeTheme.brand, // default
+  size: FlowbiteBadgeSize.sm, // default
+  onTap: () {},
+)
+// With Secondary Text
+FlowbiteBadge.icon(
+  text: 'Badge text',
+  secondaryText: 'Secondary text',
+  icon: FlowbiteOutlineIcons.clock,
+  theme: FlowbiteBadgeTheme.brand, // default
+  size: FlowbiteBadgeSize.sm, // default
+  onTap: () {},
+)
+// Icon Only
+FlowbiteBadge.iconOnly(
+  icon: FlowbiteOutlineIcons.clock,
+  theme: FlowbiteBadgeTheme.brand, // default
+  size: FlowbiteBadgeSize.sm, // default
+  onTap: () {},
+)
+// Text Only
+FlowbiteBadge.textOnly(
+  text: '1',
+  theme: FlowbiteBadgeTheme.brand, // default
+  size: FlowbiteBadgeSize.sm, // default
+  onTap: () {},
 )
 ```
 

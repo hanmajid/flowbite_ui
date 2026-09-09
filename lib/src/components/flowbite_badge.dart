@@ -23,9 +23,10 @@ enum FlowbiteBadgeSize { sm, lg }
 class FlowbiteBadge extends StatelessWidget {
   const FlowbiteBadge({
     required this.child,
-    this.theme = FlowbiteBadgeTheme.brand,
-    this.size = FlowbiteBadgeSize.sm,
+    this.theme = .brand,
+    this.size = .sm,
     this.onTap,
+    this.isCircle = false,
     super.key,
   });
 
@@ -33,62 +34,65 @@ class FlowbiteBadge extends StatelessWidget {
   final FlowbiteBadgeTheme theme;
   final FlowbiteBadgeSize size;
   final VoidCallback? onTap;
+  final bool isCircle;
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
       Theme.of(context).extension<FlowbiteColorsExtension>() ??
       FlowbiteTheme.lightThemeColors;
 
   double get _height => switch (size) {
-    FlowbiteBadgeSize.sm => 20.0,
-    FlowbiteBadgeSize.lg => 24.0,
+    .sm => 20.0,
+    .lg => 24.0,
   };
 
   double get _horizontalPadding => switch (size) {
-    FlowbiteBadgeSize.sm => 4.0,
-    FlowbiteBadgeSize.lg => 6.0,
+    .sm => 4.0,
+    .lg => 6.0,
   };
 
   Color _getBackgroundColor(BuildContext context) {
     return switch (theme) {
-      FlowbiteBadgeTheme.gray => _colorExt(context).bgNeutralSecondary,
-      FlowbiteBadgeTheme.white => _colorExt(context).bgNeutralPrimarySoft,
-      FlowbiteBadgeTheme.brand => _colorExt(context).bgBrandSofter,
-      FlowbiteBadgeTheme.danger => _colorExt(context).bgDangerSoft,
-      FlowbiteBadgeTheme.warning => _colorExt(context).bgWarningSoft,
-      FlowbiteBadgeTheme.success => _colorExt(context).bgSuccessSoft,
+      .gray => _colorExt(context).bgNeutralSecondary,
+      .white => _colorExt(context).bgNeutralPrimarySoft,
+      .brand => _colorExt(context).bgBrandSofter,
+      .danger => _colorExt(context).bgDangerSoft,
+      .warning => _colorExt(context).bgWarningSoft,
+      .success => _colorExt(context).bgSuccessSoft,
     };
   }
 
   Color _getBorderColor(BuildContext context) {
     return switch (theme) {
-      FlowbiteBadgeTheme.gray => _colorExt(context).borderBaseMedium,
-      FlowbiteBadgeTheme.white => _colorExt(context).borderBase,
-      FlowbiteBadgeTheme.brand => _colorExt(context).borderBrandSubtle,
-      FlowbiteBadgeTheme.danger => _colorExt(context).borderDangerSubtle,
-      FlowbiteBadgeTheme.warning => _colorExt(context).borderWarningSubtle,
-      FlowbiteBadgeTheme.success => _colorExt(context).borderSuccessSubtle,
+      .gray => _colorExt(context).borderBaseMedium,
+      .white => _colorExt(context).borderBase,
+      .brand => _colorExt(context).borderBrandSubtle,
+      .danger => _colorExt(context).borderDangerSubtle,
+      .warning => _colorExt(context).borderWarningSubtle,
+      .success => _colorExt(context).borderSuccessSubtle,
     };
   }
 
   @override
   Widget build(BuildContext context) {
+    final BorderRadius borderRadius = .circular(isCircle ? 9999.0 : 6.0);
     return Material(
       color: _getBackgroundColor(context),
-      borderRadius: BorderRadius.circular(6.0),
+      borderRadius: borderRadius,
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(6.0),
+        borderRadius: borderRadius,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6.0),
-            border: Border.all(
+            borderRadius: borderRadius,
+            border: .all(
               color: _getBorderColor(context),
               strokeAlign: BorderSide.strokeAlignOutside,
             ),
           ),
           height: _height,
-          alignment: Alignment.center,
-          padding: EdgeInsetsGeometry.symmetric(horizontal: _horizontalPadding),
+          width: isCircle ? _height : null,
+          alignment: .center,
+          padding: isCircle ? null : .symmetric(horizontal: _horizontalPadding),
           child: child,
         ),
       ),
@@ -98,23 +102,67 @@ class FlowbiteBadge extends StatelessWidget {
   factory FlowbiteBadge.icon({
     required String text,
     required IconData icon,
-    FlowbiteBadgeTheme theme = FlowbiteBadgeTheme.brand,
-    FlowbiteBadgeSize size = FlowbiteBadgeSize.sm,
+    String? secondaryText,
+    FlowbiteBadgeTheme theme = .brand,
+    FlowbiteBadgeSize size = .sm,
     VoidCallback? onTap,
   }) {
     double iconSize = switch (size) {
-      FlowbiteBadgeSize.sm => 12.0,
-      FlowbiteBadgeSize.lg => 14.0,
+      .sm => 12.0,
+      .lg => 14.0,
+    };
+    double horizontalSpacing = switch (size) {
+      .sm => 4.0,
+      .lg => 6.0,
     };
     return FlowbiteBadge(
       theme: theme,
       size: size,
       onTap: onTap,
       child: Row(
-        mainAxisSize: MainAxisSize.min,
-        spacing: 4.0,
+        mainAxisSize: .min,
+        spacing: horizontalSpacing,
         children: [
           _FlowbiteBadgeIcon(icon: icon, size: iconSize, theme: theme),
+          _FlowbiteBadgeText(
+            text: text,
+            secondaryText: secondaryText,
+            size: size,
+            theme: theme,
+          ),
+          _FlowbiteBadgeIcon(
+            icon: FlowbiteOutlineIcons.x,
+            size: iconSize,
+            theme: theme,
+          ),
+        ],
+      ),
+    );
+  }
+
+  factory FlowbiteBadge.dot({
+    required String text,
+    FlowbiteBadgeTheme theme = .brand,
+    FlowbiteBadgeSize size = .sm,
+    VoidCallback? onTap,
+  }) {
+    double iconSize = switch (size) {
+      .sm => 12.0,
+      .lg => 14.0,
+    };
+    double horizontalSpacing = switch (size) {
+      .sm => 4.0,
+      .lg => 6.0,
+    };
+    return FlowbiteBadge(
+      theme: theme,
+      size: size,
+      onTap: onTap,
+      child: Row(
+        mainAxisSize: .min,
+        spacing: horizontalSpacing,
+        children: [
+          _FlowbiteBadgeDot(theme: theme),
           _FlowbiteBadgeText(text: text, size: size, theme: theme),
           _FlowbiteBadgeIcon(
             icon: FlowbiteOutlineIcons.x,
@@ -122,6 +170,155 @@ class FlowbiteBadge extends StatelessWidget {
             theme: theme,
           ),
         ],
+      ),
+    );
+  }
+
+  factory FlowbiteBadge.avatar({
+    required String text,
+    required FlowbiteAvatar avatar,
+    FlowbiteBadgeTheme theme = .brand,
+    FlowbiteBadgeSize size = .sm,
+    VoidCallback? onTap,
+  }) {
+    double iconSize = switch (size) {
+      .sm => 12.0,
+      .lg => 14.0,
+    };
+    double horizontalSpacing = switch (size) {
+      .sm => 4.0,
+      .lg => 6.0,
+    };
+    return FlowbiteBadge(
+      theme: theme,
+      size: size,
+      onTap: onTap,
+      child: Row(
+        mainAxisSize: .min,
+        spacing: horizontalSpacing,
+        children: [
+          FlowbiteAvatar(
+            size: .xs,
+            image: avatar.image,
+            placeholder: avatar.placeholder,
+          ),
+          _FlowbiteBadgeText(text: text, size: size, theme: theme),
+          _FlowbiteBadgeIcon(
+            icon: FlowbiteOutlineIcons.x,
+            size: iconSize,
+            theme: theme,
+          ),
+        ],
+      ),
+    );
+  }
+
+  factory FlowbiteBadge.spinner({
+    required String text,
+    required FlowbiteSpinner spinner,
+    FlowbiteBadgeTheme theme = .brand,
+    FlowbiteBadgeSize size = .sm,
+    VoidCallback? onTap,
+  }) {
+    double iconSize = switch (size) {
+      .sm => 12.0,
+      .lg => 14.0,
+    };
+    double horizontalSpacing = switch (size) {
+      .sm => 4.0,
+      .lg => 6.0,
+    };
+    return FlowbiteBadge(
+      theme: theme,
+      size: size,
+      onTap: onTap,
+      child: Row(
+        mainAxisSize: .min,
+        spacing: horizontalSpacing,
+        children: [
+          FlowbiteSpinner(size: .xs, value: spinner.value, badgeTheme: theme),
+          _FlowbiteBadgeText(text: text, size: size, theme: theme),
+          _FlowbiteBadgeIcon(
+            icon: FlowbiteOutlineIcons.x,
+            size: iconSize,
+            theme: theme,
+          ),
+        ],
+      ),
+    );
+  }
+
+  factory FlowbiteBadge.iconOnly({
+    required IconData icon,
+    FlowbiteBadgeTheme theme = .brand,
+    FlowbiteBadgeSize size = .sm,
+    VoidCallback? onTap,
+  }) {
+    double iconSize = switch (size) {
+      .sm => 12.0,
+      .lg => 14.0,
+    };
+    return FlowbiteBadge(
+      theme: theme,
+      size: size,
+      onTap: onTap,
+      isCircle: true,
+      child: _FlowbiteBadgeIcon(icon: icon, size: iconSize, theme: theme),
+    );
+  }
+
+  factory FlowbiteBadge.textOnly({
+    required String text,
+    FlowbiteBadgeTheme theme = .brand,
+    FlowbiteBadgeSize size = .sm,
+    VoidCallback? onTap,
+  }) {
+    return FlowbiteBadge(
+      theme: theme,
+      size: size,
+      onTap: onTap,
+      isCircle: true,
+      child: _FlowbiteBadgeText(
+        text: text,
+        size: size,
+        theme: theme,
+        fontSize: .textXs,
+      ),
+    );
+  }
+}
+
+class _FlowbiteBadgeDot extends StatelessWidget {
+  final FlowbiteBadgeTheme theme;
+
+  const new({required this.theme});
+
+  FlowbiteColorsExtension _colorExt(BuildContext context) =>
+      Theme.of(context).extension<FlowbiteColorsExtension>() ??
+      FlowbiteTheme.lightThemeColors;
+
+  Color _getColor(BuildContext context) {
+    return switch (theme) {
+      .gray => _colorExt(context).textHeading,
+      .white => _colorExt(context).textHeading,
+      .brand => _colorExt(context).textFgBrandStrong,
+      .danger => _colorExt(context).textFgDangerStrong,
+      .warning => _colorExt(context).textFgWarning,
+      .success => _colorExt(context).textFgSuccessStrong,
+    };
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FittedBox(
+      fit: .scaleDown,
+      child: Container(
+        height: 6.0,
+        width: 6.0,
+        decoration: BoxDecoration(
+          color: _getColor(context),
+          shape: BoxShape.circle,
+        ),
       ),
     );
   }
@@ -140,12 +337,12 @@ class _FlowbiteBadgeIcon extends StatelessWidget {
 
   Color _getColor(BuildContext context) {
     return switch (theme) {
-      FlowbiteBadgeTheme.gray => _colorExt(context).textHeading,
-      FlowbiteBadgeTheme.white => _colorExt(context).textHeading,
-      FlowbiteBadgeTheme.brand => _colorExt(context).textFgBrandStrong,
-      FlowbiteBadgeTheme.danger => _colorExt(context).textFgDangerStrong,
-      FlowbiteBadgeTheme.warning => _colorExt(context).textFgWarning,
-      FlowbiteBadgeTheme.success => _colorExt(context).bgSuccessStrong,
+      .gray => _colorExt(context).textHeading,
+      .white => _colorExt(context).textHeading,
+      .brand => _colorExt(context).textFgBrandStrong,
+      .danger => _colorExt(context).textFgDangerStrong,
+      .warning => _colorExt(context).textFgWarning,
+      .success => _colorExt(context).textFgSuccessStrong,
     };
   }
 
@@ -157,40 +354,97 @@ class _FlowbiteBadgeIcon extends StatelessWidget {
 
 class _FlowbiteBadgeText extends StatelessWidget {
   final String text;
+  final String? secondaryText;
   final FlowbiteBadgeSize size;
   final FlowbiteBadgeTheme theme;
+  final FlowbiteFontSize? fontSize;
 
-  const new({required this.text, required this.size, required this.theme});
+  const new({
+    required this.text,
+    required this.size,
+    required this.theme,
+    this.secondaryText,
+    this.fontSize,
+  });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
       Theme.of(context).extension<FlowbiteColorsExtension>() ??
       FlowbiteTheme.lightThemeColors;
 
-  Color _getColor(BuildContext context) {
+  Color _getTextColor(BuildContext context) {
     return switch (theme) {
-      FlowbiteBadgeTheme.gray => _colorExt(context).textHeading,
-      FlowbiteBadgeTheme.white => _colorExt(context).textHeading,
-      FlowbiteBadgeTheme.brand => _colorExt(context).textFgBrandStrong,
-      FlowbiteBadgeTheme.danger => _colorExt(context).textFgDangerStrong,
-      FlowbiteBadgeTheme.warning => _colorExt(context).textFgWarning,
-      FlowbiteBadgeTheme.success => _colorExt(context).bgSuccessStrong,
+      .gray => _colorExt(context).textHeading,
+      .white => _colorExt(context).textHeading,
+      .brand => _colorExt(context).textFgBrandStrong,
+      .danger => _colorExt(context).textFgDangerStrong,
+      .warning => _colorExt(context).textFgWarning,
+      .success => _colorExt(context).textFgSuccessStrong,
     };
   }
 
-  FlowbiteFontSize get fontSize => switch (size) {
-    FlowbiteBadgeSize.sm => FlowbiteFontSize.textXs,
-    FlowbiteBadgeSize.lg => FlowbiteFontSize.textSm,
+  Color _getSecondaryTextColor(BuildContext context) {
+    return switch (theme) {
+      .gray => _colorExt(context).textBody,
+      .white => _colorExt(context).textBody,
+      .brand => _colorExt(context).textFgBrandStrong,
+      .danger => _colorExt(context).textFgDangerStrong,
+      .warning => _colorExt(context).textFgWarning,
+      .success => _colorExt(context).textFgSuccessStrong,
+    };
+  }
+
+  Color _getBorderColor(BuildContext context) {
+    return switch (theme) {
+      .gray => _colorExt(context).borderBaseMedium,
+      .white => _colorExt(context).borderBase,
+      .brand => _colorExt(context).borderBrandSubtle,
+      .danger => _colorExt(context).borderDangerSubtle,
+      .warning => _colorExt(context).borderWarningSubtle,
+      .success => _colorExt(context).borderSuccessSubtle,
+    };
+  }
+
+  FlowbiteFontSize get _fontSize => switch (size) {
+    .sm => .textXs,
+    .lg => .textSm,
+  };
+
+  FlowbiteFontWeight get _secondaryFontWeight => switch (size) {
+    .sm => .normal,
+    .lg => .medium,
+  };
+
+  double get _horizontalSpacing => switch (size) {
+    .sm => 6.0,
+    .lg => 8.0,
   };
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: FlowbiteFontFamily.inter(
-        fontSize: fontSize.value,
-        fontWeight: FlowbiteFontWeight.medium.value,
-        color: _getColor(context),
-      ),
+    return Row(
+      spacing: _horizontalSpacing,
+      mainAxisAlignment: .center,
+      children: [
+        Text(
+          text,
+          style: FlowbiteFontFamily.inter(
+            fontSize: fontSize?.value ?? _fontSize.value,
+            fontWeight: FlowbiteFontWeight.medium.value,
+            color: _getTextColor(context),
+          ),
+        ),
+        if (secondaryText != null) ...[
+          Container(height: 12.0, width: 1.0, color: _getBorderColor(context)),
+          Text(
+            secondaryText!,
+            style: FlowbiteFontFamily.inter(
+              fontSize: fontSize?.value ?? _fontSize.value,
+              fontWeight: _secondaryFontWeight.value,
+              color: _getSecondaryTextColor(context),
+            ),
+          ),
+        ],
+      ],
     );
   }
 }
@@ -206,25 +460,179 @@ class _FlowbiteBadgeText extends StatelessWidget {
   brightness: Brightness.dark,
 )
 Widget previewFlowbiteBadge() {
-  return Row(
-    spacing: 6.0,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: FlowbiteBadgeSize.values
-        .map(
-          (size) => Column(
-            spacing: 6.0,
-            children: FlowbiteBadgeTheme.values
-                .map(
-                  (theme) => FlowbiteBadge.icon(
-                    text: 'Badge text',
-                    icon: FlowbiteOutlineIcons.clock,
-                    theme: theme,
-                    size: size,
-                  ),
-                )
-                .toList(),
-          ),
-        )
-        .toList(),
+  return Column(
+    spacing: 18.0,
+    crossAxisAlignment: .start,
+    children: [
+      // With icon
+      Column(
+        spacing: 6.0,
+        crossAxisAlignment: .start,
+        children: FlowbiteBadgeSize.values
+            .map(
+              (size) => Row(
+                spacing: 6.0,
+                mainAxisSize: .min,
+                children: FlowbiteBadgeTheme.values
+                    .map(
+                      (theme) => FlowbiteBadge.icon(
+                        text: 'Badge text',
+                        icon: FlowbiteOutlineIcons.clock,
+                        theme: theme,
+                        size: size,
+                        onTap: () {},
+                      ),
+                    )
+                    .toList(),
+              ),
+            )
+            .toList(),
+      ),
+      // With avatar
+      Column(
+        spacing: 6.0,
+        crossAxisAlignment: .start,
+        children: FlowbiteBadgeSize.values
+            .map(
+              (size) => Row(
+                spacing: 6.0,
+                mainAxisSize: .min,
+                children: FlowbiteBadgeTheme.values
+                    .map(
+                      (theme) => FlowbiteBadge.avatar(
+                        text: 'Badge text',
+                        avatar: FlowbiteAvatar(
+                          image: FlowbiteAvatarDefaultAssets.bonnieGreen
+                              .toAssetImage(),
+                        ),
+                        theme: theme,
+                        size: size,
+                        onTap: () {},
+                      ),
+                    )
+                    .toList(),
+              ),
+            )
+            .toList(),
+      ),
+      // With dot
+      Column(
+        spacing: 6.0,
+        crossAxisAlignment: .start,
+        children: FlowbiteBadgeSize.values
+            .map(
+              (size) => Row(
+                spacing: 6.0,
+                mainAxisSize: .min,
+                children: FlowbiteBadgeTheme.values
+                    .map(
+                      (theme) => FlowbiteBadge.dot(
+                        text: 'Badge text',
+                        theme: theme,
+                        size: size,
+                        onTap: () {},
+                      ),
+                    )
+                    .toList(),
+              ),
+            )
+            .toList(),
+      ),
+      // With spinner
+      Column(
+        spacing: 6.0,
+        crossAxisAlignment: .start,
+        children: FlowbiteBadgeSize.values
+            .map(
+              (size) => Row(
+                spacing: 6.0,
+                mainAxisSize: .min,
+                children: FlowbiteBadgeTheme.values
+                    .map(
+                      (theme) => FlowbiteBadge.spinner(
+                        text: 'Badge text',
+                        spinner: const FlowbiteSpinner(value: 0.3),
+                        theme: theme,
+                        size: size,
+                        onTap: () {},
+                      ),
+                    )
+                    .toList(),
+              ),
+            )
+            .toList(),
+      ),
+      // With icon + secondary text
+      Column(
+        spacing: 6.0,
+        crossAxisAlignment: .start,
+        children: FlowbiteBadgeSize.values
+            .map(
+              (size) => Row(
+                spacing: 6.0,
+                mainAxisSize: .min,
+                children: FlowbiteBadgeTheme.values
+                    .map(
+                      (theme) => FlowbiteBadge.icon(
+                        text: 'Badge text',
+                        secondaryText: 'Secondary text',
+                        icon: FlowbiteOutlineIcons.clock,
+                        theme: theme,
+                        size: size,
+                        onTap: () {},
+                      ),
+                    )
+                    .toList(),
+              ),
+            )
+            .toList(),
+      ),
+      // Icon only
+      Column(
+        spacing: 6.0,
+        crossAxisAlignment: .start,
+        children: FlowbiteBadgeSize.values
+            .map(
+              (size) => Row(
+                spacing: 6.0,
+                mainAxisSize: .min,
+                children: FlowbiteBadgeTheme.values
+                    .map(
+                      (theme) => FlowbiteBadge.iconOnly(
+                        icon: FlowbiteOutlineIcons.clock,
+                        theme: theme,
+                        size: size,
+                        onTap: () {},
+                      ),
+                    )
+                    .toList(),
+              ),
+            )
+            .toList(),
+      ),
+      // Text only
+      Column(
+        spacing: 6.0,
+        crossAxisAlignment: .start,
+        children: FlowbiteBadgeSize.values
+            .map(
+              (size) => Row(
+                spacing: 6.0,
+                mainAxisSize: .min,
+                children: FlowbiteBadgeTheme.values
+                    .map(
+                      (theme) => FlowbiteBadge.textOnly(
+                        text: '1',
+                        theme: theme,
+                        size: size,
+                        onTap: () {},
+                      ),
+                    )
+                    .toList(),
+              ),
+            )
+            .toList(),
+      ),
+    ],
   );
 }

@@ -31,11 +31,11 @@ class MainApp extends StatelessWidget {
           child: Column(
             spacing: 24.0,
             children: [
-              BadgeSection(),
               AlertSection(),
               AvatarSection(),
               AvatarGroupLabelSection(),
               AvatarGroupSection(),
+              BadgeSection(),
               ButtonSection(),
               IconShapeSection(),
               InputFieldSection(),

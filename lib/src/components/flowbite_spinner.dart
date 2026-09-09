@@ -22,10 +22,14 @@ class FlowbiteSpinner extends StatelessWidget {
   final bool showTrack;
   final double? value;
 
+  /// Used by [FlowbiteBadge.spinner] method.
+  final FlowbiteBadgeTheme badgeTheme;
+
   const FlowbiteSpinner({
     this.value,
     this.size = FlowbiteSpinnerSize.base,
     this.showTrack = true,
+    this.badgeTheme = .gray,
     super.key,
   });
 
@@ -47,6 +51,23 @@ class FlowbiteSpinner extends StatelessWidget {
     FlowbiteSpinnerSize.base => _size / 2 * 0.1816,
     FlowbiteSpinnerSize.large => _size / 2 * 0.1816,
   };
+  Color _getColor(BuildContext context) => switch (badgeTheme) {
+    .gray => _colorExt(context).bgBrand,
+    .white => _colorExt(context).bgBrand,
+    .brand => _colorExt(context).bgBrand,
+    .danger => _colorExt(context).bgDanger,
+    .warning => _colorExt(context).bgWarning,
+    .success => _colorExt(context).bgSuccess,
+  };
+
+  Color _getTrackColor(BuildContext context) => switch (badgeTheme) {
+    .gray => _colorExt(context).bgNeutralQuaternary,
+    .white => _colorExt(context).bgNeutralQuaternary,
+    .brand => _colorExt(context).bgBrandSoft,
+    .danger => _colorExt(context).bgDangerMedium,
+    .warning => _colorExt(context).bgWarningMedium,
+    .success => _colorExt(context).bgSuccessMedium,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +76,8 @@ class FlowbiteSpinner extends StatelessWidget {
       width: _size,
       child: CircularProgressIndicator(
         value: value,
-        color: _colorExt(context).bgBrand,
-        backgroundColor: showTrack
-            ? _colorExt(context).bgNeutralQuaternary
-            : null,
+        color: _getColor(context),
+        backgroundColor: showTrack ? _getTrackColor(context) : null,
         strokeWidth: _strokeWidth,
         strokeCap: StrokeCap.round,
       ),
