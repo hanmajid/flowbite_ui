@@ -369,3 +369,86 @@ class _FlowbiteAlertBadge extends StatelessWidget {
     );
   }
 }
+
+@FlowbitePreview(
+  name: 'Alert - Light',
+  group: 'Alert',
+  brightness: Brightness.light,
+)
+@FlowbitePreview(
+  name: 'Alert - Dark',
+  group: 'Alert',
+  brightness: Brightness.dark,
+)
+Widget previewFlowbiteAlert() {
+  return SizedBox(
+    width: 360.0,
+    child: Column(
+      spacing: 12.0,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // type=normal
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 6.0,
+          children: FlowbiteAlertColor.values
+              .map(
+                (color) => FlowbiteAlert(
+                  text: "Great job! You've acknowledged this significant alert message.",
+                  color: color,
+                ),
+              )
+              .toList(),
+        ),
+        // type=complex
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 6.0,
+          children: FlowbiteAlertColor.values
+              .map(
+                (color) => FlowbiteAlert.complex(
+                  heading: 'Alert heading',
+                  text: "Great job! You've acknowledged this significant alert message.",
+                  onTapClose: () {},
+                  buttonLabel: 'Learn more',
+                  leadingIcon: const Icon(FlowbiteOutlineIcons.open_book),
+                  onPressedButton: () {},
+                  color: color,
+                ),
+              )
+              .toList(),
+        ),
+        // type=small
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 6.0,
+          children: FlowbiteAlertColor.values
+              .map(
+                (color) => FlowbiteAlert.small(
+                  text: "Great job! You've acknowledged this significant alert message.",
+                  badgeText: 'New',
+                  onTapClose: () {},
+                  onTap: () {},
+                  color: color,
+                ),
+              )
+              .toList(),
+        ),
+        // type=borderTop
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 6.0,
+          children: FlowbiteAlertColor.values
+              .map(
+                (color) => FlowbiteAlert.borderTop(
+                  text: "Great job! You've acknowledged this significant alert message.",
+                  onTapClose: () {},
+                  color: color,
+                ),
+              )
+              .toList(),
+        ),
+      ],
+    ),
+  );
+}

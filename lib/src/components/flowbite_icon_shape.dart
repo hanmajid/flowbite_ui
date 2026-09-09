@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:flowbite_icons/flowbite_outline_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -111,4 +112,44 @@ class FlowbiteIconShape extends StatelessWidget {
       ),
     );
   }
+}
+
+@FlowbitePreview(
+  name: 'Icon Shape - Light',
+  group: 'Icon Shape',
+  brightness: Brightness.light,
+)
+@FlowbitePreview(
+  name: 'Icon Shape - Dark',
+  group: 'Icon Shape',
+  brightness: Brightness.dark,
+)
+Widget previewFlowbiteIconShape() {
+  return Column(
+    spacing: 12.0,
+    children: FlowbiteIconShapeType.values
+        .map(
+          (type) => Row(
+            spacing: 6.0,
+            children: FlowbiteIconShapeColor.values
+                .map(
+                  (color) => Column(
+                    spacing: 6.0,
+                    children: FlowbiteIconShapeSize.values
+                        .map(
+                          (size) => FlowbiteIconShape(
+                            icon: FlowbiteOutlineIcons.fire,
+                            type: type,
+                            color: color,
+                            size: size,
+                          ),
+                        )
+                        .toList(),
+                  ),
+                )
+                .toList(),
+          ),
+        )
+        .toList(),
+  );
 }

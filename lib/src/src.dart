@@ -18,4 +18,5 @@ export 'flowbite_colors_extension.dart';
 export 'flowbite_font_family.dart';
 export 'flowbite_font_size.dart';
 export 'flowbite_font_weight.dart';
+export 'flowbite_preview.dart';
 export 'flowbite_theme.dart';

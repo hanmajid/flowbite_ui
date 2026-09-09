@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add `FlowbiteAlert` component.
 - Add `FlowbiteSpinner` component.
+- Add Widget Previews for existing components.
 
 ## [0.0.1] - 08-09-2026
 ### Added

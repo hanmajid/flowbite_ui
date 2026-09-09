@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -491,4 +492,93 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   @override
   InteractiveInkFeatureFactory? get splashFactory =>
       Theme.of(context).splashFactory;
+}
+
+@FlowbitePreview(
+  name: 'Outlined Button - Light',
+  group: 'Outlined Button',
+  brightness: Brightness.light,
+)
+@FlowbitePreview(
+  name: 'Outlined Button - Dark',
+  group: 'Outlined Button',
+  brightness: Brightness.dark,
+)
+Widget previewFlowbiteOutlinedButton() {
+  return Column(
+    spacing: 12.0,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: FlowbiteOutlinedButtonColor.values
+        .map(
+          (color) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 6.0,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 6.0,
+                children: [
+                  ...FlowbiteButtonSize.values.map(
+                    (size) => Column(
+                      spacing: 6.0,
+                      children: [
+                        FlowbiteOutlinedButton.icon(
+                          label: const Text('Button text'),
+                          onPressed: () {},
+                          leadingIcon: const Icon(
+                            FlowbiteOutlineIcons.arrow_left,
+                          ),
+                          trailingIcon: const Icon(
+                            FlowbiteOutlineIcons.arrow_right,
+                          ),
+                          color: color,
+                          size: size,
+                        ),
+                        FlowbiteOutlinedButton.icon(
+                          label: const Text('Button text'),
+                          onPressed: null,
+                          leadingIcon: const Icon(
+                            FlowbiteOutlineIcons.arrow_left,
+                          ),
+                          trailingIcon: const Icon(
+                            FlowbiteOutlineIcons.arrow_right,
+                          ),
+                          color: color,
+                          size: size,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 6.0,
+                children: [
+                  ...FlowbiteButtonSize.values.map(
+                    (size) => Column(
+                      spacing: 6.0,
+                      children: [
+                        FlowbiteOutlinedButton.iconOnly(
+                          onPressed: () {},
+                          icon: const Icon(FlowbiteOutlineIcons.heart),
+                          color: color,
+                          size: size,
+                        ),
+                        FlowbiteOutlinedButton.iconOnly(
+                          onPressed: null,
+                          icon: const Icon(FlowbiteOutlineIcons.heart),
+                          color: color,
+                          size: size,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        )
+        .toList(),
+  );
 }

@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -65,4 +66,30 @@ class FlowbiteInputLabel extends StatelessWidget {
       ],
     );
   }
+}
+
+@FlowbitePreview(
+  name: 'Input Label - Light',
+  group: 'Input Label',
+  brightness: Brightness.light,
+)
+@FlowbitePreview(
+  name: 'Input Label - Dark',
+  group: 'Input Label',
+  brightness: Brightness.dark,
+)
+Widget previewFlowbiteInputLabel() {
+  return const Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    spacing: 6.0,
+    children: [
+      FlowbiteInputLabel(label: 'First name'),
+      FlowbiteInputLabel(label: 'First name', isRequired: true),
+      FlowbiteInputLabel(
+        label: 'First name',
+        isRequired: true,
+        icon: FlowbiteOutlineIcons.question_mark,
+      ),
+    ],
+  );
 }

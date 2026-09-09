@@ -1,4 +1,5 @@
 import 'package:example/alert_section.dart';
+import 'package:example/badge_section.dart';
 import 'package:example/button_section.dart';
 import 'package:example/color_section.dart';
 import 'package:example/icon_shape_section.dart';
@@ -27,6 +28,7 @@ class MainApp extends StatelessWidget {
           child: Column(
             spacing: 24.0,
             children: [
+              BadgeSection(),
               SpinnerSection(),
               AlertSection(),
               InputFieldSection(),

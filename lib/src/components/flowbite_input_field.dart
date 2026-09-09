@@ -31,6 +31,7 @@ class FlowbiteInputField extends StatefulWidget {
   final bool isRequired;
   final IconData? labelIcon;
   final String? helperText;
+  final String? hintText;
 
   const FlowbiteInputField({
     this.size = FlowbiteInputFieldSize.base,
@@ -45,6 +46,7 @@ class FlowbiteInputField extends StatefulWidget {
     this.isRequired = false,
     this.labelIcon,
     this.helperText,
+    this.hintText,
     super.key,
   });
 
@@ -201,7 +203,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                   focusNode: _focusNode,
                   decoration: InputDecoration(
                     isDense: true,
-                    hintText: 'Placeholder text',
+                    hintText: widget.hintText,
                     hintStyle: FlowbiteFontFamily.inter(
                       fontSize: _fontSize.value,
                       fontWeight: FlowbiteFontWeight.normal.value,
@@ -222,7 +224,9 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                 ),
               ),
               InkWell(
-                onTap: widget.onTapClear,
+                onTap: widget.enabled && !widget.readOnly
+                    ? widget.onTapClear
+                    : null,
                 child: Icon(
                   FlowbiteOutlineIcons.x,
                   size: _iconSize,
@@ -244,4 +248,81 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
       ],
     );
   }
+}
+
+@FlowbitePreview(
+  name: 'Input Field - Light',
+  group: 'Input Field',
+  brightness: Brightness.light,
+)
+@FlowbitePreview(
+  name: 'Input Field - Dark',
+  group: 'Input Field',
+  brightness: Brightness.dark,
+)
+Widget previewFlowbiteInputField() {
+  final width = 240.0;
+  return Column(
+    spacing: 6.0,
+    children: FlowbiteInputFieldSize.values
+        .map(
+          (size) => Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 6.0,
+            children: [
+              SizedBox(
+                width: width,
+                child: FlowbiteInputField(
+                  labelIcon: FlowbiteOutlineIcons.question_mark,
+                  size: size,
+                  icon: FlowbiteOutlineIcons.user,
+                  hintText: 'Placeholder text',
+                  onTapClear: () {},
+                ),
+              ),
+              SizedBox(
+                width: width,
+                child: FlowbiteInputField(
+                  size: size,
+                  icon: FlowbiteOutlineIcons.user,
+                  enabled: false,
+                  controller: TextEditingController(text: 'name@company.com'),
+                  onTapClear: () {},
+                ),
+              ),
+              SizedBox(
+                width: width,
+                child: FlowbiteInputField(
+                  size: size,
+                  icon: FlowbiteOutlineIcons.user,
+                  readOnly: true,
+                  controller: TextEditingController(text: 'name@company.com'),
+                  onTapClear: () {},
+                ),
+              ),
+              SizedBox(
+                width: width,
+                child: FlowbiteInputField(
+                  size: size,
+                  icon: FlowbiteOutlineIcons.user,
+                  isSuccess: true,
+                  controller: TextEditingController(text: 'Write some text he'),
+                  onTapClear: () {},
+                ),
+              ),
+              SizedBox(
+                width: width,
+                child: FlowbiteInputField(
+                  size: size,
+                  icon: FlowbiteOutlineIcons.user,
+                  isDanger: true,
+                  controller: TextEditingController(text: 'Write some text he'),
+                  onTapClear: () {},
+                ),
+              ),
+            ],
+          ),
+        )
+        .toList(),
+  );
 }

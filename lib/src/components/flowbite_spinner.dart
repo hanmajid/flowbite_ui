@@ -62,3 +62,35 @@ class FlowbiteSpinner extends StatelessWidget {
     );
   }
 }
+
+@FlowbitePreview(
+  name: 'Spinner - Light',
+  group: 'Spinner',
+  brightness: Brightness.light,
+)
+@FlowbitePreview(
+  name: 'Spinner - Dark',
+  group: 'Spinner',
+  brightness: Brightness.dark,
+)
+Widget previewFlowbiteSpinner() {
+  return Column(
+    spacing: 24.0,
+    children: [
+      // showTrack=true
+      Row(
+        spacing: 12.0,
+        children: FlowbiteSpinnerSize.values
+            .map((size) => FlowbiteSpinner(size: size))
+            .toList(),
+      ),
+      // showTrack=false
+      Row(
+        spacing: 12.0,
+        children: FlowbiteSpinnerSize.values
+            .map((size) => FlowbiteSpinner(size: size, showTrack: false))
+            .toList(),
+      ),
+    ],
+  );
+}

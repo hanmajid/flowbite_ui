@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:flowbite_icons/flowbite_outline_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flutter/material.dart';
 
@@ -602,4 +603,87 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   @override
   InteractiveInkFeatureFactory? get splashFactory =>
       Theme.of(context).splashFactory;
+}
+
+@FlowbitePreview(
+  name: 'Button - Light',
+  group: 'Button',
+  brightness: Brightness.light,
+)
+@FlowbitePreview(
+  name: 'Button - Dark',
+  group: 'Button',
+  brightness: Brightness.dark,
+)
+Widget previewFlowbiteButton() {
+  return Column(
+    spacing: 12.0,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: FlowbiteButtonColor.values.map(
+      (color) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 6.0,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 6.0,
+            children: [
+              ...FlowbiteButtonSize.values.map(
+                (size) => Column(
+                  spacing: 6.0,
+                  children: [
+                    FlowbiteButton.icon(
+                      label: const Text('Button text'),
+                      onPressed: () {},
+                      leadingIcon: const Icon(FlowbiteOutlineIcons.arrow_left),
+                      trailingIcon: const Icon(
+                        FlowbiteOutlineIcons.arrow_right,
+                      ),
+                      color: color,
+                      size: size,
+                    ),
+                    FlowbiteButton.icon(
+                      label: const Text('Button text'),
+                      onPressed: null,
+                      leadingIcon: const Icon(FlowbiteOutlineIcons.arrow_left),
+                      trailingIcon: const Icon(
+                        FlowbiteOutlineIcons.arrow_right,
+                      ),
+                      color: color,
+                      size: size,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            spacing: 6.0,
+            children: [
+              ...FlowbiteButtonSize.values.map(
+                (size) => Column(
+                  spacing: 6.0,
+                  children: [
+                    FlowbiteButton.iconOnly(
+                      onPressed: () {},
+                      icon: const Icon(FlowbiteOutlineIcons.heart),
+                      color: color,
+                      size: size,
+                    ),
+                    FlowbiteButton.iconOnly(
+                      onPressed: null,
+                      icon: const Icon(FlowbiteOutlineIcons.heart),
+                      color: color,
+                      size: size,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ).toList(),
+  );
 }
