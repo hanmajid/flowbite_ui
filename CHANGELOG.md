@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.0.3] - 09-09-2026
 ### Added
 - Add `FlowbiteAvatar` component.
 - Add `FlowbiteAvatarGroupLabel` component.
@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `FlowbiteInputField` component.
 - Add `FlowbiteInputLabel` component.
 
-[Unreleased]: https://github.com/hanmajid/flowbite_ui/compare/v0.0.1...dev
+[Unreleased]: https://github.com/hanmajid/flowbite_ui/compare/v0.0.3...dev
+[0.0.3]: https://github.com/hanmajid/flowbite_ui/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/hanmajid/flowbite_ui/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/hanmajid/flowbite_ui/releases/tag/v0.0.1
