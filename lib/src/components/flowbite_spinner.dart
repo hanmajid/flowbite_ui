@@ -27,7 +27,7 @@ class FlowbiteSpinner extends StatelessWidget {
 
   const FlowbiteSpinner({
     this.value,
-    this.size = FlowbiteSpinnerSize.base,
+    this.size = .base,
     this.showTrack = true,
     this.badgeTheme = .gray,
     super.key,
@@ -38,18 +38,18 @@ class FlowbiteSpinner extends StatelessWidget {
       FlowbiteTheme.lightThemeColors;
 
   double get _size => switch (size) {
-    FlowbiteSpinnerSize.xs => 12.0,
-    FlowbiteSpinnerSize.small => 24.0,
-    FlowbiteSpinnerSize.medium => 50.0,
-    FlowbiteSpinnerSize.base => 75.0,
-    FlowbiteSpinnerSize.large => 100.0,
+    .xs => 12.0,
+    .small => 24.0,
+    .medium => 50.0,
+    .base => 75.0,
+    .large => 100.0,
   };
   double get _strokeWidth => switch (size) {
-    FlowbiteSpinnerSize.xs => _size / 2 * 0.3,
-    FlowbiteSpinnerSize.small => _size / 2 * 0.3,
-    FlowbiteSpinnerSize.medium => _size / 2 * 0.1816,
-    FlowbiteSpinnerSize.base => _size / 2 * 0.1816,
-    FlowbiteSpinnerSize.large => _size / 2 * 0.1816,
+    .xs => _size / 2 * 0.3,
+    .small => _size / 2 * 0.3,
+    .medium => _size / 2 * 0.1816,
+    .base => _size / 2 * 0.1816,
+    .large => _size / 2 * 0.1816,
   };
   Color _getColor(BuildContext context) => switch (badgeTheme) {
     .gray => _colorExt(context).bgBrand,
@@ -79,22 +79,14 @@ class FlowbiteSpinner extends StatelessWidget {
         color: _getColor(context),
         backgroundColor: showTrack ? _getTrackColor(context) : null,
         strokeWidth: _strokeWidth,
-        strokeCap: StrokeCap.round,
+        strokeCap: .round,
       ),
     );
   }
 }
 
-@FlowbitePreview(
-  name: 'Spinner - Light',
-  group: 'Spinner',
-  brightness: Brightness.light,
-)
-@FlowbitePreview(
-  name: 'Spinner - Dark',
-  group: 'Spinner',
-  brightness: Brightness.dark,
-)
+@FlowbitePreview(name: 'Spinner - Light', group: 'Spinner', brightness: .light)
+@FlowbitePreview(name: 'Spinner - Dark', group: 'Spinner', brightness: .dark)
 Widget previewFlowbiteSpinner() {
   return Column(
     spacing: 24.0,

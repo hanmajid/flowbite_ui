@@ -36,17 +36,17 @@ class FlowbiteInputLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       spacing: 4.0,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: .min,
       children: [
         Row(
           spacing: 2.0,
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: .min,
           children: [
             Text(
               label,
               style: FlowbiteFontFamily.inter(
-                fontSize: FlowbiteFontSize.textSm.value,
-                fontWeight: FlowbiteFontWeight.medium.value,
+                fontSize: .textSm,
+                fontWeight: .medium,
                 color: _colorExt(context).textHeading,
               ),
             ),
@@ -54,8 +54,8 @@ class FlowbiteInputLabel extends StatelessWidget {
               Text(
                 '*',
                 style: FlowbiteFontFamily.inter(
-                  fontSize: FlowbiteFontSize.textSm.value,
-                  fontWeight: FlowbiteFontWeight.medium.value,
+                  fontSize: .textSm,
+                  fontWeight: .medium,
                   color: _colorExt(context).textFgDanger,
                 ),
               ),
@@ -71,16 +71,16 @@ class FlowbiteInputLabel extends StatelessWidget {
 @FlowbitePreview(
   name: 'Input Label - Light',
   group: 'Input Label',
-  brightness: Brightness.light,
+  brightness: .light,
 )
 @FlowbitePreview(
   name: 'Input Label - Dark',
   group: 'Input Label',
-  brightness: Brightness.dark,
+  brightness: .dark,
 )
 Widget previewFlowbiteInputLabel() {
   return const Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: .start,
     spacing: 6.0,
     children: [
       FlowbiteInputLabel(label: 'First name'),

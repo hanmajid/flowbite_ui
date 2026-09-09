@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -31,8 +32,8 @@ class FlowbiteFontFamily {
     TextStyle? textStyle,
     Color? color,
     Color? backgroundColor,
-    double? fontSize,
-    FontWeight? fontWeight,
+    FlowbiteFontSize? fontSize,
+    FlowbiteFontWeight? fontWeight,
     FontStyle? fontStyle,
     double? letterSpacing,
     double? wordSpacing,
@@ -53,9 +54,9 @@ class FlowbiteFontFamily {
       fontFamily: 'Inter',
       color: color,
       backgroundColor: backgroundColor,
-      fontSize: fontSize,
+      fontSize: fontSize?.value,
       fontVariations: fontWeight != null
-          ? [FontVariation('wght', fontWeight.value.toDouble())]
+          ? [FontVariation('wght', fontWeight.value.value.toDouble())]
           : null,
       fontStyle: fontStyle,
       letterSpacing: letterSpacing,

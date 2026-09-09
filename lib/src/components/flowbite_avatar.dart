@@ -51,11 +51,11 @@ class FlowbiteAvatar extends StatelessWidget {
   final VoidCallback? onTapRemoveButton;
 
   const FlowbiteAvatar({
-    this.size = FlowbiteAvatarSize.base,
+    this.size = .base,
     this.image,
     this.placeholder,
     this.showDot = false,
-    this.dotStatus = FlowbiteAvatarDotStatus.alternative,
+    this.dotStatus = .alternative,
     this.showRemoveButton = false,
     this.onTapRemoveButton,
     super.key,
@@ -66,99 +66,99 @@ class FlowbiteAvatar extends StatelessWidget {
       FlowbiteTheme.lightThemeColors;
 
   double get _size => switch (size) {
-    FlowbiteAvatarSize.xs => 18.0,
-    FlowbiteAvatarSize.sm => 24.0,
-    FlowbiteAvatarSize.base => 32.0,
-    FlowbiteAvatarSize.lg => 44.0,
-    FlowbiteAvatarSize.xl => 56.0,
-    FlowbiteAvatarSize.xl2 => 64.0,
+    .xs => 18.0,
+    .sm => 24.0,
+    .base => 32.0,
+    .lg => 44.0,
+    .xl => 56.0,
+    .xl2 => 64.0,
   };
 
   FlowbiteFontSize get _fontSize => switch (size) {
-    FlowbiteAvatarSize.xs => FlowbiteFontSize.textXxs,
-    FlowbiteAvatarSize.sm => FlowbiteFontSize.textXs,
-    FlowbiteAvatarSize.base => FlowbiteFontSize.textSm,
-    FlowbiteAvatarSize.lg => FlowbiteFontSize.textLg,
-    FlowbiteAvatarSize.xl => FlowbiteFontSize.text2xl,
-    FlowbiteAvatarSize.xl2 => FlowbiteFontSize.text2xl,
+    .xs => .textXxs,
+    .sm => .textXs,
+    .base => .textSm,
+    .lg => .textLg,
+    .xl => .text2xl,
+    .xl2 => .text2xl,
   };
 
   FlowbiteAvatarDotSize get _dotSize => switch (size) {
-    FlowbiteAvatarSize.xs => FlowbiteAvatarDotSize.xs,
-    FlowbiteAvatarSize.sm => FlowbiteAvatarDotSize.base,
-    FlowbiteAvatarSize.base => FlowbiteAvatarDotSize.lg,
-    FlowbiteAvatarSize.lg => FlowbiteAvatarDotSize.lg,
-    FlowbiteAvatarSize.xl => FlowbiteAvatarDotSize.xl,
-    FlowbiteAvatarSize.xl2 => FlowbiteAvatarDotSize.xl,
+    .xs => .xs,
+    .sm => .base,
+    .base => .lg,
+    .lg => .lg,
+    .xl => .xl,
+    .xl2 => .xl,
   };
 
   double get _offsetDotTop => switch (size) {
-    FlowbiteAvatarSize.xs => 0.0,
-    FlowbiteAvatarSize.sm => 1.0,
-    FlowbiteAvatarSize.base => 1.0,
-    FlowbiteAvatarSize.lg => 4.0,
-    FlowbiteAvatarSize.xl => 2.0,
-    FlowbiteAvatarSize.xl2 => 4.0,
+    .xs => 0.0,
+    .sm => 1.0,
+    .base => 1.0,
+    .lg => 4.0,
+    .xl => 2.0,
+    .xl2 => 4.0,
   };
 
   double get _offsetDotRight => switch (size) {
-    FlowbiteAvatarSize.xs => -1.0,
-    FlowbiteAvatarSize.sm => -2.0,
-    FlowbiteAvatarSize.base => -1.0,
-    FlowbiteAvatarSize.lg => -3.0,
-    FlowbiteAvatarSize.xl => -2.0,
-    FlowbiteAvatarSize.xl2 => -1.0,
+    .xs => -1.0,
+    .sm => -2.0,
+    .base => -1.0,
+    .lg => -3.0,
+    .xl => -2.0,
+    .xl2 => -1.0,
   };
 
   FlowbiteAvatarRemoveButtonSize get _removeButtonSize => switch (size) {
-    FlowbiteAvatarSize.xs => FlowbiteAvatarRemoveButtonSize.xs,
-    FlowbiteAvatarSize.sm => FlowbiteAvatarRemoveButtonSize.sm,
-    FlowbiteAvatarSize.base => FlowbiteAvatarRemoveButtonSize.base,
-    FlowbiteAvatarSize.lg => FlowbiteAvatarRemoveButtonSize.base,
-    FlowbiteAvatarSize.xl => FlowbiteAvatarRemoveButtonSize.lg,
-    FlowbiteAvatarSize.xl2 => FlowbiteAvatarRemoveButtonSize.lg,
+    .xs => .xs,
+    .sm => .sm,
+    .base => .base,
+    .lg => .base,
+    .xl => .lg,
+    .xl2 => .lg,
   };
 
   double get _offsetRemoveButtonTop => switch (size) {
-    FlowbiteAvatarSize.xs => -2.0,
-    FlowbiteAvatarSize.sm => -2.0,
-    FlowbiteAvatarSize.base => 0.0,
-    FlowbiteAvatarSize.lg => 3.0,
-    FlowbiteAvatarSize.xl => 1.0,
-    FlowbiteAvatarSize.xl2 => 3.0,
+    .xs => -2.0,
+    .sm => -2.0,
+    .base => 0.0,
+    .lg => 3.0,
+    .xl => 1.0,
+    .xl2 => 3.0,
   };
 
   double get _offsetRemoveButtonRight => switch (size) {
-    FlowbiteAvatarSize.xs => -6.0,
-    FlowbiteAvatarSize.sm => -6.0,
-    FlowbiteAvatarSize.base => -6.0,
-    FlowbiteAvatarSize.lg => -6.0,
-    FlowbiteAvatarSize.xl => -6.0,
-    FlowbiteAvatarSize.xl2 => -5.0,
+    .xs => -6.0,
+    .sm => -6.0,
+    .base => -6.0,
+    .lg => -6.0,
+    .xl => -6.0,
+    .xl2 => -5.0,
   };
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      clipBehavior: Clip.none,
+      clipBehavior: .none,
       children: [
         FittedBox(
-          fit: BoxFit.scaleDown,
+          fit: .scaleDown,
           child: Container(
             height: _size,
             width: _size,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100.0),
+              borderRadius: .circular(100.0),
               color: _colorExt(context).bgNeutralTertiary,
               image: image != null ? DecorationImage(image: image!) : null,
             ),
-            alignment: Alignment.center,
+            alignment: .center,
             child: placeholder != null && image == null
                 ? Text(
                     placeholder!,
                     style: FlowbiteFontFamily.inter(
-                      fontWeight: FlowbiteFontWeight.semibold.value,
-                      fontSize: _fontSize.value,
+                      fontWeight: .semibold,
+                      fontSize: _fontSize,
                       color: _colorExt(context).textBody,
                     ),
                   )
@@ -193,40 +193,34 @@ class _FlowbiteAvatarDot extends StatelessWidget {
   final FlowbiteAvatarDotSize size;
   final FlowbiteAvatarDotStatus status;
 
-  const new({
-    this.size = FlowbiteAvatarDotSize.base,
-    this.status = FlowbiteAvatarDotStatus.alternative,
-  });
+  const new({this.size = .base, this.status = .alternative});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
       Theme.of(context).extension<FlowbiteColorsExtension>() ??
       FlowbiteTheme.lightThemeColors;
 
   double get _size => switch (size) {
-    FlowbiteAvatarDotSize.xs => 6.0,
-    FlowbiteAvatarDotSize.sm => 8.0,
-    FlowbiteAvatarDotSize.base => 10.0,
-    FlowbiteAvatarDotSize.lg => 12.0,
-    FlowbiteAvatarDotSize.xl => 16.0,
+    .xs => 6.0,
+    .sm => 8.0,
+    .base => 10.0,
+    .lg => 12.0,
+    .xl => 16.0,
   };
 
   Color _getColor(BuildContext context) {
     return switch (status) {
-      FlowbiteAvatarDotStatus.online => _colorExt(context).bgSuccess,
-      FlowbiteAvatarDotStatus.offline => _colorExt(context).bgDanger,
-      FlowbiteAvatarDotStatus.alternative => _colorExt(context).bgGray,
+      .online => _colorExt(context).bgSuccess,
+      .offline => _colorExt(context).bgDanger,
+      .alternative => _colorExt(context).bgGray,
     };
   }
 
   @override
   Widget build(BuildContext context) {
     return FittedBox(
-      fit: BoxFit.scaleDown,
+      fit: .scaleDown,
       child: Container(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: _getColor(context),
-        ),
+        decoration: BoxDecoration(shape: .circle, color: _getColor(context)),
         height: _size,
         width: _size,
       ),
@@ -240,43 +234,41 @@ class _FlowbiteAvatarRemoveButton extends StatelessWidget {
   final FlowbiteAvatarRemoveButtonSize size;
   final VoidCallback? onTap;
 
-  const new({this.size = FlowbiteAvatarRemoveButtonSize.base, this.onTap});
+  const new({this.size = .base, this.onTap});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
       Theme.of(context).extension<FlowbiteColorsExtension>() ??
       FlowbiteTheme.lightThemeColors;
 
   double get _size => switch (size) {
-    FlowbiteAvatarRemoveButtonSize.xs => 12.0,
-    FlowbiteAvatarRemoveButtonSize.sm => 14.0,
-    FlowbiteAvatarRemoveButtonSize.base => 16.0,
-    FlowbiteAvatarRemoveButtonSize.lg => 20.0,
+    .xs => 12.0,
+    .sm => 14.0,
+    .base => 16.0,
+    .lg => 20.0,
   };
 
   double get _iconSize => switch (size) {
-    FlowbiteAvatarRemoveButtonSize.xs => 8.0,
-    FlowbiteAvatarRemoveButtonSize.sm => 10.0,
-    FlowbiteAvatarRemoveButtonSize.base => 12.0,
-    FlowbiteAvatarRemoveButtonSize.lg => 14.0,
+    .xs => 8.0,
+    .sm => 10.0,
+    .base => 12.0,
+    .lg => 14.0,
   };
 
   @override
   Widget build(BuildContext context) {
     return FittedBox(
-      fit: BoxFit.scaleDown,
+      fit: .scaleDown,
       child: Material(
         color: _colorExt(context).bgNeutralTertiaryMedium,
-        borderRadius: BorderRadius.circular(100.0),
+        borderRadius: .circular(100.0),
         child: InkWell(
           onTap: onTap,
-          borderRadius: BorderRadius.circular(100.0),
+          borderRadius: .circular(100.0),
           child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100.0),
-            ),
+            decoration: BoxDecoration(borderRadius: .circular(100.0)),
             height: _size,
             width: _size,
-            alignment: Alignment.center,
+            alignment: .center,
             child: Icon(
               FlowbiteOutlineIcons.x,
               size: _iconSize,
@@ -289,25 +281,17 @@ class _FlowbiteAvatarRemoveButton extends StatelessWidget {
   }
 }
 
-@FlowbitePreview(
-  name: 'Avatar - Light',
-  group: 'Avatar',
-  brightness: Brightness.light,
-)
-@FlowbitePreview(
-  name: 'Avatar - Dark',
-  group: 'Avatar',
-  brightness: Brightness.dark,
-)
+@FlowbitePreview(name: 'Avatar - Light', group: 'Avatar', brightness: .light)
+@FlowbitePreview(name: 'Avatar - Dark', group: 'Avatar', brightness: .dark)
 Widget previewFlowbiteAvatar() {
   return Row(
     spacing: 12.0,
-    mainAxisSize: MainAxisSize.min,
+    mainAxisSize: .min,
     children: [
       // Image
       Column(
         spacing: 6.0,
-        verticalDirection: VerticalDirection.up,
+        verticalDirection: .up,
         children: FlowbiteAvatarSize.values
             .map(
               (size) => FlowbiteAvatar(
@@ -320,7 +304,7 @@ Widget previewFlowbiteAvatar() {
       // Image && showDot=true
       Column(
         spacing: 6.0,
-        verticalDirection: VerticalDirection.up,
+        verticalDirection: .up,
         children: FlowbiteAvatarSize.values
             .map(
               (size) => FlowbiteAvatar(
@@ -335,7 +319,7 @@ Widget previewFlowbiteAvatar() {
       // Image && showRemoveButton=true
       Column(
         spacing: 6.0,
-        verticalDirection: VerticalDirection.up,
+        verticalDirection: .up,
         children: FlowbiteAvatarSize.values
             .map(
               (size) => FlowbiteAvatar(
@@ -350,7 +334,7 @@ Widget previewFlowbiteAvatar() {
       // Placeholder
       Column(
         spacing: 6.0,
-        verticalDirection: VerticalDirection.up,
+        verticalDirection: .up,
         children: FlowbiteAvatarSize.values
             .map((size) => FlowbiteAvatar(size: size, placeholder: 'PH'))
             .toList(),
@@ -362,20 +346,16 @@ Widget previewFlowbiteAvatar() {
 @FlowbitePreview(
   name: 'Avatar Dot - Light',
   group: 'Avatar',
-  brightness: Brightness.light,
+  brightness: .light,
 )
-@FlowbitePreview(
-  name: 'Avatar Dot - Dark',
-  group: 'Avatar',
-  brightness: Brightness.dark,
-)
+@FlowbitePreview(name: 'Avatar Dot - Dark', group: 'Avatar', brightness: .dark)
 Widget previewFlowbiteAvatarDot() {
   return Column(
     spacing: 12.0,
     children: FlowbiteAvatarDotStatus.values
         .map(
           (status) => Row(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: .min,
             spacing: 6.0,
             children: FlowbiteAvatarDotSize.values
                 .map((size) => _FlowbiteAvatarDot(size: size, status: status))
@@ -389,16 +369,16 @@ Widget previewFlowbiteAvatarDot() {
 @FlowbitePreview(
   name: 'Avatar Remove Button - Light',
   group: 'Avatar',
-  brightness: Brightness.light,
+  brightness: .light,
 )
 @FlowbitePreview(
   name: 'Avatar Remove Button - Dark',
   group: 'Avatar',
-  brightness: Brightness.dark,
+  brightness: .dark,
 )
 Widget previewFlowbiteAvatarRemoveButton() {
   return Row(
-    mainAxisSize: MainAxisSize.min,
+    mainAxisSize: .min,
     spacing: 6.0,
     children: FlowbiteAvatarRemoveButtonSize.values
         .map((size) => _FlowbiteAvatarRemoveButton(size: size, onTap: () {}))

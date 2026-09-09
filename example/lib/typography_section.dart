@@ -26,8 +26,8 @@ class TypographySection extends StatelessWidget {
                 child: Text(
                   fontWeight.name,
                   style: FlowbiteFontFamily.inter(
-                    fontWeight: FlowbiteFontWeight.normal.value,
-                    fontSize: 14.0,
+                    fontWeight: .normal,
+                    fontSize: .textBase,
                     color: FlowbiteColors.textFgBrand,
                   ),
                 ),
@@ -35,8 +35,8 @@ class TypographySection extends StatelessWidget {
               Text(
                 'Flowbite UI',
                 style: FlowbiteFontFamily.inter(
-                  fontWeight: fontWeight.value,
-                  fontSize: 14.0,
+                  fontWeight: fontWeight,
+                  fontSize: .textBase,
                   color: FlowbiteColors.textBlack,
                 ),
               ),
@@ -61,8 +61,8 @@ class TypographySection extends StatelessWidget {
                 child: Text(
                   fontSize.name,
                   style: FlowbiteFontFamily.inter(
-                    fontWeight: FlowbiteFontWeight.normal.value,
-                    fontSize: 14.0,
+                    fontWeight: .normal,
+                    fontSize: .textBase,
                     color: FlowbiteColors.textFgBrand,
                   ),
                 ),
@@ -70,8 +70,8 @@ class TypographySection extends StatelessWidget {
               Text(
                 'Flowbite UI',
                 style: FlowbiteFontFamily.inter(
-                  fontWeight: FlowbiteFontWeight.semibold.value,
-                  fontSize: fontSize.value,
+                  fontWeight: .semibold,
+                  fontSize: fontSize,
                   color: FlowbiteColors.textBlack,
                 ),
               ),

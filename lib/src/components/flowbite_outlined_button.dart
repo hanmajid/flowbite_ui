@@ -32,8 +32,8 @@ class FlowbiteOutlinedButton extends ButtonStyleButton {
     super.clipBehavior,
     super.statesController,
     super.isSemanticButton,
-    this.size = FlowbiteButtonSize.base,
-    this.color = FlowbiteOutlinedButtonColor.success,
+    this.size = .base,
+    this.color = .success,
   }) : isIconOnly = false;
 
   final FlowbiteButtonSize size;
@@ -50,10 +50,10 @@ class FlowbiteOutlinedButton extends ButtonStyleButton {
     super.style,
     super.focusNode,
     super.autofocus = false,
-    super.clipBehavior = Clip.none,
+    super.clipBehavior = .none,
     super.statesController,
-    this.size = FlowbiteButtonSize.base,
-    this.color = FlowbiteOutlinedButtonColor.success,
+    this.size = .base,
+    this.color = .success,
     Widget? leadingIcon,
     Widget? trailingIcon,
   }) : isIconOnly = false,
@@ -77,10 +77,10 @@ class FlowbiteOutlinedButton extends ButtonStyleButton {
     super.style,
     super.focusNode,
     super.autofocus = false,
-    super.clipBehavior = Clip.none,
+    super.clipBehavior = .none,
     super.statesController,
-    this.size = FlowbiteButtonSize.base,
-    this.color = FlowbiteOutlinedButtonColor.success,
+    this.size = .base,
+    this.color = .success,
   }) : isIconOnly = true,
        super(child: icon);
 
@@ -114,7 +114,7 @@ class _FlowbiteOutlinedButtonWithIconChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: .min,
       spacing: 6.0,
       children: <Widget>[
         ?leadingIcon,
@@ -134,7 +134,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   }) : super(
          animationDuration: kThemeChangeDuration,
          enableFeedback: true,
-         alignment: Alignment.center,
+         alignment: .center,
        );
 
   final FlowbiteButtonSize size;
@@ -149,18 +149,12 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   @override
   WidgetStatePropertyAll<TextStyle?> get textStyle {
     FlowbiteFontSize fontSize = switch (size) {
-      FlowbiteButtonSize.xs => FlowbiteFontSize.textXs,
-      FlowbiteButtonSize.lg ||
-      FlowbiteButtonSize.xl => FlowbiteFontSize.textBase,
-      FlowbiteButtonSize.sm ||
-      FlowbiteButtonSize.base ||
-      _ => FlowbiteFontSize.textSm,
+      .xs => .textXs,
+      .lg || .xl => .textBase,
+      .sm || .base || _ => .textSm,
     };
     return WidgetStatePropertyAll<TextStyle?>(
-      FlowbiteFontFamily.inter(
-        fontSize: fontSize.value,
-        fontWeight: FlowbiteFontWeight.medium.value,
-      ),
+      FlowbiteFontFamily.inter(fontSize: fontSize, fontWeight: .medium),
     );
   }
 
@@ -168,7 +162,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Color?>? get backgroundColor =>
       WidgetStateProperty.resolveWith((Set<WidgetState> states) {
         switch (color) {
-          case FlowbiteOutlinedButtonColor.success:
+          case .success:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -177,7 +171,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
               return _colorsExtension.bgSuccessStrong;
             }
             return null;
-          case FlowbiteOutlinedButtonColor.danger:
+          case .danger:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -186,7 +180,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
               return _colorsExtension.bgDangerStrong;
             }
             return null;
-          case FlowbiteOutlinedButtonColor.warning:
+          case .warning:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -202,7 +196,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Color?>? get foregroundColor =>
       WidgetStateProperty.resolveWith((Set<WidgetState> states) {
         switch (color) {
-          case FlowbiteOutlinedButtonColor.success:
+          case .success:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -211,7 +205,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
               return _colorsExtension.textWhite;
             }
             return _colorsExtension.textFgSuccess;
-          case FlowbiteOutlinedButtonColor.danger:
+          case .danger:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -220,7 +214,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
               return _colorsExtension.textWhite;
             }
             return _colorsExtension.textFgDanger;
-          case FlowbiteOutlinedButtonColor.warning:
+          case .warning:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -261,27 +255,27 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
     }
     late EdgeInsetsGeometry finalPadding;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 12.0,
           vertical: 6.0,
         );
-      case FlowbiteButtonSize.sm:
+      case .sm:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 12.0,
           vertical: 8.0,
         );
-      case FlowbiteButtonSize.base:
+      case .base:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 16.0,
           vertical: 10.0,
         );
-      case FlowbiteButtonSize.lg:
+      case .lg:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 20.0,
           vertical: 12.0,
         );
-      case FlowbiteButtonSize.xl:
+      case .xl:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 24.0,
           vertical: 14.0,
@@ -294,15 +288,15 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Size>? get minimumSize {
     late Size minSize;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         minSize = const Size(32.0, 32.0);
-      case FlowbiteButtonSize.sm:
+      case .sm:
         minSize = const Size(36.0, 36.0);
-      case FlowbiteButtonSize.base:
+      case .base:
         minSize = const Size(40.0, 40.0);
-      case FlowbiteButtonSize.lg:
+      case .lg:
         minSize = const Size(48.0, 48.0);
-      case FlowbiteButtonSize.xl:
+      case .xl:
         minSize = const Size(52.0, 52.0);
     }
     return WidgetStatePropertyAll<Size>(minSize);
@@ -315,26 +309,26 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
     if (isIconOnly) {
       late double height;
       switch (size) {
-        case FlowbiteButtonSize.xs:
+        case .xs:
           height = 14.0;
-        case FlowbiteButtonSize.sm:
+        case .sm:
           height = 16.0;
-        case FlowbiteButtonSize.base:
-        case FlowbiteButtonSize.lg:
-        case FlowbiteButtonSize.xl:
+        case .base:
+        case .lg:
+        case .xl:
           height = 20.0;
       }
       return WidgetStatePropertyAll<double>(height);
     }
     late double height;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         height = 14.0;
-      case FlowbiteButtonSize.sm:
-      case FlowbiteButtonSize.base:
-      case FlowbiteButtonSize.lg:
+      case .sm:
+      case .base:
+      case .lg:
         height = 16.0;
-      case FlowbiteButtonSize.xl:
+      case .xl:
         height = 20.0;
     }
     return WidgetStatePropertyAll<double>(height);
@@ -344,7 +338,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Color>? get iconColor {
     return WidgetStateProperty.resolveWith((Set<WidgetState> states) {
       switch (color) {
-        case FlowbiteOutlinedButtonColor.success:
+        case .success:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           } else if (states.contains(WidgetState.focused)) {
@@ -353,7 +347,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
             return _colorsExtension.textWhite;
           }
           return _colorsExtension.textFgSuccess;
-        case FlowbiteOutlinedButtonColor.danger:
+        case .danger:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           } else if (states.contains(WidgetState.focused)) {
@@ -362,7 +356,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
             return _colorsExtension.textWhite;
           }
           return _colorsExtension.textFgDanger;
-        case FlowbiteOutlinedButtonColor.warning:
+        case .warning:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           } else if (states.contains(WidgetState.focused)) {
@@ -379,15 +373,15 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Size?>? get fixedSize {
     late double height;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         height = 32.0;
-      case FlowbiteButtonSize.sm:
+      case .sm:
         height = 36.0;
-      case FlowbiteButtonSize.base:
+      case .base:
         height = 40.0;
-      case FlowbiteButtonSize.lg:
+      case .lg:
         height = 48.0;
-      case FlowbiteButtonSize.xl:
+      case .xl:
         height = 52.0;
     }
     if (isIconOnly) {
@@ -400,15 +394,15 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Size>? get maximumSize {
     late double height;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         height = 32.0;
-      case FlowbiteButtonSize.sm:
+      case .sm:
         height = 36.0;
-      case FlowbiteButtonSize.base:
+      case .base:
         height = 40.0;
-      case FlowbiteButtonSize.lg:
+      case .lg:
         height = 48.0;
-      case FlowbiteButtonSize.xl:
+      case .xl:
         height = 52.0;
     }
     return WidgetStatePropertyAll<Size>(Size.fromHeight(height));
@@ -419,9 +413,9 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   @override
   WidgetStateProperty<OutlinedBorder>? get shape =>
       WidgetStateProperty.resolveWith((Set<WidgetState> states) {
-        BorderSide side = BorderSide.none;
+        BorderSide side = .none;
         switch (color) {
-          case FlowbiteOutlinedButtonColor.success:
+          case .success:
             if (states.contains(WidgetState.disabled)) {
               side = BorderSide(color: _colorsExtension.borderBaseMedium);
             } else if (states.contains(WidgetState.focused)) {
@@ -436,7 +430,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
                 strokeAlign: BorderSide.strokeAlignOutside,
               );
             }
-          case FlowbiteOutlinedButtonColor.danger:
+          case .danger:
             if (states.contains(WidgetState.disabled)) {
               side = BorderSide(color: _colorsExtension.borderBaseMedium);
             } else if (states.contains(WidgetState.focused)) {
@@ -451,7 +445,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
                 strokeAlign: BorderSide.strokeAlignOutside,
               );
             }
-          case FlowbiteOutlinedButtonColor.warning:
+          case .warning:
             if (states.contains(WidgetState.disabled)) {
               side = BorderSide(color: _colorsExtension.borderBaseMedium);
             } else if (states.contains(WidgetState.focused)) {
@@ -468,7 +462,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
             }
         }
         return RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: .circular(12.0),
           side: side,
         );
       });
@@ -497,25 +491,25 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
 @FlowbitePreview(
   name: 'Outlined Button - Light',
   group: 'Outlined Button',
-  brightness: Brightness.light,
+  brightness: .light,
 )
 @FlowbitePreview(
   name: 'Outlined Button - Dark',
   group: 'Outlined Button',
-  brightness: Brightness.dark,
+  brightness: .dark,
 )
 Widget previewFlowbiteOutlinedButton() {
   return Column(
     spacing: 12.0,
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: .start,
     children: FlowbiteOutlinedButtonColor.values
         .map(
           (color) => Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: .start,
             spacing: 6.0,
             children: [
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: .start,
                 spacing: 6.0,
                 children: [
                   ...FlowbiteButtonSize.values.map(
@@ -552,7 +546,7 @@ Widget previewFlowbiteOutlinedButton() {
                 ],
               ),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: .start,
                 spacing: 6.0,
                 children: [
                   ...FlowbiteButtonSize.values.map(

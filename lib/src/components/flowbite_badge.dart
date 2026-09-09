@@ -315,10 +315,7 @@ class _FlowbiteBadgeDot extends StatelessWidget {
       child: Container(
         height: 6.0,
         width: 6.0,
-        decoration: BoxDecoration(
-          color: _getColor(context),
-          shape: BoxShape.circle,
-        ),
+        decoration: BoxDecoration(color: _getColor(context), shape: .circle),
       ),
     );
   }
@@ -428,8 +425,8 @@ class _FlowbiteBadgeText extends StatelessWidget {
         Text(
           text,
           style: FlowbiteFontFamily.inter(
-            fontSize: fontSize?.value ?? _fontSize.value,
-            fontWeight: FlowbiteFontWeight.medium.value,
+            fontSize: fontSize ?? _fontSize,
+            fontWeight: .medium,
             color: _getTextColor(context),
           ),
         ),
@@ -438,8 +435,8 @@ class _FlowbiteBadgeText extends StatelessWidget {
           Text(
             secondaryText!,
             style: FlowbiteFontFamily.inter(
-              fontSize: fontSize?.value ?? _fontSize.value,
-              fontWeight: _secondaryFontWeight.value,
+              fontSize: fontSize ?? _fontSize,
+              fontWeight: _secondaryFontWeight,
               color: _getSecondaryTextColor(context),
             ),
           ),
@@ -449,16 +446,8 @@ class _FlowbiteBadgeText extends StatelessWidget {
   }
 }
 
-@FlowbitePreview(
-  name: 'Badge - Light',
-  group: 'Badge',
-  brightness: Brightness.light,
-)
-@FlowbitePreview(
-  name: 'Badge - Dark',
-  group: 'Badge',
-  brightness: Brightness.dark,
-)
+@FlowbitePreview(name: 'Badge - Light', group: 'Badge', brightness: .light)
+@FlowbitePreview(name: 'Badge - Dark', group: 'Badge', brightness: .dark)
 Widget previewFlowbiteBadge() {
   return Column(
     spacing: 18.0,

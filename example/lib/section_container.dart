@@ -32,7 +32,7 @@ class _SectionContainerState extends State<SectionContainer> {
                   (Theme.of(context).extension<FlowbiteColorsExtension>() ??
                           FlowbiteTheme.lightThemeColors)
                       .bgNeutralPrimary,
-              borderRadius: BorderRadius.circular(12.0),
+              borderRadius: .circular(12.0),
             ),
             padding: const EdgeInsets.all(12.0),
             child: widget.child,

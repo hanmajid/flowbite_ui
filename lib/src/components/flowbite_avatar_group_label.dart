@@ -26,7 +26,7 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
 
   const FlowbiteAvatarGroupLabel({
     required this.title,
-    this.size = FlowbiteAvatarGroupLabelSize.base,
+    this.size = .base,
     this.subtitle,
     super.key,
     this.avatarImage,
@@ -34,42 +34,38 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
   });
 
   double get _horizontalSpacing => switch (size) {
-    FlowbiteAvatarGroupLabelSize.sm => 6.0,
-    FlowbiteAvatarGroupLabelSize.base => 8.0,
-    FlowbiteAvatarGroupLabelSize.lg => 10.0,
-    FlowbiteAvatarGroupLabelSize.xl => 10.0,
+    .sm => 6.0,
+    .base => 8.0,
+    .lg => 10.0,
+    .xl => 10.0,
   };
 
   FlowbiteAvatarSize get _avatarSize => switch (size) {
-    FlowbiteAvatarGroupLabelSize.sm =>
-      subtitle != null ? FlowbiteAvatarSize.sm : FlowbiteAvatarSize.xs,
-    FlowbiteAvatarGroupLabelSize.base =>
-      subtitle != null ? FlowbiteAvatarSize.base : FlowbiteAvatarSize.sm,
-    FlowbiteAvatarGroupLabelSize.lg =>
-      subtitle != null ? FlowbiteAvatarSize.lg : FlowbiteAvatarSize.base,
-    FlowbiteAvatarGroupLabelSize.xl =>
-      subtitle != null ? FlowbiteAvatarSize.xl : FlowbiteAvatarSize.lg,
+    .sm => subtitle != null ? .sm : .xs,
+    .base => subtitle != null ? .base : .sm,
+    .lg => subtitle != null ? .lg : .base,
+    .xl => subtitle != null ? .xl : .lg,
   };
 
   // double get _verticalSpacing => switch (size) {
-  //   FlowbiteAvatarGroupLabelSize.sm => 2.0,
-  //   FlowbiteAvatarGroupLabelSize.base => 6.0,
-  //   FlowbiteAvatarGroupLabelSize.lg => 6.0,
-  //   FlowbiteAvatarGroupLabelSize.xl => 6.0,
+  //   .sm => 2.0,
+  //   .base => 6.0,
+  //   .lg => 6.0,
+  //   .xl => 6.0,
   // };
 
   FlowbiteFontSize get _titleFontSize => switch (size) {
-    FlowbiteAvatarGroupLabelSize.sm => FlowbiteFontSize.textXs,
-    FlowbiteAvatarGroupLabelSize.base => FlowbiteFontSize.textBase,
-    FlowbiteAvatarGroupLabelSize.lg => FlowbiteFontSize.textBase,
-    FlowbiteAvatarGroupLabelSize.xl => FlowbiteFontSize.textXl,
+    .sm => .textXs,
+    .base => .textBase,
+    .lg => .textBase,
+    .xl => .textXl,
   };
 
   FlowbiteFontSize get _subtitleFontSize => switch (size) {
-    FlowbiteAvatarGroupLabelSize.sm => FlowbiteFontSize.textXs,
-    FlowbiteAvatarGroupLabelSize.base => FlowbiteFontSize.textSm,
-    FlowbiteAvatarGroupLabelSize.lg => FlowbiteFontSize.textBase,
-    FlowbiteAvatarGroupLabelSize.xl => FlowbiteFontSize.textLg,
+    .sm => .textXs,
+    .base => .textSm,
+    .lg => .textBase,
+    .xl => .textLg,
   };
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
@@ -79,7 +75,7 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: .min,
       spacing: _horizontalSpacing,
       children: [
         FlowbiteAvatar(
@@ -89,14 +85,14 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
         ),
         Flexible(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: .start,
             // spacing: _verticalSpacing,
             children: [
               Text(
                 title,
                 style: FlowbiteFontFamily.inter(
-                  fontWeight: FlowbiteFontWeight.medium.value,
-                  fontSize: _titleFontSize.value,
+                  fontWeight: .medium,
+                  fontSize: _titleFontSize,
                   color: _colorExt(context).textHeading,
                 ),
               ),
@@ -104,8 +100,8 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
                 Text(
                   subtitle!,
                   style: FlowbiteFontFamily.inter(
-                    fontWeight: FlowbiteFontWeight.normal.value,
-                    fontSize: _subtitleFontSize.value,
+                    fontWeight: .normal,
+                    fontSize: _subtitleFontSize,
                     color: _colorExt(context).textBody,
                   ),
                 ),
@@ -120,22 +116,22 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
 @FlowbitePreview(
   name: 'Input Label - Light',
   group: 'Input Label',
-  brightness: Brightness.light,
+  brightness: .light,
 )
 @FlowbitePreview(
   name: 'Input Label - Dark',
   group: 'Input Label',
-  brightness: Brightness.dark,
+  brightness: .dark,
 )
 Widget previewFlowbiteAvatarGroupLabel() {
   return Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: .start,
     spacing: 12.0,
-    mainAxisSize: MainAxisSize.min,
+    mainAxisSize: .min,
     children: [
       // With subtitle
       Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: .start,
         spacing: 6.0,
         children: FlowbiteAvatarGroupLabelSize.values
             .map(
@@ -151,7 +147,7 @@ Widget previewFlowbiteAvatarGroupLabel() {
       ),
       // Without subtitle
       Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: .start,
         spacing: 6.0,
         children: FlowbiteAvatarGroupLabelSize.values
             .map(

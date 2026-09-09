@@ -609,9 +609,9 @@ class ColorSection extends StatelessWidget {
   }) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: .circular(12.0),
         color: isDark ? FlowbiteColors.gray.shade800 : FlowbiteColors.white,
-        border: Border.all(
+        border: .all(
           color: isDark ? Color(0xFF333E4F) : FlowbiteColors.gray.shade200,
         ),
       ),
@@ -626,8 +626,8 @@ class ColorSection extends StatelessWidget {
               Text(
                 name,
                 style: FlowbiteFontFamily.inter(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 13.0,
+                  fontWeight: .normal,
+                  fontSize: .textBase,
                   color: isDark
                       ? FlowbiteColors.textBodyDark
                       : FlowbiteColors.textBody,
@@ -639,10 +639,10 @@ class ColorSection extends StatelessWidget {
             height: 20.0,
             width: 20.0,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4.0),
+              borderRadius: .circular(4.0),
               color: color,
               border: color == Colors.white && !isDark
-                  ? Border.all(color: FlowbiteColors.gray.shade200)
+                  ? .all(color: FlowbiteColors.gray.shade200)
                   : null,
             ),
           ),

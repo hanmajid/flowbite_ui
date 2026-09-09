@@ -26,7 +26,7 @@ final class FlowbitePreview extends Preview {
     super.brightness,
     super.localizations,
   }) : super(
-         theme: brightness == Brightness.light
+         theme: brightness == .light
              ? FlowbitePreviewThemeData.new
              : FlowbitePreviewThemeData.newDark,
        );

@@ -126,8 +126,8 @@ class FlowbiteAvatarGroup extends StatelessWidget {
         counter!,
         textAlign: .center,
         style: FlowbiteFontFamily.inter(
-          fontWeight: FlowbiteFontWeight.medium.value,
-          fontSize: _fontSize.value,
+          fontWeight: .medium,
+          fontSize: _fontSize,
           color: _colorExt(context).textBody,
         ),
       ),
@@ -143,7 +143,7 @@ class FlowbiteAvatarGroup extends StatelessWidget {
 @FlowbitePreview(
   name: 'Avatar Group - Dark',
   group: 'Avatar Group',
-  brightness: Brightness.dark,
+  brightness: .dark,
 )
 Widget previewFlowbiteAvatarGroup() {
   return Row(

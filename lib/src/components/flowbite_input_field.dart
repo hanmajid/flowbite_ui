@@ -34,7 +34,7 @@ class FlowbiteInputField extends StatefulWidget {
   final String? hintText;
 
   const FlowbiteInputField({
-    this.size = FlowbiteInputFieldSize.base,
+    this.size = .base,
     this.enabled = true,
     this.readOnly = false,
     this.icon,
@@ -80,31 +80,31 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
       FlowbiteTheme.lightThemeColors;
 
   double get _iconSize => switch (widget.size) {
-    FlowbiteInputFieldSize.sm => 16.0,
-    FlowbiteInputFieldSize.base => 16.0,
-    FlowbiteInputFieldSize.lg => 20.0,
-    FlowbiteInputFieldSize.xl => 20.0,
+    .sm => 16.0,
+    .base => 16.0,
+    .lg => 20.0,
+    .xl => 20.0,
   };
 
   double get _horizontalPadding => switch (widget.size) {
-    FlowbiteInputFieldSize.sm => 10.0,
-    FlowbiteInputFieldSize.base => 12.0,
-    FlowbiteInputFieldSize.lg => 14.0,
-    FlowbiteInputFieldSize.xl => 16.0,
+    .sm => 10.0,
+    .base => 12.0,
+    .lg => 14.0,
+    .xl => 16.0,
   };
 
   double get _containerHeight => switch (widget.size) {
-    FlowbiteInputFieldSize.sm => 36.0,
-    FlowbiteInputFieldSize.base => 40.0,
-    FlowbiteInputFieldSize.lg => 48.0,
-    FlowbiteInputFieldSize.xl => 52.0,
+    .sm => 36.0,
+    .base => 40.0,
+    .lg => 48.0,
+    .xl => 52.0,
   };
 
   FlowbiteFontSize get _fontSize => switch (widget.size) {
-    FlowbiteInputFieldSize.sm => FlowbiteFontSize.textSm,
-    FlowbiteInputFieldSize.base => FlowbiteFontSize.textSm,
-    FlowbiteInputFieldSize.lg => FlowbiteFontSize.textBase,
-    FlowbiteInputFieldSize.xl => FlowbiteFontSize.textBase,
+    .sm => .textSm,
+    .base => .textSm,
+    .lg => .textBase,
+    .xl => .textBase,
   };
 
   Color _getIconColor(BuildContext context) {
@@ -170,8 +170,8 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
   Widget build(BuildContext context) {
     return Column(
       spacing: 10.0,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: .start,
+      mainAxisSize: .min,
       children: [
         if (widget.label != null)
           FlowbiteInputLabel(
@@ -181,12 +181,12 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
           ),
         Container(
           padding: EdgeInsets.symmetric(horizontal: _horizontalPadding),
-          alignment: Alignment.center,
+          alignment: .center,
           height: _containerHeight,
           decoration: BoxDecoration(
             color: _getBackgroundColor(context),
-            borderRadius: BorderRadius.circular(12.0),
-            border: Border.all(color: _getBorderColor(context)),
+            borderRadius: .circular(12.0),
+            border: .all(color: _getBorderColor(context)),
           ),
           child: Row(
             spacing: 8.0,
@@ -205,8 +205,8 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                     isDense: true,
                     hintText: widget.hintText,
                     hintStyle: FlowbiteFontFamily.inter(
-                      fontSize: _fontSize.value,
-                      fontWeight: FlowbiteFontWeight.normal.value,
+                      fontSize: _fontSize,
+                      fontWeight: .normal,
                       color: widget.enabled
                           ? _colorExt(context).textBodySubtle
                           : _colorExt(context).textFgDisabled,
@@ -217,8 +217,8 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                   enabled: widget.enabled,
                   readOnly: widget.readOnly,
                   style: FlowbiteFontFamily.inter(
-                    fontSize: _fontSize.value,
-                    fontWeight: FlowbiteFontWeight.normal.value,
+                    fontSize: _fontSize,
+                    fontWeight: .normal,
                     color: _getTextColor(context),
                   ),
                 ),
@@ -240,8 +240,8 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
           Text(
             widget.helperText!,
             style: FlowbiteFontFamily.inter(
-              fontSize: FlowbiteFontSize.textXs.value,
-              fontWeight: FlowbiteFontWeight.normal.value,
+              fontSize: .textXs,
+              fontWeight: .normal,
               color: _colorExt(context).textBody,
             ),
           ),
@@ -253,12 +253,12 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
 @FlowbitePreview(
   name: 'Input Field - Light',
   group: 'Input Field',
-  brightness: Brightness.light,
+  brightness: .light,
 )
 @FlowbitePreview(
   name: 'Input Field - Dark',
   group: 'Input Field',
-  brightness: Brightness.dark,
+  brightness: .dark,
 )
 Widget previewFlowbiteInputField() {
   final width = 240.0;
@@ -267,7 +267,7 @@ Widget previewFlowbiteInputField() {
     children: FlowbiteInputFieldSize.values
         .map(
           (size) => Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: .start,
             spacing: 6.0,
             children: [
               SizedBox(

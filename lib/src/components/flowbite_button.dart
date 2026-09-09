@@ -43,8 +43,8 @@ class FlowbiteButton extends ButtonStyleButton {
     super.clipBehavior,
     super.statesController,
     super.isSemanticButton,
-    this.size = FlowbiteButtonSize.base,
-    this.color = FlowbiteButtonColor.brand,
+    this.size = .base,
+    this.color = .brand,
   }) : isIconOnly = false;
 
   final FlowbiteButtonSize size;
@@ -61,10 +61,10 @@ class FlowbiteButton extends ButtonStyleButton {
     super.style,
     super.focusNode,
     super.autofocus = false,
-    super.clipBehavior = Clip.none,
+    super.clipBehavior = .none,
     super.statesController,
-    this.size = FlowbiteButtonSize.base,
-    this.color = FlowbiteButtonColor.brand,
+    this.size = .base,
+    this.color = .brand,
     Widget? leadingIcon,
     Widget? trailingIcon,
   }) : isIconOnly = false,
@@ -88,10 +88,10 @@ class FlowbiteButton extends ButtonStyleButton {
     super.style,
     super.focusNode,
     super.autofocus = false,
-    super.clipBehavior = Clip.none,
+    super.clipBehavior = .none,
     super.statesController,
-    this.size = FlowbiteButtonSize.base,
-    this.color = FlowbiteButtonColor.brand,
+    this.size = .base,
+    this.color = .brand,
   }) : isIconOnly = true,
        super(child: icon);
 
@@ -125,7 +125,7 @@ class _FlowbiteButtonWithIconChild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: .min,
       spacing: 6.0,
       children: <Widget>[
         ?leadingIcon,
@@ -145,7 +145,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   }) : super(
          animationDuration: kThemeChangeDuration,
          enableFeedback: true,
-         alignment: Alignment.center,
+         alignment: .center,
        );
 
   final FlowbiteButtonSize size;
@@ -160,18 +160,12 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   @override
   WidgetStatePropertyAll<TextStyle?> get textStyle {
     FlowbiteFontSize fontSize = switch (size) {
-      FlowbiteButtonSize.xs => FlowbiteFontSize.textXs,
-      FlowbiteButtonSize.lg ||
-      FlowbiteButtonSize.xl => FlowbiteFontSize.textBase,
-      FlowbiteButtonSize.sm ||
-      FlowbiteButtonSize.base ||
-      _ => FlowbiteFontSize.textSm,
+      .xs => .textXs,
+      .lg || .xl => .textBase,
+      .sm || .base || _ => .textSm,
     };
     return WidgetStatePropertyAll<TextStyle?>(
-      FlowbiteFontFamily.inter(
-        fontSize: fontSize.value,
-        fontWeight: FlowbiteFontWeight.medium.value,
-      ),
+      FlowbiteFontFamily.inter(fontSize: fontSize, fontWeight: .medium),
     );
   }
 
@@ -179,7 +173,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Color?>? get backgroundColor =>
       WidgetStateProperty.resolveWith((Set<WidgetState> states) {
         switch (color) {
-          case FlowbiteButtonColor.brand:
+          case .brand:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -188,7 +182,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
               return _colorsExtension.bgBrandStrong;
             }
             return _colorsExtension.bgBrand;
-          case FlowbiteButtonColor.secondary:
+          case .secondary:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -197,7 +191,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
               return _colorsExtension.bgNeutralTertiaryMedium;
             }
             return _colorsExtension.bgNeutralSecondaryMedium;
-          case FlowbiteButtonColor.tertiary:
+          case .tertiary:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -206,7 +200,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
               return _colorsExtension.bgNeutralSecondaryMedium;
             }
             return _colorsExtension.bgNeutralPrimarySoft;
-          case FlowbiteButtonColor.success:
+          case .success:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -215,7 +209,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
               return _colorsExtension.bgSuccessStrong;
             }
             return _colorsExtension.bgSuccess;
-          case FlowbiteButtonColor.danger:
+          case .danger:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -224,7 +218,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
               return _colorsExtension.bgDangerStrong;
             }
             return _colorsExtension.bgDanger;
-          case FlowbiteButtonColor.warning:
+          case .warning:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -233,7 +227,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
               return _colorsExtension.bgWarningStrong;
             }
             return _colorsExtension.bgWarning;
-          case FlowbiteButtonColor.dark:
+          case .dark:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.bgDisabled;
             } else if (states.contains(WidgetState.focused)) {
@@ -242,7 +236,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
               return _colorsExtension.bgDarkStrong;
             }
             return _colorsExtension.bgDark;
-          case FlowbiteButtonColor.ghost:
+          case .ghost:
             if (states.contains(WidgetState.focused)) {
               return _colorsExtension.bgNeutralSecondaryMedium;
             } else if (states.contains(WidgetState.hovered)) {
@@ -256,12 +250,12 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Color?>? get foregroundColor =>
       WidgetStateProperty.resolveWith((Set<WidgetState> states) {
         switch (color) {
-          case FlowbiteButtonColor.brand:
+          case .brand:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             }
             return _colorsExtension.textWhite;
-          case FlowbiteButtonColor.secondary:
+          case .secondary:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             } else if (states.contains(WidgetState.hovered)) {
@@ -270,7 +264,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
               return _colorsExtension.textHeading;
             }
             return _colorsExtension.textBody;
-          case FlowbiteButtonColor.tertiary:
+          case .tertiary:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             } else if (states.contains(WidgetState.hovered)) {
@@ -279,27 +273,27 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
               return _colorsExtension.textHeading;
             }
             return _colorsExtension.textBody;
-          case FlowbiteButtonColor.success:
+          case .success:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             }
             return _colorsExtension.textWhite;
-          case FlowbiteButtonColor.danger:
+          case .danger:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             }
             return _colorsExtension.textWhite;
-          case FlowbiteButtonColor.warning:
+          case .warning:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             }
             return _colorsExtension.textWhite;
-          case FlowbiteButtonColor.dark:
+          case .dark:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             }
             return _colorsExtension.textWhite;
-          case FlowbiteButtonColor.ghost:
+          case .ghost:
             if (states.contains(WidgetState.disabled)) {
               return _colorsExtension.textFgDisabled;
             }
@@ -336,27 +330,27 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
     }
     late EdgeInsetsGeometry finalPadding;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 12.0,
           vertical: 6.0,
         );
-      case FlowbiteButtonSize.sm:
+      case .sm:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 12.0,
           vertical: 8.0,
         );
-      case FlowbiteButtonSize.base:
+      case .base:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 16.0,
           vertical: 10.0,
         );
-      case FlowbiteButtonSize.lg:
+      case .lg:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 20.0,
           vertical: 12.0,
         );
-      case FlowbiteButtonSize.xl:
+      case .xl:
         finalPadding = const EdgeInsets.symmetric(
           horizontal: 24.0,
           vertical: 14.0,
@@ -369,15 +363,15 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Size>? get minimumSize {
     late Size minSize;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         minSize = const Size(32.0, 32.0);
-      case FlowbiteButtonSize.sm:
+      case .sm:
         minSize = const Size(36.0, 36.0);
-      case FlowbiteButtonSize.base:
+      case .base:
         minSize = const Size(40.0, 40.0);
-      case FlowbiteButtonSize.lg:
+      case .lg:
         minSize = const Size(48.0, 48.0);
-      case FlowbiteButtonSize.xl:
+      case .xl:
         minSize = const Size(52.0, 52.0);
     }
     return WidgetStatePropertyAll<Size>(minSize);
@@ -390,26 +384,26 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
     if (isIconOnly) {
       late double height;
       switch (size) {
-        case FlowbiteButtonSize.xs:
+        case .xs:
           height = 14.0;
-        case FlowbiteButtonSize.sm:
+        case .sm:
           height = 16.0;
-        case FlowbiteButtonSize.base:
-        case FlowbiteButtonSize.lg:
-        case FlowbiteButtonSize.xl:
+        case .base:
+        case .lg:
+        case .xl:
           height = 20.0;
       }
       return WidgetStatePropertyAll<double>(height);
     }
     late double height;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         height = 14.0;
-      case FlowbiteButtonSize.sm:
-      case FlowbiteButtonSize.base:
-      case FlowbiteButtonSize.lg:
+      case .sm:
+      case .base:
+      case .lg:
         height = 16.0;
-      case FlowbiteButtonSize.xl:
+      case .xl:
         height = 20.0;
     }
     return WidgetStatePropertyAll<double>(height);
@@ -419,12 +413,12 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Color>? get iconColor {
     return WidgetStateProperty.resolveWith((Set<WidgetState> states) {
       switch (color) {
-        case FlowbiteButtonColor.brand:
+        case .brand:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           }
           return _colorsExtension.textWhite;
-        case FlowbiteButtonColor.secondary:
+        case .secondary:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           } else if (states.contains(WidgetState.hovered)) {
@@ -433,7 +427,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
             return _colorsExtension.textHeading;
           }
           return _colorsExtension.textBody;
-        case FlowbiteButtonColor.tertiary:
+        case .tertiary:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           } else if (states.contains(WidgetState.hovered)) {
@@ -442,27 +436,27 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
             return _colorsExtension.textHeading;
           }
           return _colorsExtension.textBody;
-        case FlowbiteButtonColor.success:
+        case .success:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           }
           return _colorsExtension.textWhite;
-        case FlowbiteButtonColor.danger:
+        case .danger:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           }
           return _colorsExtension.textWhite;
-        case FlowbiteButtonColor.warning:
+        case .warning:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           }
           return _colorsExtension.textWhite;
-        case FlowbiteButtonColor.dark:
+        case .dark:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           }
           return _colorsExtension.textWhite;
-        case FlowbiteButtonColor.ghost:
+        case .ghost:
           if (states.contains(WidgetState.disabled)) {
             return _colorsExtension.textFgDisabled;
           }
@@ -475,15 +469,15 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Size?>? get fixedSize {
     late double height;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         height = 32.0;
-      case FlowbiteButtonSize.sm:
+      case .sm:
         height = 36.0;
-      case FlowbiteButtonSize.base:
+      case .base:
         height = 40.0;
-      case FlowbiteButtonSize.lg:
+      case .lg:
         height = 48.0;
-      case FlowbiteButtonSize.xl:
+      case .xl:
         height = 52.0;
     }
     if (isIconOnly) {
@@ -496,15 +490,15 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   WidgetStateProperty<Size>? get maximumSize {
     late double height;
     switch (size) {
-      case FlowbiteButtonSize.xs:
+      case .xs:
         height = 32.0;
-      case FlowbiteButtonSize.sm:
+      case .sm:
         height = 36.0;
-      case FlowbiteButtonSize.base:
+      case .base:
         height = 40.0;
-      case FlowbiteButtonSize.lg:
+      case .lg:
         height = 48.0;
-      case FlowbiteButtonSize.xl:
+      case .xl:
         height = 52.0;
     }
     return WidgetStatePropertyAll<Size>(Size.fromHeight(height));
@@ -515,21 +509,21 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   @override
   WidgetStateProperty<OutlinedBorder>? get shape =>
       WidgetStateProperty.resolveWith((Set<WidgetState> states) {
-        BorderSide side = BorderSide.none;
+        BorderSide side = .none;
         switch (color) {
-          case FlowbiteButtonColor.brand:
+          case .brand:
             side = states.contains(WidgetState.disabled)
                 ? BorderSide(color: _colorsExtension.borderBaseMedium)
-                : BorderSide.none;
-          case FlowbiteButtonColor.secondary:
+                : .none;
+          case .secondary:
             side = BorderSide(color: _colorsExtension.borderBaseMedium);
-          case FlowbiteButtonColor.tertiary:
+          case .tertiary:
             if (states.contains(WidgetState.disabled)) {
               side = BorderSide(color: _colorsExtension.borderBaseMedium);
             } else {
               side = BorderSide(color: _colorsExtension.borderBase);
             }
-          case FlowbiteButtonColor.success:
+          case .success:
             if (states.contains(WidgetState.disabled)) {
               side = BorderSide(color: _colorsExtension.borderBaseMedium);
             } else if (states.contains(WidgetState.focused)) {
@@ -539,7 +533,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
                 strokeAlign: BorderSide.strokeAlignOutside,
               );
             }
-          case FlowbiteButtonColor.danger:
+          case .danger:
             if (states.contains(WidgetState.disabled)) {
               side = BorderSide(color: _colorsExtension.borderBaseMedium);
             } else if (states.contains(WidgetState.focused)) {
@@ -549,7 +543,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
                 strokeAlign: BorderSide.strokeAlignOutside,
               );
             }
-          case FlowbiteButtonColor.warning:
+          case .warning:
             if (states.contains(WidgetState.disabled)) {
               side = BorderSide(color: _colorsExtension.borderBaseMedium);
             } else if (states.contains(WidgetState.focused)) {
@@ -559,7 +553,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
                 strokeAlign: BorderSide.strokeAlignOutside,
               );
             }
-          case FlowbiteButtonColor.dark:
+          case .dark:
             if (states.contains(WidgetState.disabled)) {
               side = BorderSide(color: _colorsExtension.borderBaseMedium);
             } else if (states.contains(WidgetState.focused)) {
@@ -569,7 +563,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
                 strokeAlign: BorderSide.strokeAlignOutside,
               );
             }
-          case FlowbiteButtonColor.ghost:
+          case .ghost:
             if (states.contains(WidgetState.focused)) {
               side = BorderSide(
                 width: 2.0,
@@ -579,7 +573,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
             }
         }
         return RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: .circular(12.0),
           side: side,
         );
       });
@@ -605,85 +599,83 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
       Theme.of(context).splashFactory;
 }
 
-@FlowbitePreview(
-  name: 'Button - Light',
-  group: 'Button',
-  brightness: Brightness.light,
-)
-@FlowbitePreview(
-  name: 'Button - Dark',
-  group: 'Button',
-  brightness: Brightness.dark,
-)
+@FlowbitePreview(name: 'Button - Light', group: 'Button', brightness: .light)
+@FlowbitePreview(name: 'Button - Dark', group: 'Button', brightness: .dark)
 Widget previewFlowbiteButton() {
   return Column(
     spacing: 12.0,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: FlowbiteButtonColor.values.map(
-      (color) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: 6.0,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment: .start,
+    children: FlowbiteButtonColor.values
+        .map(
+          (color) => Column(
+            crossAxisAlignment: .start,
             spacing: 6.0,
             children: [
-              ...FlowbiteButtonSize.values.map(
-                (size) => Column(
-                  spacing: 6.0,
-                  children: [
-                    FlowbiteButton.icon(
-                      label: const Text('Button text'),
-                      onPressed: () {},
-                      leadingIcon: const Icon(FlowbiteOutlineIcons.arrow_left),
-                      trailingIcon: const Icon(
-                        FlowbiteOutlineIcons.arrow_right,
-                      ),
-                      color: color,
-                      size: size,
+              Row(
+                crossAxisAlignment: .start,
+                spacing: 6.0,
+                children: [
+                  ...FlowbiteButtonSize.values.map(
+                    (size) => Column(
+                      spacing: 6.0,
+                      children: [
+                        FlowbiteButton.icon(
+                          label: const Text('Button text'),
+                          onPressed: () {},
+                          leadingIcon: const Icon(
+                            FlowbiteOutlineIcons.arrow_left,
+                          ),
+                          trailingIcon: const Icon(
+                            FlowbiteOutlineIcons.arrow_right,
+                          ),
+                          color: color,
+                          size: size,
+                        ),
+                        FlowbiteButton.icon(
+                          label: const Text('Button text'),
+                          onPressed: null,
+                          leadingIcon: const Icon(
+                            FlowbiteOutlineIcons.arrow_left,
+                          ),
+                          trailingIcon: const Icon(
+                            FlowbiteOutlineIcons.arrow_right,
+                          ),
+                          color: color,
+                          size: size,
+                        ),
+                      ],
                     ),
-                    FlowbiteButton.icon(
-                      label: const Text('Button text'),
-                      onPressed: null,
-                      leadingIcon: const Icon(FlowbiteOutlineIcons.arrow_left),
-                      trailingIcon: const Icon(
-                        FlowbiteOutlineIcons.arrow_right,
-                      ),
-                      color: color,
-                      size: size,
+                  ),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: .start,
+                spacing: 6.0,
+                children: [
+                  ...FlowbiteButtonSize.values.map(
+                    (size) => Column(
+                      spacing: 6.0,
+                      children: [
+                        FlowbiteButton.iconOnly(
+                          onPressed: () {},
+                          icon: const Icon(FlowbiteOutlineIcons.heart),
+                          color: color,
+                          size: size,
+                        ),
+                        FlowbiteButton.iconOnly(
+                          onPressed: null,
+                          icon: const Icon(FlowbiteOutlineIcons.heart),
+                          color: color,
+                          size: size,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 6.0,
-            children: [
-              ...FlowbiteButtonSize.values.map(
-                (size) => Column(
-                  spacing: 6.0,
-                  children: [
-                    FlowbiteButton.iconOnly(
-                      onPressed: () {},
-                      icon: const Icon(FlowbiteOutlineIcons.heart),
-                      color: color,
-                      size: size,
-                    ),
-                    FlowbiteButton.iconOnly(
-                      onPressed: null,
-                      icon: const Icon(FlowbiteOutlineIcons.heart),
-                      color: color,
-                      size: size,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    ).toList(),
+        )
+        .toList(),
   );
 }

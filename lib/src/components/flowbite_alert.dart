@@ -23,8 +23,8 @@ enum FlowbiteAlertType { normal, complex, small, borderTop }
 class FlowbiteAlert extends StatelessWidget {
   const FlowbiteAlert({
     required this.text,
-    this.color = FlowbiteAlertColor.normal,
-    this.type = FlowbiteAlertType.normal,
+    this.color = .normal,
+    this.type = .normal,
     this.heading,
     this.child,
     this.onTapClose,
@@ -46,42 +46,42 @@ class FlowbiteAlert extends StatelessWidget {
 
   Color _getTextColor(BuildContext context) {
     return switch (color) {
-      FlowbiteAlertColor.success => _colorExt(context).textFgSuccessStrong,
-      FlowbiteAlertColor.danger => _colorExt(context).textFgDangerStrong,
-      FlowbiteAlertColor.warning => _colorExt(context).textFgDangerStrong,
-      FlowbiteAlertColor.info => _colorExt(context).textFgBrandStrong,
-      FlowbiteAlertColor.normal => _colorExt(context).textHeading,
+      .success => _colorExt(context).textFgSuccessStrong,
+      .danger => _colorExt(context).textFgDangerStrong,
+      .warning => _colorExt(context).textFgDangerStrong,
+      .info => _colorExt(context).textFgBrandStrong,
+      .normal => _colorExt(context).textHeading,
     };
   }
 
   Color _getBackgroundColor(BuildContext context) {
     return switch (color) {
-      FlowbiteAlertColor.success => _colorExt(context).bgSuccessSoft,
-      FlowbiteAlertColor.danger => _colorExt(context).bgDangerSoft,
-      FlowbiteAlertColor.warning => _colorExt(context).bgWarningSoft,
-      FlowbiteAlertColor.info => _colorExt(context).bgBrandSofter,
-      FlowbiteAlertColor.normal => _colorExt(context).bgNeutralSecondaryMedium,
+      .success => _colorExt(context).bgSuccessSoft,
+      .danger => _colorExt(context).bgDangerSoft,
+      .warning => _colorExt(context).bgWarningSoft,
+      .info => _colorExt(context).bgBrandSofter,
+      .normal => _colorExt(context).bgNeutralSecondaryMedium,
     };
   }
 
   Color _getBorderColor(BuildContext context) {
     return switch (color) {
-      FlowbiteAlertColor.success => _colorExt(context).borderSuccessSubtle,
-      FlowbiteAlertColor.danger => _colorExt(context).borderDangerSubtle,
-      FlowbiteAlertColor.warning => _colorExt(context).borderWarningSubtle,
-      FlowbiteAlertColor.info => _colorExt(context).borderBrandSubtle,
-      FlowbiteAlertColor.normal => _colorExt(context).borderBaseMedium,
+      .success => _colorExt(context).borderSuccessSubtle,
+      .danger => _colorExt(context).borderDangerSubtle,
+      .warning => _colorExt(context).borderWarningSubtle,
+      .info => _colorExt(context).borderBrandSubtle,
+      .normal => _colorExt(context).borderBaseMedium,
     };
   }
 
   factory FlowbiteAlert.borderTop({
     required String text,
-    FlowbiteAlertColor color = FlowbiteAlertColor.normal,
+    FlowbiteAlertColor color = .normal,
     VoidCallback? onTapClose,
   }) {
     return FlowbiteAlert(
       text: text,
-      type: FlowbiteAlertType.borderTop,
+      type: .borderTop,
       color: color,
       onTapClose: onTapClose,
     );
@@ -90,13 +90,13 @@ class FlowbiteAlert extends StatelessWidget {
   factory FlowbiteAlert.small({
     required String text,
     required String badgeText,
-    FlowbiteAlertColor color = FlowbiteAlertColor.normal,
+    FlowbiteAlertColor color = .normal,
     VoidCallback? onTapClose,
     VoidCallback? onTap,
   }) {
     return FlowbiteAlert(
       text: text,
-      type: FlowbiteAlertType.small,
+      type: .small,
       color: color,
       onTapClose: onTapClose,
       onTap: onTap,
@@ -111,21 +111,21 @@ class FlowbiteAlert extends StatelessWidget {
     VoidCallback? onPressedButton,
     Widget? leadingIcon,
     Widget? trailingIcon,
-    FlowbiteAlertColor color = FlowbiteAlertColor.normal,
+    FlowbiteAlertColor color = .normal,
     VoidCallback? onTapClose,
   }) {
     FlowbiteButtonColor buttonColor = switch (color) {
-      FlowbiteAlertColor.success => FlowbiteButtonColor.success,
-      FlowbiteAlertColor.danger => FlowbiteButtonColor.danger,
-      FlowbiteAlertColor.warning => FlowbiteButtonColor.warning,
-      FlowbiteAlertColor.info => FlowbiteButtonColor.brand,
-      FlowbiteAlertColor.normal => FlowbiteButtonColor.dark,
+      .success => .success,
+      .danger => .danger,
+      .warning => .warning,
+      .info => .brand,
+      .normal => .dark,
     };
 
     return FlowbiteAlert(
       text: text,
       heading: heading,
-      type: FlowbiteAlertType.complex,
+      type: .complex,
       color: color,
       onTapClose: onTapClose,
       child: FlowbiteButton.icon(
@@ -134,45 +134,45 @@ class FlowbiteAlert extends StatelessWidget {
         leadingIcon: leadingIcon,
         trailingIcon: trailingIcon,
         color: buttonColor,
-        size: FlowbiteButtonSize.xs,
+        size: .xs,
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    if (type == FlowbiteAlertType.normal) {
+    if (type == .normal) {
       return Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: .circular(12.0),
           color: _getBackgroundColor(context),
-          border: Border.all(
+          border: .all(
             color: _getBorderColor(context),
             strokeAlign: BorderSide.strokeAlignCenter,
           ),
         ),
-        padding: const EdgeInsets.all(16.0),
+        padding: const .all(16.0),
         child: _buildAlertContent(context),
       );
-    } else if (type == FlowbiteAlertType.complex) {
+    } else if (type == .complex) {
       return Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: .circular(12.0),
           color: _getBackgroundColor(context),
-          border: Border.all(
+          border: .all(
             color: _getBorderColor(context),
             strokeAlign: BorderSide.strokeAlignCenter,
           ),
         ),
-        padding: const EdgeInsets.all(16.0),
+        padding: const .all(16.0),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: .min,
+          crossAxisAlignment: .stretch,
           spacing: 16.0,
           children: [
             Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: .stretch,
+              mainAxisSize: .min,
               spacing: 8.0,
               children: [
                 Row(
@@ -187,8 +187,8 @@ class FlowbiteAlert extends StatelessWidget {
                       child: Text(
                         heading!,
                         style: FlowbiteFontFamily.inter(
-                          fontSize: FlowbiteFontSize.textBase.value,
-                          fontWeight: FlowbiteFontWeight.medium.value,
+                          fontSize: .textBase,
+                          fontWeight: .medium,
                           color: _getTextColor(context),
                         ),
                       ),
@@ -206,8 +206,8 @@ class FlowbiteAlert extends StatelessWidget {
                 Text(
                   text,
                   style: FlowbiteFontFamily.inter(
-                    fontSize: FlowbiteFontSize.textSm.value,
-                    fontWeight: FlowbiteFontWeight.normal.value,
+                    fontSize: .textSm,
+                    fontWeight: .normal,
                     color: _getTextColor(context),
                   ),
                 ),
@@ -217,45 +217,40 @@ class FlowbiteAlert extends StatelessWidget {
           ],
         ),
       );
-    } else if (type == FlowbiteAlertType.small) {
+    } else if (type == .small) {
       return Material(
-        borderRadius: BorderRadius.circular(9999),
+        borderRadius: .circular(9999),
         color: _getBackgroundColor(context),
         child: InkWell(
-          borderRadius: BorderRadius.circular(9999),
+          borderRadius: .circular(9999),
           onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(9999),
-              border: Border.all(
+              borderRadius: .circular(9999),
+              border: .all(
                 color: _getBorderColor(context),
                 strokeAlign: BorderSide.strokeAlignCenter,
               ),
             ),
-            padding: const EdgeInsets.only(
-              top: 4.0,
-              bottom: 4.0,
-              right: 8.0,
-              left: 4.0,
-            ),
+            padding: const .only(top: 4.0, bottom: 4.0, right: 8.0, left: 4.0),
             child: Row(
               spacing: 8.0,
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: .min,
               children: [
                 child!,
                 Flexible(
                   child: Row(
                     spacing: 2.0,
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: .min,
                     children: [
                       Flexible(
                         child: Text(
                           text,
                           // maxLines: 1,
-                          // overflow: TextOverflow.ellipsis,
+                          // overflow: .ellipsis,
                           style: FlowbiteFontFamily.inter(
-                            fontSize: FlowbiteFontSize.textSm.value,
-                            fontWeight: FlowbiteFontWeight.normal.value,
+                            fontSize: .textSm,
+                            fontWeight: .normal,
                             color: _getTextColor(context),
                           ),
                         ),
@@ -281,7 +276,7 @@ class FlowbiteAlert extends StatelessWidget {
           top: BorderSide(color: _getBorderColor(context), width: 4.0),
         ),
       ),
-      padding: const EdgeInsets.all(16.0),
+      padding: const .all(16.0),
       child: _buildAlertContent(context),
     );
   }
@@ -299,8 +294,8 @@ class FlowbiteAlert extends StatelessWidget {
           child: Text(
             text,
             style: FlowbiteFontFamily.inter(
-              fontSize: FlowbiteFontSize.textSm.value,
-              fontWeight: FlowbiteFontWeight.normal.value,
+              fontSize: .textSm,
+              fontWeight: .normal,
               color: _getTextColor(context),
             ),
           ),
@@ -330,21 +325,21 @@ class _FlowbiteAlertBadge extends StatelessWidget {
 
   Color _getTextColor(BuildContext context) {
     return switch (color) {
-      FlowbiteAlertColor.success => _colorExt(context).textFgSuccessStrong,
-      FlowbiteAlertColor.danger => _colorExt(context).textFgDangerStrong,
-      FlowbiteAlertColor.warning => _colorExt(context).textFgDangerStrong,
-      FlowbiteAlertColor.info => _colorExt(context).textFgBrandStrong,
-      FlowbiteAlertColor.normal => _colorExt(context).textHeading,
+      .success => _colorExt(context).textFgSuccessStrong,
+      .danger => _colorExt(context).textFgDangerStrong,
+      .warning => _colorExt(context).textFgDangerStrong,
+      .info => _colorExt(context).textFgBrandStrong,
+      .normal => _colorExt(context).textHeading,
     };
   }
 
   Color _getBackgroundColor(BuildContext context) {
     return switch (color) {
-      FlowbiteAlertColor.success => _colorExt(context).bgSuccessMedium,
-      FlowbiteAlertColor.danger => _colorExt(context).bgDangerMedium,
-      FlowbiteAlertColor.warning => _colorExt(context).bgWarningMedium,
-      FlowbiteAlertColor.info => _colorExt(context).bgBrandSoft,
-      FlowbiteAlertColor.normal => _colorExt(context).bgNeutralQuaternary,
+      .success => _colorExt(context).bgSuccessMedium,
+      .danger => _colorExt(context).bgDangerMedium,
+      .warning => _colorExt(context).bgWarningMedium,
+      .info => _colorExt(context).bgBrandSoft,
+      .normal => _colorExt(context).bgNeutralQuaternary,
     };
   }
 
@@ -352,17 +347,17 @@ class _FlowbiteAlertBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 20.0,
-      alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      alignment: .center,
+      padding: const .symmetric(horizontal: 8.0),
       decoration: BoxDecoration(
         color: _getBackgroundColor(context),
-        borderRadius: BorderRadius.circular(9999),
+        borderRadius: .circular(9999),
       ),
       child: Text(
         text,
         style: FlowbiteFontFamily.inter(
-          fontSize: FlowbiteFontSize.textXs.value,
-          fontWeight: FlowbiteFontWeight.medium.value,
+          fontSize: .textXs,
+          fontWeight: .medium,
           color: _getTextColor(context),
         ),
       ),
@@ -370,26 +365,18 @@ class _FlowbiteAlertBadge extends StatelessWidget {
   }
 }
 
-@FlowbitePreview(
-  name: 'Alert - Light',
-  group: 'Alert',
-  brightness: Brightness.light,
-)
-@FlowbitePreview(
-  name: 'Alert - Dark',
-  group: 'Alert',
-  brightness: Brightness.dark,
-)
+@FlowbitePreview(name: 'Alert - Light', group: 'Alert', brightness: .light)
+@FlowbitePreview(name: 'Alert - Dark', group: 'Alert', brightness: .dark)
 Widget previewFlowbiteAlert() {
   return SizedBox(
     width: 360.0,
     child: Column(
       spacing: 12.0,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: .min,
       children: [
         // type=normal
         Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: .min,
           spacing: 6.0,
           children: FlowbiteAlertColor.values
               .map(
@@ -402,7 +389,7 @@ Widget previewFlowbiteAlert() {
         ),
         // type=complex
         Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: .min,
           spacing: 6.0,
           children: FlowbiteAlertColor.values
               .map(
@@ -420,7 +407,7 @@ Widget previewFlowbiteAlert() {
         ),
         // type=small
         Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: .min,
           spacing: 6.0,
           children: FlowbiteAlertColor.values
               .map(
@@ -436,7 +423,7 @@ Widget previewFlowbiteAlert() {
         ),
         // type=borderTop
         Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: .min,
           spacing: 6.0,
           children: FlowbiteAlertColor.values
               .map(
