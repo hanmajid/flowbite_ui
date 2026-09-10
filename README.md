@@ -40,8 +40,8 @@ MaterialApp(
 
 Illustrations:
 
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/accordion-light.png" />
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/accordion-dark.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/accordion-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/accordion-dark.png" width="300" />
 
 Usage example:
 
@@ -196,8 +196,8 @@ FlowbiteAvatarGroup(
 
 Illustrations:
 
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-group-label-light.png" />
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-group-label-dark.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-group-label-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/avatar-group-label-dark.png" width="300" />
 
 Usage example:
 
@@ -287,8 +287,8 @@ FlowbiteBadge.textOnly(
 
 Illustrations:
 
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-light.png" />
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-dark.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-dark.png" width="300" />
 
 Usage example:
 
@@ -334,8 +334,8 @@ FlowbiteOutlinedButton.iconOnly(
 
 Illustrations:
 
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-group-light.png" />
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-group-dark.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-group-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-group-dark.png" width="300" />
 
 Usage example:
 
