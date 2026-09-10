@@ -43,7 +43,7 @@ final class FlowbitePreviewThemeData extends PreviewThemeData {
   Widget apply(BuildContext context, Widget child) => Theme(
     data: isDark ? FlowbiteTheme.dark : FlowbiteTheme.light,
     child: Container(
-      padding: const EdgeInsets.all(6.0),
+      padding: const .all(6.0),
       color: isDark
           ? FlowbiteColors.bgNeutralPrimaryDark
           : FlowbiteColors.bgNeutralPrimary,

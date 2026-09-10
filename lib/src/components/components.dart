@@ -18,6 +18,7 @@ export 'flowbite_avatar_group.dart';
 export 'flowbite_avatar_group_label.dart';
 export 'flowbite_badge.dart';
 export 'flowbite_button.dart';
+export 'flowbite_button_group.dart';
 export 'flowbite_icon_shape.dart';
 export 'flowbite_input_field.dart';
 export 'flowbite_input_label.dart';

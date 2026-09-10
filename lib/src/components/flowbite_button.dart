@@ -331,30 +331,15 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
     late EdgeInsetsGeometry finalPadding;
     switch (size) {
       case .xs:
-        finalPadding = const EdgeInsets.symmetric(
-          horizontal: 12.0,
-          vertical: 6.0,
-        );
+        finalPadding = const .symmetric(horizontal: 12.0, vertical: 6.0);
       case .sm:
-        finalPadding = const EdgeInsets.symmetric(
-          horizontal: 12.0,
-          vertical: 8.0,
-        );
+        finalPadding = const .symmetric(horizontal: 12.0, vertical: 8.0);
       case .base:
-        finalPadding = const EdgeInsets.symmetric(
-          horizontal: 16.0,
-          vertical: 10.0,
-        );
+        finalPadding = const .symmetric(horizontal: 16.0, vertical: 10.0);
       case .lg:
-        finalPadding = const EdgeInsets.symmetric(
-          horizontal: 20.0,
-          vertical: 12.0,
-        );
+        finalPadding = const .symmetric(horizontal: 20.0, vertical: 12.0);
       case .xl:
-        finalPadding = const EdgeInsets.symmetric(
-          horizontal: 24.0,
-          vertical: 14.0,
-        );
+        finalPadding = const .symmetric(horizontal: 24.0, vertical: 14.0);
     }
     return WidgetStatePropertyAll<EdgeInsetsGeometry>(finalPadding);
   }

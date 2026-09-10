@@ -3,6 +3,7 @@ import 'package:example/avatar_group_label_section.dart';
 import 'package:example/avatar_group_section.dart';
 import 'package:example/avatar_section.dart';
 import 'package:example/badge_section.dart';
+import 'package:example/button_group_section.dart';
 import 'package:example/button_section.dart';
 import 'package:example/color_section.dart';
 import 'package:example/icon_shape_section.dart';
@@ -27,7 +28,7 @@ class MainApp extends StatelessWidget {
       darkTheme: FlowbiteTheme.dark,
       home: Scaffold(
         body: SingleChildScrollView(
-          padding: const EdgeInsets.all(16.0),
+          padding: const .all(16.0),
           child: Column(
             spacing: 24.0,
             children: [
@@ -37,6 +38,7 @@ class MainApp extends StatelessWidget {
               AvatarGroupSection(),
               BadgeSection(),
               ButtonSection(),
+              ButtonGroupSection(),
               IconShapeSection(),
               InputFieldSection(),
               SpinnerSection(),

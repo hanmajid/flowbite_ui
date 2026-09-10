@@ -615,7 +615,7 @@ class ColorSection extends StatelessWidget {
           color: isDark ? Color(0xFF333E4F) : FlowbiteColors.gray.shade200,
         ),
       ),
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
+      padding: const .symmetric(vertical: 8.0, horizontal: 10.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

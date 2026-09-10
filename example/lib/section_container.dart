@@ -34,7 +34,7 @@ class _SectionContainerState extends State<SectionContainer> {
                       .bgNeutralPrimary,
               borderRadius: .circular(12.0),
             ),
-            padding: const EdgeInsets.all(12.0),
+            padding: const .all(12.0),
             child: widget.child,
           ),
         ),

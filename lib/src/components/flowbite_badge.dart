@@ -18,7 +18,17 @@ import 'package:flutter/material.dart';
 
 enum FlowbiteBadgeTheme { gray, white, brand, danger, warning, success }
 
-enum FlowbiteBadgeSize { sm, lg }
+/// [FlowbiteBadge]'s size enum.
+enum FlowbiteBadgeSize {
+  /// Extra small size variant (used by [FlowbiteButtonGroup]).
+  xs,
+
+  /// Small size variant.
+  sm,
+
+  /// Large size variant.
+  lg,
+}
 
 class FlowbiteBadge extends StatelessWidget {
   const FlowbiteBadge({
@@ -41,11 +51,13 @@ class FlowbiteBadge extends StatelessWidget {
       FlowbiteTheme.lightThemeColors;
 
   double get _height => switch (size) {
+    .xs => 16.0,
     .sm => 20.0,
     .lg => 24.0,
   };
 
   double get _horizontalPadding => switch (size) {
+    .xs => 4.0,
     .sm => 4.0,
     .lg => 6.0,
   };
@@ -75,25 +87,30 @@ class FlowbiteBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BorderRadius borderRadius = .circular(isCircle ? 9999.0 : 6.0);
-    return Material(
-      color: _getBackgroundColor(context),
-      borderRadius: borderRadius,
-      child: InkWell(
-        onTap: onTap,
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Material(
+        color: _getBackgroundColor(context),
         borderRadius: borderRadius,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: borderRadius,
-            border: .all(
-              color: _getBorderColor(context),
-              strokeAlign: BorderSide.strokeAlignOutside,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: borderRadius,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: borderRadius,
+              border: .all(
+                color: _getBorderColor(context),
+                strokeAlign: BorderSide.strokeAlignOutside,
+              ),
             ),
+            height: _height,
+            width: isCircle ? _height : null,
+            alignment: .center,
+            padding: isCircle
+                ? null
+                : .symmetric(horizontal: _horizontalPadding),
+            child: child,
           ),
-          height: _height,
-          width: isCircle ? _height : null,
-          alignment: .center,
-          padding: isCircle ? null : .symmetric(horizontal: _horizontalPadding),
-          child: child,
         ),
       ),
     );
@@ -108,10 +125,12 @@ class FlowbiteBadge extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     double iconSize = switch (size) {
+      .xs => 12.0,
       .sm => 12.0,
       .lg => 14.0,
     };
     double horizontalSpacing = switch (size) {
+      .xs => 4.0,
       .sm => 4.0,
       .lg => 6.0,
     };
@@ -147,10 +166,12 @@ class FlowbiteBadge extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     double iconSize = switch (size) {
+      .xs => 12.0,
       .sm => 12.0,
       .lg => 14.0,
     };
     double horizontalSpacing = switch (size) {
+      .xs => 4.0,
       .sm => 4.0,
       .lg => 6.0,
     };
@@ -182,10 +203,12 @@ class FlowbiteBadge extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     double iconSize = switch (size) {
+      .xs => 12.0,
       .sm => 12.0,
       .lg => 14.0,
     };
     double horizontalSpacing = switch (size) {
+      .xs => 4.0,
       .sm => 4.0,
       .lg => 6.0,
     };
@@ -221,10 +244,12 @@ class FlowbiteBadge extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     double iconSize = switch (size) {
+      .xs => 12.0,
       .sm => 12.0,
       .lg => 14.0,
     };
     double horizontalSpacing = switch (size) {
+      .xs => 4.0,
       .sm => 4.0,
       .lg => 6.0,
     };
@@ -255,6 +280,7 @@ class FlowbiteBadge extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     double iconSize = switch (size) {
+      .xs => 12.0,
       .sm => 12.0,
       .lg => 14.0,
     };
@@ -402,16 +428,19 @@ class _FlowbiteBadgeText extends StatelessWidget {
   }
 
   FlowbiteFontSize get _fontSize => switch (size) {
+    .xs => .textXs,
     .sm => .textXs,
     .lg => .textSm,
   };
 
   FlowbiteFontWeight get _secondaryFontWeight => switch (size) {
+    .xs => .normal,
     .sm => .normal,
     .lg => .medium,
   };
 
   double get _horizontalSpacing => switch (size) {
+    .xs => 6.0,
     .sm => 6.0,
     .lg => 8.0,
   };

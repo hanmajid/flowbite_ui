@@ -180,7 +180,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
             icon: widget.labelIcon,
           ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: _horizontalPadding),
+          padding: .symmetric(horizontal: _horizontalPadding),
           alignment: .center,
           height: _containerHeight,
           decoration: BoxDecoration(

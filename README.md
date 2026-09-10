@@ -20,6 +20,8 @@ dependencies:
 Before using the components below, make sure that `theme` and `darkTheme` are set properly in your app:
 
 ```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
 MaterialApp(
   theme: FlowbiteTheme.light, // Set light theme
   darkTheme: FlowbiteTheme.dark, // Set dark theme
@@ -277,6 +279,37 @@ FlowbiteOutlinedButton.iconOnly(
   icon: Icon(FlowbiteOutlineIcons.heart),
   color: FlowbiteOutlinedButtonColor.success, // default
   size: FlowbiteButtonSize.base, // default
+)
+```
+
+### Button Group
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-group-light.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/button-group-dark.png" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+FlowbiteButtonGroup(
+  color: .white,
+  size: .sm,
+  items: [
+    FlowbiteButtonGroupItem(
+      text: 'Messages',
+      icon: FlowbiteOutlineIcons.envelope,
+      badge: FlowbiteBadge.textOnly(text: '1', theme: .danger, size: .xs),
+      onTap: () {},
+    ),
+    FlowbiteButtonGroupItem(
+      icon: FlowbiteOutlineIcons.angle_down,
+      onTap: () {},
+    ),
+  ],
 )
 ```
 
