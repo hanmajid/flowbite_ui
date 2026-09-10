@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+export 'flowbite_accordion.dart';
 export 'flowbite_alert.dart';
 export 'flowbite_avatar.dart';
 export 'flowbite_avatar_group.dart';

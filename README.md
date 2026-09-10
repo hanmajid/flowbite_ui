@@ -36,6 +36,54 @@ MaterialApp(
 
 ### Components
 
+### Accordion
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/accordion-light.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/accordion-dark.png" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+FlowbiteAccordion(
+  breakpoint: .desktop, // default
+  style: .normal, // default
+  items: [
+    FlowbiteAccordionItem(
+      icon: FlowbiteOutlineIcons.question_mark,
+      header: 'Can I use Flowbite in open-source projects?',
+      initiallyExpanded: true,
+      child: Text('Content'),
+      subitems: [
+        FlowbiteAccordionItem(
+          header: 'How to install Flowbite for my Next.js project?',
+          child: Text('Content'),
+        ),
+        FlowbiteAccordionItem(
+          header: 'How to install Flowbite for my React project?',
+          initiallyExpanded: true,
+          child: Text('Content'),
+        ),
+      ],
+    ),
+    FlowbiteAccordionItem(
+      icon: FlowbiteOutlineIcons.question_mark,
+      header: 'Can I contribute to the Flowbite project?',
+      child: Text('Content'),
+    ),
+    FlowbiteAccordionItem(
+      icon: FlowbiteOutlineIcons.question_mark,
+      header: 'What are the main features of Flowbite?',
+      child: Text('Content'),
+    ),
+  ],
+)
+```
+
 ### Alert
 
 Illustrations:
@@ -296,8 +344,8 @@ import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flowbite_icons/flowbite_icons.dart';
 
 FlowbiteButtonGroup(
-  color: .white,
-  size: .sm,
+  color: .gray, // default
+  size: .base, // default
   items: [
     FlowbiteButtonGroupItem(
       text: 'Messages',
