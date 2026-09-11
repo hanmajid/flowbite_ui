@@ -495,6 +495,54 @@ FlowbiteBottomNavigation(
 ```
 
 
+### Breadcrumb
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/breadcrumb-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/breadcrumb-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+FlowbiteBreadcrumb(
+  items: [
+    FlowbiteBreadcrumbItemWidget(
+      item: FlowbiteBreadcrumbItem(label: 'flowbite.com'),
+      onTap: () {},
+    ),
+    FlowbiteBreadcrumbItemWidget(
+      item: FlowbiteBreadcrumbItem(label: 'develop'),
+      onTap: () {},
+    ),
+    FlowbiteBreadcrumbItemWidget(
+      item: FlowbiteBreadcrumbItem(
+        label: 'Issue #312',
+        showSeparatorIcon: false,
+      ),
+      onTap: () {},
+    ),
+    FlowbiteBadge.textOnly(
+      text: 'docs',
+      size: .sm,
+      theme: .brand,
+      isCircle: false,
+    ),
+    FlowbiteButton.icon(
+      onPressed: () {},
+      label: const Text('Fix #6597'),
+      leadingIcon: const Icon(FlowbiteOutlineIcons.code_branch),
+      trailingIcon: const Icon(FlowbiteOutlineIcons.angle_down),
+      color: .secondary,
+      size: .xs,
+    ),
+  ],
+)
+```
+
 ### Icon Shape
 
 Illustrations:

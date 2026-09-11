@@ -301,12 +301,13 @@ class FlowbiteBadge extends StatelessWidget {
     FlowbiteBadgeTheme theme = .brand,
     FlowbiteBadgeSize size = .sm,
     VoidCallback? onTap,
+    bool isCircle = true,
   }) {
     return FlowbiteBadge(
       theme: theme,
       size: size,
       onTap: onTap,
-      isCircle: true,
+      isCircle: isCircle,
       child: _FlowbiteBadgeText(
         text: text,
         size: size,

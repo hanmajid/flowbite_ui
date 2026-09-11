@@ -23,6 +23,7 @@ export 'flowbite_avatar_group.dart';
 export 'flowbite_avatar_group_label.dart';
 export 'flowbite_badge.dart';
 export 'flowbite_bottom_navigation.dart';
+export 'flowbite_breadcrumb.dart';
 export 'flowbite_button.dart';
 export 'flowbite_button_group.dart';
 export 'flowbite_icon_shape.dart';

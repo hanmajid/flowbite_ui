@@ -19,7 +19,6 @@
 import 'package:collection/collection.dart';
 import 'package:flowbite_icons/flowbite_outline_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flowbite_ui/src/components/flowbite_toggle_input.dart';
 import 'package:material_ui/material_ui.dart';
 
 /// [FlowbiteBottomNavigation]'s item model.
