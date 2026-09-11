@@ -1,6 +1,6 @@
 import 'package:example/section_container.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class AvatarSection extends StatelessWidget {
   const AvatarSection({super.key});

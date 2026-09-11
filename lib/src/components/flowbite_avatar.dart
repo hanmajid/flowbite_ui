@@ -14,7 +14,7 @@
 
 import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteAvatarDefaultAssets {
   bonnieGreen('assets/images/avatar-bonnie-green.png'),
@@ -62,8 +62,7 @@ class FlowbiteAvatar extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   double get _size => switch (size) {
     .xs => 18.0,
@@ -196,8 +195,7 @@ class _FlowbiteAvatarDot extends StatelessWidget {
   const new({this.size = .base, this.status = .alternative});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   double get _size => switch (size) {
     .xs => 6.0,
@@ -237,8 +235,7 @@ class _FlowbiteAvatarRemoveButton extends StatelessWidget {
   const new({this.size = .base, this.onTap});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   double get _size => switch (size) {
     .xs => 12.0,

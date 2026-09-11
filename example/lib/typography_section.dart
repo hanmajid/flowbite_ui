@@ -1,5 +1,5 @@
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class TypographySection extends StatelessWidget {
   const TypographySection({super.key});

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:web/web.dart' as web;
 import 'package:widgets_to_image/widgets_to_image.dart';
 
@@ -28,10 +28,7 @@ class _SectionContainerState extends State<SectionContainer> {
           controller: controller,
           child: Container(
             decoration: BoxDecoration(
-              color:
-                  (Theme.of(context).extension<FlowbiteColorsExtension>() ??
-                          FlowbiteTheme.lightThemeColors)
-                      .bgNeutralPrimary,
+              color: FlowbiteTheme.extension(context).bgNeutralPrimary,
               borderRadius: .circular(12.0),
             ),
             padding: const .all(12.0),

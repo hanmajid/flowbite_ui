@@ -12,7 +12,7 @@ import 'package:example/section_container.dart';
 import 'package:example/spinner_section.dart';
 import 'package:example/typography_section.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   runApp(const MainApp());

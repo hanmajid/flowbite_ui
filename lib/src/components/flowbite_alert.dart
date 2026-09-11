@@ -14,7 +14,7 @@
 
 import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteAlertColor { success, danger, warning, info, normal }
 
@@ -41,8 +41,7 @@ class FlowbiteAlert extends StatelessWidget {
   final VoidCallback? onTap;
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   Color _getTextColor(BuildContext context) {
     return switch (color) {
@@ -320,8 +319,7 @@ class _FlowbiteAlertBadge extends StatelessWidget {
   const new({required this.text, required this.color});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   Color _getTextColor(BuildContext context) {
     return switch (color) {

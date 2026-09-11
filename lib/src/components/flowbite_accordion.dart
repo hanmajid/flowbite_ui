@@ -15,7 +15,7 @@
 import 'package:collection/collection.dart';
 import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// [FlowbiteAccordion]'s breakpoint variant.
 enum FlowbiteAccordionBreakpoint {
@@ -111,8 +111,7 @@ class FlowbiteAccordion extends StatelessWidget {
     super.key,
   });
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   double get _verticalSpacing => switch (style) {
     .separateCards => 16.0,
@@ -190,8 +189,7 @@ class _FlowbiteAccordionItemWidget extends StatefulWidget {
 class _FlowbiteAccordionItemWidgetState
     extends State<_FlowbiteAccordionItemWidget> {
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   bool get _isMobile => widget.breakpoint == .mobile;
 
@@ -516,8 +514,7 @@ class _FlowbiteAccordionItemWidgetState
 
 class _DefaultFlowbiteAccordionContent extends StatelessWidget {
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   @override
   Widget build(BuildContext context) {

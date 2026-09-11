@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteSpinnerSize { xs, small, medium, base, large }
 
@@ -34,8 +34,7 @@ class FlowbiteSpinner extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   double get _size => switch (size) {
     .xs => 12.0,

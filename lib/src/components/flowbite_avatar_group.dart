@@ -14,7 +14,7 @@
 
 import 'package:collection/collection.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteAvatarGroupSize { sm, base, lg }
 
@@ -31,8 +31,7 @@ class FlowbiteAvatarGroup extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   FlowbiteAvatarSize get _avatarSize => switch (size) {
     .sm => .sm,

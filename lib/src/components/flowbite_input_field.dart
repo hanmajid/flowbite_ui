@@ -14,7 +14,7 @@
 
 import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteInputFieldSize { sm, base, lg, xl }
 
@@ -22,6 +22,7 @@ class FlowbiteInputField extends StatefulWidget {
   final FlowbiteInputFieldSize size;
   final bool enabled;
   final bool readOnly;
+  final bool obscureText;
   final IconData? icon;
   final VoidCallback? onTapClear;
   final TextEditingController? controller;
@@ -32,11 +33,13 @@ class FlowbiteInputField extends StatefulWidget {
   final IconData? labelIcon;
   final String? helperText;
   final String? hintText;
+  final bool showClearIcon;
 
   const FlowbiteInputField({
     this.size = .base,
     this.enabled = true,
     this.readOnly = false,
+    this.obscureText = false,
     this.icon,
     this.onTapClear,
     this.controller,
@@ -47,6 +50,7 @@ class FlowbiteInputField extends StatefulWidget {
     this.labelIcon,
     this.helperText,
     this.hintText,
+    this.showClearIcon = true,
     super.key,
   });
 
@@ -76,8 +80,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
   }
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   double get _iconSize => switch (widget.size) {
     .sm => 16.0,
@@ -216,6 +219,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                   cursorColor: _getCursorColor(context),
                   enabled: widget.enabled,
                   readOnly: widget.readOnly,
+                  obscureText: widget.obscureText,
                   style: FlowbiteFontFamily.inter(
                     fontSize: _fontSize,
                     fontWeight: .normal,
@@ -223,16 +227,17 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                   ),
                 ),
               ),
-              InkWell(
-                onTap: widget.enabled && !widget.readOnly
-                    ? widget.onTapClear
-                    : null,
-                child: Icon(
-                  FlowbiteOutlineIcons.x,
-                  size: _iconSize,
-                  color: _getIconColor(context),
+              if (widget.showClearIcon)
+                InkWell(
+                  onTap: widget.enabled && !widget.readOnly
+                      ? widget.onTapClear
+                      : null,
+                  child: Icon(
+                    FlowbiteOutlineIcons.x,
+                    size: _iconSize,
+                    color: _getIconColor(context),
+                  ),
                 ),
-              ),
             ],
           ),
         ),

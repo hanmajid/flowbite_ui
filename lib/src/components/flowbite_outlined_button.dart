@@ -14,7 +14,7 @@
 
 import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteOutlinedButtonColor { success, danger, warning }
 
@@ -142,9 +142,9 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   final bool isIconOnly;
   final BuildContext context;
   late final ColorScheme _colors = Theme.of(context).colorScheme;
-  late final FlowbiteColorsExtension _colorsExtension =
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+  late final FlowbiteColorsExtension _colorsExtension = FlowbiteTheme.extension(
+    context,
+  );
 
   @override
   WidgetStatePropertyAll<TextStyle?> get textStyle {

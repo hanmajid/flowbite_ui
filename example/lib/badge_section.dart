@@ -1,7 +1,7 @@
 import 'package:example/section_container.dart';
 import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class BadgeSection extends StatelessWidget {
   const BadgeSection({super.key});

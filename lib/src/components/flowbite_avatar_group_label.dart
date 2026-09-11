@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteAvatarGroupLabelSize { sm, base, lg, xl }
 
@@ -69,8 +69,7 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
   };
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   @override
   Widget build(BuildContext context) {

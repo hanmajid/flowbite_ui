@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class FlowbiteTheme {
   static final light = ThemeData.light().copyWith(
@@ -205,4 +205,9 @@ class FlowbiteTheme {
     borderOrange: FlowbiteColors.borderOrangeDark,
     borderDarkSubtle: FlowbiteColors.borderDarkSubtleDark,
   );
+
+  /// Static helper method for getting [FlowbiteColorsExtension] instance.
+  static FlowbiteColorsExtension extension(BuildContext context) =>
+      Theme.of(context).extension<FlowbiteColorsExtension>() ??
+      FlowbiteTheme.lightThemeColors;
 }

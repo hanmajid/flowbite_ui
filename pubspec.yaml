@@ -17,6 +17,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  material_ui: any
 dev_dependencies:
   dot_shorthand_converter: ^0.0.4
   flutter_lints: ^6.0.0

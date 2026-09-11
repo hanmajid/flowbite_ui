@@ -15,7 +15,7 @@
 import 'package:collection/collection.dart';
 import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// [FlowbiteButtonGroup]'s color enum.
 enum FlowbiteButtonGroupColor {
@@ -168,8 +168,7 @@ class _FlowbiteButtonGroupSegmentState
   bool _isHovered = false;
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   double get _height => switch (widget.size) {
     .xs => 32.0,

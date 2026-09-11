@@ -14,7 +14,7 @@
 
 import 'package:flowbite_icons/flowbite_outline_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteIconShapeSize { xl2, xl, lg, base, sm, xs }
 
@@ -59,8 +59,7 @@ class FlowbiteIconShape extends StatelessWidget {
   };
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   Color _getIconColor(BuildContext context) {
     return switch (color) {

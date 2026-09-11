@@ -14,7 +14,7 @@
 
 import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteBadgeTheme { gray, white, brand, danger, warning, success }
 
@@ -47,8 +47,7 @@ class FlowbiteBadge extends StatelessWidget {
   final bool isCircle;
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   double get _height => switch (size) {
     .xs => 16.0,
@@ -320,8 +319,7 @@ class _FlowbiteBadgeDot extends StatelessWidget {
   const new({required this.theme});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   Color _getColor(BuildContext context) {
     return switch (theme) {
@@ -355,8 +353,7 @@ class _FlowbiteBadgeIcon extends StatelessWidget {
   const new({required this.icon, required this.size, required this.theme});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   Color _getColor(BuildContext context) {
     return switch (theme) {
@@ -391,8 +388,7 @@ class _FlowbiteBadgeText extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      Theme.of(context).extension<FlowbiteColorsExtension>() ??
-      FlowbiteTheme.lightThemeColors;
+      FlowbiteTheme.extension(context);
 
   Color _getTextColor(BuildContext context) {
     return switch (theme) {
