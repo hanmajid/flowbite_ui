@@ -13,7 +13,7 @@
 // limitations under the License.
 //
 // This file contains code adapted and ported from the open-source
-// Flowbite library (Copyright (c) Bergside Srl), which is licensed
+// Flowbite library (Copyright (c) Bergside Inc.), which is licensed
 // under the MIT License.
 
 export 'flowbite_accordion.dart';

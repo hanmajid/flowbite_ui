@@ -601,6 +601,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 This repository contains code adapted and ported from the open-source
-Flowbite library (Copyright (c) Bergside Srl), which is licensed
+Flowbite library (Copyright (c) Bergside Inc.), which is licensed
 under the MIT License.
 ```
