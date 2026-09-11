@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `FlowbiteTheme.extension` static method.
 - Add `FlowbiteBottomNavigation` component.
 - Add `FlowbiteToggleInput` component (Advanced type).
+- Add `FlowbiteJumbotron` component.
 
 ### Changed
 - Migrate to `material_ui`.

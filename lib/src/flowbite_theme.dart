@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// This file contains code adapted and ported from the open-source 
-// Flowbite library (Copyright (c) Bergside Srl), which is licensed 
+// This file contains code adapted and ported from the open-source
+// Flowbite library (Copyright (c) Bergside Srl), which is licensed
 // under the MIT License.
 
 import 'package:flowbite_ui/flowbite_ui.dart';
@@ -90,6 +90,7 @@ class FlowbiteTheme {
     bgFuschia: FlowbiteColors.bgFuschia,
     bgIndigo: FlowbiteColors.bgIndigo,
     bgOrange: FlowbiteColors.bgOrange,
+    bgVariantsGray: FlowbiteColors.bgVariantsGray,
     borderDark: FlowbiteColors.borderDark,
     borderBuffer: FlowbiteColors.borderBuffer,
     borderBufferMedium: FlowbiteColors.borderBufferMedium,
@@ -184,6 +185,7 @@ class FlowbiteTheme {
     bgFuschia: FlowbiteColors.bgFuschiaDark,
     bgIndigo: FlowbiteColors.bgIndigoDark,
     bgOrange: FlowbiteColors.bgOrangeDark,
+    bgVariantsGray: FlowbiteColors.bgVariantsGrayDark,
     borderDark: FlowbiteColors.borderDark,
     borderBuffer: FlowbiteColors.borderBufferDark,
     borderBufferMedium: FlowbiteColors.borderBufferMediumDark,

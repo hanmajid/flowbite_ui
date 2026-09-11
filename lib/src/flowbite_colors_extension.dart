@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// This file contains code adapted and ported from the open-source 
-// Flowbite library (Copyright (c) Bergside Srl), which is licensed 
+// This file contains code adapted and ported from the open-source
+// Flowbite library (Copyright (c) Bergside Srl), which is licensed
 // under the MIT License.
 
 import 'package:material_ui/material_ui.dart';
@@ -85,6 +85,7 @@ class FlowbiteColorsExtension extends ThemeExtension<FlowbiteColorsExtension> {
     required this.bgFuschia,
     required this.bgIndigo,
     required this.bgOrange,
+    required this.bgVariantsGray,
     required this.borderDark,
     required this.borderBuffer,
     required this.borderBufferMedium,
@@ -179,6 +180,7 @@ class FlowbiteColorsExtension extends ThemeExtension<FlowbiteColorsExtension> {
   final Color bgFuschia;
   final Color bgIndigo;
   final Color bgOrange;
+  final Color bgVariantsGray;
 
   // Border color variables.
   final Color borderDark;
@@ -273,6 +275,7 @@ class FlowbiteColorsExtension extends ThemeExtension<FlowbiteColorsExtension> {
     Color? bgFuschia,
     Color? bgIndigo,
     Color? bgOrange,
+    Color? bgVariantsGray,
     Color? borderDark,
     Color? borderBuffer,
     Color? borderBufferMedium,
@@ -372,6 +375,7 @@ class FlowbiteColorsExtension extends ThemeExtension<FlowbiteColorsExtension> {
       bgFuschia: bgFuschia ?? this.bgFuschia,
       bgIndigo: bgIndigo ?? this.bgIndigo,
       bgOrange: bgOrange ?? this.bgOrange,
+      bgVariantsGray: bgVariantsGray ?? this.bgVariantsGray,
       borderDark: borderDark ?? this.borderDark,
       borderBuffer: borderBuffer ?? this.borderBuffer,
       borderBufferMedium: borderBufferMedium ?? this.borderBufferMedium,
@@ -546,6 +550,7 @@ class FlowbiteColorsExtension extends ThemeExtension<FlowbiteColorsExtension> {
       bgFuschia: Color.lerp(bgFuschia, other.bgFuschia, t)!,
       bgIndigo: Color.lerp(bgIndigo, other.bgIndigo, t)!,
       bgOrange: Color.lerp(bgOrange, other.bgOrange, t)!,
+      bgVariantsGray: Color.lerp(bgVariantsGray, other.bgVariantsGray, t)!,
       borderDark: Color.lerp(borderDark, other.borderDark, t)!,
       borderBuffer: Color.lerp(borderBuffer, other.borderBuffer, t)!,
       borderBufferMedium: Color.lerp(

@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// This file contains code adapted and ported from the open-source 
-// Flowbite library (Copyright (c) Bergside Srl), which is licensed 
+// This file contains code adapted and ported from the open-source
+// Flowbite library (Copyright (c) Bergside Srl), which is licensed
 // under the MIT License.
 
 import 'package:flowbite_icons/flowbite_icons.dart';
@@ -175,86 +175,95 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 10.0,
-      crossAxisAlignment: .start,
-      mainAxisSize: .min,
-      children: [
-        if (widget.label != null)
-          FlowbiteInputLabel(
-            label: widget.label!,
-            isRequired: widget.isRequired,
-            icon: widget.labelIcon,
-          ),
-        Container(
-          padding: .symmetric(horizontal: _horizontalPadding),
-          alignment: .center,
-          height: _containerHeight,
-          decoration: BoxDecoration(
-            color: _getBackgroundColor(context),
-            borderRadius: .circular(12.0),
-            border: .all(color: _getBorderColor(context)),
-          ),
-          child: Row(
-            spacing: 8.0,
-            children: [
-              if (widget.icon != null)
-                Icon(
-                  widget.icon,
-                  size: _iconSize,
-                  color: _getIconColor(context),
-                ),
-              Flexible(
-                child: TextField(
-                  controller: widget.controller,
-                  focusNode: _focusNode,
-                  decoration: InputDecoration(
-                    isDense: true,
-                    hintText: widget.hintText,
-                    hintStyle: FlowbiteFontFamily.inter(
-                      fontSize: _fontSize,
-                      fontWeight: .normal,
-                      color: widget.enabled
-                          ? _colorExt(context).textBodySubtle
-                          : _colorExt(context).textFgDisabled,
+    return Material(
+      child: Localizations(
+        locale: const Locale('en'),
+        delegates: const [
+          DefaultWidgetsLocalizations.delegate,
+          DefaultMaterialLocalizations.delegate,
+        ],
+        child: Column(
+          spacing: 10.0,
+          crossAxisAlignment: .start,
+          mainAxisSize: .min,
+          children: [
+            if (widget.label != null)
+              FlowbiteInputLabel(
+                label: widget.label!,
+                isRequired: widget.isRequired,
+                icon: widget.labelIcon,
+              ),
+            Container(
+              padding: .symmetric(horizontal: _horizontalPadding),
+              alignment: .center,
+              height: _containerHeight,
+              decoration: BoxDecoration(
+                color: _getBackgroundColor(context),
+                borderRadius: .circular(12.0),
+                border: .all(color: _getBorderColor(context)),
+              ),
+              child: Row(
+                spacing: 8.0,
+                children: [
+                  if (widget.icon != null)
+                    Icon(
+                      widget.icon,
+                      size: _iconSize,
+                      color: _getIconColor(context),
                     ),
-                    border: InputBorder.none,
+                  Flexible(
+                    child: TextField(
+                      controller: widget.controller,
+                      focusNode: _focusNode,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        hintText: widget.hintText,
+                        hintStyle: FlowbiteFontFamily.inter(
+                          fontSize: _fontSize,
+                          fontWeight: .normal,
+                          color: widget.enabled
+                              ? _colorExt(context).textBodySubtle
+                              : _colorExt(context).textFgDisabled,
+                        ),
+                        border: InputBorder.none,
+                      ),
+                      cursorColor: _getCursorColor(context),
+                      enabled: widget.enabled,
+                      readOnly: widget.readOnly,
+                      obscureText: widget.obscureText,
+                      style: FlowbiteFontFamily.inter(
+                        fontSize: _fontSize,
+                        fontWeight: .normal,
+                        color: _getTextColor(context),
+                      ),
+                    ),
                   ),
-                  cursorColor: _getCursorColor(context),
-                  enabled: widget.enabled,
-                  readOnly: widget.readOnly,
-                  obscureText: widget.obscureText,
-                  style: FlowbiteFontFamily.inter(
-                    fontSize: _fontSize,
-                    fontWeight: .normal,
-                    color: _getTextColor(context),
-                  ),
+                  if (widget.showClearIcon)
+                    InkWell(
+                      onTap: widget.enabled && !widget.readOnly
+                          ? widget.onTapClear
+                          : null,
+                      child: Icon(
+                        FlowbiteOutlineIcons.x,
+                        size: _iconSize,
+                        color: _getIconColor(context),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            if (widget.helperText != null)
+              Text(
+                widget.helperText!,
+                style: FlowbiteFontFamily.inter(
+                  fontSize: .textXs,
+                  fontWeight: .normal,
+                  color: _colorExt(context).textBody,
                 ),
               ),
-              if (widget.showClearIcon)
-                InkWell(
-                  onTap: widget.enabled && !widget.readOnly
-                      ? widget.onTapClear
-                      : null,
-                  child: Icon(
-                    FlowbiteOutlineIcons.x,
-                    size: _iconSize,
-                    color: _getIconColor(context),
-                  ),
-                ),
-            ],
-          ),
+          ],
         ),
-        if (widget.helperText != null)
-          Text(
-            widget.helperText!,
-            style: FlowbiteFontFamily.inter(
-              fontSize: .textXs,
-              fontWeight: .normal,
-              color: _colorExt(context).textBody,
-            ),
-          ),
-      ],
+      ),
     );
   }
 }

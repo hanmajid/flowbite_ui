@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// This file contains code adapted and ported from the open-source 
-// Flowbite library (Copyright (c) Bergside Srl), which is licensed 
+// This file contains code adapted and ported from the open-source
+// Flowbite library (Copyright (c) Bergside Srl), which is licensed
 // under the MIT License.
 
 import 'package:flowbite_icons/flowbite_outline_icons.dart';
@@ -157,8 +157,9 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   final bool isIconOnly;
   final BuildContext context;
   late final ColorScheme _colors = Theme.of(context).colorScheme;
-  late final FlowbiteColorsExtension _colorsExtension =
-      FlowbiteTheme.extension(context);
+  late final FlowbiteColorsExtension _colorsExtension = FlowbiteTheme.extension(
+    context,
+  );
 
   @override
   WidgetStatePropertyAll<TextStyle?> get textStyle {

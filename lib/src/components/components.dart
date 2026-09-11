@@ -28,6 +28,7 @@ export 'flowbite_button_group.dart';
 export 'flowbite_icon_shape.dart';
 export 'flowbite_input_field.dart';
 export 'flowbite_input_label.dart';
+export 'flowbite_jumbotron.dart';
 export 'flowbite_outlined_button.dart';
 export 'flowbite_spinner.dart';
 export 'flowbite_toggle_input.dart';

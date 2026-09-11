@@ -516,6 +516,45 @@ FlowbiteIconShape(
 )
 ```
 
+### Jumbotron
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/jumbotron-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/jumbotron-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+FlowbiteJumbotron(
+  breakpoint: FlowbiteJumbotronBreakpoint.desktop, // default
+  title: "We invest in the world's potential",
+  subtitle: '''Here at flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.''',
+  actions: Row(
+    mainAxisSize: .min,
+    spacing: 6.0,
+    mainAxisAlignment: .center,
+    children: [
+      FlowbiteButton.icon(
+        onPressed: () {},
+        label: const Text('Get started'),
+        trailingIcon: const Icon(FlowbiteOutlineIcons.arrow_right),
+        size: .lg,
+      ),
+      FlowbiteButton.icon(
+        onPressed: () {},
+        label: const Text('Learn more'),
+        color: .secondary,
+        size: .lg,
+      ),
+    ],
+  ),
+)
+```
+
 ### Spinner
 
 Illustrations:
@@ -560,4 +599,8 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+This repository contains code adapted and ported from the open-source
+Flowbite library (Copyright (c) Bergside Srl), which is licensed
+under the MIT License.
 ```

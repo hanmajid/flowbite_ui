@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-// This file contains code adapted and ported from the open-source 
-// Flowbite library (Copyright (c) Bergside Srl), which is licensed 
+// This file contains code adapted and ported from the open-source
+// Flowbite library (Copyright (c) Bergside Srl), which is licensed
 // under the MIT License.
 
 import 'package:flutter/widgets.dart';
@@ -563,6 +563,7 @@ abstract final class FlowbiteColors {
   static Color bgFuschia = fuschia.shade600;
   static Color bgIndigo = indigo.shade600;
   static Color bgOrange = orange.shade400;
+  static Color bgVariantsGray = gray.shade100;
 
   /// 2. Dark mode.
   static Color bgNeutralPrimarySoftDark = gray.shade900;
@@ -607,6 +608,7 @@ abstract final class FlowbiteColors {
   static Color bgFuschiaDark = fuschia.shade500;
   static Color bgIndigoDark = indigo.shade500;
   static Color bgOrangeDark = orange.shade400;
+  static Color bgVariantsGrayDark = gray.shade950;
 
   /// Border color variables.
   /// 1. Light mode.

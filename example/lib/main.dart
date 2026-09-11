@@ -34,6 +34,10 @@ class MainApp extends StatelessWidget {
             spacing: 24.0,
             children: [
               SectionContainer(
+                fileName: 'jumbotron',
+                child: PreviewFlowbiteJumbotron(),
+              ),
+              SectionContainer(
                 fileName: 'accordion',
                 child: PreviewFlowbiteAccordion(),
               ),
