@@ -37,6 +37,14 @@ class MainApp extends StatelessWidget {
                 fileName: 'accordion',
                 child: PreviewFlowbiteAccordion(),
               ),
+              SectionContainer(
+                fileName: 'bottom-navigation',
+                child: PreviewFlowbiteBottomNavigation(),
+              ),
+              SectionContainer(
+                fileName: 'toggle-input',
+                child: PreviewFlowbiteToggleInput(),
+              ),
               AlertSection(),
               AvatarSection(),
               AvatarGroupLabelSection(),

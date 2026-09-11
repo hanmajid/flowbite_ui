@@ -361,6 +361,140 @@ FlowbiteButtonGroup(
 )
 ```
 
+### Bottom Navigation
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/bottom-navigation-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/bottom-navigation-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+// Normal, Bordered
+FlowbiteBottomNavigation(
+  style: FlowbiteBottomNavigationStyle.normal, // default
+  items: [
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+  ],
+  currentIndex: 0,
+  onTap: (value) {},
+)
+// Pagination
+FlowbiteBottomNavigation(
+  style: FlowbiteBottomNavigationStyle.pagination,
+  items: [
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      label: '1 of 246',
+      isPaginationButton: true,
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+  ],
+  currentIndex: 0,
+  onTap: (value) {},
+)
+// Action Button
+FlowbiteBottomNavigation(
+  style: FlowbiteBottomNavigationStyle.actionButton,
+  items: [
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.plus,
+      isActive: true,
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+  ],
+  currentIndex: 0,
+  onTap: (value) {},
+)
+// Segment Controls
+FlowbiteBottomNavigation(
+  style: FlowbiteBottomNavigationStyle.segmentControls,
+  items: [
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.plus,
+      isActive: true,
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+    FlowbiteBottomNavigationItem(
+      icon: FlowbiteOutlineIcons.wallet,
+      label: 'Wallet',
+    ),
+  ],
+  toggleInput: FlowbiteToggleInput(
+    items: [
+      FlowbiteToggleInputItem(label: 'Toggle'),
+      FlowbiteToggleInputItem(label: 'Toggle'),
+      FlowbiteToggleInputItem(label: 'Toggle'),
+      FlowbiteToggleInputItem(label: 'Toggle'),
+    ],
+    currentIndex: 0,
+    onTap: (_) {},
+  ),
+  currentIndex: 0,
+  onTap: (value) {},
+)
+```
+
+
 ### Icon Shape
 
 Illustrations:
