@@ -53,7 +53,7 @@ class MainApp extends StatelessWidget {
               ButtonSection(),
               ButtonGroupSection(),
               SectionContainer(
-                fileName: 'breadcrumbe',
+                fileName: 'breadcrumb',
                 child: PreviewFlowbiteBreadcrumb(),
               ),
               IconShapeSection(),
