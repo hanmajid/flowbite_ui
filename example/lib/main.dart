@@ -11,6 +11,8 @@ import 'package:example/input_field_section.dart';
 import 'package:example/section_container.dart';
 import 'package:example/spinner_section.dart';
 import 'package:example/typography_section.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+import 'package:flowbite_illustrations/flowbite_illustrations.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -27,46 +29,56 @@ class MainApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: FlowbiteTheme.light,
       darkTheme: FlowbiteTheme.dark,
-      home: Scaffold(
-        body: SingleChildScrollView(
-          padding: const .all(16.0),
-          child: Column(
-            spacing: 24.0,
-            children: [
-              SectionContainer(
-                fileName: 'accordion',
-                child: PreviewFlowbiteAccordion(),
-              ),
-              SectionContainer(
-                fileName: 'bottom-navigation',
-                child: PreviewFlowbiteBottomNavigation(),
-              ),
-              SectionContainer(
-                fileName: 'toggle-input',
-                child: PreviewFlowbiteToggleInput(),
-              ),
-              AlertSection(),
-              AvatarSection(),
-              AvatarGroupLabelSection(),
-              AvatarGroupSection(),
-              BadgeSection(),
-              ButtonSection(),
-              ButtonGroupSection(),
-              SectionContainer(
-                fileName: 'breadcrumb',
-                child: PreviewFlowbiteBreadcrumb(),
-              ),
-              IconShapeSection(),
-              SectionContainer(
-                fileName: 'jumbotron',
-                child: PreviewFlowbiteJumbotron(),
-              ),
-              InputFieldSection(),
-              SpinnerSection(),
-              TypographySection(),
-              ColorSection(),
-            ],
-          ),
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        padding: const .all(16.0),
+        child: Column(
+          spacing: 24.0,
+          children: [
+            SectionContainer(
+              fileName: 'accordion',
+              child: PreviewFlowbiteAccordion(),
+            ),
+            SectionContainer(
+              fileName: 'bottom-navigation',
+              child: PreviewFlowbiteBottomNavigation(),
+            ),
+            SectionContainer(
+              fileName: 'toggle-input',
+              child: PreviewFlowbiteToggleInput(),
+            ),
+            AlertSection(),
+            AvatarSection(),
+            AvatarGroupLabelSection(),
+            AvatarGroupSection(),
+            BadgeSection(),
+            ButtonSection(),
+            ButtonGroupSection(),
+            SectionContainer(
+              fileName: 'breadcrumb',
+              child: PreviewFlowbiteBreadcrumb(),
+            ),
+            IconShapeSection(),
+            SectionContainer(
+              fileName: 'jumbotron',
+              child: PreviewFlowbiteJumbotron(),
+            ),
+            InputFieldSection(),
+            SpinnerSection(),
+            SectionContainer(fileName: 'toast', child: PreviewFlowbiteToast()),
+            TypographySection(),
+            ColorSection(),
+          ],
         ),
       ),
     );

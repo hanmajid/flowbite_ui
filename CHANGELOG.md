@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Add `FlowbiteBreadcrumb` component.
+- Add `FlowbiteToast` component.
 
 ## [0.0.5] - 11-09-2026
 ### Added

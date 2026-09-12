@@ -622,6 +622,204 @@ FlowbiteSpinner(
 )
 ```
 
+### Toast
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/toast-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/toast-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+// Avatar & button
+ScaffoldMessenger.of(context).showSnackBar(
+  FlowbiteToast.avatarButton(
+    context: context,
+    avatar: FlowbiteAvatar(
+      image: FlowbiteAvatarDefaultAssets.bonnieGreen.toAssetImage(),
+    ),
+    title: 'Bonnie Green',
+    message: '''"Hi Bonnie, I appreciate you sharing your insights on Flowbite."''',
+    button: FlowbiteButton.icon(
+      onPressed: () {},
+      label: const Text('Reply'),
+      leadingIcon: const Icon(FlowbiteOutlineIcons.reply_all),
+      size: .xs,
+    ),
+  )
+);
+
+// Icon shape & text
+FlowbiteToast.iconShapeText(
+  context: context,
+  iconShape: const FlowbiteIconShape(
+    icon: FlowbiteOutlineIcons.check,
+    color: .green,
+    type: .square,
+  ),
+  message: 'Notification message here!',
+)
+
+// Icon & text
+FlowbiteToast.iconText(
+  context: context,
+  icon: FlowbiteOutlineIcons.papper_plane,
+  message: 'Message sent successfully.',
+)
+
+// With header
+FlowbiteToast.header(
+  context: context,
+  header: 'New notification',
+  avatar: FlowbiteAvatar(
+    image: FlowbiteAvatarDefaultAssets.bonnieGreen.toAssetImage(),
+  ),
+  title: 'Bonnie Green',
+  message: 'commented on your photo',
+  caption: 'a few seconds ago',
+  buttons: [
+    FlowbiteButton(
+      onPressed: () {},
+      size: .xs,
+      color: .secondary,
+      child: const Text('Close'),
+    ),
+    FlowbiteButton.icon(
+      onPressed: () {},
+      size: .xs,
+      label: const Text('Reply'),
+      leadingIcon: const Icon(FlowbiteOutlineIcons.reply_all),
+    ),
+  ],
+)
+
+// Icon shape & buttons
+FlowbiteToast.iconShapeButtons(
+  context: context,
+  iconShape: const FlowbiteIconShape(
+    icon: FlowbiteOutlineIcons.arrow_right,
+    color: .brand,
+    type: .square,
+  ),
+  title: 'Update available',
+  message: 'The latest software version is now accessible for download.',
+  buttons: [
+    FlowbiteButton(
+      onPressed: () {},
+      size: .xs,
+      color: .secondary,
+      child: const Text('Not now'),
+    ),
+    FlowbiteButton.icon(
+      onPressed: () {},
+      size: .xs,
+      label: const Text('Update'),
+      leadingIcon: const Icon(FlowbiteOutlineIcons.download),
+    ),
+  ],
+)
+
+// With illustration
+FlowbiteToast.illustration(
+  context: context,
+  illustration: FlowbiteIllustration(
+    data: FlowbiteIllustrationData.smartphoneApplicationFeatures,
+    mode: Theme.of(context).brightness == .dark ? .dark : .light,
+  ),
+  title: 'Connect your wallet',
+  message:
+      'Connect your wallet by clicking the bottom-right blue button.',
+  buttons: [
+    FlowbiteButton(
+      onPressed: () {},
+      size: .xs,
+      color: .secondary,
+      child: const Text('Close'),
+    ),
+    FlowbiteButton.icon(
+      onPressed: () {},
+      size: .xs,
+      label: const Text('Connect'),
+      trailingIcon: const Icon(FlowbiteOutlineIcons.fingerprint),
+    ),
+  ],
+)
+
+// With progress bar
+FlowbiteToast.progressBar(
+  context: context,
+  iconShape: const FlowbiteIconShape(
+    icon: FlowbiteOutlineIcons.cloud_arrow_up,
+    type: .square,
+  ),
+  title: 'Uploading in progress',
+  message: '''Please wait while your file is being uploaded. This may take a moment.''',
+  buttons: [
+    FlowbiteButton(
+      onPressed: () {},
+      size: .xs,
+      color: .secondary,
+      child: const Text('Cancel'),
+    ),
+    FlowbiteButton(
+      onPressed: () {},
+      size: .xs,
+      child: const Text('Go to uploads'),
+    ),
+  ],
+)
+
+// Warning
+FlowbiteToast.warning(
+  context: context,
+  icon: FlowbiteOutlineIcons.exclamation,
+  title: 'Upload your invoice',
+  message: '''Upload your invoice in one of the supported formats (PDF, JPG, PNG) with a maximum file size of 5MB. Ensure that all relevant details are visible for verification.''',
+  buttons: [
+    FlowbiteOutlinedButton(
+      onPressed: () {},
+      size: .xs,
+      color: .warning,
+      child: const Text('Remind me later'),
+    ),
+    FlowbiteButton.icon(
+      onPressed: () {},
+      size: .xs,
+      color: .warning,
+      leadingIcon: const Icon(FlowbiteOutlineIcons.upload),
+      label: const Text('Upload invoice'),
+    ),
+  ],
+)
+
+// Error
+FlowbiteToast.error(
+  context: context,
+  icon: FlowbiteOutlineIcons.info,
+  title: 'Whoops! Something went wrong',
+  message: '''The file format is not supported. Please upload a valid file type (PDF, JPG, PNG).''',
+  buttons: [
+    FlowbiteOutlinedButton(
+      onPressed: () {},
+      size: .xs,
+      color: .danger,
+      child: const Text('Close'),
+    ),
+    FlowbiteButton.icon(
+      onPressed: () {},
+      size: .xs,
+      color: .danger,
+      leadingIcon: const Icon(FlowbiteOutlineIcons.upload),
+      label: const Text('Try again'),
+    ),
+  ],
+),
+```
+
 ## Issues
 
 For issues, file directly in the [repository](https://github.com/hanmajid/flowbite_ui/issues).

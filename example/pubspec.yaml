@@ -16,6 +16,7 @@ dependencies:
   widgets_to_image: ^2.0.1
 
   material_ui: any
+  flowbite_illustrations: ^0.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
