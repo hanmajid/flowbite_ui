@@ -11,8 +11,6 @@ import 'package:example/input_field_section.dart';
 import 'package:example/section_container.dart';
 import 'package:example/spinner_section.dart';
 import 'package:example/typography_section.dart';
-import 'package:flowbite_icons/flowbite_icons.dart';
-import 'package:flowbite_illustrations/flowbite_illustrations.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
