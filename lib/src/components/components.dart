@@ -31,6 +31,7 @@ export 'flowbite_input_field.dart';
 export 'flowbite_input_label.dart';
 export 'flowbite_jumbotron.dart';
 export 'flowbite_outlined_button.dart';
+export 'flowbite_progress_bar.dart';
 export 'flowbite_spinner.dart';
 export 'flowbite_toast.dart';
 export 'flowbite_toggle_input.dart';

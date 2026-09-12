@@ -603,6 +603,28 @@ FlowbiteJumbotron(
 )
 ```
 
+### Progress Bar
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/progress-bar-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/progress-bar-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+FlowbiteProgressBar(
+  startLabel: '100%',
+  endLabel: '100%',
+  size: .base, // default
+  color: .primary, // default
+  labelPosition: .top, // default
+  value: 0.5,
+)
+```
+
 ### Spinner
 
 Illustrations:
@@ -758,6 +780,11 @@ FlowbiteToast.progressBar(
   ),
   title: 'Uploading in progress',
   message: '''Please wait while your file is being uploaded. This may take a moment.''',
+  progressBar: const FlowbiteProgressBar(
+    endLabel: '75%',
+    value: 0.5,
+    labelPosition: .side,
+  ),
   buttons: [
     FlowbiteButton(
       onPressed: () {},

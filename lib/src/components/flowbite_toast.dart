@@ -434,6 +434,7 @@ class FlowbiteToast extends SnackBar {
   factory FlowbiteToast.progressBar({
     required BuildContext context,
     required FlowbiteIconShape iconShape,
+    required FlowbiteProgressBar progressBar,
     required String title,
     required String message,
     required List<Widget> buttons,
@@ -479,7 +480,7 @@ class FlowbiteToast extends SnackBar {
                 ),
               ],
             ),
-            // TODO Progress bar
+            progressBar,
             Row(
               spacing: 12.0,
               children: buttons
@@ -793,6 +794,11 @@ class PreviewFlowbiteToast extends StatelessWidget {
         ),
         title: 'Uploading in progress',
         message: '''Please wait while your file is being uploaded. This may take a moment.''',
+        progressBar: const FlowbiteProgressBar(
+          endLabel: '75%',
+          value: 0.5,
+          labelPosition: .side,
+        ),
         buttons: [
           FlowbiteButton(
             onPressed: () {},
@@ -856,8 +862,7 @@ class PreviewFlowbiteToast extends StatelessWidget {
       spacing: 16.0,
       children: [
         ...snackbars.map(
-          (snackbar) =>
-              SizedBox(width: 380.0, child: snackbar.content),
+          (snackbar) => SizedBox(width: 380.0, child: snackbar.content),
         ),
       ],
     );

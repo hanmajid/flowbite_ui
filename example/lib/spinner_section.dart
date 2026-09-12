@@ -17,7 +17,7 @@ class SpinnerSection extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ...FlowbiteSpinnerSize.values.map(
-                (size) => FlowbiteSpinner(size: size),
+                (size) => FlowbiteSpinner(size: size, value: 0.25),
               ),
             ],
           ),
@@ -26,7 +26,8 @@ class SpinnerSection extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ...FlowbiteSpinnerSize.values.map(
-                (size) => FlowbiteSpinner(size: size, showTrack: false),
+                (size) =>
+                    FlowbiteSpinner(size: size, value: 0.25, showTrack: false),
               ),
             ],
           ),
