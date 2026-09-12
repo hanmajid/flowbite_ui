@@ -847,6 +847,24 @@ FlowbiteToast.error(
 ),
 ```
 
+### Tooltip
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/tooltip-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/tooltip-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+FlowbiteTooltip(
+  position: .top, // default
+  child: Text('Hover me'),
+)
+```
+
 ## Issues
 
 For issues, file directly in the [repository](https://github.com/hanmajid/flowbite_ui/issues).

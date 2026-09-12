@@ -78,6 +78,10 @@ class HomeScreen extends StatelessWidget {
             ),
             SpinnerSection(),
             SectionContainer(fileName: 'toast', child: PreviewFlowbiteToast()),
+            SectionContainer(
+              fileName: 'tooltip',
+              child: PreviewFlowbiteTooltip(),
+            ),
             TypographySection(),
             ColorSection(),
           ],
