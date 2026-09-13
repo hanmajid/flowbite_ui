@@ -106,7 +106,7 @@ class FlowbiteJumbotron extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   FlowbiteFontSize get _titleFontSize => switch (breakpoint) {
     .desktop => .text6xl,
@@ -246,7 +246,7 @@ class PreviewFlowbiteJumbotron extends StatelessWidget {
     );
     return Container(
       padding: const EdgeInsets.all(16.0),
-      color: FlowbiteTheme.extension(context).bgVariantsGray,
+      color: FlowbiteTheme.of(context).bgVariantsGray,
       child: Column(
         crossAxisAlignment: .start,
         spacing: 16.0,
@@ -360,13 +360,13 @@ class PreviewFlowbiteJumbotron extends StatelessWidget {
                             style: FlowbiteFontFamily.inter(
                               fontWeight: .medium,
                               fontSize: .textLg,
-                              color: FlowbiteTheme.extension(context)
+                              color: FlowbiteTheme.of(context)
                                   .textFgBrand,
                             ),
                           ),
                           Icon(
                             FlowbiteOutlineIcons.arrow_right,
-                            color: FlowbiteTheme.extension(context).textFgBrand,
+                            color: FlowbiteTheme.of(context).textFgBrand,
                             size: 24.0,
                           ),
                         ],

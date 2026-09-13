@@ -68,7 +68,7 @@ class FlowbiteTooltip extends StatelessWidget {
         List<Widget> children = [
           Container(
             decoration: BoxDecoration(
-              color: FlowbiteTheme.extension(context).bgDark,
+              color: FlowbiteTheme.of(context).bgDark,
               borderRadius: .circular(12.0),
               boxShadow: [
                 BoxShadow(
@@ -91,7 +91,7 @@ class FlowbiteTooltip extends StatelessWidget {
               style: FlowbiteFontFamily.inter(
                 fontWeight: .medium,
                 fontSize: .textSm,
-                color: FlowbiteTheme.extension(context).textWhite,
+                color: FlowbiteTheme.of(context).textWhite,
               ),
             ),
           ),

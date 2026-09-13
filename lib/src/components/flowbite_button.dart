@@ -157,7 +157,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
   final bool isIconOnly;
   final BuildContext context;
   late final ColorScheme _colors = Theme.of(context).colorScheme;
-  late final FlowbiteColorsExtension _colorsExtension = FlowbiteTheme.extension(
+  late final FlowbiteColorsExtension _colorsExtension = FlowbiteTheme.of(
     context,
   );
 

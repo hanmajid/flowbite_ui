@@ -49,7 +49,7 @@ class FlowbiteToggleInput extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +88,7 @@ class _FlowbiteToggleInputWidget extends StatelessWidget {
   const new({required this.item, required this.isActive, required this.onTap});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   Color _getTextColor(BuildContext context) =>
       isActive ? _colorExt(context).textHeading : _colorExt(context).textBody;

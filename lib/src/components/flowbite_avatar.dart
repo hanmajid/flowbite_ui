@@ -66,7 +66,7 @@ class FlowbiteAvatar extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   double get _size => switch (size) {
     .xs => 18.0,
@@ -199,7 +199,7 @@ class _FlowbiteAvatarDot extends StatelessWidget {
   const new({this.size = .base, this.status = .alternative});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   double get _size => switch (size) {
     .xs => 6.0,
@@ -239,7 +239,7 @@ class _FlowbiteAvatarRemoveButton extends StatelessWidget {
   const new({this.size = .base, this.onTap});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   double get _size => switch (size) {
     .xs => 12.0,

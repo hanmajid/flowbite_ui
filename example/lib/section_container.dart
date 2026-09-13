@@ -28,7 +28,7 @@ class _SectionContainerState extends State<SectionContainer> {
           controller: controller,
           child: Container(
             decoration: BoxDecoration(
-              color: FlowbiteTheme.extension(context).bgNeutralPrimary,
+              color: FlowbiteTheme.of(context).bgNeutralPrimary,
               borderRadius: .circular(12.0),
             ),
             padding: const .all(12.0),

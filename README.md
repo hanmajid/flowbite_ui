@@ -625,6 +625,30 @@ FlowbiteProgressBar(
 )
 ```
 
+### Range Slider
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/range-slider-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/range-slider-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+// Slider
+FlowbiteSlider(
+  value: 0.3,
+  onChanged: (value) {},
+)
+// Range Slider
+FlowbiteRangeSlider(
+  values: const RangeValues(0.3, 0.5),
+  onChanged: (values) {},
+)
+```
+
 ### Spinner
 
 Illustrations:

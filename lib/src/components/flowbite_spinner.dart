@@ -38,7 +38,7 @@ class FlowbiteSpinner extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   double get _size => switch (size) {
     .xs => 12.0,

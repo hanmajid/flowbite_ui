@@ -45,7 +45,7 @@ class FlowbiteAlert extends StatelessWidget {
   final VoidCallback? onTap;
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   Color _getTextColor(BuildContext context) {
     return switch (color) {
@@ -323,7 +323,7 @@ class _FlowbiteAlertBadge extends StatelessWidget {
   const new({required this.text, required this.color});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   Color _getTextColor(BuildContext context) {
     return switch (color) {

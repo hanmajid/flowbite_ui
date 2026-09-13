@@ -51,7 +51,7 @@ class FlowbiteBadge extends StatelessWidget {
   final bool isCircle;
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   double get _height => switch (size) {
     .xs => 16.0,
@@ -324,7 +324,7 @@ class _FlowbiteBadgeDot extends StatelessWidget {
   const new({required this.theme});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   Color _getColor(BuildContext context) {
     return switch (theme) {
@@ -358,7 +358,7 @@ class _FlowbiteBadgeIcon extends StatelessWidget {
   const new({required this.icon, required this.size, required this.theme});
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   Color _getColor(BuildContext context) {
     return switch (theme) {
@@ -393,7 +393,7 @@ class _FlowbiteBadgeText extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   Color _getTextColor(BuildContext context) {
     return switch (theme) {

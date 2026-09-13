@@ -213,7 +213,7 @@ class FlowbiteTheme {
   );
 
   /// Static helper method for getting [FlowbiteColorsExtension] instance.
-  static FlowbiteColorsExtension extension(BuildContext context) =>
+  static FlowbiteColorsExtension of(BuildContext context) =>
       Theme.of(context).extension<FlowbiteColorsExtension>() ??
       FlowbiteTheme.lightThemeColors;
 }

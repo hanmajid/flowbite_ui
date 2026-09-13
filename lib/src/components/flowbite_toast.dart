@@ -71,7 +71,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .semibold,
                           fontSize: .textBase,
-                          color: FlowbiteTheme.extension(context).textHeading,
+                          color: FlowbiteTheme.of(context).textHeading,
                         ),
                       ),
                       Text(
@@ -79,7 +79,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .normal,
                           fontSize: .textSm,
-                          color: FlowbiteTheme.extension(context).textBody,
+                          color: FlowbiteTheme.of(context).textBody,
                         ),
                       ),
                     ],
@@ -125,7 +125,7 @@ class FlowbiteToast extends SnackBar {
                 style: FlowbiteFontFamily.inter(
                   fontWeight: .normal,
                   fontSize: .textSm,
-                  color: FlowbiteTheme.extension(context).textBody,
+                  color: FlowbiteTheme.of(context).textBody,
                 ),
               ),
             ),
@@ -164,7 +164,7 @@ class FlowbiteToast extends SnackBar {
             Container(
               padding: const .symmetric(horizontal: 10.0, vertical: 8.0),
               decoration: BoxDecoration(
-                color: FlowbiteTheme.extension(context)
+                color: FlowbiteTheme.of(context)
                     .bgNeutralSecondaryStrong,
                 borderRadius: .circular(6.0),
               ),
@@ -173,7 +173,7 @@ class FlowbiteToast extends SnackBar {
                 style: FlowbiteFontFamily.inter(
                   fontWeight: .medium,
                   fontSize: .textSm,
-                  color: FlowbiteTheme.extension(context).textHeading,
+                  color: FlowbiteTheme.of(context).textHeading,
                 ),
               ),
             ),
@@ -203,7 +203,7 @@ class FlowbiteToast extends SnackBar {
                                 style: FlowbiteFontFamily.inter(
                                   fontWeight: .semibold,
                                   fontSize: .textBase,
-                                  color: FlowbiteTheme.extension(context)
+                                  color: FlowbiteTheme.of(context)
                                       .textHeading,
                                 ),
                               ),
@@ -212,7 +212,7 @@ class FlowbiteToast extends SnackBar {
                                 style: FlowbiteFontFamily.inter(
                                   fontWeight: .normal,
                                   fontSize: .textSm,
-                                  color: FlowbiteTheme.extension(context)
+                                  color: FlowbiteTheme.of(context)
                                       .textBody,
                                 ),
                               ),
@@ -223,7 +223,7 @@ class FlowbiteToast extends SnackBar {
                             style: FlowbiteFontFamily.inter(
                               fontWeight: .normal,
                               fontSize: .textXs,
-                              color: FlowbiteTheme.extension(context)
+                              color: FlowbiteTheme.of(context)
                                   .textFgBrand,
                             ),
                           ),
@@ -268,14 +268,14 @@ class FlowbiteToast extends SnackBar {
             Icon(
               icon,
               size: 20.0,
-              color: FlowbiteTheme.extension(context).bgBrand,
+              color: FlowbiteTheme.of(context).bgBrand,
             ),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
                   border: Border(
                     left: BorderSide(
-                      color: FlowbiteTheme.extension(context).borderBase,
+                      color: FlowbiteTheme.of(context).borderBase,
                     ),
                   ),
                 ),
@@ -285,7 +285,7 @@ class FlowbiteToast extends SnackBar {
                   style: FlowbiteFontFamily.inter(
                     fontWeight: .normal,
                     fontSize: .textSm,
-                    color: FlowbiteTheme.extension(context).textBody,
+                    color: FlowbiteTheme.of(context).textBody,
                   ),
                 ),
               ),
@@ -338,7 +338,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .semibold,
                           fontSize: .textBase,
-                          color: FlowbiteTheme.extension(context).textHeading,
+                          color: FlowbiteTheme.of(context).textHeading,
                         ),
                       ),
                       Text(
@@ -346,7 +346,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .normal,
                           fontSize: .textSm,
-                          color: FlowbiteTheme.extension(context).textBody,
+                          color: FlowbiteTheme.of(context).textBody,
                         ),
                       ),
                     ],
@@ -402,7 +402,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .semibold,
                           fontSize: .textBase,
-                          color: FlowbiteTheme.extension(context).textHeading,
+                          color: FlowbiteTheme.of(context).textHeading,
                         ),
                       ),
                       Text(
@@ -410,7 +410,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .normal,
                           fontSize: .textSm,
-                          color: FlowbiteTheme.extension(context).textBody,
+                          color: FlowbiteTheme.of(context).textBody,
                         ),
                       ),
                     ],
@@ -467,7 +467,7 @@ class FlowbiteToast extends SnackBar {
                   style: FlowbiteFontFamily.inter(
                     fontWeight: .semibold,
                     fontSize: .textBase,
-                    color: FlowbiteTheme.extension(context).textHeading,
+                    color: FlowbiteTheme.of(context).textHeading,
                   ),
                 ),
                 Text(
@@ -475,7 +475,7 @@ class FlowbiteToast extends SnackBar {
                   style: FlowbiteFontFamily.inter(
                     fontWeight: .normal,
                     fontSize: .textSm,
-                    color: FlowbiteTheme.extension(context).textBody,
+                    color: FlowbiteTheme.of(context).textBody,
                   ),
                 ),
               ],
@@ -511,8 +511,8 @@ class FlowbiteToast extends SnackBar {
       content: _buildContainer(
         context,
         showCloseButton: false,
-        backgroundColor: FlowbiteTheme.extension(context).bgWarningSoft,
-        borderColor: FlowbiteTheme.extension(context).borderWarningSubtle,
+        backgroundColor: FlowbiteTheme.of(context).bgWarningSoft,
+        borderColor: FlowbiteTheme.of(context).borderWarningSubtle,
         child: Row(
           crossAxisAlignment: .start,
           spacing: 12.0,
@@ -520,7 +520,7 @@ class FlowbiteToast extends SnackBar {
             Icon(
               icon,
               size: 20.0,
-              color: FlowbiteTheme.extension(context).textFgWarning,
+              color: FlowbiteTheme.of(context).textFgWarning,
             ),
             Expanded(
               child: Column(
@@ -536,7 +536,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .semibold,
                           fontSize: .textBase,
-                          color: FlowbiteTheme.extension(context).textFgWarning,
+                          color: FlowbiteTheme.of(context).textFgWarning,
                         ),
                       ),
                       Text(
@@ -544,7 +544,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .normal,
                           fontSize: .textSm,
-                          color: FlowbiteTheme.extension(context).textFgWarning,
+                          color: FlowbiteTheme.of(context).textFgWarning,
                         ),
                       ),
                     ],
@@ -580,8 +580,8 @@ class FlowbiteToast extends SnackBar {
       content: _buildContainer(
         context,
         showCloseButton: false,
-        backgroundColor: FlowbiteTheme.extension(context).bgDangerSoft,
-        borderColor: FlowbiteTheme.extension(context).borderDangerSubtle,
+        backgroundColor: FlowbiteTheme.of(context).bgDangerSoft,
+        borderColor: FlowbiteTheme.of(context).borderDangerSubtle,
         child: Row(
           crossAxisAlignment: .start,
           spacing: 12.0,
@@ -589,7 +589,7 @@ class FlowbiteToast extends SnackBar {
             Icon(
               icon,
               size: 20.0,
-              color: FlowbiteTheme.extension(context).bgDangerStrong,
+              color: FlowbiteTheme.of(context).bgDangerStrong,
             ),
             Expanded(
               child: Column(
@@ -605,7 +605,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .semibold,
                           fontSize: .textBase,
-                          color: FlowbiteTheme.extension(context)
+                          color: FlowbiteTheme.of(context)
                               .bgDangerStrong,
                         ),
                       ),
@@ -614,7 +614,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .normal,
                           fontSize: .textSm,
-                          color: FlowbiteTheme.extension(context)
+                          color: FlowbiteTheme.of(context)
                               .bgDangerStrong,
                         ),
                       ),
@@ -647,12 +647,12 @@ class FlowbiteToast extends SnackBar {
           decoration: BoxDecoration(
             color:
                 backgroundColor ??
-                FlowbiteTheme.extension(context).bgNeutralPrimaryMedium,
+                FlowbiteTheme.of(context).bgNeutralPrimaryMedium,
             borderRadius: .circular(12.0),
             border: .all(
               color:
                   borderColor ??
-                  FlowbiteTheme.extension(context).borderBaseMedium,
+                  FlowbiteTheme.of(context).borderBaseMedium,
             ),
           ),
           padding: EdgeInsets.all(padding),

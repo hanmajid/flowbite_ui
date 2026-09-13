@@ -47,7 +47,7 @@ class FlowbiteBreadcrumb extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +119,7 @@ class _FlowbiteBreadcrumbItemWidgetState
   bool _isHovered = false;
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   Color _getTextColor(BuildContext context) => widget.isActive
       ? _colorExt(context).textBodySubtle

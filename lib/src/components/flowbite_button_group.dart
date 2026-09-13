@@ -172,7 +172,7 @@ class _FlowbiteButtonGroupSegmentState
   bool _isHovered = false;
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   double get _height => switch (widget.size) {
     .xs => 32.0,

@@ -102,7 +102,7 @@ class FlowbiteBottomNavigation extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   Border? _getBorder(BuildContext context) => switch (style) {
     .bordered => null,
@@ -200,7 +200,7 @@ class _FlowbiteBottomNavigationItemWidget extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   double get _height => switch (style) {
     .segmentControls => 40.0,

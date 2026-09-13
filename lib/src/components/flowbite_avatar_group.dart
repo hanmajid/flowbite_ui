@@ -35,7 +35,7 @@ class FlowbiteAvatarGroup extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   FlowbiteAvatarSize get _avatarSize => switch (size) {
     .sm => .sm,

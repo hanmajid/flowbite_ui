@@ -76,6 +76,10 @@ class HomeScreen extends StatelessWidget {
               fileName: 'progress-bar',
               child: PreviewFlowbiteProgressBar(),
             ),
+            SectionContainer(
+              fileName: 'range-slider',
+              child: PreviewFlowbiteRangeSlider(),
+            ),
             SpinnerSection(),
             SectionContainer(fileName: 'toast', child: PreviewFlowbiteToast()),
             SectionContainer(

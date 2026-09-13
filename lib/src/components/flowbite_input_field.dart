@@ -84,7 +84,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
   }
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   double get _iconSize => switch (widget.size) {
     .sm => 16.0,

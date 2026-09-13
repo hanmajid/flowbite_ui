@@ -63,7 +63,7 @@ class FlowbiteIconShape extends StatelessWidget {
   };
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   Color _getIconColor(BuildContext context) {
     return switch (color) {

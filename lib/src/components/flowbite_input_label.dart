@@ -33,7 +33,7 @@ class FlowbiteInputLabel extends StatelessWidget {
   });
 
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   @override
   Widget build(BuildContext context) {

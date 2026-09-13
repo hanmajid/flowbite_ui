@@ -104,12 +104,12 @@ class FlowbiteProgressBar extends StatelessWidget {
   };
 
   Color _getColor(BuildContext context) => switch (color) {
-    .primary => FlowbiteTheme.extension(context).bgBrand,
-    .gray => FlowbiteTheme.extension(context).bgGray,
-    .dark => FlowbiteTheme.extension(context).bgDark,
-    .success => FlowbiteTheme.extension(context).bgSuccess,
-    .danger => FlowbiteTheme.extension(context).bgDanger,
-    .warning => FlowbiteTheme.extension(context).bgWarning,
+    .primary => FlowbiteTheme.of(context).bgBrand,
+    .gray => FlowbiteTheme.of(context).bgGray,
+    .dark => FlowbiteTheme.of(context).bgDark,
+    .success => FlowbiteTheme.of(context).bgSuccess,
+    .danger => FlowbiteTheme.of(context).bgDanger,
+    .warning => FlowbiteTheme.of(context).bgWarning,
   };
 
   @override
@@ -126,7 +126,7 @@ class FlowbiteProgressBar extends StatelessWidget {
                 style: FlowbiteFontFamily.inter(
                   fontSize: .textXs,
                   fontWeight: .medium,
-                  color: FlowbiteTheme.extension(context).textBody,
+                  color: FlowbiteTheme.of(context).textBody,
                 ),
               ),
             if (endLabel != null)
@@ -135,7 +135,7 @@ class FlowbiteProgressBar extends StatelessWidget {
                 style: FlowbiteFontFamily.inter(
                   fontSize: .textXs,
                   fontWeight: .medium,
-                  color: FlowbiteTheme.extension(context).textBody,
+                  color: FlowbiteTheme.of(context).textBody,
                 ),
               ),
           ],
@@ -149,7 +149,7 @@ class FlowbiteProgressBar extends StatelessWidget {
             minHeight: _height,
             value: value,
             color: _getColor(context),
-            backgroundColor: FlowbiteTheme.extension(context)
+            backgroundColor: FlowbiteTheme.of(context)
                 .bgNeutralQuaternary,
             borderRadius: BorderRadius.circular(12.0),
           ),
@@ -166,7 +166,7 @@ class FlowbiteProgressBar extends StatelessWidget {
             style: FlowbiteFontFamily.inter(
               fontSize: .textXs,
               fontWeight: .medium,
-              color: FlowbiteTheme.extension(context).textBody,
+              color: FlowbiteTheme.of(context).textBody,
             ),
           ),
         Expanded(
@@ -174,7 +174,7 @@ class FlowbiteProgressBar extends StatelessWidget {
             minHeight: _height,
             value: value,
             color: _getColor(context),
-            backgroundColor: FlowbiteTheme.extension(context)
+            backgroundColor: FlowbiteTheme.of(context)
                 .bgNeutralQuaternary,
             borderRadius: BorderRadius.circular(12.0),
           ),
@@ -185,7 +185,7 @@ class FlowbiteProgressBar extends StatelessWidget {
             style: FlowbiteFontFamily.inter(
               fontSize: .textXs,
               fontWeight: .medium,
-              color: FlowbiteTheme.extension(context).textBody,
+              color: FlowbiteTheme.of(context).textBody,
             ),
           ),
       ],
@@ -250,7 +250,7 @@ class PreviewFlowbiteProgressBar extends StatelessWidget {
   group: 'Progress Bar',
   brightness: .dark,
 )
-/// Widget preview for [FlowbiteToast].
+/// Widget preview for [FlowbiteProgressBar].
 Widget previewFlowbiteProgressBar() {
   return const PreviewFlowbiteProgressBar();
 }

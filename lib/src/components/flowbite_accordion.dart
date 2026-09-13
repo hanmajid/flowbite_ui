@@ -115,7 +115,7 @@ class FlowbiteAccordion extends StatelessWidget {
     super.key,
   });
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   double get _verticalSpacing => switch (style) {
     .separateCards => 16.0,
@@ -193,7 +193,7 @@ class _FlowbiteAccordionItemWidget extends StatefulWidget {
 class _FlowbiteAccordionItemWidgetState
     extends State<_FlowbiteAccordionItemWidget> {
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   bool get _isMobile => widget.breakpoint == .mobile;
 
@@ -518,7 +518,7 @@ class _FlowbiteAccordionItemWidgetState
 
 class _DefaultFlowbiteAccordionContent extends StatelessWidget {
   FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.extension(context);
+      FlowbiteTheme.of(context);
 
   @override
   Widget build(BuildContext context) {
