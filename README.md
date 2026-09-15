@@ -578,7 +578,7 @@ import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flowbite_icons/flowbite_icons.dart';
 
 FlowbiteJumbotron(
-  breakpoint: FlowbiteJumbotronBreakpoint.desktop, // default
+  breakpoint: .desktop, // default
   title: "We invest in the world's potential",
   subtitle: '''Here at flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.''',
   actions: Row(

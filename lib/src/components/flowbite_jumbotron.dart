@@ -20,18 +20,6 @@ import 'package:flowbite_icons/flowbite_outline_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// [FlowbiteJumbotron]'s breakpoint variant.
-enum FlowbiteJumbotronBreakpoint {
-  /// Desktop breakpoint variant.
-  desktop,
-
-  /// Tablet breakpoint variant.
-  tablet,
-
-  /// Mobile breakpoint variant.
-  mobile,
-}
-
 /// Jumbotron component.
 class FlowbiteJumbotron extends StatelessWidget {
   /// The jumbotron's title.
@@ -54,8 +42,8 @@ class FlowbiteJumbotron extends StatelessWidget {
 
   /// The jumbotron's background image breakpoints.
   ///
-  /// Defaults to [FlowbiteJumbotronBreakpoint.values].
-  final List<FlowbiteJumbotronBreakpoint> backgroundImageBreakpoints;
+  /// Defaults to [FlowbiteBreakpoint.values].
+  final List<FlowbiteBreakpoint> backgroundImageBreakpoints;
 
   /// If true, then the background image is dark. This will affects
   /// the title & subtitle's text color.
@@ -84,8 +72,8 @@ class FlowbiteJumbotron extends StatelessWidget {
 
   /// The jumbotron's breakpoint variant.
   ///
-  /// Defaults to [FlowbiteJumbotronBreakpoint.desktop].
-  final FlowbiteJumbotronBreakpoint breakpoint;
+  /// Defaults to [FlowbiteBreakpoint.desktop].
+  final FlowbiteBreakpoint breakpoint;
 
   /// Constructor.
   const FlowbiteJumbotron({
@@ -101,7 +89,7 @@ class FlowbiteJumbotron extends StatelessWidget {
     this.backgroundImageFit,
     this.backgroundImageAlignment = .center,
     this.isBackgroundImageDark = false,
-    this.backgroundImageBreakpoints = FlowbiteJumbotronBreakpoint.values,
+    this.backgroundImageBreakpoints = FlowbiteBreakpoint.values,
     super.key,
   });
 
@@ -255,7 +243,7 @@ class PreviewFlowbiteJumbotron extends StatelessWidget {
           Column(
             crossAxisAlignment: .start,
             spacing: 12.0,
-            children: FlowbiteJumbotronBreakpoint.values.map((breakpoint) {
+            children: FlowbiteBreakpoint.values.map((breakpoint) {
               double width = switch (breakpoint) {
                 .desktop => 1440.0,
                 .tablet => 768.0,
@@ -276,7 +264,7 @@ class PreviewFlowbiteJumbotron extends StatelessWidget {
           Column(
             crossAxisAlignment: .start,
             spacing: 12.0,
-            children: FlowbiteJumbotronBreakpoint.values.map((breakpoint) {
+            children: FlowbiteBreakpoint.values.map((breakpoint) {
               double width = switch (breakpoint) {
                 .desktop => 1440.0,
                 .tablet => 768.0,
@@ -304,7 +292,7 @@ class PreviewFlowbiteJumbotron extends StatelessWidget {
           Column(
             crossAxisAlignment: .start,
             spacing: 12.0,
-            children: FlowbiteJumbotronBreakpoint.values.map((breakpoint) {
+            children: FlowbiteBreakpoint.values.map((breakpoint) {
               double width = switch (breakpoint) {
                 .desktop => 1440.0,
                 .tablet => 768.0,
@@ -337,7 +325,7 @@ class PreviewFlowbiteJumbotron extends StatelessWidget {
           Column(
             crossAxisAlignment: .start,
             spacing: 12.0,
-            children: FlowbiteJumbotronBreakpoint.values.map((breakpoint) {
+            children: FlowbiteBreakpoint.values.map((breakpoint) {
               double width = switch (breakpoint) {
                 .desktop => 1440.0,
                 .tablet => 768.0,
@@ -360,8 +348,7 @@ class PreviewFlowbiteJumbotron extends StatelessWidget {
                             style: FlowbiteFontFamily.inter(
                               fontWeight: .medium,
                               fontSize: .textLg,
-                              color: FlowbiteTheme.of(context)
-                                  .textFgBrand,
+                              color: FlowbiteTheme.of(context).textFgBrand,
                             ),
                           ),
                           Icon(
@@ -405,7 +392,7 @@ class PreviewFlowbiteJumbotron extends StatelessWidget {
           Column(
             crossAxisAlignment: .start,
             spacing: 12.0,
-            children: FlowbiteJumbotronBreakpoint.values.map((breakpoint) {
+            children: FlowbiteBreakpoint.values.map((breakpoint) {
               double width = switch (breakpoint) {
                 .desktop => 1440.0,
                 .tablet => 768.0,

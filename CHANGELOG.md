@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add `FlowbiteSlider` and `FlowbiteRangeSlider` components.
 - Add `FlowbiteKbd` component.
+- Add `FlowbiteBreakpoint` enum.
+- Add `FlowbiteStepper` and `FlowbiteStepperNavLink` components.
 
 ### Changed
 - Rename `FlowbiteTheme.extension` static method to `FlowbiteTheme.of`.

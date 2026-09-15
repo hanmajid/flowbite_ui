@@ -21,15 +21,6 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// [FlowbiteAccordion]'s breakpoint variant.
-enum FlowbiteAccordionBreakpoint {
-  /// Desktop breakpoint variant.
-  desktop,
-
-  /// Mobile breakpoint variant.
-  mobile,
-}
-
 /// [FlowbiteAccordion]'s style variant.
 enum FlowbiteAccordionStyle {
   /// Default style variant.
@@ -99,8 +90,8 @@ class FlowbiteAccordion extends StatelessWidget {
 
   /// The accordion's breakpoint variant.
   ///
-  /// The default is [FlowbiteAccordionBreakpoint.desktop].
-  final FlowbiteAccordionBreakpoint breakpoint;
+  /// The default is [FlowbiteBreakpoint.desktop].
+  final FlowbiteBreakpoint breakpoint;
 
   /// The accordion's style variant.
   ///
@@ -161,7 +152,7 @@ class _FlowbiteAccordionItemWidget extends StatefulWidget {
   final FlowbiteAccordionItem item;
 
   /// The item's breakpoint variant.
-  final FlowbiteAccordionBreakpoint breakpoint;
+  final FlowbiteBreakpoint breakpoint;
 
   /// The item's style variant.
   final FlowbiteAccordionStyle style;

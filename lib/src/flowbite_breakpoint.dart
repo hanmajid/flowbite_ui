@@ -16,12 +16,14 @@
 // Flowbite library (Copyright (c) Bergside Inc.), which is licensed
 // under the MIT License.
 
-export 'components/components.dart';
-export 'flowbite_breakpoint.dart';
-export 'flowbite_colors.dart';
-export 'flowbite_colors_extension.dart';
-export 'flowbite_font_family.dart';
-export 'flowbite_font_size.dart';
-export 'flowbite_font_weight.dart';
-export 'flowbite_preview.dart';
-export 'flowbite_theme.dart';
+/// Flowbite's breakpoint variant.
+enum FlowbiteBreakpoint {
+  /// Desktop breakpoint variant.
+  desktop,
+
+  /// Tablet breakpoint variant.
+  tablet,
+
+  /// Mobile breakpoint variant.
+  mobile,
+}

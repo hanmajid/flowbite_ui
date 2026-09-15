@@ -35,6 +35,8 @@ export 'flowbite_outlined_button.dart';
 export 'flowbite_progress_bar.dart';
 export 'flowbite_range_slider.dart';
 export 'flowbite_spinner.dart';
+export 'flowbite_stepper.dart';
+export 'flowbite_stepper_nav_link.dart';
 export 'flowbite_toast.dart';
 export 'flowbite_toggle_input.dart';
 export 'flowbite_tooltip.dart';
