@@ -603,6 +603,32 @@ FlowbiteJumbotron(
 )
 ```
 
+### KBD
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/kbd-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/kbd-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+import 'package:flowbite_icons/flowbite_icons.dart';
+
+// With text
+FlowbiteKbd.text(
+  text: 'Shift',
+  onTap: () {},
+)
+// With icon
+FlowbiteKbd.icon(
+  icon: FlowbiteSolidIcons.caret_left,
+  size: 14.0,
+  onTap: () {},
+)
+```
+
 ### Progress Bar
 
 Illustrations:

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Add `FlowbiteSlider` and `FlowbiteRangeSlider` components.
+- Add `FlowbiteKbd` component.
 
 ### Changed
 - Rename `FlowbiteTheme.extension` static method to `FlowbiteTheme.of`.
