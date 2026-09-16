@@ -570,7 +570,7 @@ abstract final class FlowbiteColors {
   static Color bgNeutralPrimaryDark = gray.shade950;
   static Color bgNeutralPrimaryMediumDark = gray.shade800;
   static Color bgNeutralPrimaryStrongDark = gray.shade700;
-  static Color bgNeutralSecondarySoftDark = gray.shade200;
+  static Color bgNeutralSecondarySoftDark = gray.shade900;
   static Color bgNeutralSecondaryDark = gray.shade950;
   static Color bgNeutralSecondaryMediumDark = gray.shade800;
   static Color bgNeutralSecondaryStrongDark = gray.shade700;

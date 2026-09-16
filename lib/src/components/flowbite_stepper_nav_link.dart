@@ -20,6 +20,15 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
+/// [FlowbiteStepperNavLink]'s type variant.
+enum FlowbiteStepperNavLinkType {
+  /// The default/normal type variant
+  normal,
+
+  /// Icon shape type variant
+  iconShape,
+}
+
 /// [FlowbiteStepperNavLink]'s state variant.
 enum FlowbiteStepperNavLinkState {
   /// The default/inactive state variant.
@@ -41,10 +50,13 @@ enum FlowbiteStepperNavLinkState {
 /// [FlowbiteStepperNavLink]'s item model.
 class FlowbiteStepperNavLinkItem {
   /// The link's label.
-  final String label;
+  final String? label;
 
   /// The link's number.
-  final int number;
+  final int? number;
+
+  /// The link's icon.
+  final IconData? icon;
 
   /// The link's state.
   ///
@@ -52,11 +64,16 @@ class FlowbiteStepperNavLinkItem {
   final FlowbiteStepperNavLinkState state;
 
   /// Constructor.
-  new({required this.label, required this.number, this.state = .inactive});
+  new({this.label, this.number, this.icon, this.state = .inactive});
 }
 
 /// Stepper Nav Link component.
 class FlowbiteStepperNavLink extends StatelessWidget {
+  /// The link's type.
+  ///
+  /// Defaults to [FlowbiteStepperNavLinkType.normal].
+  final FlowbiteStepperNavLinkType type;
+
   /// The link's item.
   final FlowbiteStepperNavLinkItem item;
 
@@ -69,6 +86,7 @@ class FlowbiteStepperNavLink extends StatelessWidget {
   /// Constructor.
   const FlowbiteStepperNavLink({
     required this.item,
+    this.type = .normal,
     this.onTap,
     this.fontSize,
     super.key,
@@ -90,8 +108,25 @@ class FlowbiteStepperNavLink extends StatelessWidget {
     .disabled => FlowbiteTheme.of(context).borderBase,
   };
 
+  FlowbiteIconShapeColor get _iconShapeColor => switch (item.state) {
+    .inactive => .gray,
+    .active => .brand,
+    .completed => .brand,
+    .error => .red,
+    .disabled => .disabled,
+  };
+
   @override
   Widget build(BuildContext context) {
+    if (type == .iconShape) {
+      IconData icon = item.icon ?? FlowbiteOutlineIcons.fire;
+      if (item.state == .completed) {
+        icon = FlowbiteOutlineIcons.check;
+      } else if (item.state == .error) {
+        icon = FlowbiteOutlineIcons.x;
+      }
+      return FlowbiteIconShape(icon: icon, size: .lg, color: _iconShapeColor);
+    }
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -103,7 +138,7 @@ class FlowbiteStepperNavLink extends StatelessWidget {
           children: [
             _buildNumber(context),
             Text(
-              item.label,
+              item.label ?? '',
               style: FlowbiteFontFamily.inter(
                 fontWeight: .medium,
                 fontSize: fontSize ?? .textBase,
@@ -164,18 +199,28 @@ class PreviewFlowbiteStepperNavLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+      mainAxisSize: .min,
       crossAxisAlignment: .start,
-      spacing: 16.0,
-      children: FlowbiteStepperNavLinkState.values
+      spacing: 12.0,
+      children: FlowbiteStepperNavLinkType.values
           .map(
-            (state) => FlowbiteStepperNavLink(
-              item: FlowbiteStepperNavLinkItem(
-                number: 1,
-                label: 'First step',
-                state: state,
-              ),
-              onTap: () {},
+            (type) => Column(
+              crossAxisAlignment: .start,
+              spacing: 8.0,
+              children: FlowbiteStepperNavLinkState.values
+                  .map(
+                    (state) => FlowbiteStepperNavLink(
+                      type: type,
+                      item: FlowbiteStepperNavLinkItem(
+                        number: 1,
+                        label: 'First step',
+                        state: state,
+                      ),
+                      onTap: () {},
+                    ),
+                  )
+                  .toList(),
             ),
           )
           .toList(),

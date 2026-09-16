@@ -22,7 +22,20 @@ import 'package:material_ui/material_ui.dart';
 
 enum FlowbiteIconShapeSize { xl2, xl, lg, base, sm, xs }
 
-enum FlowbiteIconShapeColor { green, red, brand, yellow, gray, dark, white }
+enum FlowbiteIconShapeColor {
+  green,
+  red,
+  brand,
+  yellow,
+  gray,
+  dark,
+  white,
+
+  /// Disabled color variant.
+  /// 
+  /// Used by [FlowbiteStepperNavLink].
+  disabled,
+}
 
 enum FlowbiteIconShapeType { circle, square }
 
@@ -74,6 +87,7 @@ class FlowbiteIconShape extends StatelessWidget {
       .gray => _colorExt(context).textBody,
       .dark => _colorExt(context).textWhite,
       .white => _colorExt(context).textBody,
+      .disabled => _colorExt(context).textFgDisabled,
     };
   }
 
@@ -86,6 +100,7 @@ class FlowbiteIconShape extends StatelessWidget {
       .gray => _colorExt(context).bgNeutralTertiary,
       .dark => _colorExt(context).bgDark,
       .white => _colorExt(context).bgNeutralPrimaryMedium,
+      .disabled => _colorExt(context).bgNeutralTertiary,
     };
   }
 

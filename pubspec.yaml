@@ -17,8 +17,7 @@ dependencies:
   flowbite_illustrations: ^0.4.0
   flutter:
     sdk: flutter
-
-  material_ui: any
+  material_ui: ^1.2.0
 dev_dependencies:
   dot_shorthand_converter: ^0.0.4
   flutter_lints: ^6.0.0
