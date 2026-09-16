@@ -694,6 +694,77 @@ FlowbiteSpinner(
 )
 ```
 
+### Stepper
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/stepper-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/stepper-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+FlowbiteStepper(
+  type: .normal, // default
+  breakpoint: .desktop, // default
+  currentIndex: 1,
+  items: [
+    FlowbiteStepperNavLinkItem(
+      number: 1,
+      label: 'Personal Info',
+    ),
+    FlowbiteStepperNavLinkItem(
+      number: 2,
+      label: 'Account Info',
+    ),
+    FlowbiteStepperNavLinkItem(
+      number: 3,
+      label: 'Payment Info',
+    ),
+    FlowbiteStepperNavLinkItem(
+      number: 4,
+      label: 'Review',
+    ),
+  ],
+  onTap: (_) {},
+  previousButton: FlowbiteButton(
+    onPressed: () {},
+    color: .secondary,
+    child: const Text(
+      'Prev: Personal Info',
+    ),
+  ),
+  nextButton: FlowbiteButton(
+    onPressed: () {},
+    child: const Text(
+      'Next: Payment Info',
+    ),
+  ),
+  child: Container(
+    height: 177.0,
+    decoration: BoxDecoration(
+      color: FlowbiteTheme.of(context).bgNeutralSecondarySoft,
+      border: .all(
+        color: FlowbiteTheme.of(context).borderBase,
+      ),
+      borderRadius: .circular(12.0),
+    ),
+    alignment: .center,
+    child: Text(
+      'Your content here',
+      textAlign: .center,
+      style: FlowbiteFontFamily.inter(
+        fontWeight: .medium,
+        fontSize: .textLg,
+        color: FlowbiteTheme.of(context).textBody,
+      ),
+    ),
+  ),
+)
+```
+
 ### Toast
 
 Illustrations:

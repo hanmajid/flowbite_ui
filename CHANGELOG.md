@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Add Icon Shape variant for `FlowbiteStepper` component.
+- Add all type variants for `FlowbiteStepper` component.
 
 ## [0.0.7] - 15-09-2026
 ### Added

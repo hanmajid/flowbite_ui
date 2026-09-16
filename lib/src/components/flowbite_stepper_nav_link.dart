@@ -27,6 +27,12 @@ enum FlowbiteStepperNavLinkType {
 
   /// Icon shape type variant
   iconShape,
+
+  /// Icon shape & text type variant
+  iconShapeText,
+
+  /// Card alert type variant
+  cardAlert,
 }
 
 /// [FlowbiteStepperNavLink]'s state variant.
@@ -52,6 +58,9 @@ class FlowbiteStepperNavLinkItem {
   /// The link's label.
   final String? label;
 
+  /// The link's subtitle.
+  final String? subtitle;
+
   /// The link's number.
   final int? number;
 
@@ -64,7 +73,13 @@ class FlowbiteStepperNavLinkItem {
   final FlowbiteStepperNavLinkState state;
 
   /// Constructor.
-  new({this.label, this.number, this.icon, this.state = .inactive});
+  new({
+    this.label,
+    this.subtitle,
+    this.number,
+    this.icon,
+    this.state = .inactive,
+  });
 }
 
 /// Stepper Nav Link component.
@@ -94,9 +109,18 @@ class FlowbiteStepperNavLink extends StatelessWidget {
 
   Color _getTextColor(BuildContext context) => switch (item.state) {
     .inactive => FlowbiteTheme.of(context).textBody,
-    .active => FlowbiteTheme.of(context).textFgBrand,
-    .completed => FlowbiteTheme.of(context).textFgBrand,
-    .error => FlowbiteTheme.of(context).textFgDanger,
+    .active =>
+      type == .cardAlert
+          ? FlowbiteTheme.of(context).textFgBrandStrong
+          : FlowbiteTheme.of(context).textFgBrand,
+    .completed =>
+      type == .cardAlert
+          ? FlowbiteTheme.of(context).textFgBrandStrong
+          : FlowbiteTheme.of(context).textFgBrand,
+    .error =>
+      type == .cardAlert
+          ? FlowbiteTheme.of(context).textFgDangerStrong
+          : FlowbiteTheme.of(context).textFgDanger,
     .disabled => FlowbiteTheme.of(context).textFgDisabled,
   };
 
@@ -106,6 +130,22 @@ class FlowbiteStepperNavLink extends StatelessWidget {
     .completed => FlowbiteTheme.of(context).borderBrand,
     .error => FlowbiteTheme.of(context).borderDanger,
     .disabled => FlowbiteTheme.of(context).borderBase,
+  };
+
+  Color _getCardBorderColor(BuildContext context) => switch (item.state) {
+    .inactive => FlowbiteTheme.of(context).borderBaseMedium,
+    .active => FlowbiteTheme.of(context).borderBrandSubtle,
+    .completed => FlowbiteTheme.of(context).borderBrandSubtle,
+    .error => FlowbiteTheme.of(context).borderDangerSubtle,
+    .disabled => FlowbiteTheme.of(context).borderBase,
+  };
+
+  Color _getCardBackgroundColor(BuildContext context) => switch (item.state) {
+    .inactive => FlowbiteTheme.of(context).bgNeutralSecondaryMedium,
+    .active => FlowbiteTheme.of(context).bgBrandSofter,
+    .completed => FlowbiteTheme.of(context).bgBrandSofter,
+    .error => FlowbiteTheme.of(context).bgDangerSoft,
+    .disabled => FlowbiteTheme.of(context).bgNeutralSecondarySoft,
   };
 
   FlowbiteIconShapeColor get _iconShapeColor => switch (item.state) {
@@ -119,18 +159,115 @@ class FlowbiteStepperNavLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (type == .iconShape) {
-      IconData icon = item.icon ?? FlowbiteOutlineIcons.fire;
-      if (item.state == .completed) {
-        icon = FlowbiteOutlineIcons.check;
+      return Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: item.state != .disabled ? onTap : null,
+          child: _buildIconShape(context, size: .lg),
+        ),
+      );
+    } else if (type == .iconShapeText) {
+      return Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: item.state != .disabled ? onTap : null,
+          child: Row(
+            spacing: 12.0,
+            mainAxisSize: .min,
+            children: [
+              _buildIconShape(context, size: .base),
+              Column(
+                crossAxisAlignment: .start,
+                spacing: 2.0,
+                children: [
+                  Text(
+                    item.label ?? '',
+                    style: FlowbiteFontFamily.inter(
+                      fontWeight: .medium,
+                      fontSize: fontSize ?? .textBase,
+                      color: _getTextColor(context),
+                    ),
+                  ),
+                  if (item.subtitle != null)
+                    Text(
+                      item.subtitle ?? '',
+                      style: FlowbiteFontFamily.inter(
+                        fontWeight: .normal,
+                        fontSize: fontSize ?? .textSm,
+                        color: _getTextColor(context),
+                      ),
+                    ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    } else if (type == .cardAlert) {
+      Widget? icon;
+      if (item.state == .active) {
+        icon = Icon(
+          FlowbiteOutlineIcons.arrow_right,
+          size: 20.0,
+          color: _getTextColor(context),
+        );
+      } else if (item.state == .completed) {
+        icon = Icon(
+          FlowbiteOutlineIcons.check,
+          size: 20.0,
+          color: _getTextColor(context),
+        );
       } else if (item.state == .error) {
-        icon = FlowbiteOutlineIcons.x;
+        icon = Icon(
+          FlowbiteOutlineIcons.x,
+          size: 20.0,
+          color: _getTextColor(context),
+        );
       }
-      return FlowbiteIconShape(icon: icon, size: .lg, color: _iconShapeColor);
+      return Material(
+        color: _getCardBackgroundColor(context),
+        borderRadius: .circular(12.0),
+        child: InkWell(
+          onTap: item.state != .disabled ? onTap : null,
+          borderRadius: .circular(12.0),
+          child: Container(
+            decoration: BoxDecoration(
+              border: .all(color: _getCardBorderColor(context)),
+              borderRadius: .circular(12.0),
+            ),
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              spacing: 8.0,
+              children: [
+                Text(
+                  item.number?.toString() ?? '',
+                  style: FlowbiteFontFamily.inter(
+                    fontWeight: .medium,
+                    fontSize: fontSize ?? .textBase,
+                    color: _getTextColor(context),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    item.label ?? '',
+                    style: FlowbiteFontFamily.inter(
+                      fontWeight: .medium,
+                      fontSize: fontSize ?? .textBase,
+                      color: _getTextColor(context),
+                    ),
+                  ),
+                ),
+                ?icon,
+              ],
+            ),
+          ),
+        ),
+      );
     }
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onTap,
+        onTap: item.state != .disabled ? onTap : null,
         child: Row(
           spacing: 8.0,
           mainAxisSize: .min,
@@ -188,6 +325,19 @@ class FlowbiteStepperNavLink extends StatelessWidget {
       child: Icon(icon, size: 14.0, color: _getTextColor(context)),
     );
   }
+
+  Widget _buildIconShape(
+    BuildContext context, {
+    required FlowbiteIconShapeSize size,
+  }) {
+    IconData icon = item.icon ?? FlowbiteOutlineIcons.fire;
+    if (item.state == .completed) {
+      icon = FlowbiteOutlineIcons.check;
+    } else if (item.state == .error) {
+      icon = FlowbiteOutlineIcons.x;
+    }
+    return FlowbiteIconShape(icon: icon, size: size, color: _iconShapeColor);
+  }
 }
 
 /// Preview class for [FlowbiteStepperNavLink].
@@ -205,22 +355,25 @@ class PreviewFlowbiteStepperNavLink extends StatelessWidget {
       spacing: 12.0,
       children: FlowbiteStepperNavLinkType.values
           .map(
-            (type) => Column(
-              crossAxisAlignment: .start,
-              spacing: 8.0,
-              children: FlowbiteStepperNavLinkState.values
-                  .map(
-                    (state) => FlowbiteStepperNavLink(
-                      type: type,
-                      item: FlowbiteStepperNavLinkItem(
-                        number: 1,
-                        label: 'First step',
-                        state: state,
+            (type) => SizedBox(
+              width: 300.0,
+              child: Column(
+                crossAxisAlignment: .start,
+                spacing: 8.0,
+                children: FlowbiteStepperNavLinkState.values
+                    .map(
+                      (state) => FlowbiteStepperNavLink(
+                        type: type,
+                        item: FlowbiteStepperNavLinkItem(
+                          number: 1,
+                          label: 'First step',
+                          state: state,
+                        ),
+                        onTap: () {},
                       ),
-                      onTap: () {},
-                    ),
-                  )
-                  .toList(),
+                    )
+                    .toList(),
+              ),
             ),
           )
           .toList(),

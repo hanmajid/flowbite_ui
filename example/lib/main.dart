@@ -43,60 +43,60 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           spacing: 24.0,
           children: [
-            // SectionContainer(
-            //   fileName: 'accordion',
-            //   child: PreviewFlowbiteAccordion(),
-            // ),
-            // SectionContainer(
-            //   fileName: 'bottom-navigation',
-            //   child: PreviewFlowbiteBottomNavigation(),
-            // ),
-            // SectionContainer(
-            //   fileName: 'toggle-input',
-            //   child: PreviewFlowbiteToggleInput(),
-            // ),
-            // AlertSection(),
-            // AvatarSection(),
-            // AvatarGroupLabelSection(),
-            // AvatarGroupSection(),
-            // BadgeSection(),
-            // ButtonSection(),
-            // ButtonGroupSection(),
-            // SectionContainer(
-            //   fileName: 'breadcrumb',
-            //   child: PreviewFlowbiteBreadcrumb(),
-            // ),
-            // IconShapeSection(),
-            // SectionContainer(
-            //   fileName: 'jumbotron',
-            //   child: PreviewFlowbiteJumbotron(),
-            // ),
-            // SectionContainer(fileName: 'kbd', child: PreviewFlowbiteKbd()),
-            // InputFieldSection(),
-            // SectionContainer(
-            //   fileName: 'progress-bar',
-            //   child: PreviewFlowbiteProgressBar(),
-            // ),
-            // SectionContainer(
-            //   fileName: 'range-slider',
-            //   child: PreviewFlowbiteRangeSlider(),
-            // ),
-            // SpinnerSection(),
             SectionContainer(
-              fileName: 'stepper',
-              child: PreviewFlowbiteStepper(),
+              fileName: 'accordion',
+              child: PreviewFlowbiteAccordion(),
             ),
+            SectionContainer(
+              fileName: 'bottom-navigation',
+              child: PreviewFlowbiteBottomNavigation(),
+            ),
+            SectionContainer(
+              fileName: 'toggle-input',
+              child: PreviewFlowbiteToggleInput(),
+            ),
+            AlertSection(),
+            AvatarSection(),
+            AvatarGroupLabelSection(),
+            AvatarGroupSection(),
+            BadgeSection(),
+            ButtonSection(),
+            ButtonGroupSection(),
+            SectionContainer(
+              fileName: 'breadcrumb',
+              child: PreviewFlowbiteBreadcrumb(),
+            ),
+            IconShapeSection(),
+            SectionContainer(
+              fileName: 'jumbotron',
+              child: PreviewFlowbiteJumbotron(),
+            ),
+            SectionContainer(fileName: 'kbd', child: PreviewFlowbiteKbd()),
+            InputFieldSection(),
+            SectionContainer(
+              fileName: 'progress-bar',
+              child: PreviewFlowbiteProgressBar(),
+            ),
+            SectionContainer(
+              fileName: 'range-slider',
+              child: PreviewFlowbiteRangeSlider(),
+            ),
+            SpinnerSection(),
             SectionContainer(
               fileName: 'stepper-nav-link',
               child: PreviewFlowbiteStepperNavLink(),
             ),
-            // SectionContainer(fileName: 'toast', child: PreviewFlowbiteToast()),
-            // SectionContainer(
-            //   fileName: 'tooltip',
-            //   child: PreviewFlowbiteTooltip(),
-            // ),
-            // TypographySection(),
-            // ColorSection(),
+            SectionContainer(
+              fileName: 'stepper',
+              child: PreviewFlowbiteStepper(),
+            ),
+            SectionContainer(fileName: 'toast', child: PreviewFlowbiteToast()),
+            SectionContainer(
+              fileName: 'tooltip',
+              child: PreviewFlowbiteTooltip(),
+            ),
+            TypographySection(),
+            ColorSection(),
           ],
         ),
       ),
