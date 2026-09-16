@@ -698,8 +698,8 @@ FlowbiteSpinner(
 
 Illustrations:
 
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/stepper-light.png" />
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/stepper-dark.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/stepper-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/stepper-dark.png" width="300" />
 
 Usage example:
 

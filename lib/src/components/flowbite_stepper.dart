@@ -290,149 +290,135 @@ class PreviewFlowbiteStepper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: .horizontal,
-      child: Row(
-        crossAxisAlignment: .start,
-        mainAxisSize: .min,
-        spacing: 16.0,
-        children: FlowbiteStepperType.values
-            .map(
-              (type) => Column(
-                crossAxisAlignment: .start,
-                spacing: 64.0,
-                children:
-                    [FlowbiteBreakpoint.desktop, FlowbiteBreakpoint.mobile]
-                        .map(
-                          (breakpoint) => Row(
-                            children: [
-                              SizedBox(
-                                width: breakpoint == .desktop ? 800.0 : 400.0,
-                                child: FlowbiteStepper(
-                                  type: type,
-                                  breakpoint: breakpoint,
-                                  currentIndex: 1,
-                                  items: [
-                                    FlowbiteStepperNavLinkItem(
-                                      number: 1,
-                                      label: 'Personal Info',
-                                      subtitle: 'Helper text here',
-                                    ),
-                                    FlowbiteStepperNavLinkItem(
-                                      number: 2,
-                                      label: 'Account Info',
-                                      subtitle: 'Helper text here',
-                                      icon: FlowbiteOutlineIcons.user_circle,
-                                    ),
-                                    FlowbiteStepperNavLinkItem(
-                                      number: 3,
-                                      label: 'Payment Info',
-                                      subtitle: 'Helper text here',
-                                      icon: FlowbiteOutlineIcons.credit_card,
-                                    ),
-                                    if (breakpoint != .mobile ||
-                                        type != .normal)
-                                      FlowbiteStepperNavLinkItem(
-                                        number: 4,
-                                        label: 'Review',
-                                        subtitle: 'Helper text here',
-                                        icon:
-                                            FlowbiteOutlineIcons.clipboard_list,
-                                      ),
-                                  ],
-                                  onTap: (_) {},
-                                  previousButton:
-                                      type != .onlyIconLink &&
-                                          type != .verticalCard
-                                      ? FlowbiteButton(
-                                          onPressed: () {},
-                                          color: .secondary,
-                                          child: const Text(
-                                            'Prev: Personal Info',
-                                          ),
-                                        )
-                                      : Row(
-                                          spacing: 6.0,
-                                          children: [
-                                            Icon(
-                                              FlowbiteOutlineIcons.arrow_left,
-                                              size: 18.0,
-                                              color: FlowbiteTheme.of(context)
-                                                  .textBody,
-                                            ),
-                                            Text(
-                                              'Prev: Personal Info',
-                                              style: FlowbiteFontFamily.inter(
-                                                fontWeight: .medium,
-                                                fontSize: .textBase,
-                                                color: FlowbiteTheme.of(context)
-                                                    .textBody,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                  nextButton:
-                                      type != .onlyIconLink &&
-                                          type != .verticalCard
-                                      ? FlowbiteButton(
-                                          onPressed: () {},
-                                          child: const Text(
-                                            'Next: Payment Info',
-                                          ),
-                                        )
-                                      : Row(
-                                          spacing: 6.0,
-                                          children: [
-                                            Text(
-                                              'Next: Payment Info',
-                                              style: FlowbiteFontFamily.inter(
-                                                fontWeight: .medium,
-                                                fontSize: .textBase,
-                                                color: FlowbiteTheme.of(context)
-                                                    .textFgBrand,
-                                              ),
-                                            ),
-                                            Icon(
-                                              FlowbiteOutlineIcons.arrow_right,
-                                              size: 18.0,
-                                              color: FlowbiteTheme.of(context)
-                                                  .textFgBrand,
-                                            ),
-                                          ],
-                                        ),
-                                  child: Container(
-                                    height: 177.0,
-                                    decoration: BoxDecoration(
-                                      color: FlowbiteTheme.of(context)
-                                          .bgNeutralSecondarySoft,
-                                      border: .all(
-                                        color: FlowbiteTheme.of(context)
-                                            .borderBase,
-                                      ),
-                                      borderRadius: .circular(12.0),
-                                    ),
-                                    alignment: .center,
-                                    child: Text(
-                                      'Your content here',
-                                      textAlign: .center,
-                                      style: FlowbiteFontFamily.inter(
-                                        fontWeight: .medium,
-                                        fontSize: .textLg,
+    return Column(
+      crossAxisAlignment: .start,
+      spacing: 64.0,
+      children: FlowbiteStepperType.values
+          .map(
+            (type) => Row(
+              crossAxisAlignment: .start,
+              mainAxisSize: .min,
+              spacing: 16.0,
+              children: [FlowbiteBreakpoint.desktop, FlowbiteBreakpoint.mobile]
+                  .map(
+                    (breakpoint) => Row(
+                      children: [
+                        SizedBox(
+                          width: breakpoint == .desktop ? 800.0 : 400.0,
+                          child: FlowbiteStepper(
+                            type: type,
+                            breakpoint: breakpoint,
+                            currentIndex: 1,
+                            items: [
+                              FlowbiteStepperNavLinkItem(
+                                number: 1,
+                                label: 'Personal Info',
+                                subtitle: 'Helper text here',
+                              ),
+                              FlowbiteStepperNavLinkItem(
+                                number: 2,
+                                label: 'Account Info',
+                                subtitle: 'Helper text here',
+                                icon: FlowbiteOutlineIcons.user_circle,
+                              ),
+                              FlowbiteStepperNavLinkItem(
+                                number: 3,
+                                label: 'Payment Info',
+                                subtitle: 'Helper text here',
+                                icon: FlowbiteOutlineIcons.credit_card,
+                              ),
+                              if (breakpoint != .mobile || type != .normal)
+                                FlowbiteStepperNavLinkItem(
+                                  number: 4,
+                                  label: 'Review',
+                                  subtitle: 'Helper text here',
+                                  icon: FlowbiteOutlineIcons.clipboard_list,
+                                ),
+                            ],
+                            onTap: (_) {},
+                            previousButton:
+                                type != .onlyIconLink && type != .verticalCard
+                                ? FlowbiteButton(
+                                    onPressed: () {},
+                                    color: .secondary,
+                                    child: const Text('Prev: Personal Info'),
+                                  )
+                                : Row(
+                                    spacing: 6.0,
+                                    children: [
+                                      Icon(
+                                        FlowbiteOutlineIcons.arrow_left,
+                                        size: 18.0,
                                         color: FlowbiteTheme.of(context)
                                             .textBody,
                                       ),
-                                    ),
+                                      Text(
+                                        'Prev: Personal Info',
+                                        style: FlowbiteFontFamily.inter(
+                                          fontWeight: .medium,
+                                          fontSize: .textBase,
+                                          color: FlowbiteTheme.of(context)
+                                              .textBody,
+                                        ),
+                                      ),
+                                    ],
                                   ),
+                            nextButton:
+                                type != .onlyIconLink && type != .verticalCard
+                                ? FlowbiteButton(
+                                    onPressed: () {},
+                                    child: const Text('Next: Payment Info'),
+                                  )
+                                : Row(
+                                    spacing: 6.0,
+                                    children: [
+                                      Text(
+                                        'Next: Payment Info',
+                                        style: FlowbiteFontFamily.inter(
+                                          fontWeight: .medium,
+                                          fontSize: .textBase,
+                                          color: FlowbiteTheme.of(context)
+                                              .textFgBrand,
+                                        ),
+                                      ),
+                                      Icon(
+                                        FlowbiteOutlineIcons.arrow_right,
+                                        size: 18.0,
+                                        color: FlowbiteTheme.of(context)
+                                            .textFgBrand,
+                                      ),
+                                    ],
+                                  ),
+                            child: Container(
+                              height: 177.0,
+                              decoration: BoxDecoration(
+                                color: FlowbiteTheme.of(context)
+                                    .bgNeutralSecondarySoft,
+                                border: .all(
+                                  color: FlowbiteTheme.of(context).borderBase,
+                                ),
+                                borderRadius: .circular(12.0),
+                              ),
+                              alignment: .center,
+                              child: Text(
+                                'Your content here',
+                                textAlign: .center,
+                                style: FlowbiteFontFamily.inter(
+                                  fontWeight: .medium,
+                                  fontSize: .textLg,
+                                  color: FlowbiteTheme.of(context).textBody,
                                 ),
                               ),
-                            ],
+                            ),
                           ),
-                        )
-                        .toList(),
-              ),
-            )
-            .toList(),
-      ),
+                        ),
+                      ],
+                    ),
+                  )
+                  .toList(),
+            ),
+          )
+          .toList(),
     );
   }
 }
