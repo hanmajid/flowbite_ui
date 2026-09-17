@@ -196,12 +196,15 @@ class FlowbiteAlert extends StatelessWidget {
                         ),
                       ),
                     ),
-                    InkWell(
-                      onTap: onTapClose,
-                      child: Icon(
-                        FlowbiteOutlineIcons.x,
-                        size: 16.0,
-                        color: _getTextColor(context),
+                    Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: onTapClose,
+                        child: Icon(
+                          FlowbiteOutlineIcons.x,
+                          size: 16.0,
+                          color: _getTextColor(context),
+                        ),
                       ),
                     ),
                   ],
@@ -303,12 +306,15 @@ class FlowbiteAlert extends StatelessWidget {
             ),
           ),
         ),
-        InkWell(
-          onTap: onTapClose,
-          child: Icon(
-            FlowbiteOutlineIcons.x,
-            size: 16.0,
-            color: _getTextColor(context),
+        Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: onTapClose,
+            child: Icon(
+              FlowbiteOutlineIcons.x,
+              size: 16.0,
+              color: _getTextColor(context),
+            ),
           ),
         ),
       ],
