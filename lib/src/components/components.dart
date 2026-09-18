@@ -26,6 +26,7 @@ export 'flowbite_bottom_navigation.dart';
 export 'flowbite_breadcrumb.dart';
 export 'flowbite_button.dart';
 export 'flowbite_button_group.dart';
+export 'flowbite_chat_bubble.dart';
 export 'flowbite_icon_shape.dart';
 export 'flowbite_input_field.dart';
 export 'flowbite_input_label.dart';

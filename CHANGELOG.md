@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add all type variants for `FlowbiteStepper` component.
 - Add `FlowbiteSidebar` component.
+- Add `FlowbiteChatBubble` component.
 
 ## [0.0.7] - 15-09-2026
 ### Added
