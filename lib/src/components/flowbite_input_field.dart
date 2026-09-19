@@ -39,6 +39,9 @@ class FlowbiteInputField extends StatefulWidget {
   final String? hintText;
   final bool showClearIcon;
 
+  /// The input field's changed callback.
+  final ValueChanged<String>? onChanged;
+
   const FlowbiteInputField({
     this.size = .base,
     this.enabled = true,
@@ -55,6 +58,7 @@ class FlowbiteInputField extends StatefulWidget {
     this.helperText,
     this.hintText,
     this.showClearIcon = true,
+    this.onChanged,
     super.key,
   });
 
@@ -176,6 +180,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.transparent,
       child: Localizations(
         locale: const Locale('en'),
         delegates: const [
@@ -213,6 +218,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                     ),
                   Flexible(
                     child: TextField(
+                      onChanged: widget.onChanged,
                       controller: widget.controller,
                       focusNode: _focusNode,
                       decoration: InputDecoration(

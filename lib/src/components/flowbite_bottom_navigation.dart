@@ -128,6 +128,7 @@ class FlowbiteBottomNavigation extends StatelessWidget {
         padding: const .only(top: 16.0, bottom: 8.0),
         child: Column(
           spacing: 16.0,
+          mainAxisSize: .min,
           children: [?toggleInput, _buildNavigationBar(context)],
         ),
       );
