@@ -38,13 +38,13 @@ class FlowbiteToast extends SnackBar {
     required FlowbiteButton button,
     required String title,
     required String message,
-    double width = 380.0,
+    double? width = 380.0,
   }) {
     return FlowbiteToast(
       margin: .only(
         bottom: 0.0,
         left: 0.0,
-        right: MediaQuery.of(context).size.width - width,
+        right: width != null ? MediaQuery.of(context).size.width - width : 0.0,
       ),
       content: _buildContainer(
         context,
@@ -99,13 +99,13 @@ class FlowbiteToast extends SnackBar {
     required BuildContext context,
     required FlowbiteIconShape iconShape,
     required String message,
-    double width = 320.0,
+    double? width = 320.0,
   }) {
     return FlowbiteToast(
       margin: .only(
         bottom: 0.0,
         left: 0.0,
-        right: MediaQuery.of(context).size.width - width,
+        right: width != null ? MediaQuery.of(context).size.width - width : 0.0,
       ),
       content: _buildContainer(
         context,
@@ -145,13 +145,13 @@ class FlowbiteToast extends SnackBar {
     required String message,
     required String caption,
     required List<Widget> buttons,
-    double width = 320.0,
+    double? width = 320.0,
   }) {
     return FlowbiteToast(
       margin: .only(
         bottom: 0.0,
         left: 0.0,
-        right: MediaQuery.of(context).size.width - width,
+        right: width != null ? MediaQuery.of(context).size.width - width : 0.0,
       ),
       content: _buildContainer(
         context,
@@ -164,8 +164,7 @@ class FlowbiteToast extends SnackBar {
             Container(
               padding: const .symmetric(horizontal: 10.0, vertical: 8.0),
               decoration: BoxDecoration(
-                color: FlowbiteTheme.of(context)
-                    .bgNeutralSecondaryStrong,
+                color: FlowbiteTheme.of(context).bgNeutralSecondaryStrong,
                 borderRadius: .circular(6.0),
               ),
               child: Text(
@@ -203,8 +202,7 @@ class FlowbiteToast extends SnackBar {
                                 style: FlowbiteFontFamily.inter(
                                   fontWeight: .semibold,
                                   fontSize: .textBase,
-                                  color: FlowbiteTheme.of(context)
-                                      .textHeading,
+                                  color: FlowbiteTheme.of(context).textHeading,
                                 ),
                               ),
                               Text(
@@ -212,8 +210,7 @@ class FlowbiteToast extends SnackBar {
                                 style: FlowbiteFontFamily.inter(
                                   fontWeight: .normal,
                                   fontSize: .textSm,
-                                  color: FlowbiteTheme.of(context)
-                                      .textBody,
+                                  color: FlowbiteTheme.of(context).textBody,
                                 ),
                               ),
                             ],
@@ -223,8 +220,7 @@ class FlowbiteToast extends SnackBar {
                             style: FlowbiteFontFamily.inter(
                               fontWeight: .normal,
                               fontSize: .textXs,
-                              color: FlowbiteTheme.of(context)
-                                  .textFgBrand,
+                              color: FlowbiteTheme.of(context).textFgBrand,
                             ),
                           ),
                         ],
@@ -251,13 +247,13 @@ class FlowbiteToast extends SnackBar {
     required BuildContext context,
     required IconData icon,
     required String message,
-    double width = 320.0,
+    double? width = 320.0,
   }) {
     return FlowbiteToast(
       margin: .only(
         bottom: 0.0,
         left: 0.0,
-        right: MediaQuery.of(context).size.width - width,
+        right: width != null ? MediaQuery.of(context).size.width - width : 0.0,
       ),
       content: _buildContainer(
         context,
@@ -265,11 +261,7 @@ class FlowbiteToast extends SnackBar {
         child: Row(
           spacing: 10.0,
           children: [
-            Icon(
-              icon,
-              size: 20.0,
-              color: FlowbiteTheme.of(context).bgBrand,
-            ),
+            Icon(icon, size: 20.0, color: FlowbiteTheme.of(context).bgBrand),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -304,13 +296,13 @@ class FlowbiteToast extends SnackBar {
     required String title,
     required String message,
     required List<Widget> buttons,
-    double width = 320.0,
+    double? width = 320.0,
   }) {
     return FlowbiteToast(
       margin: .only(
         bottom: 0.0,
         left: 0.0,
-        right: MediaQuery.of(context).size.width - width,
+        right: width != null ? MediaQuery.of(context).size.width - width : 0.0,
       ),
       content: _buildContainer(
         context,
@@ -438,13 +430,13 @@ class FlowbiteToast extends SnackBar {
     required String title,
     required String message,
     required List<Widget> buttons,
-    double width = 320.0,
+    double? width = 320.0,
   }) {
     return FlowbiteToast(
       margin: .only(
         bottom: 0.0,
         left: 0.0,
-        right: MediaQuery.of(context).size.width - width,
+        right: width != null ? MediaQuery.of(context).size.width - width : 0.0,
       ),
       content: _buildContainer(
         context,
@@ -500,13 +492,13 @@ class FlowbiteToast extends SnackBar {
     required String title,
     required String message,
     required List<Widget> buttons,
-    double width = 640.0,
+    double? width = 640.0,
   }) {
     return FlowbiteToast(
       margin: .only(
         bottom: 0.0,
         left: 0.0,
-        right: MediaQuery.of(context).size.width - width,
+        right: width != null ? MediaQuery.of(context).size.width - width : 0.0,
       ),
       content: _buildContainer(
         context,
@@ -569,13 +561,13 @@ class FlowbiteToast extends SnackBar {
     required String title,
     required String message,
     required List<Widget> buttons,
-    double width = 384.0,
+    double? width = 384.0,
   }) {
     return FlowbiteToast(
       margin: .only(
         bottom: 0.0,
         left: 0.0,
-        right: MediaQuery.of(context).size.width - width,
+        right: width != null ? MediaQuery.of(context).size.width - width : 0.0,
       ),
       content: _buildContainer(
         context,
@@ -605,8 +597,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .semibold,
                           fontSize: .textBase,
-                          color: FlowbiteTheme.of(context)
-                              .bgDangerStrong,
+                          color: FlowbiteTheme.of(context).bgDangerStrong,
                         ),
                       ),
                       Text(
@@ -614,8 +605,7 @@ class FlowbiteToast extends SnackBar {
                         style: FlowbiteFontFamily.inter(
                           fontWeight: .normal,
                           fontSize: .textSm,
-                          color: FlowbiteTheme.of(context)
-                              .bgDangerStrong,
+                          color: FlowbiteTheme.of(context).bgDangerStrong,
                         ),
                       ),
                     ],
@@ -650,9 +640,7 @@ class FlowbiteToast extends SnackBar {
                 FlowbiteTheme.of(context).bgNeutralPrimaryMedium,
             borderRadius: .circular(12.0),
             border: .all(
-              color:
-                  borderColor ??
-                  FlowbiteTheme.of(context).borderBaseMedium,
+              color: borderColor ?? FlowbiteTheme.of(context).borderBaseMedium,
             ),
           ),
           padding: EdgeInsets.all(padding),

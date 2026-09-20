@@ -39,8 +39,27 @@ class FlowbiteInputField extends StatefulWidget {
   final String? hintText;
   final bool showClearIcon;
 
+  /// The input field's text input action.
+  final TextInputAction? textInputAction;
+
+  /// The input field's autofill hints.
+  ///
+  /// Defaults to empty array.
+  final Iterable<String>? autofillHints;
+
+  /// The input field's text capitalization.
+  ///
+  /// Defaults to [TextCapitalization.none].
+  final TextCapitalization textCapitalization;
+
+  /// The input field's keyboard type.
+  final TextInputType? keyboardType;
+
   /// The input field's changed callback.
   final ValueChanged<String>? onChanged;
+
+  /// The input field's submit callback.
+  final ValueChanged<String>? onSubmitted;
 
   const FlowbiteInputField({
     this.size = .base,
@@ -59,6 +78,11 @@ class FlowbiteInputField extends StatefulWidget {
     this.hintText,
     this.showClearIcon = true,
     this.onChanged,
+    this.onSubmitted,
+    this.textInputAction,
+    this.autofillHints = const <String>[],
+    this.textCapitalization = .none,
+    this.keyboardType,
     super.key,
   });
 
@@ -219,7 +243,12 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                   Flexible(
                     child: TextField(
                       onChanged: widget.onChanged,
+                      onSubmitted: widget.onSubmitted,
                       controller: widget.controller,
+                      textInputAction: widget.textInputAction,
+                      autofillHints: widget.autofillHints,
+                      textCapitalization: widget.textCapitalization,
+                      keyboardType: widget.keyboardType,
                       focusNode: _focusNode,
                       decoration: InputDecoration(
                         isDense: true,
