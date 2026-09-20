@@ -65,7 +65,6 @@ class FlowbiteModal extends StatelessWidget {
           side: BorderSide(color: FlowbiteTheme.of(context).borderBase),
         ),
         backgroundColor: FlowbiteTheme.of(context).bgNeutralPrimarySoft,
-        insetPadding: EdgeInsets.zero,
         child: Stack(
           children: [
             Padding(
