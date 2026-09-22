@@ -494,7 +494,6 @@ FlowbiteBottomNavigation(
 )
 ```
 
-
 ### Breadcrumb
 
 Illustrations:
@@ -972,8 +971,8 @@ FlowbiteToast.error(
 
 Illustrations:
 
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/toggle-switch-light.png" width="300" />
-<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/toggle-switch-dark.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/toggle-switch-light.png" width="200" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/toggle-switch-dark.png" width="200" />
 
 Usage example:
 
