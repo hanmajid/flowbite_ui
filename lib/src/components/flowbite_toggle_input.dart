@@ -16,108 +16,94 @@
 // Flowbite library (Copyright (c) Bergside Inc.), which is licensed
 // under the MIT License.
 
-import 'package:collection/collection.dart';
+import 'package:flowbite_icons/flowbite_outline_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// [FlowbiteToggleInput]'s item model.
-class FlowbiteToggleInputItem {
-  /// The item's label.
-  final String label;
-
-  /// Constructor.
-  new({required this.label});
-}
-
 /// Toggle Input component.
 class FlowbiteToggleInput extends StatelessWidget {
-  /// The component's items.
-  final List<FlowbiteToggleInputItem> items;
+  /// The input's title.
+  final String title;
 
-  /// The currently active index.
-  final int? currentIndex;
+  /// The input's subtitle.
+  final String subtitle;
 
-  /// Toggle input's tap callback.
-  final ValueChanged<int>? onTap;
+  /// The input's icon.
+  final IconData icon;
+
+  /// Whether the input is checked.
+  ///
+  /// Defaults to false.
+  final bool isChecked;
+
+  /// The switch's on change callback.
+  final ValueChanged<bool>? onChanged;
 
   /// Constructor.
   const FlowbiteToggleInput({
-    required this.items,
-    this.currentIndex,
-    this.onTap,
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    this.isChecked = false,
+    this.onChanged,
     super.key,
   });
-
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const .all(6.0),
-      decoration: BoxDecoration(
-        color: _colorExt(context).bgNeutralTertiaryMedium,
-        borderRadius: .circular(12.0),
-      ),
-      child: Row(
-        mainAxisSize: .min,
-        spacing: 2.0,
-        children: items
-            .mapIndexed(
-              (index, item) => _FlowbiteToggleInputWidget(
-                item: item,
-                isActive: index == currentIndex,
-                onTap: onTap != null
-                    ? () {
-                        onTap!(index);
-                      }
-                    : null,
-              ),
-            )
-            .toList(),
-      ),
-    );
-  }
-}
-
-class _FlowbiteToggleInputWidget extends StatelessWidget {
-  final FlowbiteToggleInputItem item;
-  final bool isActive;
-  final VoidCallback? onTap;
-
-  const new({required this.item, required this.isActive, required this.onTap});
-
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
-  Color _getTextColor(BuildContext context) =>
-      isActive ? _colorExt(context).textHeading : _colorExt(context).textBody;
-
-  BorderRadius get _borderRadius => isActive ? .circular(6.0) : .circular(8.0);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: isActive
-          ? _colorExt(context).bgNeutralPrimaryMedium
-          : Colors.transparent,
-      borderRadius: _borderRadius,
+      color: FlowbiteTheme.of(context).bgNeutralPrimarySoft,
+      borderRadius: .circular(12.0),
       child: InkWell(
-        onTap: onTap,
-        borderRadius: _borderRadius,
+        onTap: onChanged != null
+            ? () {
+                onChanged!(!isChecked);
+              }
+            : null,
+        borderRadius: .circular(12.0),
         child: Container(
-          height: 24.0,
-          decoration: BoxDecoration(borderRadius: _borderRadius),
-          padding: const .symmetric(horizontal: 8.0),
-          alignment: .center,
-          child: Text(
-            item.label,
-            textAlign: .center,
-            style: FlowbiteFontFamily.inter(
-              fontWeight: .medium,
-              fontSize: .textXs,
-              color: _getTextColor(context),
-            ),
+          decoration: BoxDecoration(
+            border: .all(color: FlowbiteTheme.of(context).borderBase),
+            borderRadius: .circular(12.0),
+          ),
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            spacing: 64.0,
+            children: [
+              Expanded(
+                child: Row(
+                  spacing: 10.0,
+                  children: [
+                    FlowbiteIconShape(icon: icon, color: .gray, type: .square),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: .stretch,
+                        spacing: 2.0,
+                        children: [
+                          Text(
+                            title,
+                            style: FlowbiteFontFamily.inter(
+                              fontWeight: .medium,
+                              fontSize: .textSm,
+                              color: FlowbiteTheme.of(context).textHeading,
+                            ),
+                          ),
+                          Text(
+                            subtitle,
+                            style: FlowbiteFontFamily.inter(
+                              fontWeight: .normal,
+                              fontSize: .textSm,
+                              color: FlowbiteTheme.of(context).textBody,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              FlowbiteToggleSwitch(isChecked: isChecked, onChanged: onChanged),
+            ],
           ),
         ),
       ),
@@ -139,28 +125,28 @@ class PreviewFlowbiteToggleInput extends StatefulWidget {
 
 class _PreviewFlowbiteToggleInputState
     extends State<PreviewFlowbiteToggleInput> {
-  int _currentIndex = 0;
+  bool _isChecked = false;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 12.0,
-      children: [
-        FlowbiteToggleInput(
-          items: [
-            FlowbiteToggleInputItem(label: 'Toggle'),
-            FlowbiteToggleInputItem(label: 'Toggle'),
-            FlowbiteToggleInputItem(label: 'Toggle'),
-            FlowbiteToggleInputItem(label: 'Toggle'),
-          ],
-          currentIndex: _currentIndex,
-          onTap: (value) {
-            setState(() {
-              _currentIndex = value;
-            });
-          },
-        ),
-      ],
+    return SizedBox(
+      width: 576.0,
+      child: Column(
+        spacing: 6.0,
+        children: [
+          FlowbiteToggleInput(
+            title: 'Weekly newsletter',
+            subtitle: 'Save my credentials for easier sign-in in the future.',
+            icon: FlowbiteOutlineIcons.newspapper,
+            isChecked: _isChecked,
+            onChanged: (value) {
+              setState(() {
+                _isChecked = value;
+              });
+            },
+          ),
+        ],
+      ),
     );
   }
 }

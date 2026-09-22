@@ -42,4 +42,6 @@ export 'flowbite_stepper.dart';
 export 'flowbite_stepper_nav_link.dart';
 export 'flowbite_toast.dart';
 export 'flowbite_toggle_input.dart';
+export 'flowbite_toggle_input_menu.dart';
+export 'flowbite_toggle_switch.dart';
 export 'flowbite_tooltip.dart';

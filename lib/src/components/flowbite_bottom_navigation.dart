@@ -89,7 +89,7 @@ class FlowbiteBottomNavigation extends StatelessWidget {
   /// The navigation's toggle input.
   ///
   /// Only used if style is [FlowbiteBottomNavigationStyle.segmentControls].
-  final FlowbiteToggleInput? toggleInput;
+  final FlowbiteToggleInputMenu? toggleInput;
 
   /// Constructor.
   const FlowbiteBottomNavigation({
@@ -411,12 +411,12 @@ class _PreviewFlowbiteBottomNavigationState
                 FlowbiteBottomNavigationItem(icon: FlowbiteOutlineIcons.wallet),
                 FlowbiteBottomNavigationItem(icon: FlowbiteOutlineIcons.wallet),
               ],
-              toggleInput: FlowbiteToggleInput(
+              toggleInput: FlowbiteToggleInputMenu(
                 items: [
-                  FlowbiteToggleInputItem(label: 'Toggle'),
-                  FlowbiteToggleInputItem(label: 'Toggle'),
-                  FlowbiteToggleInputItem(label: 'Toggle'),
-                  FlowbiteToggleInputItem(label: 'Toggle'),
+                  FlowbiteToggleInputMenuItem(label: 'Toggle'),
+                  FlowbiteToggleInputMenuItem(label: 'Toggle'),
+                  FlowbiteToggleInputMenuItem(label: 'Toggle'),
+                  FlowbiteToggleInputMenuItem(label: 'Toggle'),
                 ],
                 currentIndex: 0,
                 onTap: (_) {},

@@ -479,12 +479,12 @@ FlowbiteBottomNavigation(
       label: 'Wallet',
     ),
   ],
-  toggleInput: FlowbiteToggleInput(
+  toggleInput: FlowbiteToggleInputMenu(
     items: [
-      FlowbiteToggleInputItem(label: 'Toggle'),
-      FlowbiteToggleInputItem(label: 'Toggle'),
-      FlowbiteToggleInputItem(label: 'Toggle'),
-      FlowbiteToggleInputItem(label: 'Toggle'),
+      FlowbiteToggleInputMenuItem(label: 'Toggle'),
+      FlowbiteToggleInputMenuItem(label: 'Toggle'),
+      FlowbiteToggleInputMenuItem(label: 'Toggle'),
+      FlowbiteToggleInputMenuItem(label: 'Toggle'),
     ],
     currentIndex: 0,
     onTap: (_) {},
@@ -965,7 +965,30 @@ FlowbiteToast.error(
       label: const Text('Try again'),
     ),
   ],
-),
+)
+```
+
+### Toggle Switch
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/toggle-switch-light.png" width="300" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/toggle-switch-dark.png" width="300" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+FlowbiteToggleSwitch(
+  size: .base, // default
+  isChecked: _isChecked,
+  onChanged: (value) {
+    setState(() {
+      _isChecked = value;
+    });
+  },
+)
 ```
 
 ### Tooltip

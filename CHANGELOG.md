@@ -10,9 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `onChanged` property to `FlowbiteInputField` component.
 - Add `FlowbiteModal` component.
 - Add `textInputAction`, `autofillHints`, `textCapitalization`, `keyboardType`, and `onSubmitted` properties to `FlowbiteInputField` component.
+- Add `FlowbiteToggleSwitch` compponent.
+- Add `FlowbiteToggleInput` compponent.
 
 ### Changed
 - Make `width` nullable in `FlowbiteToast`.
+- Rename `FlowbiteToggleInput` to `FlowbiteToggleInputMenu`.
 
 ### Fixed
 - Fix `FlowbiteBottomNavigation`'s layout for `segmentControls` variant.
