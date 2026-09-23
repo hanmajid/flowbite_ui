@@ -21,7 +21,7 @@ import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
 /// Radio Input Card component.
-class FlowbiteRadioInputCard extends StatelessWidget {
+class FlowbiteRadioInputCard extends StatefulWidget {
   /// The input's icon.
   final IconData icon;
 
@@ -49,18 +49,30 @@ class FlowbiteRadioInputCard extends StatelessWidget {
     super.key,
   });
 
-  Color _getBorderColor(BuildContext context) => isChecked
-      ? FlowbiteTheme.of(context).borderBrandSubtle
-      : FlowbiteTheme.of(context).borderBase;
+  @override
+  State<FlowbiteRadioInputCard> createState() => _FlowbiteRadioInputCardState();
+}
 
-  Color _getBackgroundColor(BuildContext context) => isChecked
+class _FlowbiteRadioInputCardState extends State<FlowbiteRadioInputCard> {
+  bool _isHovered = false;
+
+  Color _getBorderColor(BuildContext context) => widget.isChecked
+      ? FlowbiteTheme.of(context).borderBrandSubtle
+      : (_isHovered
+            ? FlowbiteTheme.of(context).borderBaseMedium
+            : FlowbiteTheme.of(context).borderBase);
+
+  Color _getBackgroundColor(BuildContext context) => widget.isChecked
       ? FlowbiteTheme.of(context).bgBrandSofter
-      : FlowbiteTheme.of(context).bgNeutralPrimarySoft;
+      : (_isHovered
+            ? FlowbiteTheme.of(context).bgNeutralSecondaryMedium
+            : FlowbiteTheme.of(context).bgNeutralPrimarySoft);
 
   Color? _getIconShapeBackgroundColor(BuildContext context) =>
-      isChecked ? FlowbiteTheme.of(context).bgBrandSoft : null;
+      widget.isChecked ? FlowbiteTheme.of(context).bgBrandSoft : null;
 
-  FlowbiteIconShapeColor get _iconShapeColor => isChecked ? .brand : .gray;
+  FlowbiteIconShapeColor get _iconShapeColor =>
+      widget.isChecked ? .brand : .gray;
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +81,14 @@ class FlowbiteRadioInputCard extends StatelessWidget {
       color: _getBackgroundColor(context),
       child: InkWell(
         onTap: () {
-          onChanged(!isChecked);
+          widget.onChanged(!widget.isChecked);
         },
+        onHover: (value) {
+          setState(() {
+            _isHovered = value;
+          });
+        },
+        hoverColor: FlowbiteTheme.of(context).bgNeutralSecondaryMedium,
         borderRadius: .circular(12.0),
         child: Container(
           decoration: BoxDecoration(
@@ -83,7 +101,7 @@ class FlowbiteRadioInputCard extends StatelessWidget {
             crossAxisAlignment: .start,
             children: [
               FlowbiteIconShape(
-                icon: icon,
+                icon: widget.icon,
                 type: .square,
                 color: _iconShapeColor,
                 backgroundColor: _getIconShapeBackgroundColor(context),
@@ -94,7 +112,7 @@ class FlowbiteRadioInputCard extends StatelessWidget {
                   crossAxisAlignment: .stretch,
                   children: [
                     Text(
-                      title,
+                      widget.title,
                       style: FlowbiteFontFamily.inter(
                         fontWeight: .medium,
                         fontSize: .textSm,
@@ -102,7 +120,7 @@ class FlowbiteRadioInputCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      subtitle,
+                      widget.subtitle,
                       style: FlowbiteFontFamily.inter(
                         fontWeight: .normal,
                         fontSize: .textSm,
@@ -112,7 +130,10 @@ class FlowbiteRadioInputCard extends StatelessWidget {
                   ],
                 ),
               ),
-              FlowbiteRadioInput(isChecked: isChecked, onChanged: onChanged),
+              FlowbiteRadioInput(
+                isChecked: widget.isChecked,
+                onChanged: widget.onChanged,
+              ),
             ],
           ),
         ),

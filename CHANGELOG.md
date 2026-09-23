@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add `FlowbiteRadioInput` component.
 - Add `FlowbiteRadioInputCard` component.
+- Add `FlowbiteListItem` component.
 
 ## [0.0.9] - 22-09-2026
 ### Added
