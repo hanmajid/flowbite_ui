@@ -22,107 +22,209 @@ import 'package:material_ui/material_ui.dart';
 
 /// Modal component.
 class FlowbiteModal extends StatelessWidget {
-  /// The modal's text.
-  final String text;
+  /// The modal's child widget.
+  final Widget child;
 
-  /// The modal's icon.
-  final IconData icon;
+  /// The modal's max width.
+  ///
+  /// Defaults to 384.0.
+  final double maxWidth;
 
-  /// The positive button's tap callback.
-  final VoidCallback? onPressedPositive;
-
-  /// The negative button's tap callback.
-  final VoidCallback? onPressedNegative;
-
-  /// The positive button's label.
-  final String positiveLabel;
-
-  /// The negative button's label.
-  final String negativeLabel;
-
-  /// The close button's tap callback.
-  final VoidCallback? onPressedClose;
+  /// The modal's inset padding.
+  ///
+  /// Defaults to zero.
+  final EdgeInsets insetPadding;
 
   /// Constructor.
   const FlowbiteModal({
-    required this.text,
-    this.icon = FlowbiteOutlineIcons.exclamation,
-    this.positiveLabel = 'Confirm',
-    this.negativeLabel = 'No, cancel',
-    this.onPressedPositive,
-    this.onPressedNegative,
-    this.onPressedClose,
+    required this.child,
+    this.maxWidth = 384.0,
+    this.insetPadding = .zero,
     super.key,
   });
+
+  /// Factory constructor for [FlowbiteModal] (popup variant).
+  factory FlowbiteModal.popup({
+    required String text,
+    IconData icon = FlowbiteOutlineIcons.exclamation,
+    String positiveLabel = 'Confirm',
+    String negativeLabel = 'No, cancel',
+    VoidCallback? onPressedPositive,
+    VoidCallback? onPressedNegative,
+    VoidCallback? onPressedClose,
+  }) {
+    return FlowbiteModal(
+      child: Builder(
+        builder: (context) {
+          return Stack(
+            children: [
+              Padding(
+                padding: const .all(24.0),
+                child: Column(
+                  mainAxisSize: .min,
+                  spacing: 24.0,
+                  children: [
+                    Column(
+                      mainAxisSize: .min,
+                      spacing: 16.0,
+                      children: [
+                        Icon(
+                          icon,
+                          size: 48.0,
+                          color: FlowbiteTheme.of(context).textFgDisabled,
+                        ),
+                        Text(
+                          text,
+                          textAlign: .center,
+                          style: FlowbiteFontFamily.inter(
+                            fontWeight: .normal,
+                            fontSize: .textBase,
+                            color: FlowbiteTheme.of(context).textBody,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      spacing: 16.0,
+                      mainAxisAlignment: .center,
+                      children: [
+                        FlowbiteButton(
+                          onPressed: onPressedPositive,
+                          child: Text(positiveLabel),
+                        ),
+                        FlowbiteButton(
+                          onPressed: onPressedNegative,
+                          color: .secondary,
+                          child: Text(negativeLabel),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: 6.0,
+                right: 6.0,
+                child: FlowbiteButton.iconOnly(
+                  onPressed: onPressedClose,
+                  icon: const Icon(FlowbiteOutlineIcons.x),
+                  color: .ghost,
+                  size: .sm,
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  /// Factory constructor for [FlowbiteModal] (with radio inputs variant).
+  factory FlowbiteModal.radioInputs({
+    required String title,
+    required String subtitle,
+    required List<FlowbiteRadioInputCardData> radioInputData,
+    required dynamic groupValue,
+    required ValueChanged<dynamic> onChanged,
+    required String buttonLabel,
+    IconData? buttonLeadingIcon,
+    IconData? buttonTrailingIcon,
+    VoidCallback? onPressedClose,
+    VoidCallback? onSubmit,
+  }) {
+    return FlowbiteModal(
+      child: Builder(
+        builder: (context) {
+          return Padding(
+            padding: const .all(24.0),
+            child: Column(
+              spacing: 24.0,
+              crossAxisAlignment: .stretch,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: FlowbiteTheme.of(context).borderBase,
+                      ),
+                    ),
+                  ),
+                  padding: const .only(bottom: 20.0),
+                  child: Row(
+                    spacing: 24.0,
+                    mainAxisAlignment: .spaceBetween,
+                    children: [
+                      Text(
+                        title,
+                        style: FlowbiteFontFamily.inter(
+                          fontWeight: .medium,
+                          fontSize: .textLg,
+                          color: FlowbiteTheme.of(context).textHeading,
+                        ),
+                      ),
+                      FlowbiteButton.iconOnly(
+                        onPressed: onPressedClose,
+                        icon: const Icon(FlowbiteOutlineIcons.x),
+                        color: .ghost,
+                        size: .sm,
+                      ),
+                    ],
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: .stretch,
+                  spacing: 16.0,
+                  children: [
+                    Text(
+                      subtitle,
+                      style: FlowbiteFontFamily.inter(
+                        fontWeight: .normal,
+                        fontSize: .textSm,
+                        color: FlowbiteTheme.of(context).textBody,
+                      ),
+                    ),
+                    ...radioInputData.map(
+                      (data) => FlowbiteRadioInputCard(
+                        data: data,
+                        isChecked: groupValue == data.value,
+                        onChanged: (value) {
+                          if (groupValue == value) return;
+                          onChanged(data.value);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                FlowbiteButton.icon(
+                  onPressed: onSubmit,
+                  label: Text(buttonLabel),
+                  leadingIcon: buttonLeadingIcon != null
+                      ? Icon(buttonLeadingIcon)
+                      : null,
+                  trailingIcon: buttonTrailingIcon != null
+                      ? Icon(buttonTrailingIcon)
+                      : null,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 384.0),
+      constraints: BoxConstraints(maxWidth: maxWidth),
       child: Dialog(
         shape: RoundedRectangleBorder(
           borderRadius: .circular(12.0),
           side: BorderSide(color: FlowbiteTheme.of(context).borderBase),
         ),
+        insetPadding: insetPadding,
         backgroundColor: FlowbiteTheme.of(context).bgNeutralPrimarySoft,
-        child: Stack(
-          children: [
-            Padding(
-              padding: const .all(24.0),
-              child: Column(
-                mainAxisSize: .min,
-                spacing: 24.0,
-                children: [
-                  Column(
-                    mainAxisSize: .min,
-                    spacing: 16.0,
-                    children: [
-                      Icon(
-                        icon,
-                        size: 48.0,
-                        color: FlowbiteTheme.of(context).textFgDisabled,
-                      ),
-                      Text(
-                        text,
-                        textAlign: .center,
-                        style: FlowbiteFontFamily.inter(
-                          fontWeight: .normal,
-                          fontSize: .textBase,
-                          color: FlowbiteTheme.of(context).textBody,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    spacing: 16.0,
-                    mainAxisAlignment: .center,
-                    children: [
-                      FlowbiteButton(
-                        onPressed: onPressedPositive,
-                        child: Text(positiveLabel),
-                      ),
-                      FlowbiteButton(
-                        onPressed: onPressedNegative,
-                        color: .secondary,
-                        child: Text(negativeLabel),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-              top: 6.0,
-              right: 6.0,
-              child: FlowbiteButton.iconOnly(
-                onPressed: onPressedClose,
-                icon: const Icon(FlowbiteOutlineIcons.x),
-                color: .ghost,
-                size: .sm,
-              ),
-            ),
-          ],
-        ),
+        child: child,
       ),
     );
   }
@@ -131,9 +233,16 @@ class FlowbiteModal extends StatelessWidget {
 /// Preview class for [FlowbiteModal].
 ///
 /// Only used for documentation purpose.
-class PreviewFlowbiteModal extends StatelessWidget {
+class PreviewFlowbiteModal extends StatefulWidget {
   /// Constructor.
   const PreviewFlowbiteModal({super.key});
+
+  @override
+  State<PreviewFlowbiteModal> createState() => _PreviewFlowbiteModalState();
+}
+
+class _PreviewFlowbiteModalState extends State<PreviewFlowbiteModal> {
+  int _selectedItem = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -141,12 +250,52 @@ class PreviewFlowbiteModal extends StatelessWidget {
       crossAxisAlignment: .start,
       spacing: 16.0,
       children: [
-        FlowbiteModal(
+        FlowbiteModal.popup(
           text:
               'Are you sure you want to delete this product from your account?',
           onPressedPositive: () {},
           onPressedNegative: () {},
           onPressedClose: () {},
+        ),
+        FlowbiteModal.radioInputs(
+          title: 'Open positions',
+          subtitle: 'Select your desired position:',
+          groupValue: _selectedItem,
+          onSubmit: () {},
+          onPressedClose: () {},
+          buttonLabel: 'Next step',
+          buttonTrailingIcon: FlowbiteOutlineIcons.arrow_right,
+          radioInputData: [
+            FlowbiteRadioInputCardData(
+              value: 1,
+              icon: FlowbiteOutlineIcons.swatchbook,
+              title: 'UI/UX Engineer',
+              subtitle: 'Flowbite',
+            ),
+            FlowbiteRadioInputCardData(
+              value: 2,
+              icon: FlowbiteSocialIcons.facebook,
+              title: 'React Developer',
+              subtitle: 'Alphabet Inc.',
+            ),
+            FlowbiteRadioInputCardData(
+              value: 3,
+              icon: FlowbiteOutlineIcons.truck,
+              title: 'Full Stack Engineer',
+              subtitle: 'Meta Inc.',
+            ),
+            FlowbiteRadioInputCardData(
+              value: 4,
+              icon: FlowbiteOutlineIcons.palette,
+              title: 'Graphic designer',
+              subtitle: 'Microsoft Corporation',
+            ),
+          ],
+          onChanged: (value) {
+            setState(() {
+              _selectedItem = value;
+            });
+          },
         ),
       ],
     );

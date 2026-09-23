@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `FlowbiteRadioInput` component.
 - Add `FlowbiteRadioInputCard` component.
 - Add `FlowbiteListItem` component.
+- Add `radioInputs` factory method for `FlowbiteModal` component.
+
+### Changed
+- Refactor `FlowbiteModal` constructor to `popup` factory method.
 
 ## [0.0.9] - 22-09-2026
 ### Added

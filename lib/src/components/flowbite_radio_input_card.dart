@@ -20,8 +20,11 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-/// Radio Input Card component.
-class FlowbiteRadioInputCard extends StatefulWidget {
+/// [FlowbiteRadioInputCard]'s data model.
+class FlowbiteRadioInputCardData<T> {
+  /// The input's value.
+  final T value;
+
   /// The input's icon.
   final IconData icon;
 
@@ -30,6 +33,20 @@ class FlowbiteRadioInputCard extends StatefulWidget {
 
   /// The input's subtitle.
   final String subtitle;
+
+  /// Constructor.
+  new({
+    required this.value,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+  });
+}
+
+/// Radio Input Card component.
+class FlowbiteRadioInputCard<T> extends StatefulWidget {
+  /// The input's data.
+  final FlowbiteRadioInputCardData<T> data;
 
   /// Whether the radio is checked.
   ///
@@ -41,19 +58,18 @@ class FlowbiteRadioInputCard extends StatefulWidget {
 
   /// Constructor.
   const FlowbiteRadioInputCard({
-    required this.icon,
-    required this.title,
-    required this.subtitle,
+    required this.data,
     required this.onChanged,
     this.isChecked = false,
     super.key,
   });
 
   @override
-  State<FlowbiteRadioInputCard> createState() => _FlowbiteRadioInputCardState();
+  State<FlowbiteRadioInputCard<T>> createState() =>
+      _FlowbiteRadioInputCardState<T>();
 }
 
-class _FlowbiteRadioInputCardState extends State<FlowbiteRadioInputCard> {
+class _FlowbiteRadioInputCardState<T> extends State<FlowbiteRadioInputCard<T>> {
   bool _isHovered = false;
 
   Color _getBorderColor(BuildContext context) => widget.isChecked
@@ -101,7 +117,7 @@ class _FlowbiteRadioInputCardState extends State<FlowbiteRadioInputCard> {
             crossAxisAlignment: .start,
             children: [
               FlowbiteIconShape(
-                icon: widget.icon,
+                icon: widget.data.icon,
                 type: .square,
                 color: _iconShapeColor,
                 backgroundColor: _getIconShapeBackgroundColor(context),
@@ -112,7 +128,7 @@ class _FlowbiteRadioInputCardState extends State<FlowbiteRadioInputCard> {
                   crossAxisAlignment: .stretch,
                   children: [
                     Text(
-                      widget.title,
+                      widget.data.title,
                       style: FlowbiteFontFamily.inter(
                         fontWeight: .medium,
                         fontSize: .textSm,
@@ -120,7 +136,7 @@ class _FlowbiteRadioInputCardState extends State<FlowbiteRadioInputCard> {
                       ),
                     ),
                     Text(
-                      widget.subtitle,
+                      widget.data.subtitle,
                       style: FlowbiteFontFamily.inter(
                         fontWeight: .normal,
                         fontSize: .textSm,
@@ -166,16 +182,22 @@ class _PreviewFlowbiteRadioInputCardState
           FlowbiteRadioInputCard(
             isChecked: false,
             onChanged: (value) {},
-            icon: FlowbiteOutlineIcons.truck,
-            title: 'Delivery at home',
-            subtitle: 'Get it delivered to your door.',
+            data: FlowbiteRadioInputCardData(
+              value: 1,
+              icon: FlowbiteOutlineIcons.truck,
+              title: 'Delivery at home',
+              subtitle: 'Get it delivered to your door.',
+            ),
           ),
           FlowbiteRadioInputCard(
             isChecked: true,
             onChanged: (value) {},
-            icon: FlowbiteOutlineIcons.truck,
-            title: 'Delivery at home',
-            subtitle: 'Get it delivered to your door.',
+            data: FlowbiteRadioInputCardData(
+              value: 2,
+              icon: FlowbiteOutlineIcons.truck,
+              title: 'Delivery at home',
+              subtitle: 'Get it delivered to your door.',
+            ),
           ),
         ],
       ),
