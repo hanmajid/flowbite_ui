@@ -650,6 +650,24 @@ FlowbiteProgressBar(
 )
 ```
 
+### Radio Input
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/radio-input-light.png" width="200" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/radio-input-dark.png" width="200" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+FlowbiteRadioInput(
+  isChecked: true,
+  onChanged: (value) {},
+)
+```
+
 ### Range Slider
 
 Illustrations:
