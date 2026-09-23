@@ -32,7 +32,7 @@ enum FlowbiteIconShapeColor {
   white,
 
   /// Disabled color variant.
-  /// 
+  ///
   /// Used by [FlowbiteStepperNavLink].
   disabled,
 }
@@ -45,6 +45,7 @@ class FlowbiteIconShape extends StatelessWidget {
     this.size = .base,
     this.color = .brand,
     this.type = .circle,
+    this.backgroundColor,
     super.key,
   });
 
@@ -52,6 +53,11 @@ class FlowbiteIconShape extends StatelessWidget {
   final FlowbiteIconShapeSize size;
   final FlowbiteIconShapeColor color;
   final FlowbiteIconShapeType type;
+
+  /// The icon shape's override background color.
+  ///
+  /// This is used by [FlowbiteRadioInputCard].
+  final Color? backgroundColor;
 
   double get _containerSize => switch (size) {
     .xl2 => 96.0,
@@ -92,16 +98,17 @@ class FlowbiteIconShape extends StatelessWidget {
   }
 
   Color _getContainerColor(BuildContext context) {
-    return switch (color) {
-      .green => _colorExt(context).bgSuccessSoft,
-      .red => _colorExt(context).bgDangerSoft,
-      .brand => _colorExt(context).bgBrandSofter,
-      .yellow => _colorExt(context).bgWarningSoft,
-      .gray => _colorExt(context).bgNeutralTertiary,
-      .dark => _colorExt(context).bgDark,
-      .white => _colorExt(context).bgNeutralPrimaryMedium,
-      .disabled => _colorExt(context).bgNeutralTertiary,
-    };
+    return backgroundColor ??
+        switch (color) {
+          .green => _colorExt(context).bgSuccessSoft,
+          .red => _colorExt(context).bgDangerSoft,
+          .brand => _colorExt(context).bgBrandSofter,
+          .yellow => _colorExt(context).bgWarningSoft,
+          .gray => _colorExt(context).bgNeutralTertiary,
+          .dark => _colorExt(context).bgDark,
+          .white => _colorExt(context).bgNeutralPrimaryMedium,
+          .disabled => _colorExt(context).bgNeutralTertiary,
+        };
   }
 
   Border? _getContainerBorder(BuildContext context) {
