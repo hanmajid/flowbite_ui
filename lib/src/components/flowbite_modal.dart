@@ -31,15 +31,13 @@ class FlowbiteModal extends StatelessWidget {
   final double maxWidth;
 
   /// The modal's inset padding.
-  ///
-  /// Defaults to zero.
-  final EdgeInsets insetPadding;
+  final EdgeInsets? insetPadding;
 
   /// Constructor.
   const FlowbiteModal({
     required this.child,
     this.maxWidth = 384.0,
-    this.insetPadding = .zero,
+    this.insetPadding,
     super.key,
   });
 
@@ -124,9 +122,9 @@ class FlowbiteModal extends StatelessWidget {
     required String title,
     required String subtitle,
     required List<FlowbiteRadioInputCardData> radioInputData,
-    required dynamic groupValue,
-    required ValueChanged<dynamic> onChanged,
+    required dynamic defaultGroupValue,
     required String buttonLabel,
+    ValueChanged<dynamic>? onChanged,
     IconData? buttonLeadingIcon,
     IconData? buttonTrailingIcon,
     VoidCallback? onPressedClose,
@@ -135,78 +133,17 @@ class FlowbiteModal extends StatelessWidget {
     return FlowbiteModal(
       child: Builder(
         builder: (context) {
-          return Padding(
-            padding: const .all(24.0),
-            child: Column(
-              spacing: 24.0,
-              crossAxisAlignment: .stretch,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: FlowbiteTheme.of(context).borderBase,
-                      ),
-                    ),
-                  ),
-                  padding: const .only(bottom: 20.0),
-                  child: Row(
-                    spacing: 24.0,
-                    mainAxisAlignment: .spaceBetween,
-                    children: [
-                      Text(
-                        title,
-                        style: FlowbiteFontFamily.inter(
-                          fontWeight: .medium,
-                          fontSize: .textLg,
-                          color: FlowbiteTheme.of(context).textHeading,
-                        ),
-                      ),
-                      FlowbiteButton.iconOnly(
-                        onPressed: onPressedClose,
-                        icon: const Icon(FlowbiteOutlineIcons.x),
-                        color: .ghost,
-                        size: .sm,
-                      ),
-                    ],
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: .stretch,
-                  spacing: 16.0,
-                  children: [
-                    Text(
-                      subtitle,
-                      style: FlowbiteFontFamily.inter(
-                        fontWeight: .normal,
-                        fontSize: .textSm,
-                        color: FlowbiteTheme.of(context).textBody,
-                      ),
-                    ),
-                    ...radioInputData.map(
-                      (data) => FlowbiteRadioInputCard(
-                        data: data,
-                        isChecked: groupValue == data.value,
-                        onChanged: (value) {
-                          if (groupValue == value) return;
-                          onChanged(data.value);
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                FlowbiteButton.icon(
-                  onPressed: onSubmit,
-                  label: Text(buttonLabel),
-                  leadingIcon: buttonLeadingIcon != null
-                      ? Icon(buttonLeadingIcon)
-                      : null,
-                  trailingIcon: buttonTrailingIcon != null
-                      ? Icon(buttonTrailingIcon)
-                      : null,
-                ),
-              ],
-            ),
+          return _FlowbiteModalRadioInput(
+            title: title,
+            subtitle: subtitle,
+            radioInputData: radioInputData,
+            onChanged: onChanged,
+            buttonLabel: buttonLabel,
+            defaultGroupValue: defaultGroupValue,
+            buttonLeadingIcon: buttonLeadingIcon,
+            buttonTrailingIcon: buttonTrailingIcon,
+            onPressedClose: onPressedClose,
+            onSubmit: onSubmit,
           );
         },
       ),
@@ -222,9 +159,126 @@ class FlowbiteModal extends StatelessWidget {
           borderRadius: .circular(12.0),
           side: BorderSide(color: FlowbiteTheme.of(context).borderBase),
         ),
-        insetPadding: insetPadding,
+        insetPadding:
+            insetPadding ?? const .symmetric(horizontal: 16.0, vertical: 24.0),
         backgroundColor: FlowbiteTheme.of(context).bgNeutralPrimarySoft,
         child: child,
+      ),
+    );
+  }
+}
+
+class _FlowbiteModalRadioInput extends StatefulWidget {
+  final String title;
+  final String subtitle;
+  final List<FlowbiteRadioInputCardData> radioInputData;
+  final dynamic defaultGroupValue;
+  final ValueChanged<dynamic>? onChanged;
+  final String buttonLabel;
+  final IconData? buttonLeadingIcon;
+  final IconData? buttonTrailingIcon;
+  final VoidCallback? onPressedClose;
+  final VoidCallback? onSubmit;
+
+  const new({
+    required this.title,
+    required this.subtitle,
+    required this.radioInputData,
+    required this.onChanged,
+    required this.buttonLabel,
+    required this.defaultGroupValue,
+    required this.buttonLeadingIcon,
+    required this.buttonTrailingIcon,
+    required this.onPressedClose,
+    required this.onSubmit,
+  });
+
+  @override
+  State<_FlowbiteModalRadioInput> createState() =>
+      _FlowbiteModalRadioInputState();
+}
+
+class _FlowbiteModalRadioInputState extends State<_FlowbiteModalRadioInput> {
+  late dynamic _groupValue = widget.defaultGroupValue;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const .all(24.0),
+      child: Column(
+        mainAxisSize: .min,
+        spacing: 24.0,
+        crossAxisAlignment: .stretch,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: FlowbiteTheme.of(context).borderBase),
+              ),
+            ),
+            padding: const .only(bottom: 20.0),
+            child: Row(
+              spacing: 24.0,
+              mainAxisAlignment: .spaceBetween,
+              children: [
+                Text(
+                  widget.title,
+                  style: FlowbiteFontFamily.inter(
+                    fontWeight: .medium,
+                    fontSize: .textLg,
+                    color: FlowbiteTheme.of(context).textHeading,
+                  ),
+                ),
+                FlowbiteButton.iconOnly(
+                  onPressed: widget.onPressedClose,
+                  icon: const Icon(FlowbiteOutlineIcons.x),
+                  color: .ghost,
+                  size: .sm,
+                ),
+              ],
+            ),
+          ),
+          Column(
+            mainAxisSize: .min,
+            crossAxisAlignment: .stretch,
+            spacing: 16.0,
+            children: [
+              Text(
+                widget.subtitle,
+                style: FlowbiteFontFamily.inter(
+                  fontWeight: .normal,
+                  fontSize: .textSm,
+                  color: FlowbiteTheme.of(context).textBody,
+                ),
+              ),
+              ...widget.radioInputData.map(
+                (data) => FlowbiteRadioInputCard(
+                  data: data,
+                  isChecked: _groupValue == data.value,
+                  onChanged: (value) {
+                    if (_groupValue == data.value) return;
+                    setState(() {
+                      _groupValue = data.value;
+                    });
+                    if (widget.onChanged != null) {
+                      widget.onChanged!(data.value);
+                    }
+                  },
+                ),
+              ),
+            ],
+          ),
+          FlowbiteButton.icon(
+            onPressed: widget.onSubmit,
+            label: Text(widget.buttonLabel),
+            leadingIcon: widget.buttonLeadingIcon != null
+                ? Icon(widget.buttonLeadingIcon)
+                : null,
+            trailingIcon: widget.buttonTrailingIcon != null
+                ? Icon(widget.buttonTrailingIcon)
+                : null,
+          ),
+        ],
       ),
     );
   }
@@ -260,7 +314,7 @@ class _PreviewFlowbiteModalState extends State<PreviewFlowbiteModal> {
         FlowbiteModal.radioInputs(
           title: 'Open positions',
           subtitle: 'Select your desired position:',
-          groupValue: _selectedItem,
+          defaultGroupValue: _selectedItem,
           onSubmit: () {},
           onPressedClose: () {},
           buttonLabel: 'Next step',

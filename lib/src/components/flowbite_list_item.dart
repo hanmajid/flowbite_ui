@@ -29,7 +29,7 @@ class FlowbiteListItem extends StatefulWidget {
   final String title;
 
   /// The item's subtitle.
-  final String subtitle;
+  final String? subtitle;
 
   /// Whether the item is active.
   ///
@@ -43,7 +43,7 @@ class FlowbiteListItem extends StatefulWidget {
   const FlowbiteListItem({
     required this.leading,
     required this.title,
-    required this.subtitle,
+    this.subtitle,
     this.isActive = false,
     this.onTap,
     super.key,
@@ -138,14 +138,15 @@ class _FlowbiteListItemState extends State<FlowbiteListItem> {
                                 color: _getTitleColor(context),
                               ),
                             ),
-                            Text(
-                              widget.subtitle,
-                              style: FlowbiteFontFamily.inter(
-                                fontWeight: .normal,
-                                fontSize: .textSm,
-                                color: _getSubtitleColor(context),
+                            if (widget.subtitle != null)
+                              Text(
+                                widget.subtitle!,
+                                style: FlowbiteFontFamily.inter(
+                                  fontWeight: .normal,
+                                  fontSize: .textSm,
+                                  color: _getSubtitleColor(context),
+                                ),
                               ),
-                            ),
                           ],
                         ),
                       ),
