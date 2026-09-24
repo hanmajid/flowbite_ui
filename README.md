@@ -692,6 +692,38 @@ FlowbiteRangeSlider(
 )
 ```
 
+### Rating
+
+Illustrations:
+
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/rating-light.png" />
+<img src="https://github.com/hanmajid/flowbite_ui/raw/dev/images/rating-dark.png" />
+
+Usage example:
+
+```dart
+import 'package:flowbite_ui/flowbite_ui.dart';
+
+// Default
+FlowbiteRating(
+  value: 4.8,
+  onChanged: (value) {},
+)
+// With badge
+FlowbiteRating(
+  value: 4.8,
+  useBadge: true,
+  onChanged: (value) {},
+)
+/// Radio input
+FlowbiteRatingRadioInput(
+  value: 4.8,
+  startLabel: 'Not likely',
+  endLabel: 'Very likely',
+  onChanged: (value) {},
+)
+```
+
 ### Spinner
 
 Illustrations:

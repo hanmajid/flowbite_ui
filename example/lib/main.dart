@@ -85,6 +85,10 @@ class HomeScreen extends StatelessWidget {
               fileName: 'range-slider',
               child: PreviewFlowbiteRangeSlider(),
             ),
+            SectionContainer(
+              fileName: 'rating',
+              child: PreviewFlowbiteRating(),
+            ),
             SpinnerSection(),
             SectionContainer(
               fileName: 'stepper-nav-link',

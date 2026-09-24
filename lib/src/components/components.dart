@@ -39,6 +39,7 @@ export 'flowbite_progress_bar.dart';
 export 'flowbite_radio_input.dart';
 export 'flowbite_radio_input_card.dart';
 export 'flowbite_range_slider.dart';
+export 'flowbite_rating.dart';
 export 'flowbite_sidebar.dart';
 export 'flowbite_spinner.dart';
 export 'flowbite_stepper.dart';
