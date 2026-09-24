@@ -20,22 +20,38 @@ import 'package:collection/collection.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-enum FlowbiteAvatarGroupSize { sm, base, lg }
+/// [FlowbiteAvatarGroup]'s size variant.
+enum FlowbiteAvatarGroupSize {
+  /// Small size variant.
+  sm,
 
+  /// Base/default size variant.
+  base,
+
+  /// Large size variant.
+  lg,
+}
+
+/// Avatar Group component.
 class FlowbiteAvatarGroup extends StatelessWidget {
+  /// The group's avatar widgets.
   final List<FlowbiteAvatar> avatars;
+
+  /// The group's size.
+  ///
+  /// Defaults to [FlowbiteAvatarGroupSize.base].
   final FlowbiteAvatarGroupSize size;
+
+  /// The group's counter.
   final String? counter;
 
+  /// Constructor.
   const FlowbiteAvatarGroup({
     required this.avatars,
     this.size = .base,
     this.counter,
     super.key,
   });
-
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
 
   FlowbiteAvatarSize get _avatarSize => switch (size) {
     .sm => .sm,
@@ -88,7 +104,7 @@ class FlowbiteAvatarGroup extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 border: .all(
-                  color: _colorExt(context).borderBuffer,
+                  color: FlowbiteTheme.of(context).borderBuffer,
                   width: _borderWidth,
                   strokeAlign: BorderSide.strokeAlignInside,
                 ),
@@ -117,11 +133,11 @@ class FlowbiteAvatarGroup extends StatelessWidget {
       width: _avatarHeight,
       decoration: BoxDecoration(
         border: .all(
-          color: _colorExt(context).borderBuffer,
+          color: FlowbiteTheme.of(context).borderBuffer,
           width: _borderWidth,
           strokeAlign: BorderSide.strokeAlignInside,
         ),
-        color: _colorExt(context).bgNeutralQuaternary,
+        color: FlowbiteTheme.of(context).bgNeutralQuaternary,
         shape: .circle,
       ),
       alignment: .center,
@@ -131,7 +147,7 @@ class FlowbiteAvatarGroup extends StatelessWidget {
         style: FlowbiteFontFamily.inter(
           fontWeight: .medium,
           fontSize: _fontSize,
-          color: _colorExt(context).textBody,
+          color: FlowbiteTheme.of(context).textBody,
         ),
       ),
     );
@@ -148,6 +164,7 @@ class FlowbiteAvatarGroup extends StatelessWidget {
   group: 'Avatar Group',
   brightness: .dark,
 )
+/// Widget preview for [FlowbiteAvatarGroup].
 Widget previewFlowbiteAvatarGroup() {
   return Row(
     spacing: 12.0,

@@ -19,15 +19,41 @@
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-enum FlowbiteAvatarGroupLabelSize { sm, base, lg, xl }
+/// [FlowbiteAvatarGroupLabel]'s size variant.
+enum FlowbiteAvatarGroupLabelSize {
+  /// Small size variant.
+  sm,
 
+  /// Base/default size variant.
+  base,
+
+  /// Large size variant.
+  lg,
+
+  /// Extra large size variant.
+  xl,
+}
+
+/// Avatar Group Label component.
 class FlowbiteAvatarGroupLabel extends StatelessWidget {
+  /// The label's size.
+  ///
+  /// Defaults to [FlowbiteAvatarGroupLabelSize.base].
   final FlowbiteAvatarGroupLabelSize size;
+
+  /// The label's title.
   final String title;
+
+  /// The label's subtitle.
   final String? subtitle;
+
+  /// The label avatar's image.
   final ImageProvider? avatarImage;
+
+  /// The label avatar's placeholder text.
   final String? avatarPlaceholder;
 
+  /// Constructor.
   const FlowbiteAvatarGroupLabel({
     required this.title,
     this.size = .base,
@@ -72,9 +98,6 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
     .xl => .textLg,
   };
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -96,7 +119,7 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
                 style: FlowbiteFontFamily.inter(
                   fontWeight: .medium,
                   fontSize: _titleFontSize,
-                  color: _colorExt(context).textHeading,
+                  color: FlowbiteTheme.of(context).textHeading,
                 ),
               ),
               if (subtitle != null)
@@ -105,7 +128,7 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
                   style: FlowbiteFontFamily.inter(
                     fontWeight: .normal,
                     fontSize: _subtitleFontSize,
-                    color: _colorExt(context).textBody,
+                    color: FlowbiteTheme.of(context).textBody,
                   ),
                 ),
             ],
@@ -126,6 +149,7 @@ class FlowbiteAvatarGroupLabel extends StatelessWidget {
   group: 'Input Label',
   brightness: .dark,
 )
+/// Widget preview for [FlowbiteAvatarGroupLabel].
 Widget previewFlowbiteAvatarGroupLabel() {
   return Row(
     crossAxisAlignment: .start,

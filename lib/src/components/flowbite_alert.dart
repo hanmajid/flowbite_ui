@@ -20,11 +20,42 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-enum FlowbiteAlertColor { success, danger, warning, info, normal }
+/// [FlowbiteAlert]'s color variant.
+enum FlowbiteAlertColor {
+  /// Success color variant.
+  success,
 
-enum FlowbiteAlertType { normal, complex, small, borderTop }
+  /// Danger color variant.
+  danger,
 
+  /// Warning color variant.
+  warning,
+
+  /// Info color variant.
+  info,
+
+  /// Normal/default color variant.
+  normal,
+}
+
+/// [FlowbiteAlert]'s type variant.
+enum FlowbiteAlertType {
+  /// Normal/default type variant.
+  normal,
+
+  /// Complex type variant.
+  complex,
+
+  /// Small type variant.
+  small,
+
+  /// Border Top type variant.
+  borderTop,
+}
+
+/// Alert component.
 class FlowbiteAlert extends StatelessWidget {
+  /// Constructor.
   const FlowbiteAlert({
     required this.text,
     this.color = .normal,
@@ -36,47 +67,66 @@ class FlowbiteAlert extends StatelessWidget {
     super.key,
   });
 
+  /// The alert's text.
   final String text;
-  final FlowbiteAlertColor color;
-  final FlowbiteAlertType type;
-  final String? heading;
-  final Widget? child;
-  final VoidCallback? onTapClose;
-  final VoidCallback? onTap;
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
+  /// The alert's color.
+  ///
+  /// Defaults to [FlowbiteAlertColor.normal].
+  final FlowbiteAlertColor color;
+
+  /// The alert's type.
+  ///
+  /// Defaults to [FlowbiteAlertType.normal].
+  final FlowbiteAlertType type;
+
+  /// The alert's heading.
+  ///
+  /// Used in complex type variant.
+  final String? heading;
+
+  /// The alert's child widget.
+  final Widget? child;
+
+  /// The alert close button's tap callback.
+  final VoidCallback? onTapClose;
+
+  /// The alert's tap callback.
+  ///
+  /// Used in small type variant.
+  final VoidCallback? onTap;
 
   Color _getTextColor(BuildContext context) {
     return switch (color) {
-      .success => _colorExt(context).textFgSuccessStrong,
-      .danger => _colorExt(context).textFgDangerStrong,
-      .warning => _colorExt(context).textFgDangerStrong,
-      .info => _colorExt(context).textFgBrandStrong,
-      .normal => _colorExt(context).textHeading,
+      .success => FlowbiteTheme.of(context).textFgSuccessStrong,
+      .danger => FlowbiteTheme.of(context).textFgDangerStrong,
+      .warning => FlowbiteTheme.of(context).textFgDangerStrong,
+      .info => FlowbiteTheme.of(context).textFgBrandStrong,
+      .normal => FlowbiteTheme.of(context).textHeading,
     };
   }
 
   Color _getBackgroundColor(BuildContext context) {
     return switch (color) {
-      .success => _colorExt(context).bgSuccessSoft,
-      .danger => _colorExt(context).bgDangerSoft,
-      .warning => _colorExt(context).bgWarningSoft,
-      .info => _colorExt(context).bgBrandSofter,
-      .normal => _colorExt(context).bgNeutralSecondaryMedium,
+      .success => FlowbiteTheme.of(context).bgSuccessSoft,
+      .danger => FlowbiteTheme.of(context).bgDangerSoft,
+      .warning => FlowbiteTheme.of(context).bgWarningSoft,
+      .info => FlowbiteTheme.of(context).bgBrandSofter,
+      .normal => FlowbiteTheme.of(context).bgNeutralSecondaryMedium,
     };
   }
 
   Color _getBorderColor(BuildContext context) {
     return switch (color) {
-      .success => _colorExt(context).borderSuccessSubtle,
-      .danger => _colorExt(context).borderDangerSubtle,
-      .warning => _colorExt(context).borderWarningSubtle,
-      .info => _colorExt(context).borderBrandSubtle,
-      .normal => _colorExt(context).borderBaseMedium,
+      .success => FlowbiteTheme.of(context).borderSuccessSubtle,
+      .danger => FlowbiteTheme.of(context).borderDangerSubtle,
+      .warning => FlowbiteTheme.of(context).borderWarningSubtle,
+      .info => FlowbiteTheme.of(context).borderBrandSubtle,
+      .normal => FlowbiteTheme.of(context).borderBaseMedium,
     };
   }
 
+  /// Factory constructor for [FlowbiteAlert] with border top variant.
   factory FlowbiteAlert.borderTop({
     required String text,
     FlowbiteAlertColor color = .normal,
@@ -90,6 +140,7 @@ class FlowbiteAlert extends StatelessWidget {
     );
   }
 
+  /// Factory constructor for [FlowbiteAlert] with small variant.
   factory FlowbiteAlert.small({
     required String text,
     required String badgeText,
@@ -107,6 +158,7 @@ class FlowbiteAlert extends StatelessWidget {
     );
   }
 
+  /// Factory constructor for [FlowbiteAlert] with complex variant.
   factory FlowbiteAlert.complex({
     required String heading,
     required String text,
@@ -328,26 +380,23 @@ class _FlowbiteAlertBadge extends StatelessWidget {
 
   const new({required this.text, required this.color});
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   Color _getTextColor(BuildContext context) {
     return switch (color) {
-      .success => _colorExt(context).textFgSuccessStrong,
-      .danger => _colorExt(context).textFgDangerStrong,
-      .warning => _colorExt(context).textFgDangerStrong,
-      .info => _colorExt(context).textFgBrandStrong,
-      .normal => _colorExt(context).textHeading,
+      .success => FlowbiteTheme.of(context).textFgSuccessStrong,
+      .danger => FlowbiteTheme.of(context).textFgDangerStrong,
+      .warning => FlowbiteTheme.of(context).textFgDangerStrong,
+      .info => FlowbiteTheme.of(context).textFgBrandStrong,
+      .normal => FlowbiteTheme.of(context).textHeading,
     };
   }
 
   Color _getBackgroundColor(BuildContext context) {
     return switch (color) {
-      .success => _colorExt(context).bgSuccessMedium,
-      .danger => _colorExt(context).bgDangerMedium,
-      .warning => _colorExt(context).bgWarningMedium,
-      .info => _colorExt(context).bgBrandSoft,
-      .normal => _colorExt(context).bgNeutralQuaternary,
+      .success => FlowbiteTheme.of(context).bgSuccessMedium,
+      .danger => FlowbiteTheme.of(context).bgDangerMedium,
+      .warning => FlowbiteTheme.of(context).bgWarningMedium,
+      .info => FlowbiteTheme.of(context).bgBrandSoft,
+      .normal => FlowbiteTheme.of(context).bgNeutralQuaternary,
     };
   }
 
@@ -375,6 +424,7 @@ class _FlowbiteAlertBadge extends StatelessWidget {
 
 @FlowbitePreview(name: 'Alert - Light', group: 'Alert', brightness: .light)
 @FlowbitePreview(name: 'Alert - Dark', group: 'Alert', brightness: .dark)
+/// Widget preview for [FlowbiteAlert].
 Widget previewFlowbiteAlert() {
   return SizedBox(
     width: 360.0,

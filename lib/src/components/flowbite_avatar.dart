@@ -20,40 +20,140 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
+/// [FlowbiteAvatar]'s default assets.
 enum FlowbiteAvatarDefaultAssets {
+  /// Bonnie Green's avatar asset path.
   bonnieGreen('assets/images/avatar-bonnie-green.png'),
+
+  /// Helene Engels' avatar asset path.
   heleneEngels('assets/images/avatar-helene-engels.png'),
+
+  /// Jese Leos' avatar asset path.
   jeseLeos('assets/images/avatar-jese-leos.png'),
+
+  /// Josh McFall's avatar asset path.
   josephMcFall('assets/images/avatar-joseph-mcfall.png'),
+
+  /// Karen Nelson's avatar asset path.
   karenNelson('assets/images/avatar-karen-nelson.png'),
+
+  /// Lana Byrd's avatar asset path.
   lanaByrd('assets/images/avatar-lana-byrd.png'),
+
+  /// Leslie Livingston's avatar asset path.
   leslieLivingston('assets/images/avatar-leslie-livingston.png'),
+
+  /// Michal Gough's avatar asset path.
   michealGough('assets/images/avatar-micheal-gough.png'),
+
+  /// Neil Sims' avatar asset path.
   neilSims('assets/images/avatar-neil-sims.png'),
+
+  /// Robert Brown's avatar asset path.
   robertBrown('assets/images/avatar-robert-brown.png'),
+
+  /// Roberta Casas' avatar asset path.
   robertaCasas('assets/images/avatar-roberta-casas.png'),
+
+  /// Thomas Lean's avatar asset path.
   thomasLean('assets/images/avatar-thomas-lean.png');
 
+  /// The avatar's asset name/path.
   final String assetName;
 
   const new(this.assetName);
 
+  /// Get the [AssetImage] instance of the asset.
   AssetImage toAssetImage() {
     return AssetImage(assetName, package: 'flowbite_ui');
   }
 }
 
-enum FlowbiteAvatarSize { xs, sm, base, lg, xl, xl2 }
+/// [FlowbiteAvatar]'s size variant.
+enum FlowbiteAvatarSize {
+  /// Extra small size variant.
+  xs,
 
+  /// Small size variant.
+  sm,
+
+  /// Base/normal size variant.
+  base,
+
+  /// Large size variant.
+  lg,
+
+  /// Extra large size variant.
+  xl,
+
+  /// Extra extra large size variant.
+  xl2,
+}
+
+/// [FlowbiteAvatar]'s dot size variant.
+enum FlowbiteAvatarDotSize {
+  /// Extra small size variant.
+  xs,
+
+  /// Small size variant.
+  sm,
+
+  /// Base/default size variant.
+  base,
+
+  /// Large size variant.
+  lg,
+
+  /// Extra large size variant.
+  xl,
+}
+
+/// [FlowbiteAvatar]'s dot status variant.
+enum FlowbiteAvatarDotStatus {
+  /// Online status variant.
+  online,
+
+  /// Offline status variant.
+  offline,
+
+  /// Alternative status variant.
+  alternative,
+}
+
+enum _FlowbiteAvatarRemoveButtonSize { xs, sm, base, lg }
+
+/// Avatar component.
 class FlowbiteAvatar extends StatelessWidget {
+  /// The avatar's size.
+  ///
+  /// Defaults to [FlowbiteAvatarSize.base].
   final FlowbiteAvatarSize size;
+
+  /// The avatar's image.
   final ImageProvider? image;
+
+  /// The avatar's placeholder text.
   final String? placeholder;
+
+  /// Whether to show dot.
+  ///
+  /// Defaults to false.
   final bool showDot;
+
+  /// The avatar dot's status.
+  ///
+  /// Defaults to [FlowbiteAvatarDotStatus.alternative].
   final FlowbiteAvatarDotStatus dotStatus;
+
+  /// Whether to show remove button.
+  ///
+  /// Defaults to false.
   final bool showRemoveButton;
+
+  /// The remove button's tap callback.
   final VoidCallback? onTapRemoveButton;
 
+  /// Constructor.
   const FlowbiteAvatar({
     this.size = .base,
     this.image,
@@ -64,9 +164,6 @@ class FlowbiteAvatar extends StatelessWidget {
     this.onTapRemoveButton,
     super.key,
   });
-
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
 
   double get _size => switch (size) {
     .xs => 18.0,
@@ -113,7 +210,7 @@ class FlowbiteAvatar extends StatelessWidget {
     .xl2 => -1.0,
   };
 
-  FlowbiteAvatarRemoveButtonSize get _removeButtonSize => switch (size) {
+  _FlowbiteAvatarRemoveButtonSize get _removeButtonSize => switch (size) {
     .xs => .xs,
     .sm => .sm,
     .base => .base,
@@ -152,7 +249,7 @@ class FlowbiteAvatar extends StatelessWidget {
             width: _size,
             decoration: BoxDecoration(
               borderRadius: .circular(100.0),
-              color: _colorExt(context).bgNeutralTertiary,
+              color: FlowbiteTheme.of(context).bgNeutralTertiary,
               image: image != null ? DecorationImage(image: image!) : null,
             ),
             alignment: .center,
@@ -162,7 +259,7 @@ class FlowbiteAvatar extends StatelessWidget {
                     style: FlowbiteFontFamily.inter(
                       fontWeight: .semibold,
                       fontSize: _fontSize,
-                      color: _colorExt(context).textBody,
+                      color: FlowbiteTheme.of(context).textBody,
                     ),
                   )
                 : null,
@@ -188,18 +285,11 @@ class FlowbiteAvatar extends StatelessWidget {
   }
 }
 
-enum FlowbiteAvatarDotSize { xs, sm, base, lg, xl }
-
-enum FlowbiteAvatarDotStatus { online, offline, alternative }
-
 class _FlowbiteAvatarDot extends StatelessWidget {
   final FlowbiteAvatarDotSize size;
   final FlowbiteAvatarDotStatus status;
 
   const new({this.size = .base, this.status = .alternative});
-
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
 
   double get _size => switch (size) {
     .xs => 6.0,
@@ -211,9 +301,9 @@ class _FlowbiteAvatarDot extends StatelessWidget {
 
   Color _getColor(BuildContext context) {
     return switch (status) {
-      .online => _colorExt(context).bgSuccess,
-      .offline => _colorExt(context).bgDanger,
-      .alternative => _colorExt(context).bgGray,
+      .online => FlowbiteTheme.of(context).bgSuccess,
+      .offline => FlowbiteTheme.of(context).bgDanger,
+      .alternative => FlowbiteTheme.of(context).bgGray,
     };
   }
 
@@ -230,16 +320,11 @@ class _FlowbiteAvatarDot extends StatelessWidget {
   }
 }
 
-enum FlowbiteAvatarRemoveButtonSize { xs, sm, base, lg }
-
 class _FlowbiteAvatarRemoveButton extends StatelessWidget {
-  final FlowbiteAvatarRemoveButtonSize size;
+  final _FlowbiteAvatarRemoveButtonSize size;
   final VoidCallback? onTap;
 
   const new({this.size = .base, this.onTap});
-
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
 
   double get _size => switch (size) {
     .xs => 12.0,
@@ -260,7 +345,7 @@ class _FlowbiteAvatarRemoveButton extends StatelessWidget {
     return FittedBox(
       fit: .scaleDown,
       child: Material(
-        color: _colorExt(context).bgNeutralTertiaryMedium,
+        color: FlowbiteTheme.of(context).bgNeutralTertiaryMedium,
         borderRadius: .circular(100.0),
         child: InkWell(
           onTap: onTap,
@@ -273,7 +358,7 @@ class _FlowbiteAvatarRemoveButton extends StatelessWidget {
             child: Icon(
               FlowbiteOutlineIcons.x,
               size: _iconSize,
-              color: _colorExt(context).textBody,
+              color: FlowbiteTheme.of(context).textBody,
             ),
           ),
         ),
@@ -284,6 +369,7 @@ class _FlowbiteAvatarRemoveButton extends StatelessWidget {
 
 @FlowbitePreview(name: 'Avatar - Light', group: 'Avatar', brightness: .light)
 @FlowbitePreview(name: 'Avatar - Dark', group: 'Avatar', brightness: .dark)
+/// Widget preview for [FlowbiteAvatar].
 Widget previewFlowbiteAvatar() {
   return Row(
     spacing: 12.0,
@@ -350,6 +436,7 @@ Widget previewFlowbiteAvatar() {
   brightness: .light,
 )
 @FlowbitePreview(name: 'Avatar Dot - Dark', group: 'Avatar', brightness: .dark)
+/// Widget preview for [_FlowbiteAvatarDot].
 Widget previewFlowbiteAvatarDot() {
   return Column(
     spacing: 12.0,
@@ -377,11 +464,12 @@ Widget previewFlowbiteAvatarDot() {
   group: 'Avatar',
   brightness: .dark,
 )
+/// Widget preview for [_FlowbiteAvatarRemoveButton].
 Widget previewFlowbiteAvatarRemoveButton() {
   return Row(
     mainAxisSize: .min,
     spacing: 6.0,
-    children: FlowbiteAvatarRemoveButtonSize.values
+    children: _FlowbiteAvatarRemoveButtonSize.values
         .map((size) => _FlowbiteAvatarRemoveButton(size: size, onTap: () {}))
         .toList(),
   );

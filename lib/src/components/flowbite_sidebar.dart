@@ -23,9 +23,13 @@ import 'package:material_ui/material_ui.dart';
 
 /// Sidebar component.
 class FlowbiteSidebar extends StatelessWidget {
+  /// The sidebar's data.
   final List<List<FlowbiteSidebarItemData>> data;
 
+  /// The sidebar's header widget.
   final Widget? header;
+
+  /// The sidebar's footer widget.
   final Widget? footer;
 
   /// Constructor.

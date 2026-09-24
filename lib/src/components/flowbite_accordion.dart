@@ -105,8 +105,6 @@ class FlowbiteAccordion extends StatelessWidget {
     this.style = .normal,
     super.key,
   });
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
 
   double get _verticalSpacing => switch (style) {
     .separateCards => 16.0,
@@ -116,7 +114,7 @@ class FlowbiteAccordion extends StatelessWidget {
   Border? _getBorder(BuildContext context) => switch (style) {
     .normal ||
     .multiLevel ||
-    .withSubheader => .all(color: _colorExt(context).borderBase),
+    .withSubheader => .all(color: FlowbiteTheme.of(context).borderBase),
     _ => null,
   };
 
@@ -183,9 +181,6 @@ class _FlowbiteAccordionItemWidget extends StatefulWidget {
 
 class _FlowbiteAccordionItemWidgetState
     extends State<_FlowbiteAccordionItemWidget> {
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   bool get _isMobile => widget.breakpoint == .mobile;
 
   EdgeInsets get _buttonPadding => switch (widget.style) {
@@ -229,46 +224,52 @@ class _FlowbiteAccordionItemWidgetState
   Color _getButtonBackgroundColor(BuildContext context) =>
       switch (widget.style) {
         .flush => Colors.transparent,
-        .multiLevelItem => _colorExt(context).bgNeutralSecondaryMedium,
+        .multiLevelItem => FlowbiteTheme.of(context).bgNeutralSecondaryMedium,
         _ =>
           _isExpand
-              ? _colorExt(context).bgNeutralTertiary
-              : _colorExt(context).bgNeutralPrimarySoft,
+              ? FlowbiteTheme.of(context).bgNeutralTertiary
+              : FlowbiteTheme.of(context).bgNeutralPrimarySoft,
       };
 
   Color _getBodyBackgroundColor(BuildContext context) => switch (widget.style) {
     .flush => Colors.transparent,
-    .multiLevelItem => _colorExt(context).bgNeutralSecondaryMedium,
-    _ => _colorExt(context).bgNeutralPrimarySoft,
+    .multiLevelItem => FlowbiteTheme.of(context).bgNeutralSecondaryMedium,
+    _ => FlowbiteTheme.of(context).bgNeutralPrimarySoft,
   };
 
   Border? _getButtonBorder(BuildContext context) => switch (widget.style) {
-    .separateCards => .all(color: _colorExt(context).borderBase),
+    .separateCards => .all(color: FlowbiteTheme.of(context).borderBase),
     .multiLevel =>
       _isExpand
-          ? .all(color: _colorExt(context).borderBaseMedium)
-          : .all(color: _colorExt(context).borderBase),
-    .multiLevelItem => .all(color: _colorExt(context).borderBaseMedium),
+          ? .all(color: FlowbiteTheme.of(context).borderBaseMedium)
+          : .all(color: FlowbiteTheme.of(context).borderBase),
+    .multiLevelItem => .all(color: FlowbiteTheme.of(context).borderBaseMedium),
     _ =>
       widget.isLast && !_isExpand
           ? null
-          : Border(bottom: BorderSide(color: _colorExt(context).borderBase)),
+          : Border(
+              bottom: BorderSide(color: FlowbiteTheme.of(context).borderBase),
+            ),
   };
 
   Border? _getBodyBorder(BuildContext context) => switch (widget.style) {
     .separateCards => Border(
-      bottom: BorderSide(color: _colorExt(context).borderBase),
-      left: BorderSide(color: _colorExt(context).borderBase),
-      right: BorderSide(color: _colorExt(context).borderBase),
+      bottom: BorderSide(color: FlowbiteTheme.of(context).borderBase),
+      left: BorderSide(color: FlowbiteTheme.of(context).borderBase),
+      right: BorderSide(color: FlowbiteTheme.of(context).borderBase),
     ),
     .flush =>
       _isExpand && !widget.isLast
-          ? Border(bottom: BorderSide(color: _colorExt(context).borderBase))
+          ? Border(
+              bottom: BorderSide(color: FlowbiteTheme.of(context).borderBase),
+            )
           : null,
     _ =>
       widget.isLast
           ? null
-          : Border(bottom: BorderSide(color: _colorExt(context).borderBase)),
+          : Border(
+              bottom: BorderSide(color: FlowbiteTheme.of(context).borderBase),
+            ),
   };
 
   BorderRadius get _buttonBorderRadius {
@@ -372,8 +373,8 @@ class _FlowbiteAccordionItemWidgetState
             Container(
               decoration: BoxDecoration(
                 shape: .circle,
-                color: _colorExt(context).bgNeutralPrimaryMedium,
-                border: .all(color: _colorExt(context).borderBaseMedium),
+                color: FlowbiteTheme.of(context).bgNeutralPrimaryMedium,
+                border: .all(color: FlowbiteTheme.of(context).borderBaseMedium),
               ),
               height: iconContainerSize,
               width: iconContainerSize,
@@ -381,7 +382,7 @@ class _FlowbiteAccordionItemWidgetState
               child: Icon(
                 widget.item.icon!,
                 size: iconSize,
-                color: _colorExt(context).textHeading,
+                color: FlowbiteTheme.of(context).textHeading,
               ),
             ),
           Expanded(
@@ -395,8 +396,8 @@ class _FlowbiteAccordionItemWidgetState
                     fontWeight: .medium,
                     fontSize: .textBase,
                     color: _isExpand
-                        ? _colorExt(context).textHeading
-                        : _colorExt(context).textBody,
+                        ? FlowbiteTheme.of(context).textHeading
+                        : FlowbiteTheme.of(context).textBody,
                   ),
                 ),
                 if (widget.item.subheader != null)
@@ -405,7 +406,7 @@ class _FlowbiteAccordionItemWidgetState
                     style: FlowbiteFontFamily.inter(
                       fontWeight: .normal,
                       fontSize: .textSm,
-                      color: _colorExt(context).textBody,
+                      color: FlowbiteTheme.of(context).textBody,
                     ),
                   ),
               ],
@@ -425,8 +426,8 @@ class _FlowbiteAccordionItemWidgetState
                 fontWeight: .medium,
                 fontSize: .textBase,
                 color: _isExpand
-                    ? _colorExt(context).textHeading
-                    : _colorExt(context).textBody,
+                    ? FlowbiteTheme.of(context).textHeading
+                    : FlowbiteTheme.of(context).textBody,
               ),
             ),
           ),
@@ -441,8 +442,8 @@ class _FlowbiteAccordionItemWidgetState
             widget.item.icon!,
             size: 20.0,
             color: _isExpand
-                ? _colorExt(context).textHeading
-                : _colorExt(context).textBody,
+                ? FlowbiteTheme.of(context).textHeading
+                : FlowbiteTheme.of(context).textBody,
           ),
         Expanded(
           child: Text(
@@ -451,8 +452,8 @@ class _FlowbiteAccordionItemWidgetState
               fontWeight: .medium,
               fontSize: .textBase,
               color: _isExpand
-                  ? _colorExt(context).textHeading
-                  : _colorExt(context).textBody,
+                  ? FlowbiteTheme.of(context).textHeading
+                  : FlowbiteTheme.of(context).textBody,
             ),
           ),
         ),
@@ -500,17 +501,14 @@ class _FlowbiteAccordionItemWidgetState
         FlowbiteOutlineIcons.angle_top,
         size: 20.0,
         color: _isExpand
-            ? _colorExt(context).textHeading
-            : _colorExt(context).textBody,
+            ? FlowbiteTheme.of(context).textHeading
+            : FlowbiteTheme.of(context).textBody,
       ),
     );
   }
 }
 
 class _DefaultFlowbiteAccordionContent extends StatelessWidget {
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -522,7 +520,7 @@ class _DefaultFlowbiteAccordionContent extends StatelessWidget {
           style: FlowbiteFontFamily.inter(
             fontWeight: .normal,
             fontSize: .textBase,
-            color: _colorExt(context).textBody,
+            color: FlowbiteTheme.of(context).textBody,
           ),
         ),
         Text(
@@ -530,7 +528,7 @@ class _DefaultFlowbiteAccordionContent extends StatelessWidget {
           style: FlowbiteFontFamily.inter(
             fontWeight: .normal,
             fontSize: .textBase,
-            color: _colorExt(context).textBody,
+            color: FlowbiteTheme.of(context).textBody,
           ),
         ),
         RichText(
@@ -539,7 +537,7 @@ class _DefaultFlowbiteAccordionContent extends StatelessWidget {
             style: FlowbiteFontFamily.inter(
               fontWeight: .normal,
               fontSize: .textBase,
-              color: _colorExt(context).textBody,
+              color: FlowbiteTheme.of(context).textBody,
             ),
             children: [
               TextSpan(
@@ -547,7 +545,7 @@ class _DefaultFlowbiteAccordionContent extends StatelessWidget {
                 style: FlowbiteFontFamily.inter(
                   fontWeight: .normal,
                   fontSize: .textBase,
-                  color: _colorExt(context).textFgBrand,
+                  color: FlowbiteTheme.of(context).textFgBrand,
                   decoration: TextDecoration.underline,
                 ),
               ),

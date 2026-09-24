@@ -21,7 +21,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
+/// Flowbite UI's font family class.
 class FlowbiteFontFamily {
+  /// Initialize the font family.
   static void init() {
     // Register font licenses.
     LicenseRegistry.addLicense(() async* {

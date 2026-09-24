@@ -20,20 +20,54 @@ import 'package:flowbite_icons/flowbite_outline_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-enum FlowbiteButtonSize { xs, sm, base, lg, xl }
+/// [FlowbiteButton]'s size variant.
+enum FlowbiteButtonSize {
+  /// Extra small variant.
+  xs,
 
+  /// Small variant.
+  sm,
+
+  /// Base/default variant.
+  base,
+
+  /// Large variant.
+  lg,
+
+  /// Extra large variant.
+  xl,
+}
+
+/// [FlowbiteButton]'s color variant.
 enum FlowbiteButtonColor {
+  /// Brand color variant.
   brand,
+
+  /// Secondary color variant.
   secondary,
+
+  /// Tertiary color variant.
   tertiary,
+
+  /// Success color variant.
   success,
+
+  /// Danger color variant.
   danger,
+
+  /// Warning color variant.
   warning,
+
+  /// Dark color variant.
   dark,
+
+  /// Ghost color variant.
   ghost,
 }
 
+/// Button's component.
 class FlowbiteButton extends ButtonStyleButton {
+  /// Constructor.
   const FlowbiteButton({
     required super.onPressed,
     required Widget super.child,
@@ -51,10 +85,22 @@ class FlowbiteButton extends ButtonStyleButton {
     this.color = .brand,
   }) : isIconOnly = false;
 
+  /// The button's size.
+  ///
+  /// Defaults to [FlowbiteButtonSize.base].
   final FlowbiteButtonSize size;
+
+  /// The button's color.
+  ///
+  /// Defaults to [FlowbiteButtonColor.brand].
   final FlowbiteButtonColor color;
+
+  /// Whether the button has icon only.
+  ///
+  /// Defaults to false.
   final bool isIconOnly;
 
+  /// Factory constructor for [FlowbiteButton] with icon(s).
   FlowbiteButton.icon({
     required super.onPressed,
     required Widget label,
@@ -82,6 +128,7 @@ class FlowbiteButton extends ButtonStyleButton {
              : label,
        );
 
+  /// Factory constructor for [FlowbiteButton] with icon only.
   const FlowbiteButton.iconOnly({
     required super.onPressed,
     required Widget icon,
@@ -590,6 +637,7 @@ class _FlowbiteButtonDefaults extends ButtonStyle {
 
 @FlowbitePreview(name: 'Button - Light', group: 'Button', brightness: .light)
 @FlowbitePreview(name: 'Button - Dark', group: 'Button', brightness: .dark)
+/// Widget preview for [FlowbiteButton].
 Widget previewFlowbiteButton() {
   return Column(
     spacing: 12.0,

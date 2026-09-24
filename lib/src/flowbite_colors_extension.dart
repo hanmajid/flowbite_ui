@@ -18,7 +18,9 @@
 
 import 'package:material_ui/material_ui.dart';
 
+/// Flowbite UI's colors extension class.
 class FlowbiteColorsExtension extends ThemeExtension<FlowbiteColorsExtension> {
+  /// Constructor.
   FlowbiteColorsExtension({
     required this.textWhite,
     required this.textBlack,
@@ -112,100 +114,274 @@ class FlowbiteColorsExtension extends ThemeExtension<FlowbiteColorsExtension> {
     required this.borderDarkSubtle,
   });
 
-  /// Text color variables.
+  /// Text White color.
   final Color textWhite;
+
+  /// Text Black color.
   final Color textBlack;
+
+  /// Text Heading color.
   final Color textHeading;
+
+  /// Text Body color.
   final Color textBody;
+
+  /// Text Body Subtle color.
   final Color textBodySubtle;
+
+  /// Text Fg Brand Subtle color.
   final Color textFgBrandSubtle;
+
+  /// Text Fg Brand color.
   final Color textFgBrand;
+
+  /// Text Fg Brand Strong color.
   final Color textFgBrandStrong;
+
+  /// Text Fg Success color.
   final Color textFgSuccess;
+
+  /// Text Fg Success Strong color.
   final Color textFgSuccessStrong;
+
+  /// Text Fg Danger color.
   final Color textFgDanger;
+
+  /// Text Fg Danger Strong color.
   final Color textFgDangerStrong;
+
+  /// Text Fg Warning Subtle color.
   final Color textFgWarningSubtle;
+
+  /// Text Fg Warning color.
   final Color textFgWarning;
+
+  /// Text Fg Yellow color.
   final Color textFgYellow;
+
+  /// Text Fg Info color.
   final Color textFgInfo;
+
+  /// Text Fg Disabled color.
   final Color textFgDisabled;
+
+  /// Text Fg Purple color.
   final Color textFgPurple;
+
+  /// Text Fg Cyan color.
   final Color textFgCyan;
+
+  /// Text Fg Indigo color.
   final Color textFgIndigo;
+
+  /// Text Fg Pink color.
   final Color textFgPink;
+
+  /// Text Fg Lime color.
   final Color textFgLime;
 
-  // Background color variables.
+  /// Background White color.
   final Color bgWhite;
+
+  /// Background Neutral Primary Soft color.
   final Color bgNeutralPrimarySoft;
+
+  /// Background Neutral Primary color.
   final Color bgNeutralPrimary;
+
+  /// Background Neutral Primary Medium color.
   final Color bgNeutralPrimaryMedium;
+
+  /// Background Neutral Primary Strong color.
   final Color bgNeutralPrimaryStrong;
+
+  /// Background Neutral Secondary Soft color.
   final Color bgNeutralSecondarySoft;
+
+  /// Background Neutral Secondary color.
   final Color bgNeutralSecondary;
+
+  /// Background Neutral Secondary Medium color.
   final Color bgNeutralSecondaryMedium;
+
+  /// Background Neutral Secondary Strong color.
   final Color bgNeutralSecondaryStrong;
+
+  /// Background Neutral Tertiary Soft color.
   final Color bgNeutralTertiarySoft;
+
+  /// Background Neutral Tertiary color.
   final Color bgNeutralTertiary;
+
+  /// Background Neutral Tertiary Medium color.
   final Color bgNeutralTertiaryMedium;
+
+  /// Background Neutral Quaternary color.
   final Color bgNeutralQuaternary;
+
+  /// Background Neutral Quaternary Medium color.
   final Color bgNeutralQuaternaryMedium;
+
+  /// Background Gray color.
   final Color bgGray;
+
+  /// Background Brand Softer color.
   final Color bgBrandSofter;
+
+  /// Background Brand Soft color.
   final Color bgBrandSoft;
+
+  /// Background Brand Medium color.
   final Color bgBrandMedium;
+
+  /// Background Brand color.
   final Color bgBrand;
+
+  /// Background Brand Strong color.
   final Color bgBrandStrong;
+
+  /// Background Success Soft color.
   final Color bgSuccessSoft;
+
+  /// Background Success Medium color.
   final Color bgSuccessMedium;
+
+  /// Background Success color.
   final Color bgSuccess;
+
+  /// Background Success Strong color.
   final Color bgSuccessStrong;
+
+  /// Background Danger Soft color.
   final Color bgDangerSoft;
+
+  /// Background Danger Medium color.
   final Color bgDangerMedium;
+
+  /// Background Danger color.
   final Color bgDanger;
+
+  /// Background Danger Strong color.
   final Color bgDangerStrong;
+
+  /// Background Warning Soft color.
   final Color bgWarningSoft;
+
+  /// Background Warning Medium color.
   final Color bgWarningMedium;
+
+  /// Background Warning color.
   final Color bgWarning;
+
+  /// Background Warning Strong color.
   final Color bgWarningStrong;
+
+  /// Background Dark Strong color.
   final Color bgDarkStrong;
+
+  /// Background Dark color.
   final Color bgDark;
+
+  /// Background Disabled color.
   final Color bgDisabled;
+
+  /// Background Purple color.
   final Color bgPurple;
+
+  /// Background Sky color.
   final Color bgSky;
+
+  /// Background Teal color.
   final Color bgTeal;
+
+  /// Background Pink color.
   final Color bgPink;
+
+  /// Background Cyan color.
   final Color bgCyan;
+
+  /// Background Fuschia color.
   final Color bgFuschia;
+
+  /// Background Indigo color.
   final Color bgIndigo;
+
+  /// Background Orange color.
   final Color bgOrange;
+
+  /// Background Variants Gray color.
   final Color bgVariantsGray;
 
-  // Border color variables.
+  /// Border Dark color.
   final Color borderDark;
+
+  /// Border Buffer color.
   final Color borderBuffer;
+
+  /// Border Buffer Medium color.
   final Color borderBufferMedium;
+
+  /// Border Buffer Strong color.
   final Color borderBufferStrong;
+
+  /// Border Muted color.
   final Color borderMuted;
+
+  /// Border Light Subtle color.
   final Color borderLightSubtle;
+
+  /// Border Light color.
   final Color borderLight;
+
+  /// Border Light Medium color.
   final Color borderLightMedium;
+
+  /// Border Base Soft color.
   final Color borderBaseSoft;
+
+  /// Border Base color.
   final Color borderBase;
+
+  /// Border Base Medium color.
   final Color borderBaseMedium;
+
+  /// Border Base Strong color.
   final Color borderBaseStrong;
+
+  /// Border Success Subtle color.
   final Color borderSuccessSubtle;
+
+  /// Border Success color.
   final Color borderSuccess;
+
+  /// Border Danger Subtle color.
   final Color borderDangerSubtle;
+
+  /// Border Danger color.
   final Color borderDanger;
+
+  /// Border Warning Subtle color.
   final Color borderWarningSubtle;
+
+  /// Border Warning color.
   final Color borderWarning;
+
+  /// Border Brand Subtle color.
   final Color borderBrandSubtle;
+
+  /// Border Brand Light color.
   final Color borderBrandLight;
+
+  /// Border Brand color.
   final Color borderBrand;
+
+  /// Border Purple color.
   final Color borderPurple;
+
+  /// Border Orange color.
   final Color borderOrange;
+
+  /// Border Dark Subtle color.
   final Color borderDarkSubtle;
 
   @override

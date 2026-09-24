@@ -20,9 +20,28 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-enum FlowbiteBadgeTheme { gray, white, brand, danger, warning, success }
+/// [FlowbiteBadge]'s theme variant.
+enum FlowbiteBadgeTheme {
+  /// Gray theme variant.
+  gray,
 
-/// [FlowbiteBadge]'s size enum.
+  /// White theme variant.
+  white,
+
+  /// Brand theme variant.
+  brand,
+
+  /// Danger theme variant.
+  danger,
+
+  /// Warning theme variant.
+  warning,
+
+  /// Success theme variant.
+  success,
+}
+
+/// [FlowbiteBadge]'s size variant.
 enum FlowbiteBadgeSize {
   /// Extra small size variant (used by [FlowbiteButtonGroup]).
   xs,
@@ -34,7 +53,9 @@ enum FlowbiteBadgeSize {
   lg,
 }
 
+/// Badge component.
 class FlowbiteBadge extends StatelessWidget {
+  /// Constructor
   const FlowbiteBadge({
     required this.child,
     this.theme = .brand,
@@ -44,14 +65,26 @@ class FlowbiteBadge extends StatelessWidget {
     super.key,
   });
 
+  /// The badge's child widget.
   final Widget child;
-  final FlowbiteBadgeTheme theme;
-  final FlowbiteBadgeSize size;
-  final VoidCallback? onTap;
-  final bool isCircle;
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
+  /// The badge's theme variant.
+  ///
+  /// Defaults to [FlowbiteBadgeTheme.brand].
+  final FlowbiteBadgeTheme theme;
+
+  /// The badge's size variant.
+  ///
+  /// Defaults to [FlowbiteBadgeSize.sm].
+  final FlowbiteBadgeSize size;
+
+  /// The badge's tap callback.
+  final VoidCallback? onTap;
+
+  /// Whether the badge is circle shaped or not.
+  ///
+  /// Defaults to false.
+  final bool isCircle;
 
   double get _height => switch (size) {
     .xs => 16.0,
@@ -67,23 +100,23 @@ class FlowbiteBadge extends StatelessWidget {
 
   Color _getBackgroundColor(BuildContext context) {
     return switch (theme) {
-      .gray => _colorExt(context).bgNeutralSecondary,
-      .white => _colorExt(context).bgNeutralPrimarySoft,
-      .brand => _colorExt(context).bgBrandSofter,
-      .danger => _colorExt(context).bgDangerSoft,
-      .warning => _colorExt(context).bgWarningSoft,
-      .success => _colorExt(context).bgSuccessSoft,
+      .gray => FlowbiteTheme.of(context).bgNeutralSecondary,
+      .white => FlowbiteTheme.of(context).bgNeutralPrimarySoft,
+      .brand => FlowbiteTheme.of(context).bgBrandSofter,
+      .danger => FlowbiteTheme.of(context).bgDangerSoft,
+      .warning => FlowbiteTheme.of(context).bgWarningSoft,
+      .success => FlowbiteTheme.of(context).bgSuccessSoft,
     };
   }
 
   Color _getBorderColor(BuildContext context) {
     return switch (theme) {
-      .gray => _colorExt(context).borderBaseMedium,
-      .white => _colorExt(context).borderBase,
-      .brand => _colorExt(context).borderBrandSubtle,
-      .danger => _colorExt(context).borderDangerSubtle,
-      .warning => _colorExt(context).borderWarningSubtle,
-      .success => _colorExt(context).borderSuccessSubtle,
+      .gray => FlowbiteTheme.of(context).borderBaseMedium,
+      .white => FlowbiteTheme.of(context).borderBase,
+      .brand => FlowbiteTheme.of(context).borderBrandSubtle,
+      .danger => FlowbiteTheme.of(context).borderDangerSubtle,
+      .warning => FlowbiteTheme.of(context).borderWarningSubtle,
+      .success => FlowbiteTheme.of(context).borderSuccessSubtle,
     };
   }
 
@@ -119,6 +152,7 @@ class FlowbiteBadge extends StatelessWidget {
     );
   }
 
+  /// Factory constructor for [FlowbiteBadge] with icon.
   factory FlowbiteBadge.icon({
     required String text,
     required IconData icon,
@@ -162,6 +196,7 @@ class FlowbiteBadge extends StatelessWidget {
     );
   }
 
+  /// Factory constructor for [FlowbiteBadge] with dot.
   factory FlowbiteBadge.dot({
     required String text,
     FlowbiteBadgeTheme theme = .brand,
@@ -198,6 +233,7 @@ class FlowbiteBadge extends StatelessWidget {
     );
   }
 
+  /// Factory constructor for [FlowbiteBadge] with avatar.
   factory FlowbiteBadge.avatar({
     required String text,
     required FlowbiteAvatar avatar,
@@ -239,6 +275,7 @@ class FlowbiteBadge extends StatelessWidget {
     );
   }
 
+  /// Factory constructor for [FlowbiteBadge] with spinner.
   factory FlowbiteBadge.spinner({
     required String text,
     required FlowbiteSpinner spinner,
@@ -276,6 +313,7 @@ class FlowbiteBadge extends StatelessWidget {
     );
   }
 
+  /// Factory constructor for [FlowbiteBadge] with icon only.
   factory FlowbiteBadge.iconOnly({
     required IconData icon,
     FlowbiteBadgeTheme theme = .brand,
@@ -296,6 +334,7 @@ class FlowbiteBadge extends StatelessWidget {
     );
   }
 
+  /// Factory constructor for [FlowbiteBadge] with text only.
   factory FlowbiteBadge.textOnly({
     required String text,
     FlowbiteBadgeTheme theme = .brand,
@@ -323,17 +362,14 @@ class _FlowbiteBadgeDot extends StatelessWidget {
 
   const new({required this.theme});
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   Color _getColor(BuildContext context) {
     return switch (theme) {
-      .gray => _colorExt(context).textHeading,
-      .white => _colorExt(context).textHeading,
-      .brand => _colorExt(context).textFgBrandStrong,
-      .danger => _colorExt(context).textFgDangerStrong,
-      .warning => _colorExt(context).textFgWarning,
-      .success => _colorExt(context).textFgSuccessStrong,
+      .gray => FlowbiteTheme.of(context).textHeading,
+      .white => FlowbiteTheme.of(context).textHeading,
+      .brand => FlowbiteTheme.of(context).textFgBrandStrong,
+      .danger => FlowbiteTheme.of(context).textFgDangerStrong,
+      .warning => FlowbiteTheme.of(context).textFgWarning,
+      .success => FlowbiteTheme.of(context).textFgSuccessStrong,
     };
   }
 
@@ -357,17 +393,14 @@ class _FlowbiteBadgeIcon extends StatelessWidget {
 
   const new({required this.icon, required this.size, required this.theme});
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   Color _getColor(BuildContext context) {
     return switch (theme) {
-      .gray => _colorExt(context).textHeading,
-      .white => _colorExt(context).textHeading,
-      .brand => _colorExt(context).textFgBrandStrong,
-      .danger => _colorExt(context).textFgDangerStrong,
-      .warning => _colorExt(context).textFgWarning,
-      .success => _colorExt(context).textFgSuccessStrong,
+      .gray => FlowbiteTheme.of(context).textHeading,
+      .white => FlowbiteTheme.of(context).textHeading,
+      .brand => FlowbiteTheme.of(context).textFgBrandStrong,
+      .danger => FlowbiteTheme.of(context).textFgDangerStrong,
+      .warning => FlowbiteTheme.of(context).textFgWarning,
+      .success => FlowbiteTheme.of(context).textFgSuccessStrong,
     };
   }
 
@@ -392,39 +425,36 @@ class _FlowbiteBadgeText extends StatelessWidget {
     this.fontSize,
   });
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   Color _getTextColor(BuildContext context) {
     return switch (theme) {
-      .gray => _colorExt(context).textHeading,
-      .white => _colorExt(context).textHeading,
-      .brand => _colorExt(context).textFgBrandStrong,
-      .danger => _colorExt(context).textFgDangerStrong,
-      .warning => _colorExt(context).textFgWarning,
-      .success => _colorExt(context).textFgSuccessStrong,
+      .gray => FlowbiteTheme.of(context).textHeading,
+      .white => FlowbiteTheme.of(context).textHeading,
+      .brand => FlowbiteTheme.of(context).textFgBrandStrong,
+      .danger => FlowbiteTheme.of(context).textFgDangerStrong,
+      .warning => FlowbiteTheme.of(context).textFgWarning,
+      .success => FlowbiteTheme.of(context).textFgSuccessStrong,
     };
   }
 
   Color _getSecondaryTextColor(BuildContext context) {
     return switch (theme) {
-      .gray => _colorExt(context).textBody,
-      .white => _colorExt(context).textBody,
-      .brand => _colorExt(context).textFgBrandStrong,
-      .danger => _colorExt(context).textFgDangerStrong,
-      .warning => _colorExt(context).textFgWarning,
-      .success => _colorExt(context).textFgSuccessStrong,
+      .gray => FlowbiteTheme.of(context).textBody,
+      .white => FlowbiteTheme.of(context).textBody,
+      .brand => FlowbiteTheme.of(context).textFgBrandStrong,
+      .danger => FlowbiteTheme.of(context).textFgDangerStrong,
+      .warning => FlowbiteTheme.of(context).textFgWarning,
+      .success => FlowbiteTheme.of(context).textFgSuccessStrong,
     };
   }
 
   Color _getBorderColor(BuildContext context) {
     return switch (theme) {
-      .gray => _colorExt(context).borderBaseMedium,
-      .white => _colorExt(context).borderBase,
-      .brand => _colorExt(context).borderBrandSubtle,
-      .danger => _colorExt(context).borderDangerSubtle,
-      .warning => _colorExt(context).borderWarningSubtle,
-      .success => _colorExt(context).borderSuccessSubtle,
+      .gray => FlowbiteTheme.of(context).borderBaseMedium,
+      .white => FlowbiteTheme.of(context).borderBase,
+      .brand => FlowbiteTheme.of(context).borderBrandSubtle,
+      .danger => FlowbiteTheme.of(context).borderDangerSubtle,
+      .warning => FlowbiteTheme.of(context).borderWarningSubtle,
+      .success => FlowbiteTheme.of(context).borderSuccessSubtle,
     };
   }
 
@@ -478,6 +508,7 @@ class _FlowbiteBadgeText extends StatelessWidget {
 
 @FlowbitePreview(name: 'Badge - Light', group: 'Badge', brightness: .light)
 @FlowbitePreview(name: 'Badge - Dark', group: 'Badge', brightness: .dark)
+/// Widget preview for [FlowbiteBadge].
 Widget previewFlowbiteBadge() {
   return Column(
     spacing: 18.0,

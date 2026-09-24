@@ -20,9 +20,21 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-enum FlowbiteOutlinedButtonColor { success, danger, warning }
+/// [FlowbiteOutlinedButton]'s color variant.
+enum FlowbiteOutlinedButtonColor {
+  /// Success color variant.
+  success,
 
+  /// Danger color variant.
+  danger,
+
+  /// Warning color variant.
+  warning,
+}
+
+/// Outlined Button component.
 class FlowbiteOutlinedButton extends ButtonStyleButton {
+  /// Constructor.
   const FlowbiteOutlinedButton({
     required super.onPressed,
     required Widget super.child,
@@ -40,10 +52,22 @@ class FlowbiteOutlinedButton extends ButtonStyleButton {
     this.color = .success,
   }) : isIconOnly = false;
 
+  /// The button's size.
+  ///
+  /// Defaults to [FlowbiteButtonSize.base].
   final FlowbiteButtonSize size;
+
+  /// The button's color.
+  ///
+  /// Defaults to [FlowbiteOutlinedButtonColor.success].
   final FlowbiteOutlinedButtonColor color;
+
+  /// Whether the button has icon only.
+  ///
+  /// Defaults to false.
   final bool isIconOnly;
 
+  /// Factory constructor for [FlowbiteOutlinedButton] with icon(s).
   FlowbiteOutlinedButton.icon({
     required super.onPressed,
     required Widget label,
@@ -71,6 +95,7 @@ class FlowbiteOutlinedButton extends ButtonStyleButton {
              : label,
        );
 
+  /// Factory constructor for [FlowbiteOutlinedButton] with icon only.
   const FlowbiteOutlinedButton.iconOnly({
     required super.onPressed,
     required Widget icon,
@@ -487,6 +512,7 @@ class _FlowbiteOutlinedButtonDefaults extends ButtonStyle {
   group: 'Outlined Button',
   brightness: .dark,
 )
+/// Widget preview for [FlowbiteOutlinedButton].
 Widget previewFlowbiteOutlinedButton() {
   return Column(
     spacing: 12.0,

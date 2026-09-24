@@ -20,15 +20,48 @@ import 'package:flowbite_icons/flowbite_outline_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-enum FlowbiteIconShapeSize { xl2, xl, lg, base, sm, xs }
+/// [FlowbiteIconShape]'s size variant.
+enum FlowbiteIconShapeSize {
+  /// Extra extra large size variant.
+  xl2,
 
+  /// Extra large size variant.
+  xl,
+
+  /// Large size variant.
+  lg,
+
+  /// Base/default size variant.
+  base,
+
+  /// Small size variant.
+  sm,
+
+  /// Extra small size variant.
+  xs,
+}
+
+/// [FlowbiteIconShape]'s color variant.
 enum FlowbiteIconShapeColor {
+  /// Green color variant.
   green,
+
+  /// Red color variant.
   red,
+
+  /// Brand color variant.
   brand,
+
+  /// Yellow color variant.
   yellow,
+
+  /// Gray color variant.
   gray,
+
+  /// Dark color variant.
   dark,
+
+  /// White color variant.
   white,
 
   /// Disabled color variant.
@@ -37,9 +70,18 @@ enum FlowbiteIconShapeColor {
   disabled,
 }
 
-enum FlowbiteIconShapeType { circle, square }
+/// [FlowbiteIconShape]'s type variant.
+enum FlowbiteIconShapeType {
+  /// Circle type variant.
+  circle,
 
+  /// Square type variant.
+  square,
+}
+
+/// Icon Shape component.
 class FlowbiteIconShape extends StatelessWidget {
+  /// Constructor.
   const FlowbiteIconShape({
     required this.icon,
     this.size = .base,
@@ -49,9 +91,22 @@ class FlowbiteIconShape extends StatelessWidget {
     super.key,
   });
 
+  /// The icon data.
   final IconData icon;
+
+  /// The icon shape's size.
+  ///
+  /// Defaults to [FlowbiteIconShapeSize.base].
   final FlowbiteIconShapeSize size;
+
+  /// The icon shape's color.
+  ///
+  /// Defaults to [FlowbiteIconShapeColor.brand].
   final FlowbiteIconShapeColor color;
+
+  /// The icon shape's type.
+  ///
+  /// Defaults to [FlowbiteIconShapeType.circle].
   final FlowbiteIconShapeType type;
 
   /// The icon shape's override background color.
@@ -81,39 +136,36 @@ class FlowbiteIconShape extends StatelessWidget {
     .square => 12.0,
   };
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   Color _getIconColor(BuildContext context) {
     return switch (color) {
-      .green => _colorExt(context).textFgSuccessStrong,
-      .red => _colorExt(context).textFgDangerStrong,
-      .brand => _colorExt(context).textFgBrand,
-      .yellow => _colorExt(context).textFgWarning,
-      .gray => _colorExt(context).textBody,
-      .dark => _colorExt(context).textWhite,
-      .white => _colorExt(context).textBody,
-      .disabled => _colorExt(context).textFgDisabled,
+      .green => FlowbiteTheme.of(context).textFgSuccessStrong,
+      .red => FlowbiteTheme.of(context).textFgDangerStrong,
+      .brand => FlowbiteTheme.of(context).textFgBrand,
+      .yellow => FlowbiteTheme.of(context).textFgWarning,
+      .gray => FlowbiteTheme.of(context).textBody,
+      .dark => FlowbiteTheme.of(context).textWhite,
+      .white => FlowbiteTheme.of(context).textBody,
+      .disabled => FlowbiteTheme.of(context).textFgDisabled,
     };
   }
 
   Color _getContainerColor(BuildContext context) {
     return backgroundColor ??
         switch (color) {
-          .green => _colorExt(context).bgSuccessSoft,
-          .red => _colorExt(context).bgDangerSoft,
-          .brand => _colorExt(context).bgBrandSofter,
-          .yellow => _colorExt(context).bgWarningSoft,
-          .gray => _colorExt(context).bgNeutralTertiary,
-          .dark => _colorExt(context).bgDark,
-          .white => _colorExt(context).bgNeutralPrimaryMedium,
-          .disabled => _colorExt(context).bgNeutralTertiary,
+          .green => FlowbiteTheme.of(context).bgSuccessSoft,
+          .red => FlowbiteTheme.of(context).bgDangerSoft,
+          .brand => FlowbiteTheme.of(context).bgBrandSofter,
+          .yellow => FlowbiteTheme.of(context).bgWarningSoft,
+          .gray => FlowbiteTheme.of(context).bgNeutralTertiary,
+          .dark => FlowbiteTheme.of(context).bgDark,
+          .white => FlowbiteTheme.of(context).bgNeutralPrimaryMedium,
+          .disabled => FlowbiteTheme.of(context).bgNeutralTertiary,
         };
   }
 
   Border? _getContainerBorder(BuildContext context) {
     return switch (color) {
-      .white => .all(color: _colorExt(context).borderBaseMedium),
+      .white => .all(color: FlowbiteTheme.of(context).borderBaseMedium),
       _ => null,
     };
   }
@@ -147,6 +199,7 @@ class FlowbiteIconShape extends StatelessWidget {
   group: 'Icon Shape',
   brightness: .dark,
 )
+/// Widget preview for [FlowbiteIconShape].
 Widget previewFlowbiteIconShape() {
   return Column(
     spacing: 12.0,

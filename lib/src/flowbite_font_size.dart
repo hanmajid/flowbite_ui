@@ -16,19 +16,42 @@
 // Flowbite library (Copyright (c) Bergside Inc.), which is licensed
 // under the MIT License.
 
+/// Flowbite UI's font size variant.
 enum FlowbiteFontSize {
+  /// XXS size variant.
   textXxs(value: 8),
+
+  /// XS size variant.
   textXs(value: 12),
+
+  /// SM size variant.
   textSm(value: 14),
+
+  /// Base/default size variant.
   textBase(value: 16),
+
+  /// LG size variant.
   textLg(value: 18),
+
+  /// XL size variant.
   textXl(value: 20),
+
+  /// 2XL size variant.
   text2xl(value: 24),
+
+  /// 3XL size variant.
   text3xl(value: 30),
+
+  /// 4XL size variant.
   text4xl(value: 36),
+
+  /// 5XL size variant.
   text5xl(value: 48),
+
+  /// 6XL size variant.
   text6xl(value: 60);
 
+  /// The font size's value.
   final double value;
 
   const new({required this.value});

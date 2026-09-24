@@ -93,9 +93,6 @@ class FlowbiteJumbotron extends StatelessWidget {
     super.key,
   });
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   FlowbiteFontSize get _titleFontSize => switch (breakpoint) {
     .desktop => .text6xl,
     .tablet => .text5xl,
@@ -124,12 +121,12 @@ class FlowbiteJumbotron extends StatelessWidget {
   };
 
   Color _getTitleTextColor(BuildContext context) => isBackgroundImageDark
-      ? _colorExt(context).textWhite
-      : _colorExt(context).textHeading;
+      ? FlowbiteTheme.of(context).textWhite
+      : FlowbiteTheme.of(context).textHeading;
 
   Color _getSubtitleTextColor(BuildContext context) => isBackgroundImageDark
-      ? _colorExt(context).textFgDisabled
-      : _colorExt(context).textBody;
+      ? FlowbiteTheme.of(context).textFgDisabled
+      : FlowbiteTheme.of(context).textBody;
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +151,7 @@ class FlowbiteJumbotron extends StatelessWidget {
     }
     return Container(
       decoration: BoxDecoration(
-        color: _colorExt(context).bgNeutralPrimary,
+        color: FlowbiteTheme.of(context).bgNeutralPrimary,
         image:
             (backgroundImage != null &&
                 backgroundImageBreakpoints.contains(breakpoint))

@@ -20,20 +20,26 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
+/// Input Label component.
 class FlowbiteInputLabel extends StatelessWidget {
+  /// The input label text.
   final String label;
+
+  /// Whether the input label is required.
+  ///
+  /// Defaults to false.
   final bool isRequired;
+
+  /// The input label's icon data.
   final IconData? icon;
 
+  /// Constructor.
   const FlowbiteInputLabel({
     required this.label,
     this.isRequired = false,
     this.icon,
     super.key,
   });
-
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +56,7 @@ class FlowbiteInputLabel extends StatelessWidget {
               style: FlowbiteFontFamily.inter(
                 fontSize: .textSm,
                 fontWeight: .medium,
-                color: _colorExt(context).textHeading,
+                color: FlowbiteTheme.of(context).textHeading,
               ),
             ),
             if (isRequired)
@@ -59,13 +65,17 @@ class FlowbiteInputLabel extends StatelessWidget {
                 style: FlowbiteFontFamily.inter(
                   fontSize: .textSm,
                   fontWeight: .medium,
-                  color: _colorExt(context).textFgDanger,
+                  color: FlowbiteTheme.of(context).textFgDanger,
                 ),
               ),
           ],
         ),
         if (icon != null)
-          Icon(icon!, size: 14.0, color: _colorExt(context).textBodySubtle),
+          Icon(
+            icon!,
+            size: 14.0,
+            color: FlowbiteTheme.of(context).textBodySubtle,
+          ),
       ],
     );
   }
@@ -81,6 +91,7 @@ class FlowbiteInputLabel extends StatelessWidget {
   group: 'Input Label',
   brightness: .dark,
 )
+/// Widget preview for [FlowbiteInputLabel].
 Widget previewFlowbiteInputLabel() {
   return const Column(
     crossAxisAlignment: .start,

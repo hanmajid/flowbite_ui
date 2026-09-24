@@ -18,7 +18,9 @@
 
 import 'package:flutter/widgets.dart';
 
+/// Flowbite UI's color swatch class.
 class FlowbiteColor extends ColorSwatch<int> {
+  /// Constructor.
   const FlowbiteColor(super.primary, super._swatch);
 
   /// The lightest shade.
@@ -55,6 +57,7 @@ class FlowbiteColor extends ColorSwatch<int> {
   Color get shade950 => this[950]!;
 }
 
+/// Flowbite UI's color variant class.
 abstract final class FlowbiteColors {
   /// Brand
   static const FlowbiteColor brand = FlowbiteColor(
@@ -74,6 +77,8 @@ abstract final class FlowbiteColors {
     },
   );
   static const int _brandPrimaryValue = 0xFF2B7FFF;
+
+  /// Blue
   static const FlowbiteColor blue = brand;
 
   /// Slate
@@ -469,196 +474,543 @@ abstract final class FlowbiteColors {
   );
   static const int _rosePrimaryValue = 0xFFFF2056;
 
+  /// White color.
   static Color white = const Color(0xFFFFFFFF);
 
   /// Text color variables.
   /// 1. Light mode.
+  /// Text White color.
   static Color textWhite = white;
+
+  /// Text Black color.
   static Color textBlack = gray.shade900;
+
+  /// Text Heading color.
   static Color textHeading = gray.shade900;
+
+  /// Text Body color.
   static Color textBody = gray.shade600;
+
+  /// Text Body Subtle color.
   static Color textBodySubtle = gray.shade500;
+
+  /// Text Fg Brand Subtle color.
   static Color textFgBrandSubtle = blue.shade200;
+
+  /// Text Fg Brand color.
   static Color textFgBrand = blue.shade700;
+
+  /// Text Fg Brand Strong color.
   static Color textFgBrandStrong = blue.shade900;
+
+  /// Text Fg Success color.
   static Color textFgSuccess = emerald.shade700;
+
+  /// Text Fg Success Strong color.
   static Color textFgSuccessStrong = emerald.shade900;
+
+  /// Text Fg Danger color.
   static Color textFgDanger = rose.shade700;
+
+  /// Text Fg Danger Strong color.
   static Color textFgDangerStrong = rose.shade900;
+
+  /// Text Fg Warning Subtle color.
   static Color textFgWarningSubtle = orange.shade600;
+
+  /// Text Fg Warning color.
   static Color textFgWarning = orange.shade900;
+
+  /// Text Fg Yellow color.
   static Color textFgYellow = yellow.shade400;
+
+  /// Text Fg Info color.
   static Color textFgInfo = blue.shade900;
+
+  /// Text Fg Disabled color.
   static Color textFgDisabled = gray.shade400;
+
+  /// Text Fg Purple color.
   static Color textFgPurple = purple.shade600;
+
+  /// Text Fg Cyan color.
   static Color textFgCyan = cyan.shade600;
+
+  /// Text Fg Indigo color.
   static Color textFgIndigo = indigo.shade600;
+
+  /// Text Fg Pink color.
   static Color textFgPink = pink.shade600;
+
+  /// Text Fg Lime color.
   static Color textFgLime = lime.shade600;
 
   /// 2. Dark mode.
+  /// Text Heading color (dark mode).
   static Color textHeadingDark = white;
+
+  /// Text Body color (dark mode).
   static Color textBodyDark = gray.shade400;
+
+  /// Text Body Subtle color (dark mode).
   static Color textBodySubtleDark = gray.shade400;
+
+  /// Text Fg Brand Subtle color (dark mode).
   static Color textFgBrandSubtleDark = blue.shade200;
+
+  /// Text Fg Brand color (dark mode).
   static Color textFgBrandDark = blue.shade500;
+
+  /// Text Fg Brand Strong color (dark mode).
   static Color textFgBrandStrongDark = blue.shade400;
+
+  /// Text Fg Success color (dark mode).
   static Color textFgSuccessDark = emerald.shade600;
+
+  /// Text Fg Success Strong color (dark mode).
   static Color textFgSuccessStrongDark = emerald.shade300;
+
+  /// Text Fg Danger color (dark mode).
   static Color textFgDangerDark = rose.shade500;
+
+  /// Text Fg Danger Strong color (dark mode).
   static Color textFgDangerStrongDark = rose.shade300;
+
+  /// Text Fg Warning Subtle color (dark mode).
   static Color textFgWarningSubtleDark = orange.shade500;
+
+  /// Text Fg Warning color (dark mode).
   static Color textFgWarningDark = orange.shade300;
+
+  /// Text Fg Yellow color (dark mode).
   static Color textFgYellowDark = yellow.shade400;
+
+  /// Text Fg Info color (dark mode).
   static Color textFgInfoDark = blue.shade300;
+
+  /// Text Fg Disabled color (dark mode).
   static Color textFgDisabledDark = gray.shade600;
+
+  /// Text Fg Purple color (dark mode).
   static Color textFgPurpleDark = purple.shade500;
+
+  /// Text Fg Cyan color (dark mode).
   static Color textFgCyanDark = cyan.shade500;
+
+  /// Text Fg Indigo color (dark mode).
   static Color textFgIndigoDark = indigo.shade500;
+
+  /// Text Fg Pink color (dark mode).
   static Color textFgPinkDark = pink.shade500;
+
+  /// Text Fg Lime color (dark mode).
   static Color textFgLimeDark = lime.shade500;
 
   /// Background color variables.
   /// 1. Light mode.
+  /// Background White color.
   static Color bgWhite = white;
+
+  /// Background Neutral Primary Soft color.
   static Color bgNeutralPrimarySoft = white;
+
+  /// Background Neutral Primary color.
   static Color bgNeutralPrimary = white;
+
+  /// Background Neutral Primary Medium color.
   static Color bgNeutralPrimaryMedium = white;
+
+  /// Background Neutral Primary Strong color.
   static Color bgNeutralPrimaryStrong = white;
+
+  /// Background Neutral Secondary Soft color.
   static Color bgNeutralSecondarySoft = gray.shade50;
+
+  /// Background Neutral Secondary color.
   static Color bgNeutralSecondary = gray.shade50;
+
+  /// Background Neutral Secondary Medium color.
   static Color bgNeutralSecondaryMedium = gray.shade50;
+
+  /// Background Neutral Secondary Strong color.
   static Color bgNeutralSecondaryStrong = gray.shade50;
+
+  /// Background Neutral Tertiary Soft color.
   static Color bgNeutralTertiarySoft = gray.shade100;
+
+  /// Background Neutral Tertiary color.
   static Color bgNeutralTertiary = gray.shade100;
+
+  /// Background Neutral Tertiary Medium color.
   static Color bgNeutralTertiaryMedium = gray.shade100;
+
+  /// Background Neutral Quaternary color.
   static Color bgNeutralQuaternary = gray.shade200;
+
+  /// Background Neutral Quaternary Medium color.
   static Color bgNeutralQuaternaryMedium = gray.shade200;
+
+  /// Background Gray color.
   static Color bgGray = gray.shade300;
+
+  /// Background Brand Softer color.
   static Color bgBrandSofter = blue.shade50;
+
+  /// Background Brand Soft color.
   static Color bgBrandSoft = blue.shade100;
+
+  /// Background Brand Medium color.
   static Color bgBrandMedium = blue.shade200;
+
+  /// Background Brand color.
   static Color bgBrand = blue.shade700;
+
+  /// Background Brand Strong color.
   static Color bgBrandStrong = blue.shade800;
+
+  /// Background Success Soft color.
   static Color bgSuccessSoft = emerald.shade50;
+
+  /// Background Success Medium color.
   static Color bgSuccessMedium = emerald.shade100;
+
+  /// Background Success color.
   static Color bgSuccess = emerald.shade700;
+
+  /// Background Success Strong color.
   static Color bgSuccessStrong = emerald.shade800;
+
+  /// Background Danger Soft color.
   static Color bgDangerSoft = rose.shade50;
+
+  /// Background Danger Medium color.
   static Color bgDangerMedium = rose.shade100;
+
+  /// Background Danger color.
   static Color bgDanger = rose.shade700;
+
+  /// Background Danger Strong color.
   static Color bgDangerStrong = rose.shade800;
+
+  /// Background Warning Soft color.
   static Color bgWarningSoft = orange.shade50;
+
+  /// Background Warning Medium color.
   static Color bgWarningMedium = orange.shade100;
+
+  /// Background Warning color.
   static Color bgWarning = orange.shade500;
+
+  /// Background Warning Strong color.
   static Color bgWarningStrong = orange.shade700;
+
+  /// Background Dark Strong color.
   static Color bgDarkStrong = gray.shade900;
+
+  /// Background Dark color.
   static Color bgDark = gray.shade800;
+
+  /// Background Disabled color.
   static Color bgDisabled = gray.shade100;
+
+  /// Background Purple color.
   static Color bgPurple = purple.shade500;
+
+  /// Background Sky color.
   static Color bgSky = sky.shade500;
+
+  /// Background Teal color.
   static Color bgTeal = teal.shade600;
+
+  /// Background Pink color.
   static Color bgPink = pink.shade600;
+
+  /// Background Cyan color.
   static Color bgCyan = cyan.shade500;
+
+  /// Background Fuschia color.
   static Color bgFuschia = fuschia.shade600;
+
+  /// Background Indigo color.
   static Color bgIndigo = indigo.shade600;
+
+  /// Background Orange color.
   static Color bgOrange = orange.shade400;
+
+  /// Background Variants Gray color.
   static Color bgVariantsGray = gray.shade100;
 
   /// 2. Dark mode.
+  /// Background Neutral Primary Soft color (dark mode).
   static Color bgNeutralPrimarySoftDark = gray.shade900;
+
+  /// Background Neutral Primary color (dark mode).
   static Color bgNeutralPrimaryDark = gray.shade950;
+
+  /// Background Neutral Primary Medium color (dark mode).
   static Color bgNeutralPrimaryMediumDark = gray.shade800;
+
+  /// Background Neutral Primary Strong color (dark mode).
   static Color bgNeutralPrimaryStrongDark = gray.shade700;
+
+  /// Background Neutral Secondary Soft color (dark mode).
   static Color bgNeutralSecondarySoftDark = gray.shade900;
+
+  /// Background Neutral Secondary color (dark mode).
   static Color bgNeutralSecondaryDark = gray.shade950;
+
+  /// Background Neutral Secondary Medium color (dark mode).
   static Color bgNeutralSecondaryMediumDark = gray.shade800;
+
+  /// Background Neutral Secondary Strong color (dark mode).
   static Color bgNeutralSecondaryStrongDark = gray.shade700;
+
+  /// Background Neutral Tertiary Soft color (dark mode).
   static Color bgNeutralTertiarySoftDark = gray.shade900;
+
+  /// Background Neutral Tertiary color (dark mode).
   static Color bgNeutralTertiaryDark = gray.shade800;
+
+  /// Background Neutral Tertiary Medium color (dark mode).
   static Color bgNeutralTertiaryMediumDark = gray.shade700;
+
+  /// Background Neutral Quaternary color (dark mode).
   static Color bgNeutralQuaternaryDark = gray.shade700;
+
+  /// Background Neutral Quaternary Medium color (dark mode).
   static Color bgNeutralQuaternaryMediumDark = gray.shade600;
+
+  /// Background Gray color (dark mode).
   static Color bgGrayDark = gray.shade600;
+
+  /// Background Brand Softer color (dark mode).
   static Color bgBrandSofterDark = blue.shade950;
+
+  /// Background Brand Soft color (dark mode).
   static Color bgBrandSoftDark = blue.shade900;
+
+  /// Background Brand Medium color (dark mode).
   static Color bgBrandMediumDark = blue.shade900;
+
+  /// Background Brand color (dark mode).
   static Color bgBrandDark = blue.shade600;
+
+  /// Background Brand Strong color (dark mode).
   static Color bgBrandStrongDark = blue.shade700;
+
+  /// Background Success Soft color (dark mode).
   static Color bgSuccessSoftDark = emerald.shade950;
+
+  /// Background Success Medium color (dark mode).
   static Color bgSuccessMediumDark = emerald.shade900;
+
+  /// Background Success color (dark mode).
   static Color bgSuccessDark = emerald.shade600;
+
+  /// Background Success Strong color (dark mode).
   static Color bgSuccessStrongDark = emerald.shade700;
+
+  /// Background Danger Soft color (dark mode).
   static Color bgDangerSoftDark = rose.shade950;
+
+  /// Background Danger Medium color (dark mode).
   static Color bgDangerMediumDark = rose.shade900;
+
+  /// Background Danger color (dark mode).
   static Color bgDangerDark = rose.shade700;
+
+  /// Background Danger Strong color (dark mode).
   static Color bgDangerStrongDark = rose.shade700;
+
+  /// Background Warning Soft color (dark mode).
   static Color bgWarningSoftDark = orange.shade950;
+
+  /// Background Warning Medium color (dark mode).
   static Color bgWarningMediumDark = orange.shade900;
+
+  /// Background Warning color (dark mode).
   static Color bgWarningDark = orange.shade600;
+
+  /// Background Warning Strong color (dark mode).
   static Color bgWarningStrongDark = orange.shade700;
+
+  /// Background Dark Strong color (dark mode).
   static Color bgDarkStrongDark = gray.shade800;
+
+  /// Background Dark color (dark mode).
   static Color bgDarkDark = gray.shade800;
+
+  /// Background Disabled color (dark mode).
   static Color bgDisabledDark = gray.shade800;
+
+  /// Background Purple color (dark mode).
   static Color bgPurpleDark = purple.shade500;
+
+  /// Background Sky color (dark mode).
   static Color bgSkyDark = sky.shade500;
+
+  /// Background Teal color (dark mode).
   static Color bgTealDark = teal.shade500;
+
+  /// Background Pink color (dark mode).
   static Color bgPinkDark = pink.shade500;
+
+  /// Background Cyan color (dark mode).
   static Color bgCyanDark = cyan.shade500;
+
+  /// Background Fuschia color (dark mode).
   static Color bgFuschiaDark = fuschia.shade500;
+
+  /// Background Indigo color (dark mode).
   static Color bgIndigoDark = indigo.shade500;
+
+  /// Background Orange color (dark mode).
   static Color bgOrangeDark = orange.shade400;
+
+  /// Background Variants Gray color (dark mode).
   static Color bgVariantsGrayDark = gray.shade950;
 
   /// Border color variables.
   /// 1. Light mode.
+  /// Border color.
   static Color borderDark = gray.shade600;
+
+  /// Border Buffer color.
   static Color borderBuffer = white;
+
+  /// Border Buffer Medium color.
   static Color borderBufferMedium = white;
+
+  /// Border Buffer Strong color.
   static Color borderBufferStrong = white;
+
+  /// Border Muted color.
   static Color borderMuted = gray.shade50;
+
+  /// Border Light Subtle color.
   static Color borderLightSubtle = gray.shade100;
+
+  /// Border Light color.
   static Color borderLight = gray.shade100;
+
+  /// Border Light Medium color.
   static Color borderLightMedium = gray.shade100;
+
+  /// Border Base Soft color.
   static Color borderBaseSoft = gray.shade200;
+
+  /// Border Base color.
   static Color borderBase = gray.shade200;
+
+  /// Border Base Medium color.
   static Color borderBaseMedium = gray.shade200;
+
+  /// Border Base Strong color.
   static Color borderBaseStrong = gray.shade200;
+
+  /// Border Success Subtle color.
   static Color borderSuccessSubtle = emerald.shade200;
+
+  /// Border Success color.
   static Color borderSuccess = emerald.shade700;
+
+  /// Border Danger Subtle color.
   static Color borderDangerSubtle = rose.shade200;
+
+  /// Border Danger color.
   static Color borderDanger = rose.shade700;
+
+  /// Border Warning Subtle color.
   static Color borderWarningSubtle = orange.shade200;
+
+  /// Border Warning color.
   static Color borderWarning = orange.shade600;
+
+  /// Border Brand Subtle color.
   static Color borderBrandSubtle = blue.shade200;
+
+  /// Border Brand Light color.
   static Color borderBrandLight = blue.shade600;
+
+  /// Border Brand color.
   static Color borderBrand = blue.shade700;
+
+  /// Border Purple color.
   static Color borderPurple = purple.shade500;
+
+  /// Border Orange color.
   static Color borderOrange = orange.shade400;
+
+  /// Border Dark Subtle color.
   static Color borderDarkSubtle = gray.shade800;
 
   /// 2. Dark mode.
+  /// Border Buffer color (dark mode).
   static Color borderBufferDark = gray.shade950;
+
+  /// Border Buffer Medium color (dark mode).
   static Color borderBufferMediumDark = gray.shade900;
+
+  /// Border Buffer Strong color (dark mode).
   static Color borderBufferStrongDark = gray.shade800;
+
+  /// Border Muted color (dark mode).
   static Color borderMutedDark = gray.shade900;
+
+  /// Border Light Subtle color (dark mode).
   static Color borderLightSubtleDark = gray.shade900;
+
+  /// Border Light color (dark mode).
   static Color borderLightDark = gray.shade800;
+
+  /// Border Light Medium color (dark mode).
   static Color borderLightMediumDark = gray.shade700;
+
+  /// Border Base Soft color (dark mode).
   static Color borderBaseSoftDark = gray.shade900;
+
+  /// Border Base color (dark mode).
   static Color borderBaseDark = gray.shade800;
+
+  /// Border Base Medium color (dark mode).
   static Color borderBaseMediumDark = gray.shade700;
+
+  /// Border Base Strong color (dark mode).
   static Color borderBaseStrongDark = gray.shade600;
+
+  /// Border Success Subtle color (dark mode).
   static Color borderSuccessSubtleDark = emerald.shade900;
+
+  /// Border Success color (dark mode).
   static Color borderSuccessDark = emerald.shade600;
+
+  /// Border Danger Subtle color (dark mode).
   static Color borderDangerSubtleDark = rose.shade900;
+
+  /// Border Danger color (dark mode).
   static Color borderDangerDark = rose.shade600;
+
+  /// Border Warning Subtle color (dark mode).
   static Color borderWarningSubtleDark = orange.shade900;
+
+  /// Border Warning color (dark mode).
   static Color borderWarningDark = orange.shade500;
+
+  /// Border Brand Subtle color (dark mode).
   static Color borderBrandSubtleDark = blue.shade900;
+
+  /// Border Brand Light color (dark mode).
   static Color borderBrandLightDark = blue.shade600;
+
+  /// Border Brand color (dark mode).
   static Color borderBrandDark = blue.shade500;
+
+  /// Border Purple color (dark mode).
   static Color borderPurpleDark = purple.shade500;
+
+  /// Border Orange color (dark mode).
   static Color borderOrangeDark = orange.shade400;
+
+  /// Border Dark Subtle color (dark mode).
   static Color borderDarkSubtleDark = gray.shade700;
 }

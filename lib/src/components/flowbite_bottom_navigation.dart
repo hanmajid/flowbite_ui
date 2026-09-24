@@ -101,13 +101,10 @@ class FlowbiteBottomNavigation extends StatelessWidget {
     super.key,
   });
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   Border? _getBorder(BuildContext context) => switch (style) {
     .bordered => null,
     .normal => null,
-    .actionButton => .all(color: _colorExt(context).borderBase),
+    .actionButton => .all(color: FlowbiteTheme.of(context).borderBase),
     .pagination => null,
     .segmentControls => null,
   };
@@ -124,7 +121,7 @@ class FlowbiteBottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     if (style == .segmentControls) {
       return Container(
-        color: _colorExt(context).bgNeutralPrimarySoft,
+        color: FlowbiteTheme.of(context).bgNeutralPrimarySoft,
         padding: const .only(top: 16.0, bottom: 8.0),
         child: Column(
           spacing: 16.0,
@@ -139,7 +136,7 @@ class FlowbiteBottomNavigation extends StatelessWidget {
   Widget _buildNavigationBar(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: _colorExt(context).bgNeutralPrimarySoft,
+        color: FlowbiteTheme.of(context).bgNeutralPrimarySoft,
         border: _getBorder(context),
         borderRadius: _borderRadius,
       ),
@@ -200,26 +197,25 @@ class _FlowbiteBottomNavigationItemWidget extends StatelessWidget {
     required this.isLast,
   });
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   double get _height => switch (style) {
     .segmentControls => 40.0,
     _ => 64.0,
   };
 
   Color _getForegroundColor(BuildContext context) => isActive || item.isActive
-      ? _colorExt(context).textFgBrand
-      : _colorExt(context).textBody;
+      ? FlowbiteTheme.of(context).textFgBrand
+      : FlowbiteTheme.of(context).textBody;
 
   Border? _getBorder(BuildContext context) => switch (style) {
     .bordered =>
       isLast
           ? null
-          : Border(right: BorderSide(color: _colorExt(context).borderBase)),
+          : Border(
+              right: BorderSide(color: FlowbiteTheme.of(context).borderBase),
+            ),
     .normal => null,
     .actionButton => Border(
-      right: BorderSide(color: _colorExt(context).borderBase),
+      right: BorderSide(color: FlowbiteTheme.of(context).borderBase),
     ),
     .pagination => null,
     .segmentControls => null,
@@ -268,7 +264,7 @@ class _FlowbiteBottomNavigationItemWidget extends StatelessWidget {
     }
     return Material(
       borderRadius: _borderRadius,
-      color: _colorExt(context).bgNeutralPrimarySoft,
+      color: FlowbiteTheme.of(context).bgNeutralPrimarySoft,
       child: InkWell(
         borderRadius: _borderRadius,
         onTap: onTap,

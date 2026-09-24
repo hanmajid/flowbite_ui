@@ -20,24 +20,83 @@ import 'package:flowbite_icons/flowbite_icons.dart';
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-enum FlowbiteInputFieldSize { sm, base, lg, xl }
+/// [FlowbiteInputField]'s size variant.
+enum FlowbiteInputFieldSize {
+  /// Small size variant.
+  sm,
 
+  /// Base/default size variant.
+  base,
+
+  /// Large size variant.
+  lg,
+
+  /// Extra large size variant.
+  xl,
+}
+
+/// Input Field component.
 class FlowbiteInputField extends StatefulWidget {
+  /// The input field's size.
+  ///
+  /// Defaults to [FlowbiteInputFieldSize.base].
   final FlowbiteInputFieldSize size;
+
+  /// Whether the input field is enabled.
+  ///
+  /// Defaults to true.
   final bool enabled;
+
+  /// Whether the input field is read-only.
+  ///
+  /// Defaults to false.
   final bool readOnly;
+
+  /// Whether the input field's text is obscured.
+  ///
+  /// Defaults to false.
   final bool obscureText;
+
+  /// The input field's icon data.
   final IconData? icon;
-  final VoidCallback? onTapClear;
-  final TextEditingController? controller;
-  final bool isSuccess;
-  final bool isDanger;
-  final String? label;
-  final bool isRequired;
-  final IconData? labelIcon;
-  final String? helperText;
-  final String? hintText;
+
+  /// Whether to show clear icon as suffix.
+  ///
+  /// Defaults to true.
   final bool showClearIcon;
+
+  /// The clear icon's tap callback.
+  final VoidCallback? onTapClear;
+
+  /// The input field's controller.
+  final TextEditingController? controller;
+
+  /// Whether the input field is in success state.
+  ///
+  /// Defaults to false.
+  final bool isSuccess;
+
+  /// Whether the input field is in danger state.
+  ///
+  /// Defaults to false.
+  final bool isDanger;
+
+  /// The input field's label text.
+  final String? label;
+
+  /// Whether the input field is required.
+  ///
+  /// Defaults to false.
+  final bool isRequired;
+
+  /// The input field label's icon data.
+  final IconData? labelIcon;
+
+  /// The input field's helper text.
+  final String? helperText;
+
+  /// The input field's hint text.
+  final String? hintText;
 
   /// The input field's text input action.
   final TextInputAction? textInputAction;
@@ -61,6 +120,7 @@ class FlowbiteInputField extends StatefulWidget {
   /// The input field's submit callback.
   final ValueChanged<String>? onSubmitted;
 
+  /// Constructor.
   const FlowbiteInputField({
     this.size = .base,
     this.enabled = true,
@@ -111,9 +171,6 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
     super.dispose();
   }
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   double get _iconSize => switch (widget.size) {
     .sm => 16.0,
     .base => 16.0,
@@ -144,61 +201,61 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
 
   Color _getIconColor(BuildContext context) {
     if (!widget.enabled) {
-      return _colorExt(context).textFgDisabled;
+      return FlowbiteTheme.of(context).textFgDisabled;
     } else if (widget.readOnly) {
-      return _colorExt(context).textBody;
+      return FlowbiteTheme.of(context).textBody;
     } else if (widget.isSuccess) {
-      return _colorExt(context).textFgSuccessStrong;
+      return FlowbiteTheme.of(context).textFgSuccessStrong;
     } else if (widget.isDanger) {
-      return _colorExt(context).textFgDangerStrong;
+      return FlowbiteTheme.of(context).textFgDangerStrong;
     } else if (_isFocused) {
-      return _colorExt(context).textFgBrand;
+      return FlowbiteTheme.of(context).textFgBrand;
     }
-    return _colorExt(context).textBodySubtle;
+    return FlowbiteTheme.of(context).textBodySubtle;
   }
 
   Color _getBorderColor(BuildContext context) {
     if (widget.isSuccess) {
-      return _colorExt(context).borderSuccessSubtle;
+      return FlowbiteTheme.of(context).borderSuccessSubtle;
     } else if (widget.isDanger) {
-      return _colorExt(context).borderDangerSubtle;
+      return FlowbiteTheme.of(context).borderDangerSubtle;
     } else if (_isFocused && !widget.readOnly) {
-      return _colorExt(context).borderBrand;
+      return FlowbiteTheme.of(context).borderBrand;
     }
-    return _colorExt(context).borderBaseMedium;
+    return FlowbiteTheme.of(context).borderBaseMedium;
   }
 
   Color _getBackgroundColor(BuildContext context) {
     if (widget.readOnly) {
-      return _colorExt(context).bgNeutralTertiary;
+      return FlowbiteTheme.of(context).bgNeutralTertiary;
     } else if (widget.isSuccess) {
-      return _colorExt(context).bgSuccessSoft;
+      return FlowbiteTheme.of(context).bgSuccessSoft;
     } else if (widget.isDanger) {
-      return _colorExt(context).bgDangerSoft;
+      return FlowbiteTheme.of(context).bgDangerSoft;
     }
-    return _colorExt(context).bgNeutralSecondaryMedium;
+    return FlowbiteTheme.of(context).bgNeutralSecondaryMedium;
   }
 
   Color _getTextColor(BuildContext context) {
     if (!widget.enabled) {
-      return _colorExt(context).textFgDisabled;
+      return FlowbiteTheme.of(context).textFgDisabled;
     } else if (widget.readOnly) {
-      return _colorExt(context).textBody;
+      return FlowbiteTheme.of(context).textBody;
     } else if (widget.isSuccess) {
-      return _colorExt(context).textFgSuccessStrong;
+      return FlowbiteTheme.of(context).textFgSuccessStrong;
     } else if (widget.isDanger) {
-      return _colorExt(context).textFgDangerStrong;
+      return FlowbiteTheme.of(context).textFgDangerStrong;
     }
-    return _colorExt(context).textHeading;
+    return FlowbiteTheme.of(context).textHeading;
   }
 
   Color _getCursorColor(BuildContext context) {
     if (widget.isSuccess) {
-      return _colorExt(context).textFgSuccessStrong;
+      return FlowbiteTheme.of(context).textFgSuccessStrong;
     } else if (widget.isDanger) {
-      return _colorExt(context).textFgDangerStrong;
+      return FlowbiteTheme.of(context).textFgDangerStrong;
     }
-    return _colorExt(context).textHeading;
+    return FlowbiteTheme.of(context).textHeading;
   }
 
   @override
@@ -257,8 +314,8 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                           fontSize: _fontSize,
                           fontWeight: .normal,
                           color: widget.enabled
-                              ? _colorExt(context).textBodySubtle
-                              : _colorExt(context).textFgDisabled,
+                              ? FlowbiteTheme.of(context).textBodySubtle
+                              : FlowbiteTheme.of(context).textFgDisabled,
                         ),
                         border: InputBorder.none,
                       ),
@@ -293,7 +350,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
                 style: FlowbiteFontFamily.inter(
                   fontSize: .textXs,
                   fontWeight: .normal,
-                  color: _colorExt(context).textBody,
+                  color: FlowbiteTheme.of(context).textBody,
                 ),
               ),
           ],
@@ -313,6 +370,7 @@ class _FlowbiteInputFieldState extends State<FlowbiteInputField> {
   group: 'Input Field',
   brightness: .dark,
 )
+/// Widget preview for [FlowbiteInputField].
 Widget previewFlowbiteInputField() {
   final width = 240.0;
   return Column(

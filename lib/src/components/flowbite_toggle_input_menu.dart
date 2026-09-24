@@ -48,15 +48,12 @@ class FlowbiteToggleInputMenu extends StatelessWidget {
     super.key,
   });
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const .all(6.0),
       decoration: BoxDecoration(
-        color: _colorExt(context).bgNeutralTertiaryMedium,
+        color: FlowbiteTheme.of(context).bgNeutralTertiaryMedium,
         borderRadius: .circular(12.0),
       ),
       child: Row(
@@ -87,11 +84,9 @@ class _FlowbiteToggleInputMenuWidget extends StatelessWidget {
 
   const new({required this.item, required this.isActive, required this.onTap});
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
-  Color _getTextColor(BuildContext context) =>
-      isActive ? _colorExt(context).textHeading : _colorExt(context).textBody;
+  Color _getTextColor(BuildContext context) => isActive
+      ? FlowbiteTheme.of(context).textHeading
+      : FlowbiteTheme.of(context).textBody;
 
   BorderRadius get _borderRadius => isActive ? .circular(6.0) : .circular(8.0);
 
@@ -99,7 +94,7 @@ class _FlowbiteToggleInputMenuWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: isActive
-          ? _colorExt(context).bgNeutralPrimaryMedium
+          ? FlowbiteTheme.of(context).bgNeutralPrimaryMedium
           : Colors.transparent,
       borderRadius: _borderRadius,
       child: InkWell(

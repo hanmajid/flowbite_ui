@@ -46,16 +46,13 @@ class FlowbiteBreadcrumb extends StatelessWidget {
     super.key,
   });
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: useBackground
           ? BoxDecoration(
-              border: .all(color: _colorExt(context).borderBaseMedium),
-              color: _colorExt(context).bgNeutralSecondaryMedium,
+              border: .all(color: FlowbiteTheme.of(context).borderBaseMedium),
+              color: FlowbiteTheme.of(context).bgNeutralSecondaryMedium,
               borderRadius: .circular(12.0),
             )
           : null,
@@ -118,14 +115,11 @@ class _FlowbiteBreadcrumbItemWidgetState
     extends State<FlowbiteBreadcrumbItemWidget> {
   bool _isHovered = false;
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   Color _getTextColor(BuildContext context) => widget.isActive
-      ? _colorExt(context).textBodySubtle
+      ? FlowbiteTheme.of(context).textBodySubtle
       : (_isHovered
-            ? _colorExt(context).textFgBrand
-            : _colorExt(context).textBody);
+            ? FlowbiteTheme.of(context).textFgBrand
+            : FlowbiteTheme.of(context).textBody);
 
   @override
   Widget build(BuildContext context) {
@@ -173,7 +167,7 @@ class _FlowbiteBreadcrumbItemWidgetState
           Icon(
             FlowbiteOutlineIcons.angle_right,
             size: 14.0,
-            color: _colorExt(context).textBodySubtle,
+            color: FlowbiteTheme.of(context).textBodySubtle,
           ),
       ],
     );

@@ -20,7 +20,9 @@ import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:flutter/widget_previews.dart';
 import 'package:material_ui/material_ui.dart';
 
+/// Flowbite UI's custom widget preview class.
 final class FlowbitePreview extends Preview {
+  /// Constructor.
   const FlowbitePreview({
     super.name,
     super.group,
@@ -36,11 +38,15 @@ final class FlowbitePreview extends Preview {
        );
 }
 
+/// Flowbite UI's custom widget preview theme data.
 final class FlowbitePreviewThemeData extends PreviewThemeData {
+  /// Whether the preview use dark mode.
   final bool isDark;
 
+  /// Constructor.
   new() : isDark = false;
 
+  /// Constructor for dark mode preview.
   FlowbitePreviewThemeData.newDark() : isDark = true;
 
   @override

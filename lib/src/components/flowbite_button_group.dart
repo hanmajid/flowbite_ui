@@ -171,9 +171,6 @@ class _FlowbiteButtonGroupSegmentState
     extends State<_FlowbiteButtonGroupSegment> {
   bool _isHovered = false;
 
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
-
   double get _height => switch (widget.size) {
     .xs => 32.0,
     .sm => 36.0,
@@ -197,32 +194,32 @@ class _FlowbiteButtonGroupSegmentState
 
   Color _getBackgroundColor(BuildContext context) {
     if (!_enabled) {
-      return _colorExt(context).bgDisabled;
+      return FlowbiteTheme.of(context).bgDisabled;
     }
     return switch (widget.color) {
       .gray =>
         _isHovered
-            ? _colorExt(context).bgNeutralTertiaryMedium
-            : _colorExt(context).bgNeutralSecondaryMedium,
+            ? FlowbiteTheme.of(context).bgNeutralTertiaryMedium
+            : FlowbiteTheme.of(context).bgNeutralSecondaryMedium,
       .white =>
         _isHovered
-            ? _colorExt(context).bgNeutralSecondaryMedium
-            : _colorExt(context).bgNeutralPrimarySoft,
+            ? FlowbiteTheme.of(context).bgNeutralSecondaryMedium
+            : FlowbiteTheme.of(context).bgNeutralPrimarySoft,
     };
   }
 
   Color _getBorderColor(BuildContext context) => switch (widget.color) {
-    .gray => _colorExt(context).borderBaseMedium,
-    .white => _colorExt(context).borderBase,
+    .gray => FlowbiteTheme.of(context).borderBaseMedium,
+    .white => FlowbiteTheme.of(context).borderBase,
   };
 
   Color get _textColor {
     if (!_enabled) {
-      return _colorExt(context).textFgDisabled;
+      return FlowbiteTheme.of(context).textFgDisabled;
     }
     return _isHovered
-        ? _colorExt(context).textHeading
-        : _colorExt(context).textBody;
+        ? FlowbiteTheme.of(context).textHeading
+        : FlowbiteTheme.of(context).textBody;
   }
 
   bool get _enabled => widget.item.onTap != null;
@@ -292,7 +289,7 @@ class _FlowbiteButtonGroupSegmentState
                   Icon(
                     widget.item.icon!,
                     size: 16.0,
-                    color: _colorExt(context).textHeading,
+                    color: FlowbiteTheme.of(context).textHeading,
                   ),
                 if (widget.item.text != null)
                   Text(

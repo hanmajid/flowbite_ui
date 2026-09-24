@@ -19,16 +19,43 @@
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
-enum FlowbiteSpinnerSize { xs, small, medium, base, large }
+/// [FlowbiteSpinner]'s size variant.
+enum FlowbiteSpinnerSize {
+  /// Extra small size variant.
+  xs,
 
+  /// Small size variant.
+  small,
+
+  /// Medium size variant.
+  medium,
+
+  /// Base/default size variant.
+  base,
+
+  /// Large size variant.
+  large,
+}
+
+/// Spinner component.
 class FlowbiteSpinner extends StatelessWidget {
+  /// The spinner's size.
+  ///
+  /// Defaults to [FlowbiteSpinnerSize.base].
   final FlowbiteSpinnerSize size;
+
+  /// Whether to show the spinner's track.
+  ///
+  /// Defaults to true.
   final bool showTrack;
+
+  /// The spinner's value.
   final double? value;
 
   /// Used by [FlowbiteBadge.spinner] method.
   final FlowbiteBadgeTheme badgeTheme;
 
+  /// Constructor.
   const FlowbiteSpinner({
     this.value,
     this.size = .base,
@@ -36,9 +63,6 @@ class FlowbiteSpinner extends StatelessWidget {
     this.badgeTheme = .gray,
     super.key,
   });
-
-  FlowbiteColorsExtension _colorExt(BuildContext context) =>
-      FlowbiteTheme.of(context);
 
   double get _size => switch (size) {
     .xs => 12.0,
@@ -55,21 +79,21 @@ class FlowbiteSpinner extends StatelessWidget {
     .large => _size / 2 * 0.1816,
   };
   Color _getColor(BuildContext context) => switch (badgeTheme) {
-    .gray => _colorExt(context).bgBrand,
-    .white => _colorExt(context).bgBrand,
-    .brand => _colorExt(context).bgBrand,
-    .danger => _colorExt(context).bgDanger,
-    .warning => _colorExt(context).bgWarning,
-    .success => _colorExt(context).bgSuccess,
+    .gray => FlowbiteTheme.of(context).bgBrand,
+    .white => FlowbiteTheme.of(context).bgBrand,
+    .brand => FlowbiteTheme.of(context).bgBrand,
+    .danger => FlowbiteTheme.of(context).bgDanger,
+    .warning => FlowbiteTheme.of(context).bgWarning,
+    .success => FlowbiteTheme.of(context).bgSuccess,
   };
 
   Color _getTrackColor(BuildContext context) => switch (badgeTheme) {
-    .gray => _colorExt(context).bgNeutralQuaternary,
-    .white => _colorExt(context).bgNeutralQuaternary,
-    .brand => _colorExt(context).bgBrandSoft,
-    .danger => _colorExt(context).bgDangerMedium,
-    .warning => _colorExt(context).bgWarningMedium,
-    .success => _colorExt(context).bgSuccessMedium,
+    .gray => FlowbiteTheme.of(context).bgNeutralQuaternary,
+    .white => FlowbiteTheme.of(context).bgNeutralQuaternary,
+    .brand => FlowbiteTheme.of(context).bgBrandSoft,
+    .danger => FlowbiteTheme.of(context).bgDangerMedium,
+    .warning => FlowbiteTheme.of(context).bgWarningMedium,
+    .success => FlowbiteTheme.of(context).bgSuccessMedium,
   };
 
   @override
@@ -90,6 +114,7 @@ class FlowbiteSpinner extends StatelessWidget {
 
 @FlowbitePreview(name: 'Spinner - Light', group: 'Spinner', brightness: .light)
 @FlowbitePreview(name: 'Spinner - Dark', group: 'Spinner', brightness: .dark)
+/// Widget preview for [FlowbiteSpinner].
 Widget previewFlowbiteSpinner() {
   return Column(
     spacing: 24.0,

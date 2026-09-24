@@ -19,11 +19,14 @@
 import 'package:flowbite_ui/flowbite_ui.dart';
 import 'package:material_ui/material_ui.dart';
 
+/// Flowbite UI's theme class.
 class FlowbiteTheme {
+  /// Flowbite UI's light theme data.
   static final light = ThemeData.light().copyWith(
     extensions: [lightThemeColors],
   );
 
+  /// Flowbite UI's light colors.
   static final lightThemeColors = FlowbiteColorsExtension(
     textWhite: FlowbiteColors.textWhite,
     textBlack: FlowbiteColors.textBlack,
@@ -117,6 +120,7 @@ class FlowbiteTheme {
     borderDarkSubtle: FlowbiteColors.borderDarkSubtle,
   );
 
+  /// Flowbite UI's dark theme data.
   static final dark = ThemeData.dark().copyWith(extensions: [_darkThemeColors]);
 
   static final _darkThemeColors = FlowbiteColorsExtension(
